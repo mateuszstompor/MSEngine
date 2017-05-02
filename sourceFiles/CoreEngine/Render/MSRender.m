@@ -23,12 +23,10 @@
     glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), 0);
     glEnableVertexAttribArray(pos);
     glBindFragDataLocation(shaderProgram, 0, "outColor");
-    
-    
     [self loadTransformationFromModelToShader: md];
-    MSCamera* cam = [world getCamera];
-    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "cameraTranslation"), 1, GL_FALSE, [[cam getTranslation] matrixAsArray]);
-    
+    [self updateCameraPositionInShader];
+    GLuint posOfColor = glGetUniformLocation(shaderProgram, "fractionColor");
+    glUniform3fv(posOfColor, 1, [frac getColor]);
     GLuint amountOfElements=(int)[frac amountOfTriangleElements];
     //glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
     glEnable(GL_DEPTH_TEST);
@@ -60,9 +58,10 @@
 }
 -(void)updateCameraPositionInShader{
     MSCamera* cam = [world getCamera];
-    //[cam lockObject];
+    [cam lockObject];
     glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "cameraTranslation"), 1, GL_FALSE, [[cam getTranslation] matrixAsArray]);
-   // [cam unLockObject];
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "cameraRotation"), 1, GL_FALSE, [[cam getRotation] matrixAsArray]);
+    [cam unLockObject];
 }
 -(void)clear{
     glClearColor(0.0, 0.0, 0.0, 0.5);
@@ -72,11 +71,12 @@
     self->shaderProgram=program;
 }
 -(void)loadTransformationFromModelToShader: (MSPositionedObject*) model{
-    //[model lockObject];
+    MSMatrixND* perspectiveMatrix = [MSTransformationManager perpsectiveWithFoV:120 aspectRatio:16.0f/9.0f near:0.1 far:1000];
+    [model lockObject];
     glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "rotation"), 1, GL_FALSE,  [[model getRotation] matrixAsArray]);
     glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "translation"), 1, GL_FALSE,  [[model getTranslation] matrixAsArray]);
     glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "scale"), 1, GL_FALSE, [[model getScale] matrixAsArray]);
-    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projection"), 1, GL_FALSE, [[MSTransformationManager perpsectiveWithFoV:120 aspectRatio:16.0f/9.0f near:0.1 far:1000] matrixAsArray]);
-    //[model unLockObject];
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projection"), 1, GL_FALSE, [perspectiveMatrix matrixAsArray]);
+    [model unLockObject];
 }
 @end

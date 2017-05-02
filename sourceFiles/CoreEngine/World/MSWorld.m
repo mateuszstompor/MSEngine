@@ -22,6 +22,13 @@
     [camera multiplyTranslationBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
     [camera unLockObject];
 }
+-(void)rotateCameraX: (float)x y:(float)y z:(float)z{
+    [camera lockObject];
+    [camera multiplyRotationnBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
+    [camera multiplyRotationnBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
+    [camera multiplyRotationnBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
+    [camera unLockObject];
+}
 -(MSCamera*)getCamera{
     return self->camera;
 }

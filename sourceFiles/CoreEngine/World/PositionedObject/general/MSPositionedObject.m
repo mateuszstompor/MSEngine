@@ -38,6 +38,9 @@
 -(void)multiplyTranslationBy: (MSMatrixND*) tr{
     self->translation=[tr multiplyByMatrix:translation];
 }
+-(void)multiplyRotationnBy: (MSMatrixND*) rot{
+    self->rotation=[rot multiplyByMatrix:rotation];
+}
 -(void)lockObject{
     [objectLock lock];
 }

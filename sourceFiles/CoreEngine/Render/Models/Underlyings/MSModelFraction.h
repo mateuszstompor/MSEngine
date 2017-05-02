@@ -12,7 +12,7 @@
 
 #import "MSPoint.h"
 #import "MSModelFace.h"
-
+#import "MSVectorND.h"
 
 
 #ifndef MSMODELFRACTION_H
@@ -22,6 +22,7 @@
     NSMutableArray<MSPoint*>* vertices;
     NSMutableArray<MSPoint*>* normals;
     NSMutableArray<MSModelFace*>* facesData;
+    MSVector3D* fractionColor;
     NSString* name;
     GLuint dataVBO;
     GLuint verticiesVAO;
@@ -45,5 +46,6 @@
 -(void)loadDataToGraphicsCard;
 -(GLuint)getElementsOrderBuffer;
 -(NSString*)getName;
+-(float*)getColor;
 @end
 #endif

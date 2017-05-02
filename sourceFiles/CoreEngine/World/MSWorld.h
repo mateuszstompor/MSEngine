@@ -17,6 +17,7 @@
 }
 -(instancetype)init;
 -(void)translateCameraX: (float)x y:(float)y z:(float)z;
+-(void)rotateCameraX: (float)x y:(float)y z:(float)z;
 -(MSCamera*)getCamera;
 -(NSMutableArray<MSPuppet*>*)getModels;
 -(void)addModelToWorld: (MSPuppet*)pup;

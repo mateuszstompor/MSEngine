@@ -26,5 +26,6 @@
 -(void)lockObject;
 -(void)unLockObject;
 -(void)multiplyTranslationBy: (MSMatrixND*) tr;
+-(void)multiplyRotationnBy: (MSMatrixND*) rot;
 @end
 #endif

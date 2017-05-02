@@ -16,12 +16,17 @@
         normals=[[NSMutableArray alloc]init];
         facesData=[[NSMutableArray alloc]init];
         self->name=[[NSString alloc]initWithUTF8String:""];
+        self->fractionColor=[[MSVectorND alloc] initZeroVecWithDimension:3];
         isLoadedToGraphics=false;
+        [self generateRandomColor];
     }
     return self;
 }
 -(void)addVertex: (MSPoint*)point{
     [vertices addObject:point];
+}
+-(float*)getColor{
+    return [fractionColor getArrayStyleVector];
 }
 -(void)addNormal: (MSPoint*)point{
     [normals addObject:point];
@@ -45,6 +50,16 @@
 }
 -(void)setName: (NSString*)newName{
     self->name=newName;
+}
+-(void)generateRandomColor{
+    unsigned int randomNumberBound=1000;
+    float first=((float)arc4random_uniform(randomNumberBound))/((float)randomNumberBound);
+    float second=((float)arc4random_uniform(randomNumberBound))/((float)randomNumberBound);
+    float third=((float)arc4random_uniform(randomNumberBound))/((float)randomNumberBound);
+    [fractionColor setValueAtIdenx:0 value:first];
+    [fractionColor setValueAtIdenx:1 value:second];
+    [fractionColor setValueAtIdenx:2 value:third];
+    
 }
 -(void)loadDataToGraphicsCard{
     glGenVertexArrays(1, &verticiesVAO);

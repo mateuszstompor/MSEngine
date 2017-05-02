@@ -1,8 +1,8 @@
 #version 410 core
 
 out vec4 outColor;
-in vec4 Color;
+uniform vec3 fractionColor;
 
 void main(void){
-    outColor = Color;
+    outColor = vec4(fractionColor,1.0f);
 }
