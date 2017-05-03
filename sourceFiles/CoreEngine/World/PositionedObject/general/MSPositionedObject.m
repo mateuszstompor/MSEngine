@@ -41,6 +41,9 @@
 -(void)multiplyRotationnBy: (MSMatrixND*) rot{
     self->rotation=[rot multiplyByMatrix:rotation];
 }
+-(void)multiplyScaleBy:(MSMatrixND*) sc{
+    self->scale=[sc multiplyByMatrix:self->scale];
+}
 -(void)lockObject{
     [objectLock lock];
 }
