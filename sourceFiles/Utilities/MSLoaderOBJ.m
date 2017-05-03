@@ -30,6 +30,8 @@
                 if(objectToAdd!=nil){
                     [arrayOfModelFractions addObject:objectToAdd];
                     verticiesAmountToSubstract+=(unsigned int)[objectToAdd amountOfVerts];
+                    normalsAmountToSubstract+=(unsigned int)[objectToAdd amountOfNormals];
+
                 }
                 objectToAdd=[[MSModelFraction alloc]init];
                 [MSLoaderOBJ handleObject:modelFile model:objectToAdd];

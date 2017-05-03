@@ -22,6 +22,10 @@
     GLuint pos = glGetAttribLocation(shProg, "position");
     glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), 0);
     glEnableVertexAttribArray(pos);
+    GLuint normalPosition = glGetAttribLocation(shProg, "normal");
+    GLsizei stride = 3*(int)[frac amountOfVerts]*sizeof(GLfloat);
+    glVertexAttribPointer(normalPosition, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), (void*)stride);
+    glEnableVertexAttribArray(normalPosition);
     glBindFragDataLocation(shProg, 0, "outColor");
     [self loadTransformationFromModelToShader: md shaderProgram:shProg];
     [self updateCameraPositionInShader: shProg];
