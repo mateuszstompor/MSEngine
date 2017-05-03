@@ -56,6 +56,9 @@
         [NSException raise:@"OpenGL failure" format:@""];
     }
 }
++(void)deleteShader: (GLuint) shader{
+    glDeleteShader(shader);
+}
 +(GLuint)generateShaderProgramFromVertexShader: (const char*)vShader fragmentShader:(const char*)fShader{
     GLuint vertexShader = [MSEngineUtility loadShader:vShader type:GL_VERTEX_SHADER maxAmountOfCharacters:3000];
     GLuint fragmentShader = [MSEngineUtility loadShader:fShader type:GL_FRAGMENT_SHADER maxAmountOfCharacters:3000];

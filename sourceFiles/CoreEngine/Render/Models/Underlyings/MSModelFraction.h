@@ -36,6 +36,7 @@
 -(void)addFace: (MSModelFace*)face;
 -(void)setName: (NSString*)newName;
 -(NSUInteger)amountOfVerts;
+-(NSUInteger)amountOfNormals;
 -(void)printVerts;
 -(int)amountOfTriangleElements;
 -(void)parseVertsToArray: (float*)tab;

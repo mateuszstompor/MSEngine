@@ -14,6 +14,7 @@
     if(self){
         self->camera=[[MSCamera alloc]init];
         self->objectsInWorld=[[NSMutableArray alloc]init];
+        self->lightSources=[[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -21,6 +22,11 @@
     [camera lockObject];
     [camera multiplyTranslationBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
     [camera unLockObject];
+}
+-(void)translatelight: (MSLightSource*)light x: (float)x y:(float)y z:(float)z{
+    [light lockObject];
+    [light multiplyTranslationBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
+    [light unLockObject];
 }
 -(void)rotateCameraX: (float)x y:(float)y z:(float)z{
     [camera lockObject];
@@ -31,6 +37,12 @@
 }
 -(MSCamera*)getCamera{
     return self->camera;
+}
+-(NSMutableArray<MSLightSource*>*)getLightSources{
+    return lightSources;
+}
+-(void)addLightSourceToWorld: (MSLightSource*)lght{
+    [lightSources addObject:lght];
 }
 -(NSMutableArray<MSPuppet*>*)getModels{
     return objectsInWorld;

@@ -10,10 +10,15 @@
 #import "MSPuppet.h"
 #import "MSTransformationManager.h"
 #import "MSCamera.h"
+#import "MSLightSource.h"
+
+
+
 @interface MSWorld : NSObject
 {
     NSMutableArray<MSPuppet*>* objectsInWorld;
     MSCamera* camera;
+    NSMutableArray<MSLightSource*>* lightSources;
 }
 -(instancetype)init;
 -(void)translateCameraX: (float)x y:(float)y z:(float)z;
@@ -21,4 +26,7 @@
 -(MSCamera*)getCamera;
 -(NSMutableArray<MSPuppet*>*)getModels;
 -(void)addModelToWorld: (MSPuppet*)pup;
+-(NSMutableArray<MSLightSource*>*)getLightSources;
+-(void)addLightSourceToWorld: (MSLightSource*)lght;
+-(void)translatelight: (MSLightSource*)light x: (float)x y:(float)y z:(float)z;
 @end

@@ -48,6 +48,9 @@
 -(NSUInteger)amountOfVerts{
     return [vertices count];
 }
+-(NSUInteger)amountOfNormals{
+    return [normals count];
+}
 -(void)setName: (NSString*)newName{
     self->name=newName;
 }
@@ -65,6 +68,7 @@
     glGenVertexArrays(1, &verticiesVAO);
     glBindVertexArray(verticiesVAO);
     [self loadVerticiesToGraphics];
+    [self loadNormalsToGraphics];
     [self loadOrderOfVerticiesToGraphics];
     glBindVertexArray(0);
 }
@@ -73,10 +77,23 @@
     glGenBuffers(1, &dataVBO);
     glBindBuffer(GL_ARRAY_BUFFER, dataVBO);
     unsigned long long sizeOfData=(int)[self amountOfVerts];
-    printf("number of verts is %llu, so i need %llu places for them\n",sizeOfData,3*sizeOfData);
-    glBufferData(GL_ARRAY_BUFFER, 3*sizeOfData*sizeof(float), NULL, GL_STATIC_DRAW);
+    //printf("number of verts is %llu, so i need %llu places for them\n",sizeOfData,3*sizeOfData);
+    glBufferData(GL_ARRAY_BUFFER, 3*2*sizeOfData*sizeof(float), NULL, GL_STATIC_DRAW);
     float* buffer = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_WRITE);
     [self parseVertsToArray:buffer];
+    if(glUnmapBuffer(GL_ARRAY_BUFFER)==false){
+        [NSException raise:@"Cannot unmap array buffer!"
+                    format:@""];
+    }
+    glBindVertexArray(0);
+}
+-(void)loadNormalsToGraphics{
+    glBindVertexArray(verticiesVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, dataVBO);
+    unsigned long long sizeOfData=3*(int)[self amountOfVerts];
+    //printf("number of verts is %llu, so i need %llu places for them\n",sizeOfData,3*sizeOfData);
+    float* buffer = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_WRITE);
+    [self parseNormalsToArray:buffer+sizeOfData];
     if(glUnmapBuffer(GL_ARRAY_BUFFER)==false){
         [NSException raise:@"Cannot unmap array buffer!"
                     format:@""];
@@ -88,6 +105,10 @@
     GLuint pos = glGetAttribLocation(program, "position");
     glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), 0);
     glEnableVertexAttribArray(pos);
+    GLuint normalPosition = glGetAttribLocation(program, "normal");
+    GLsizei stride = 3*(int)[self amountOfVerts]*sizeof(GLfloat);
+    glVertexAttribPointer(normalPosition, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), (void*)stride);
+    glEnableVertexAttribArray(normalPosition);
     glBindFragDataLocation(program, 0, "outColor");
     glBindVertexArray(0);
 }
@@ -96,7 +117,7 @@
     glGenBuffers(1, &orderEBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, orderEBO);
     unsigned long long amountOfFaces = [self amountOfTriangleElements];
-    printf("number of faces is %llu\n",amountOfFaces);
+   // printf("number of faces is %llu\n",amountOfFaces);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, amountOfFaces*sizeof(GLuint), NULL, GL_STATIC_DRAW);
     GLuint* bufElem= glMapBuffer(GL_ELEMENT_ARRAY_BUFFER, GL_READ_WRITE);
     [self parseOrderOfVertsToArray:bufElem];
@@ -127,6 +148,25 @@
         currentIndex+=1;
     }
 }
+-(void)parseNormalsToArray: (float*)tab{
+    unsigned int currentIndex=0;
+    unsigned int amountOfVerts=(int)[vertices count];
+    unsigned int sizeOfBothArrays = (GLuint)[self amountOfTriangleElements];
+    
+    GLuint orderOfNormals[sizeOfBothArrays];
+    GLuint orderOfVerts[sizeOfBothArrays];
+    [self parseOrderOfNormalsToArray:orderOfNormals];
+    [self parseOrderOfVertsToArray:orderOfVerts];
+ 
+    
+    if([normals count]>0){
+        while(currentIndex<amountOfVerts){
+            unsigned int indexToWrite=orderOfVerts[currentIndex];
+            memcpy((tab+indexToWrite), [(MSPoint*)[normals objectAtIndex:orderOfNormals[currentIndex]] getComponents], 3*sizeof(float));
+            currentIndex+=1;
+        }
+    }
+}
 -(int)amountOfTriangleElements{
     int i=0;
     for(MSModelFace* face in facesData){
@@ -142,6 +182,15 @@
     for(MSModelFace* face in facesData){
         for(MSVertexData* dat in [face getFaceData]){
             *(tab+i)=(GLuint)[dat getVertexIndex];
+            i+=1;
+        }
+    }
+}
+-(void)parseOrderOfNormalsToArray: (GLuint*)tab{
+    GLuint i=0;
+    for(MSModelFace* face in facesData){
+        for(MSVertexData* dat in [face getFaceData]){
+            *(tab+i)=(GLuint)[dat getNormalIndex];
             i+=1;
         }
     }

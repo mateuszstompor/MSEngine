@@ -27,5 +27,6 @@
 -(void)unLockObject;
 -(void)multiplyTranslationBy: (MSMatrixND*) tr;
 -(void)multiplyRotationnBy: (MSMatrixND*) rot;
+-(void)multiplyScaleBy:(MSMatrixND*) sc;
 @end
 #endif

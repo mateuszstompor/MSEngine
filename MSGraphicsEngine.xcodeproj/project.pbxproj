@@ -24,6 +24,7 @@
 		610D6F5E1EB8B71F009119EC /* MSLoaderOBJ.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; };
 		610D6F5F1EB8B71F009119EC /* MSModelManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; };
 		6122CA251EAA4EBE0002F881 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6122CA241EAA4EBE0002F881 /* OpenGL.framework */; };
+		6158B60C1EBA854300DC8FAB /* MSLightSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 619A5F531EBA81460017DB89 /* MSLightSource.h */; };
 		615AF6C21EB8B3930086897F /* MSModelFace.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69C1EB8B3930086897F /* MSModelFace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		615AF6C31EB8B3930086897F /* MSModelFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69D1EB8B3930086897F /* MSModelFace.m */; };
 		615AF6C41EB8B3930086897F /* MSModelFraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69E1EB8B3930086897F /* MSModelFraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +56,8 @@
 		615AF6DE1EB8B3930086897F /* MSLoaderOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		615AF6DF1EB8B3930086897F /* MSLoaderOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */; };
 		615AF6E01EB8B3930086897F /* MSModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		619A5F551EBA81460017DB89 /* MSLightSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 619A5F531EBA81460017DB89 /* MSLightSource.h */; };
+		619A5F561EBA81460017DB89 /* MSLightSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A5F541EBA81460017DB89 /* MSLightSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +67,7 @@
 			dstPath = /usr/local/include;
 			dstSubfolderSpec = 0;
 			files = (
+				6158B60C1EBA854300DC8FAB /* MSLightSource.h in CopyFiles */,
 				610D6F501EB8B71F009119EC /* MSModelFace.h in CopyFiles */,
 				610D6F511EB8B71F009119EC /* MSModelFraction.h in CopyFiles */,
 				610D6F521EB8B71F009119EC /* MSTransformationManager.h in CopyFiles */,
@@ -86,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		611E214F1EBA7FF8000BCDD8 /* LightShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightShader.fsh; sourceTree = "<group>"; };
 		6122CA1C1EAA4EB40002F881 /* libMSGraphicsEngine.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMSGraphicsEngine.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		6122CA241EAA4EBE0002F881 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		615AF69C1EB8B3930086897F /* MSModelFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSModelFace.h; sourceTree = "<group>"; };
@@ -121,6 +126,8 @@
 		615AF6C11EB8B3930086897F /* MSModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSModelManager.h; sourceTree = "<group>"; };
 		615AF6E21EB8B3AF0086897F /* FShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FShader.fsh; sourceTree = "<group>"; };
 		615AF6E31EB8B3AF0086897F /* VShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = VShader.vsh; sourceTree = "<group>"; };
+		619A5F531EBA81460017DB89 /* MSLightSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLightSource.h; sourceTree = "<group>"; };
+		619A5F541EBA81460017DB89 /* MSLightSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLightSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +240,8 @@
 				615AF6B01EB8B3930086897F /* MSCamera.m */,
 				615AF6B11EB8B3930086897F /* MSPuppet.h */,
 				615AF6B21EB8B3930086897F /* MSPuppet.m */,
+				619A5F531EBA81460017DB89 /* MSLightSource.h */,
+				619A5F541EBA81460017DB89 /* MSLightSource.m */,
 			);
 			path = PositionedObject;
 			sourceTree = "<group>";
@@ -291,6 +300,7 @@
 			children = (
 				615AF6E21EB8B3AF0086897F /* FShader.fsh */,
 				615AF6E31EB8B3AF0086897F /* VShader.vsh */,
+				611E214F1EBA7FF8000BCDD8 /* LightShader.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -318,6 +328,7 @@
 				615AF6D21EB8B3930086897F /* MSCamera.h in Headers */,
 				615AF6C81EB8B3930086897F /* MSVertexData.h in Headers */,
 				615AF6C41EB8B3930086897F /* MSModelFraction.h in Headers */,
+				619A5F551EBA81460017DB89 /* MSLightSource.h in Headers */,
 				615AF6DC1EB8B3930086897F /* MSGraphicsEngine.h in Headers */,
 				615AF6CE1EB8B3930086897F /* MSWorld.h in Headers */,
 				615AF6C61EB8B3930086897F /* MSTransformationManager.h in Headers */,
@@ -392,6 +403,7 @@
 				615AF6C31EB8B3930086897F /* MSModelFace.m in Sources */,
 				615AF6C91EB8B3930086897F /* MSVertexData.m in Sources */,
 				615AF6DF1EB8B3930086897F /* MSLoaderOBJ.m in Sources */,
+				619A5F561EBA81460017DB89 /* MSLightSource.m in Sources */,
 				615AF6D71EB8B3930086897F /* MSMatrixND.m in Sources */,
 				615AF6C71EB8B3930086897F /* MSTransformationManager.m in Sources */,
 				615AF6C51EB8B3930086897F /* MSModelFraction.m in Sources */,
