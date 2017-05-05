@@ -11,11 +11,20 @@ uniform mat4 projection;
 
 uniform mat4 cameraTranslation;
 uniform mat4 cameraRotation;
+
+
+
+out vec3 cameraPositionInWorld;
 out vec3 Normal;
+out vec3 fragmentPositionInWorld;
+
+
 void main(void){
     vec4 newPos =translation*rotation*scale*vec4(position,1.0f);
     newPos =projection*cameraTranslation*cameraRotation*newPos;
+    fragmentPositionInWorld=vec4(translation*vec4(position,1.0f)).xyz;
     gl_Position = newPos;
+    cameraPositionInWorld = vec4(cameraTranslation*vec4(1.0f)).xyz;
     Normal=normal;
 }
 

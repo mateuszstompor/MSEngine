@@ -72,34 +72,6 @@
     //[self loadNormalsToGraphics];
     glBindVertexArray(0);
 }
-//-(void)loadVerticiesToGraphics{
-//    glBindVertexArray(verticiesVAO);
-//    glGenBuffers(1, &dataVBO);
-//    glBindBuffer(GL_ARRAY_BUFFER, dataVBO);
-//    unsigned long long sizeOfData=(int)[self amountOfVerts];
-//    //printf("number of verts is %llu, so i need %llu places for them\n",sizeOfData,3*sizeOfData);
-//    glBufferData(GL_ARRAY_BUFFER, 3*2*sizeOfData*sizeof(float), NULL, GL_STATIC_DRAW);
-//    float* buffer = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_WRITE);
-//    [self parseVertsToArray:buffer];
-//    if(glUnmapBuffer(GL_ARRAY_BUFFER)==false){
-//        [NSException raise:@"Cannot unmap array buffer!"
-//                    format:@""];
-//    }
-//    glBindVertexArray(0);
-//}
-//-(void)loadNormalsToGraphics{
-//    glBindVertexArray(verticiesVAO);
-//    glBindBuffer(GL_ARRAY_BUFFER, dataVBO);
-//    unsigned long long sizeOfData=3*(int)[self amountOfVerts];
-//    //printf("number of verts is %llu, so i need %llu places for them\n",sizeOfData,3*sizeOfData);
-//    float* buffer = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_WRITE);
-//    [self parseNormalsToArray:buffer+sizeOfData];
-//    if(glUnmapBuffer(GL_ARRAY_BUFFER)==false){
-//        [NSException raise:@"Cannot unmap array buffer!"
-//                    format:@""];
-//    }
-//    glBindVertexArray(0);
-//}
 -(GLuint)getVerticiesVAO{
     [self loadIfIsNot];
     return verticiesVAO;
@@ -108,16 +80,6 @@
     [self loadIfIsNot];
     return dataVBO;
 }
-//-(void)parseVertsToArray: (float*)tab{
-//    unsigned int currentIndex=0;
-//    unsigned int amountOfVerts=(int)[vertices count];
-//    while(currentIndex<amountOfVerts){
-//        unsigned int indexToWrite=3*currentIndex;
-//        memcpy((tab+indexToWrite), [(MSPoint*)[vertices objectAtIndex:currentIndex] getComponents], 3*sizeof(float));
-//        currentIndex+=1;
-//    }
-//}
-
 -(long long)amountOfElemntsToLoadToGraphics{
     return [facesData count];
 }
@@ -155,53 +117,4 @@
         currentIndex+=1;
     }
 }
-
-
-//-(void)parseNormalsToArray: (float*)tab{
-//    unsigned int currentIndex=0;
-//    unsigned int amountOfVerts=(int)[vertices count];
-//    unsigned int sizeOfBothArrays = (GLuint)[self amountOfTriangleElements];
-//    
-//    GLuint orderOfNormals[sizeOfBothArrays];
-//    GLuint orderOfVerts[sizeOfBothArrays];
-//    [self parseOrderOfNormalsToArray:orderOfNormals];
-//    [self parseOrderOfVertsToArray:orderOfVerts];
-// 
-//    
-//    if([normals count]>0){
-//        while(currentIndex<amountOfVerts){
-//            unsigned int indexToWrite=orderOfVerts[currentIndex];
-//            memcpy((tab+indexToWrite), [(MSPoint*)[normals objectAtIndex:orderOfNormals[currentIndex]] getComponents], 3*sizeof(float));
-//            currentIndex+=1;
-//        }
-//    }
-//}
-//-(int)amountOfTriangleElements{
-//    int i=0;
-//    for(MSModelFace* face in facesData){
-//        i+=[[face getFaceData] count];
-//    }
-//    return i;
-//}
-//-(NSString*)getName{
-//    return self->name;
-//}
-//-(void)parseOrderOfVertsToArray: (GLuint*)tab{
-//    GLuint i=0;
-//    for(MSModelFace* face in facesData){
-//        for(MSVertexData* dat in [face getFaceData]){
-//            *(tab+i)=(GLuint)[dat getVertexIndex];
-//            i+=1;
-//        }
-//    }
-//}
-//-(void)parseOrderOfNormalsToArray: (GLuint*)tab{
-//    GLuint i=0;
-//    for(MSModelFace* face in facesData){
-//        for(MSVertexData* dat in [face getFaceData]){
-//            *(tab+i)=(GLuint)[dat getNormalIndex];
-//            i+=1;
-//        }
-//    }
-//}
 @end

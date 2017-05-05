@@ -30,7 +30,9 @@
     
     glUniform3fv(glGetUniformLocation(shProg, "fractionColor"), 1, [frac getColor]);
     glUniform3fv(glGetUniformLocation(shProg, "lightColor"), 1, [[[[world getLightSources]objectAtIndex:0]getColor]getArrayStyleVector]);
-    glDrawArrays(GL_TRIANGLES, 0, (GLsizei)3l*3l*2l*[frac amountOfElemntsToLoadToGraphics]);
+    glUniformMatrix4fv(glGetUniformLocation(shProg, "lightPosition"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]getTranslation]matrixAsArray]);
+
+    glDrawArrays(GL_TRIANGLES, 0, (GLsizei)(3l*3l*2l*[frac amountOfElemntsToLoadToGraphics]));
     glBindVertexArray(0);
     glEnableVertexAttribArray(0);
 }
