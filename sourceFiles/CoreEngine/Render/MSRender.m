@@ -18,13 +18,11 @@
     glUseProgram(shProg);
     glBindVertexArray([frac getVerticiesVAO]);
     glBindBuffer(GL_ARRAY_BUFFER, [frac getBuffer]);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [frac getElementsOrderBuffer]);
     GLuint pos = glGetAttribLocation(shProg, "position");
-    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), 0);
+    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), 0);
     glEnableVertexAttribArray(pos);
     GLuint normalPosition = glGetAttribLocation(shProg, "normal");
-    GLsizei stride = 3*(int)[frac amountOfVerts]*sizeof(GLfloat);
-    glVertexAttribPointer(normalPosition, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), (void*)stride);
+    glVertexAttribPointer(normalPosition, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), (void*)(3*sizeof(GLfloat)));
     glEnableVertexAttribArray(normalPosition);
     glBindFragDataLocation(shProg, 0, "outColor");
     [self loadTransformationFromModelToShader: md shaderProgram:shProg];
@@ -32,10 +30,7 @@
     
     glUniform3fv(glGetUniformLocation(shProg, "fractionColor"), 1, [frac getColor]);
     glUniform3fv(glGetUniformLocation(shProg, "lightColor"), 1, [[[[world getLightSources]objectAtIndex:0]getColor]getArrayStyleVector]);
-    GLuint amountOfElements=(int)[frac amountOfTriangleElements];
-    //glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-    
-    glDrawElements(GL_TRIANGLES, amountOfElements, GL_UNSIGNED_INT, glMapBuffer(GL_ELEMENT_ARRAY_BUFFER, GL_READ_ONLY));
+    glDrawArrays(GL_TRIANGLES, 0, (GLsizei)3l*3l*2l*[frac amountOfElemntsToLoadToGraphics]);
     glBindVertexArray(0);
     glEnableVertexAttribArray(0);
 }

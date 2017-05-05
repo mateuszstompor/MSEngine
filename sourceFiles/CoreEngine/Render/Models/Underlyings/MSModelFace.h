@@ -17,7 +17,7 @@
 }
 -(instancetype)init;
 -(instancetype)initWithData: (int)amountOfVertexData,...;
--(NSMutableArray*)getFaceData;
+-(NSMutableArray<MSVertexData*>*)getFaceData;
 -(void)print;
 @end
 #endif

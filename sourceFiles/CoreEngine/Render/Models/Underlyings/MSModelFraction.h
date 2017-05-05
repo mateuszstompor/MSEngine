@@ -26,7 +26,6 @@
     NSString* name;
     GLuint dataVBO;
     GLuint verticiesVAO;
-    GLuint orderEBO;
     BOOL isLoadedToGraphics;
     
 }
@@ -38,14 +37,10 @@
 -(NSUInteger)amountOfVerts;
 -(NSUInteger)amountOfNormals;
 -(void)printVerts;
--(int)amountOfTriangleElements;
--(void)parseVertsToArray: (float*)tab;
--(void)parseOrderOfVertsToArray: (GLuint*)tab;
+-(long long)amountOfElemntsToLoadToGraphics;
 -(GLuint)getVerticiesVAO;
--(void)setAttrib: (GLuint)program;
 -(GLuint)getBuffer;
 -(void)loadDataToGraphicsCard;
--(GLuint)getElementsOrderBuffer;
 -(NSString*)getName;
 -(float*)getColor;
 @end
