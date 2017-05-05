@@ -33,7 +33,7 @@
         [dat print];
     }
 }
--(NSMutableArray*)getFaceData{
+-(NSMutableArray<MSVertexData*>*)getFaceData{
     return self->associatedVertices;
 }
 @end
