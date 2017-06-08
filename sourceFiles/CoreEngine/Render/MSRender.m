@@ -18,21 +18,39 @@
     glUseProgram(shProg);
     glBindVertexArray([frac getVerticiesVAO]);
     glBindBuffer(GL_ARRAY_BUFFER, [frac getBuffer]);
+    glUniform1i(glGetUniformLocation(shProg, "settings"), self->settings);
     GLuint pos = glGetAttribLocation(shProg, "position");
     glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), 0);
     glEnableVertexAttribArray(pos);
     GLuint normalPosition = glGetAttribLocation(shProg, "normal");
     glVertexAttribPointer(normalPosition, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), (void*)(3*sizeof(GLfloat)));
     glEnableVertexAttribArray(normalPosition);
+#if macOS
     glBindFragDataLocation(shProg, 0, "outColor");
+#endif
+#if iOS
+   // glGetFragDataLocation(shProg, "outColor");
+#endif
     [self loadTransformationFromModelToShader: md shaderProgram:shProg];
     [self updateCameraPositionInShader: shProg];
     
     glUniform3fv(glGetUniformLocation(shProg, "fractionColor"), 1, [frac getColor]);
     glUniform3fv(glGetUniformLocation(shProg, "lightColor"), 1, [[[[world getLightSources]objectAtIndex:0]getColor]getArrayStyleVector]);
     glUniformMatrix4fv(glGetUniformLocation(shProg, "lightPosition"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]getTranslation]matrixAsArray]);
+#if macOS
 
-    glDrawArrays(GL_TRIANGLES, 0, (GLsizei)(3l*3l*2l*[frac amountOfElemntsToLoadToGraphics]));
+    if (settings >> 3 == 1){
+        glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+    }
+    else{
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+    }
+#endif
+    glBindBuffer(GL_ARRAY_BUFFER, [frac getBuffer]);
+    
+   // glDrawArrays(GL_TRIANGLES, 0, (GLsizei)(3*[frac amountOfElemntsToLoadToGraphics]));
+    glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)(3*[frac amountOfElemntsToLoadToGraphics]), 1);
     glBindVertexArray(0);
     glEnableVertexAttribArray(0);
 }
@@ -43,6 +61,7 @@
         self->shaderProgram=[MSEngineUtility generateShaderProgramFromVertexShader:vsh fragmentShader:fsh];
         self->lightShaderProgram=[MSEngineUtility generateShaderProgramFromVertexShader:vsh fragmentShader:lfsh];
         self->world=w;
+        self->settings=0;
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
     }
@@ -82,5 +101,23 @@
     glUniformMatrix4fv(glGetUniformLocation(shProg, "scale"), 1, GL_FALSE, [[model getScale] matrixAsArray]);
     glUniformMatrix4fv(glGetUniformLocation(shProg, "projection"), 1, GL_FALSE, [perspectiveMatrix matrixAsArray]);
     [model unLockObject];
+}
+-(void)setSettings:(int)set{
+    self->settings=set;
+}
+-(int)getSettings{
+    return self->settings;
+}
+-(void)shouldRenderOnlyContour: (BOOL) value{
+    settings=settings ^ 1<<3;
+}
+-(void)shouldRenderAmbient: (BOOL) value{
+    settings=settings ^ 1<<0;
+}
+-(void)shouldRenderSpecular: (BOOL) value{
+    settings=settings ^ 1<<1;
+}
+-(void)shouldRenderDiffuse: (BOOL) value{
+    settings=settings ^ 1<<2;
 }
 @end
