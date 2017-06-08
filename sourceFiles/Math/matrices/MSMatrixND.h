@@ -27,6 +27,8 @@
     int amountOfRows;
     int amountOfColumns;
     NSMutableArray<MSVectorND*>* matrix;
+    float** cMatrix;
+    float* asArrayMatrix;
 }
 +(instancetype)identityMatrix:(int const)dimension;
 -(instancetype)init NS_UNAVAILABLE;

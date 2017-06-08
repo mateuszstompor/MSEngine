@@ -9,7 +9,17 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>iOSTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>lib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>macOSTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
@@ -23,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>61314EE31ED64B22001A3519</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>617DE28E1EE973C100189A63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>617DE29D1EE973F000189A63</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61314EE31ED64B22001A3519"
+               BlueprintIdentifier = "61DF1ED21ED66B1C008333A8"
                BuildableName = "libiOS.a"
                BlueprintName = "iOS"
                ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "617DE29D1EE973F000189A63"
+               BuildableName = "iOSTests.xctest"
+               BlueprintName = "iOSTests"
+               ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "61DF1ED21ED66B1C008333A8"
+            BuildableName = "libiOS.a"
+            BlueprintName = "iOS"
+            ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -45,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "61314EE31ED64B22001A3519"
+            BlueprintIdentifier = "61DF1ED21ED66B1C008333A8"
             BuildableName = "libiOS.a"
             BlueprintName = "iOS"
             ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
@@ -63,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "61314EE31ED64B22001A3519"
+            BlueprintIdentifier = "61DF1ED21ED66B1C008333A8"
             BuildableName = "libiOS.a"
             BlueprintName = "iOS"
             ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
