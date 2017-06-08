@@ -5,10 +5,17 @@
 //  Created by Mateusz Stompór on 24/04/2017.
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
-
-#import <Cocoa/Cocoa.h>
-#import <OpenGL/gl.h>
+#import <Foundation/Foundation.h>
+#if macOS
 #import <OpenGL/gl3.h>
+#import <OpenGL/gl.h>
+#import <Cocoa/Cocoa.h>
+#endif
+
+#if iOS
+#import <Foundation/Foundation.h>
+#import <OpenGLES/ES3/gl.h>
+#endif
 
 #import "MSPositionedObject.h"
 #import "MSModelFraction.h"

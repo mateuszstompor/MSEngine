@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6122CA1B1EAA4EB40002F881"
-               BuildableName = "libMSGraphicsEngine.dylib"
-               BlueprintName = "MSGraphicsEngine"
+               BlueprintIdentifier = "61DF1EF01ED66B80008333A8"
+               BuildableName = "libmacOS.a"
+               BlueprintName = "macOS"
                ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6122CA1B1EAA4EB40002F881"
-            BuildableName = "libMSGraphicsEngine.dylib"
-            BlueprintName = "MSGraphicsEngine"
+            BlueprintIdentifier = "61DF1EF01ED66B80008333A8"
+            BuildableName = "libmacOS.a"
+            BlueprintName = "macOS"
             ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6122CA1B1EAA4EB40002F881"
-            BuildableName = "libMSGraphicsEngine.dylib"
-            BlueprintName = "MSGraphicsEngine"
+            BlueprintIdentifier = "61DF1EF01ED66B80008333A8"
+            BuildableName = "libmacOS.a"
+            BlueprintName = "macOS"
             ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

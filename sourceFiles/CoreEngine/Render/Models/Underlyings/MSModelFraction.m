@@ -68,8 +68,6 @@
     glGenVertexArrays(1, &verticiesVAO);
     glBindVertexArray(verticiesVAO);
     [self loadVerticesAndNormals];
-    //[self loadVerticiesToGraphics];
-    //[self loadNormalsToGraphics];
     glBindVertexArray(0);
 }
 -(GLuint)getVerticiesVAO{
@@ -89,13 +87,22 @@
     glBindBuffer(GL_ARRAY_BUFFER, dataVBO);
     unsigned long long sizeOfData=(unsigned long long)3*3*2*[self amountOfElemntsToLoadToGraphics];
     glBufferData(GL_ARRAY_BUFFER, sizeOfData*sizeof(float), NULL, GL_STATIC_DRAW);
+    #if macOS
     float* buffer = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_WRITE);
+    #endif
+    #if iOS
+    float* buffer = glMapBufferRange(GL_ARRAY_BUFFER, 0, (unsigned long long)3*3*2*[self amountOfElemntsToLoadToGraphics], GL_MAP_WRITE_BIT);
+    #endif
+    
     [self parseDataToArray:buffer];
-    if(glUnmapBuffer(GL_ARRAY_BUFFER)==false){
-        [NSException raise:@"Cannot unmap array buffer!"
-                    format:@""];
-    }
+//    if(glUnmapBuffer(GL_ARRAY_BUFFER)==false){
+//        [NSException raise:@"Cannot unmap array buffer!"
+//                    format:@""];
+//    }
     glBindVertexArray(0);
+}
+-(NSString*)getName{
+    return self->name;
 }
 -(void)parseDataToArray: (float*)tab{
     unsigned long long currentIndex=0;

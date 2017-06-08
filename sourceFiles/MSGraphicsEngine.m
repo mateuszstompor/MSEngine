@@ -5,15 +5,14 @@
 //  Created by Mateusz Stompór on 28/04/2017.
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
-
-#import "MSGraphicsEngine.h"
-
+//
+//#import "MSGraphicsEngine.h"
+//
 //@implementation MSGraphicsEngine
 //-(instancetype)initWithShader: (GLuint) program{
 //    self=[super init];
 //    if(self){
 //        self->world=[[MSWorld alloc]init];
-//        self->renderer=[[MSRender alloc] initWithWorld:world andProgram:program];
 //    }
 //    return self;
 //}
