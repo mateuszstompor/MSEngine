@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "617DE28E1EE973C100189A63"
+               BuildableName = "macOSTests.xctest"
+               BlueprintName = "macOSTests"
+               ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "61DF1EF01ED66B80008333A8"
+            BuildableName = "libmacOS.a"
+            BlueprintName = "macOS"
+            ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

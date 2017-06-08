@@ -30,6 +30,8 @@
         if([matrix count]!=amountOfColumns){
             [NSException raise:@"Too few columns" format:@"Declared %i get get %lu", numberOfColumns,(unsigned long)[matrix count]];
         }
+        cMatrix = nil;
+        asArrayMatrix = nil;
     }
     return self;
 }
@@ -74,27 +76,15 @@
     printf("Amount of rows: %d\n", amountOfRows);
     fflush(stdout);
 }
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
 -(float**)getColumnMajorArrayStyleMatrix{
     float** cStyleMatrix = (float**)malloc(amountOfColumns*sizeof(float*));
     for(int i=0;i<amountOfColumns;i++){
         *(cStyleMatrix+i)=[(MSVectorND*)[matrix objectAtIndex:i] getArrayStyleVector];
     }
+    free(cMatrix);
+    cMatrix = cStyleMatrix;
     return cStyleMatrix;
 }
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
-//WAZNE ZROBIC DEALOKACJE
 -(float*)matrixAsArray{
     int amountOfElements=amountOfColumns*amountOfRows;
     float* matrixToReturn = (float*)malloc(amountOfElements*sizeof(float));
@@ -105,6 +95,8 @@
         }
         *(matrixToReturn+i)=[[matrix objectAtIndex:j] valueAtIndex:(i%amountOfRows)];
     }
+    free(asArrayMatrix);
+    asArrayMatrix=matrixToReturn;
     return matrixToReturn;
 }
 -(MSVectorND*)multiplyByColumnVector: (MSVectorND*)vector{
@@ -162,5 +154,9 @@
 }
 -(int)getAmountOfRows{
     return self->amountOfRows;
+}
+-(void)dealloc{
+    free(cMatrix);
+    free(asArrayMatrix);
 }
 @end
