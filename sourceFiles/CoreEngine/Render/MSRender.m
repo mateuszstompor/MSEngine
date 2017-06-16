@@ -19,12 +19,10 @@
     glBindVertexArray([frac getVerticiesVAO]);
     glBindBuffer(GL_ARRAY_BUFFER, [frac getBuffer]);
     glUniform1i(glGetUniformLocation(shProg, "settings"), self->settings);
-    GLuint pos = glGetAttribLocation(shProg, "position");
-    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), 0);
-    glEnableVertexAttribArray(pos);
-    GLuint normalPosition = glGetAttribLocation(shProg, "normal");
-    glVertexAttribPointer(normalPosition, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), (void*)(3*sizeof(GLfloat)));
-    glEnableVertexAttribArray(normalPosition);
+    glVertexAttribPointer(glGetAttribLocation(shProg, "position"), 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), 0);
+    glEnableVertexAttribArray(glGetAttribLocation(shProg, "position"));
+    glVertexAttribPointer(glGetAttribLocation(shProg, "normal"), 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat), (void*)(3*sizeof(GLfloat)));
+    glEnableVertexAttribArray(glGetAttribLocation(shProg, "normal"));
 #if macOS
     glBindFragDataLocation(shProg, 0, "outColor");
 #endif
@@ -48,8 +46,6 @@
     }
 #endif
     glBindBuffer(GL_ARRAY_BUFFER, [frac getBuffer]);
-    
-   // glDrawArrays(GL_TRIANGLES, 0, (GLsizei)(3*[frac amountOfElemntsToLoadToGraphics]));
     glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)(3*[frac amountOfElemntsToLoadToGraphics]), 1);
     glBindVertexArray(0);
     glEnableVertexAttribArray(0);

@@ -15,6 +15,7 @@
         vertices=[[NSMutableArray alloc]init];
         normals=[[NSMutableArray alloc]init];
         facesData=[[NSMutableArray alloc]init];
+        textureCoordinates=[[NSMutableArray alloc] init];
         self->name=[[NSString alloc]initWithUTF8String:""];
         self->fractionColor=[[MSVectorND alloc] initZeroVecWithDimension:3];
         isLoadedToGraphics=false;
@@ -22,20 +23,23 @@
     }
     return self;
 }
--(void)addVertex: (MSPoint*)point{
+-(void)addVertex: (MSPoint3D*)point{
     [vertices addObject:point];
 }
 -(float*)getColor{
     return [fractionColor getArrayStyleVector];
 }
--(void)addNormal: (MSPoint*)point{
+-(void)addNormal: (MSPoint3D*)point{
     [normals addObject:point];
+}
+-(void)addTextureCoordinate: (MSPoint2D*)point{
+    [textureCoordinates addObject:point];
 }
 -(void)addFace: (MSModelFace*)face{
     [facesData addObject:face];
 }
 -(void)printVerts{
-    for(MSPoint* p in vertices){
+    for(MSPoint3D* p in vertices){
         [p printPoint];
     }
 }
@@ -44,6 +48,9 @@
         isLoadedToGraphics=true;
         [self loadDataToGraphicsCard];
     }
+}
+-(NSUInteger)amountOfTextureCoordinates{
+    return [textureCoordinates count];
 }
 -(NSUInteger)amountOfVerts{
     return [vertices count];
@@ -56,13 +63,10 @@
 }
 -(void)generateRandomColor{
     unsigned int randomNumberBound=1000;
-    float first=((float)arc4random_uniform(randomNumberBound))/((float)randomNumberBound);
-    float second=((float)arc4random_uniform(randomNumberBound))/((float)randomNumberBound);
-    float third=((float)arc4random_uniform(randomNumberBound))/((float)randomNumberBound);
-    [fractionColor setValueAtIdenx:0 value:first];
-    [fractionColor setValueAtIdenx:1 value:second];
-    [fractionColor setValueAtIdenx:2 value:third];
-    
+    for(int i=0; i<[fractionColor getDimension]; ++i){
+        float color=((float)arc4random_uniform(randomNumberBound))/((float)randomNumberBound);
+        [fractionColor setValueAtIdenx:i value:color];
+    }
 }
 -(void)loadDataToGraphicsCard{
     glGenVertexArrays(1, &verticiesVAO);
@@ -74,6 +78,7 @@
     [self loadIfIsNot];
     return verticiesVAO;
 }
+
 -(GLuint)getBuffer{
     [self loadIfIsNot];
     return dataVBO;
@@ -81,24 +86,21 @@
 -(long long)amountOfElemntsToLoadToGraphics{
     return [facesData count];
 }
+-(long) amountOfComponentsInsideEachFace {
+    return 3*3*2;
+}
 -(void)loadVerticesAndNormals{
-    glBindVertexArray(verticiesVAO);
     glGenBuffers(1, &dataVBO);
     glBindBuffer(GL_ARRAY_BUFFER, dataVBO);
-    unsigned long long sizeOfData=(unsigned long long)3*3*2*[self amountOfElemntsToLoadToGraphics];
+    unsigned long long sizeOfData=(unsigned long long)[self amountOfComponentsInsideEachFace]*[self amountOfElemntsToLoadToGraphics];
     glBufferData(GL_ARRAY_BUFFER, sizeOfData*sizeof(float), NULL, GL_STATIC_DRAW);
-    #if macOS
-    float* buffer = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_WRITE);
-    #endif
-    #if iOS
-    float* buffer = glMapBufferRange(GL_ARRAY_BUFFER, 0, (unsigned long long)3*3*2*[self amountOfElemntsToLoadToGraphics], GL_MAP_WRITE_BIT);
-    #endif
+   
+    float* buffer = glMapBufferRange(GL_ARRAY_BUFFER, 0,
+                                     (unsigned long long)[self amountOfComponentsInsideEachFace]*[self amountOfElemntsToLoadToGraphics]
+                                     , GL_MAP_WRITE_BIT);
+    
     
     [self parseDataToArray:buffer];
-//    if(glUnmapBuffer(GL_ARRAY_BUFFER)==false){
-//        [NSException raise:@"Cannot unmap array buffer!"
-//                    format:@""];
-//    }
     glBindVertexArray(0);
 }
 -(NSString*)getName{
@@ -107,20 +109,21 @@
 -(void)parseDataToArray: (float*)tab{
     unsigned long long currentIndex=0;
     unsigned long long amountOfElements = [self amountOfElemntsToLoadToGraphics];
+    unsigned long long amountOfComponentsInsideEachFace = [self amountOfComponentsInsideEachFace];
     while(currentIndex<amountOfElements){
-        unsigned long long indexToWrite=2*3*3*currentIndex;
-        unsigned long long indexOfVert1 = [[[[facesData objectAtIndex:currentIndex] getFaceData] objectAtIndex:0]getVertexIndex];
-        unsigned long long indexOfNormal1 = [[[[facesData objectAtIndex:currentIndex] getFaceData] objectAtIndex:0]getNormalIndex];
-        unsigned long long indexOfVert2 = [[[[facesData objectAtIndex:currentIndex] getFaceData] objectAtIndex:1]getVertexIndex];
-        unsigned long long indexOfNormal2 = [[[[facesData objectAtIndex:currentIndex] getFaceData] objectAtIndex:1]getNormalIndex];
-        unsigned long long indexOfVert3 = [[[[facesData objectAtIndex:currentIndex] getFaceData] objectAtIndex:2]getVertexIndex];
-        unsigned long long indexOfNormal3 = [[[[facesData objectAtIndex:currentIndex] getFaceData] objectAtIndex:2]getNormalIndex];
-        memcpy((tab+indexToWrite), [(MSPoint*)[vertices objectAtIndex:indexOfVert1] getComponents], 3*sizeof(float));
-        memcpy((tab+indexToWrite+3), [(MSPoint*)[normals objectAtIndex:indexOfNormal1] getComponents], 3*sizeof(float));
-        memcpy((tab+indexToWrite+6), [(MSPoint*)[vertices objectAtIndex:indexOfVert2] getComponents], 3*sizeof(float));
-        memcpy((tab+indexToWrite+9), [(MSPoint*)[normals objectAtIndex:indexOfNormal2] getComponents], 3*sizeof(float));
-        memcpy((tab+indexToWrite+12), [(MSPoint*)[vertices objectAtIndex:indexOfVert3] getComponents], 3*sizeof(float));
-        memcpy((tab+indexToWrite+15), [(MSPoint*)[normals objectAtIndex:indexOfNormal3] getComponents], 3*sizeof(float));
+        unsigned long long indexToWrite=amountOfComponentsInsideEachFace*currentIndex;
+        int verticesInFace = 3;
+        for (int vertIndex = 0; vertIndex<verticesInFace; ++vertIndex){
+            unsigned long long vIndex = [[[[facesData objectAtIndex:currentIndex] getFaceData]
+                                          objectAtIndex:vertIndex]getVertexIndex];
+            unsigned long long nIndex = [[[[facesData objectAtIndex:currentIndex] getFaceData]
+                                          objectAtIndex:vertIndex]getNormalIndex];
+            memcpy((tab+indexToWrite+2*vertIndex*verticesInFace),
+                   [(MSPoint*)[vertices objectAtIndex:vIndex] getComponents], verticesInFace*sizeof(float));
+            memcpy((tab+indexToWrite+2*vertIndex*verticesInFace+verticesInFace),
+                   [(MSPoint*)[normals objectAtIndex:nIndex] getComponents], verticesInFace*sizeof(float));
+
+        }
         currentIndex+=1;
     }
 }

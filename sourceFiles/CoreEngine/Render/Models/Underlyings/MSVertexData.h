@@ -14,11 +14,13 @@
 {
     unsigned int indexOfVertex;
     unsigned int indexOfNormal;
+    unsigned int indexOfTextureCoord;
 }
 -(instancetype)init NS_UNAVAILABLE;
--(instancetype)initWithIndexOfVertex: (unsigned int)vIndex NormalIndex: (unsigned int)nIndex;
+-(instancetype)initWithIndexOfVertex: (unsigned int)vIndex normalIndex: (unsigned int)nIndex textureIndex: (unsigned int)tIndex;
 -(unsigned int)getVertexIndex;
 -(unsigned int)getNormalIndex;
+-(unsigned int)getTextureCoordinateIndex;
 -(void)print;
 @end
 #endif

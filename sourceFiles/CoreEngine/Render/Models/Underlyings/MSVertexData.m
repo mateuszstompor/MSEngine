@@ -10,11 +10,12 @@
 
 @implementation MSVertexData
 
--(instancetype)initWithIndexOfVertex: (unsigned int)vIndex NormalIndex: (unsigned int)nIndex{
+-(instancetype)initWithIndexOfVertex: (unsigned int)vIndex normalIndex: (unsigned int)nIndex textureIndex: (unsigned int)tIndex{
     self=[super init];
     if(self){
         self->indexOfNormal=nIndex;
         self->indexOfVertex=vIndex;
+        self->indexOfTextureCoord=tIndex;
     }
     return self;
 }
@@ -23,6 +24,9 @@
 }
 -(unsigned int)getNormalIndex{
     return self->indexOfNormal;
+}
+-(unsigned int)getTextureCoordinateIndex{
+    return self->indexOfTextureCoord;;
 }
 -(void)print{
     printf("%iu %iu", indexOfVertex,indexOfNormal);

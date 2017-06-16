@@ -27,8 +27,9 @@
 #define MSMODELFRACTION_H
 @interface MSModelFraction : NSObject
 {
-    NSMutableArray<MSPoint*>* vertices;
-    NSMutableArray<MSPoint*>* normals;
+    NSMutableArray<MSPoint3D*>* vertices;
+    NSMutableArray<MSPoint3D*>* normals;
+    NSMutableArray<MSPoint2D*>* textureCoordinates;
     NSMutableArray<MSModelFace*>* facesData;
     MSVector3D* fractionColor;
     NSString* name;
@@ -38,12 +39,14 @@
     
 }
 -(instancetype)init;
--(void)addVertex: (MSPoint*)point;
--(void)addNormal: (MSPoint*)point;
+-(void)addVertex: (MSPoint3D*)point;
+-(void)addNormal: (MSPoint3D*)point;
+-(void)addTextureCoordinate: (MSPoint2D*)point;
 -(void)addFace: (MSModelFace*)face;
 -(void)setName: (NSString*)newName;
 -(NSUInteger)amountOfVerts;
 -(NSUInteger)amountOfNormals;
+-(NSUInteger)amountOfTextureCoordinates;
 -(void)printVerts;
 -(long long)amountOfElemntsToLoadToGraphics;
 -(GLuint)getVerticiesVAO;

@@ -21,6 +21,7 @@
     }
     return self;
 }
+
 -(void)checkIndexBound:(int)index{
     if(index>=dimension || index<0){
         [NSException raise:@"Index out of bounds!"
@@ -54,12 +55,14 @@
     return self;
 }
 -(instancetype)init3DimPointWithX: (float)x y: (float)y z:(float)z{
-    self=[self initWithDimension:3];
-    *(components)=x;
-    *(components+1)=y;
-    *(components+2)=z;
+    self=[self initWithComponents:3, x, y, z];
     return self;
 }
+-(instancetype)init2DimPointWithX: (float)x y: (float)y{
+    self = [self initWithComponents:2,x,y];
+    return self;
+}
+
 -(void)dealloc{
     free(self->components);
 }
