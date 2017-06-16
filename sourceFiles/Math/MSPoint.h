@@ -12,6 +12,7 @@
 
 #ifndef MSPOINT_H
 #define MSPOINT_H
+
 @interface MSPoint : NSObject
 {
     int dimension;
@@ -20,6 +21,7 @@
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithDimension: (int)dim;
 -(instancetype)initWithComponents: (int)dim,...;
+-(instancetype)init2DimPointWithX: (float)x y: (float)y;
 -(instancetype)init3DimPointWithX: (float)x y: (float)y z:(float)z;
 -(float)getComponent: (int)index;
 -(void)setComponent: (int)index value:(float)val;
@@ -27,4 +29,6 @@
 -(void)dealloc;
 -(float*)getComponents;
 @end
+typedef  MSPoint MSPoint2D;
+typedef  MSPoint MSPoint3D;
 #endif

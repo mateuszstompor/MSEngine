@@ -9,6 +9,11 @@
 #import "MSLoaderOBJ.h"
 
 @implementation MSLoaderOBJ
+static int first[3];
+static int second[3];
+static int third[3];
+static float coord[3];
+
 +(NSArray<MSModelFraction*>*)loadModel: (const char*)path{
     unsigned int currentLine=0;
     NSMutableArray<MSModelFraction*>*arrayOfModelFractions = [[NSMutableArray alloc]init];
@@ -19,6 +24,8 @@
     }
     unsigned int verticiesAmountToSubstract=0;
     unsigned int normalsAmountToSubstract=0;
+    unsigned int textureAmountToSubtract=0;
+   
     bool shouldRead=true;
     while(shouldRead){
         MSOBJEventType type=[MSLoaderOBJ getTypeOfCurrentLineInFile:modelFile currentLine:currentLine];
@@ -31,6 +38,7 @@
                     [arrayOfModelFractions addObject:objectToAdd];
                     verticiesAmountToSubstract+=(unsigned int)[objectToAdd amountOfVerts];
                     normalsAmountToSubstract+=(unsigned int)[objectToAdd amountOfNormals];
+                    textureAmountToSubtract+=(unsigned int)[objectToAdd amountOfTextureCoordinates];
 
                 }
                 objectToAdd=[[MSModelFraction alloc]init];
@@ -46,7 +54,10 @@
                 [MSLoaderOBJ handleS:modelFile model:objectToAdd];
                 break;
             case FACE:
-                [MSLoaderOBJ handleFace:modelFile model:objectToAdd vToSub:verticiesAmountToSubstract nToSub:normalsAmountToSubstract];
+                [MSLoaderOBJ handleFace:modelFile model:objectToAdd vToSub:verticiesAmountToSubstract nToSub:normalsAmountToSubstract tToSub: textureAmountToSubtract];
+                break;
+            case TEXTURE:
+                [MSLoaderOBJ handleTexture:modelFile model:objectToAdd];
                 break;
             case FILEEND:
                 shouldRead=false;
@@ -63,7 +74,7 @@
     return arrayOfModelFractions;
 }
 +(MSOBJEventType)getTypeOfCurrentLineInFile: (FILE*)descriptor currentLine:(long long)currentLine{
-    MSOBJEventType returningType;
+    MSOBJEventType returningType = ERROR;
     char type;
     if((type = getc(descriptor))!=EOF){
         switch (type){
@@ -73,15 +84,20 @@
             case 'o':
                 returningType=OBJECT;
                 break;
-            case 'v':
-                if(getc(descriptor)==' '){
+            case 'v':{
+                char nextCharacter = getc(descriptor);
+                if(nextCharacter == ' '){
                     ungetc(' ', descriptor);
                     returningType=VERTEX;
                 }
-                else{
+                if(nextCharacter == 'n'){
                     returningType=NORMAL;
                 }
+                if(nextCharacter == 't'){
+                    returningType=TEXTURE;
+                }
                 break;
+            }
             case 's':
                 returningType=S;
                 break;
@@ -106,6 +122,7 @@
     fseek(descriptor,1,SEEK_CUR);
     if (getline(&line, &len, descriptor) != -1) {
         //printf("comment: %s", line);
+        free(line);
     }
 }
 +(void)handleObject: (FILE*)descriptor model: (MSModelFraction*)model{
@@ -114,19 +131,13 @@
     fseek(descriptor,1,SEEK_CUR);
     if (getline(&line, &len, descriptor) != -1) {
         [model setName:[[NSString alloc]initWithUTF8String:line]];
+        free(line);
     }
-    //NSLog(@"name: %@", [model getName]);
-    //printf("\n");
-    //fflush(stdout);
-
 }
 +(void)handleVertex: (FILE*)descriptor model: (MSModelFraction*)model{
     fseek(descriptor,1,SEEK_CUR);
-    float firstCo;
-    float secondCo;
-    float thirdCo;
-    if(fscanf(descriptor,"%f %f %f",&firstCo,&secondCo,&thirdCo) == 3){
-        MSPoint* point = [[MSPoint alloc]init3DimPointWithX:firstCo y:secondCo z:thirdCo];
+    if(fscanf(descriptor,"%f %f %f",&coord[0],&coord[1],&coord[2]) == 3){
+        MSPoint* point = [[MSPoint alloc]init3DimPointWithX:coord[0] y:coord[1] z:coord[2]];
         //[point printPoint];
         [model addVertex:point];
     }
@@ -136,14 +147,22 @@
     fseek(descriptor,1,SEEK_CUR);
 
 }
++(void)handleTexture: (FILE*)descriptor model: (MSModelFraction*)model{
+    fseek(descriptor,1,SEEK_CUR);
+    if(fscanf(descriptor,"%f %f",&coord[0],&coord[1]) == 2){
+        MSPoint* point = [[MSPoint alloc]init2DimPointWithX: coord[0] y:coord[1]];
+        [model addTextureCoordinate:point];
+    }
+    else{
+        [NSException raise:@"Error occured!!" format:@""];
+    }
+    fseek(descriptor,1,SEEK_CUR);
+    
+}
 +(void)handleNormal: (FILE*)descriptor model: (MSModelFraction*)model{
     fseek(descriptor,1,SEEK_CUR);
-    float firstCo;
-    float secondCo;
-    float thirdCo;
-    if(fscanf(descriptor,"%f %f %f",&firstCo,&secondCo,&thirdCo) == 3){
-        MSPoint* point = [[MSPoint alloc]init3DimPointWithX:firstCo y:secondCo z:thirdCo];
-        //[point printPoint];
+    if(fscanf(descriptor,"%f %f %f",&coord[0],&coord[1],&coord[2]) == 3){
+        MSPoint* point = [[MSPoint alloc]init3DimPointWithX:coord[0] y:coord[1] z:coord[2]];
         [model addNormal:point];
     }
     else{
@@ -160,24 +179,34 @@
     if (getline(&line, &len, descriptor) != -1) {
         //printf("s: %s", line);
     }
+    free(line);
 }
-+(void)handleFace: (FILE*)descriptor model: (MSModelFraction*)arOfModels vToSub:(unsigned int)subV nToSub:(unsigned int)subN{
++(void)handleFace: (FILE*)descriptor model: (MSModelFraction*)arOfModels vToSub:(unsigned int)subV nToSub:(unsigned int)subN tToSub: (unsigned int)subT{
     fseek(descriptor,1,SEEK_CUR);
-    int first[2];
-    int second[2];
-    int third[2];
-    if(fscanf(descriptor,"%i//%i %i//%i %i//%i",first,(first+1),second,(second+1),third,(third+1)) == 6){
-        MSVertexData* fData = [[MSVertexData alloc]initWithIndexOfVertex:*(first)-1-subV NormalIndex:*(first+1)-1-subN];
-        MSVertexData* sData = [[MSVertexData alloc]initWithIndexOfVertex:*(second)-1-subV NormalIndex:*(second+1)-1-subN];
-        MSVertexData* tData = [[MSVertexData alloc]initWithIndexOfVertex:*(third)-1-subV NormalIndex:*(third+1)-1-subN];
-        MSModelFace* face =[[MSModelFace alloc] initWithData:3, fData,sData,tData];
-        [arOfModels addFace:face];
+    char *currentLine = NULL;
+    size_t len = 0;
+    if(getline(&currentLine, &len, descriptor)==-1){
+        [NSException raise:@"Error occured!!" format:@""];
+    }    
+    if(sscanf(currentLine,"%i/%i/%i %i/%i/%i %i/%i/%i",first,(first+2),(first+1),second,(second+2),(second+1),third,(third+2),(third+1)) == 9){
     }
     else{
-        [NSException raise:@"Error occured!!" format:@""];
+        if(sscanf(currentLine,"%i//%i %i//%i %i//%i",first,(first+1),second,(second+1),third,(third+1)) == 6){
+            *(first+2)=0;
+            *(second+2)=0;
+            *(third+2)=0;
+        }
+        else{
+            [NSException raise:@"Error occured!!" format:@""];
+        }
     }
-    if(feof(descriptor)==false){
-        fseek(descriptor,1,SEEK_CUR);
-    }
+    free(currentLine);
+    MSVertexData* fData = [[MSVertexData alloc]initWithIndexOfVertex:*(first)-1-subV normalIndex:*(first+1)-1-subN textureIndex:*(first+2)-1-subT];
+    MSVertexData* sData = [[MSVertexData alloc]initWithIndexOfVertex:*(second)-1-subV normalIndex:*(second+1)-1-subN textureIndex:*(second+2)-1-subT];
+    MSVertexData* tData = [[MSVertexData alloc]initWithIndexOfVertex:*(third)-1-subV normalIndex:*(third+1)-1-subN textureIndex:*(third+2)-1-subT];
+    MSModelFace* face =[[MSModelFace alloc] initWithData:3, fData,sData,tData];
+    [arOfModels addFace:face];
+    
 }
+
 @end

@@ -12,6 +12,9 @@
 #ifndef MSLOADER_H
 #define MSLOADER_H
 @interface MSLoaderOBJ : NSObject <MSModelManager>
+
+   
+
 +(NSArray<MSModelFraction*>*)loadModel: (const char*)path;
 @end
 
@@ -20,8 +23,10 @@ typedef NS_ENUM(NSUInteger, MSOBJEventType) {
     OBJECT,
     VERTEX,
     NORMAL,
+    TEXTURE,
     S,
     FACE,
-    FILEEND
+    FILEEND,
+    ERROR
 };
 #endif
