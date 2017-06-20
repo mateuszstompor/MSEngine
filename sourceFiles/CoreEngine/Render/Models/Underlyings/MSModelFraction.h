@@ -33,10 +33,12 @@
     NSMutableArray<MSModelFace*>* facesData;
     MSVector3D* fractionColor;
     NSString* name;
+    
+    
+    
     GLuint dataVBO;
     GLuint verticiesVAO;
     BOOL isLoadedToGraphics;
-    
 }
 -(instancetype)init;
 -(void)addVertex: (MSPoint3D*)point;

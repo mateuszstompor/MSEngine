@@ -24,6 +24,7 @@
 -(instancetype)init2DimPointWithX: (float)x y: (float)y;
 -(instancetype)init3DimPointWithX: (float)x y: (float)y z:(float)z;
 -(float)getComponent: (int)index;
+-(int)getDimension;
 -(void)setComponent: (int)index value:(float)val;
 -(void)printPoint;
 -(void)dealloc;

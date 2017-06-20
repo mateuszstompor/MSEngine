@@ -87,7 +87,13 @@
     return [facesData count];
 }
 -(long) amountOfComponentsInsideEachFace {
-    return 3*3*2;
+    return [self amountOfNormalsPoints]+[self amountOfVerticesPoints];
+}
+-(long)amountOfNormalsPoints{
+    return 3*3;
+}
+-(long)amountOfVerticesPoints{
+    return 3*3;
 }
 -(void)loadVerticesAndNormals{
     glGenBuffers(1, &dataVBO);
