@@ -21,7 +21,7 @@
 #import "MSPoint.h"
 #import "MSModelFace.h"
 #import "MSVectorND.h"
-
+#import "MSMaterial.h"
 
 #ifndef MSMODELFRACTION_H
 #define MSMODELFRACTION_H
@@ -33,7 +33,7 @@
     NSMutableArray<MSModelFace*>* facesData;
     MSVector3D* fractionColor;
     NSString* name;
-    
+    MSMaterial* material;
     
     
     GLuint dataVBO;
@@ -56,5 +56,7 @@
 -(void)loadDataToGraphicsCard;
 -(NSString*)getName;
 -(float*)getColor;
+-(MSMaterial*)getMaterial;
+-(void)setMaterial: (MSMaterial*)mat;
 @end
 #endif

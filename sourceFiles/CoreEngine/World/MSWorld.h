@@ -11,14 +11,15 @@
 #import "MSTransformationManager.h"
 #import "MSCamera.h"
 #import "MSLightSource.h"
-
+#import "MSMaterialStore.h"
 
 
 @interface MSWorld : NSObject
 {
-    NSMutableArray<MSPuppet*>* objectsInWorld;
     MSCamera* camera;
+    NSMutableArray<MSPuppet*>* objectsInWorld;
     NSMutableArray<MSLightSource*>* lightSources;
+    MSMaterialStore* materialsInWorld;
 }
 -(instancetype)init;
 -(void)translateCameraX: (float)x y:(float)y z:(float)z;

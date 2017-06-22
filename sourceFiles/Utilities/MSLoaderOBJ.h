@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "MSModelManager.h"
+#import "MSMaterialStore.h"
+
 
 #ifndef MSLOADER_H
 #define MSLOADER_H
+
 @interface MSLoaderOBJ : NSObject <MSModelManager>
-
-   
-
-+(NSArray<MSModelFraction*>*)loadModel: (const char*)path;
++ (instancetype)alloc;
++(NSArray<MSModelFraction*>*)loadModel: (const char*)path tieWithMaterials: (MSMaterialStore*) store;
 @end
 
 typedef NS_ENUM(NSUInteger, MSOBJEventType) {
-    COMMENT,
+    OBJ_COMMENT,
     OBJECT,
     VERTEX,
     NORMAL,
@@ -27,6 +28,8 @@ typedef NS_ENUM(NSUInteger, MSOBJEventType) {
     S,
     FACE,
     FILEEND,
-    ERROR
+    ERROR,
+    MATERIAL_LIB,
+    USEMATERIAL
 };
 #endif

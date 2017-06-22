@@ -1,9 +1,8 @@
-
 //#version 300 es
 #version 410 core
 precision highp float;
 
-
+in vec2 textureCoordinate;
 in vec3 position;
 in vec3 normal;
 

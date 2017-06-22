@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "MSModelFraction.h"
+#import "MSMaterialStore.h"
 
 #ifndef MSMODELMANAGER_H
 #define MSMODELMANAGER_H
 @protocol MSModelManager
-+(NSArray<MSModelFraction*>*)loadModel: (const char*)path;
++(NSArray<MSModelFraction*>*)loadModel: (const char*)path tieWithMaterials: (MSMaterialStore*) store;
 @end
 #endif

@@ -13,8 +13,11 @@ static int first[3];
 static int second[3];
 static int third[3];
 static float coord[3];
-
-+(NSArray<MSModelFraction*>*)loadModel: (const char*)path{
++(instancetype)alloc{
+    [NSException raise:@"Cannot be instantiated!" format:@"Static class 'MSLoaderOBJ' cannot be instantiated!"];
+    return nil;
+}
++(NSArray<MSModelFraction*>*)loadModel: (const char*)path tieWithMaterials: (MSMaterialStore*) store{
     unsigned int currentLine=0;
     NSMutableArray<MSModelFraction*>*arrayOfModelFractions = [[NSMutableArray alloc]init];
     MSModelFraction* objectToAdd;
@@ -22,22 +25,22 @@ static float coord[3];
     if(modelFile==nil){
         [NSException raise:@"Cannot open file" format:@"file at path %s",path];
     }
-    unsigned int verticiesAmountToSubstract=0;
-    unsigned int normalsAmountToSubstract=0;
+    unsigned int verticiesAmountToSubtract=0;
+    unsigned int normalsAmountToSubtract=0;
     unsigned int textureAmountToSubtract=0;
    
     bool shouldRead=true;
     while(shouldRead){
         MSOBJEventType type=[MSLoaderOBJ getTypeOfCurrentLineInFile:modelFile currentLine:currentLine];
         switch (type) {
-            case COMMENT:
+            case OBJ_COMMENT:
                 [MSLoaderOBJ handleComment:modelFile model:objectToAdd];
                 break;
             case OBJECT:
                 if(objectToAdd!=nil){
                     [arrayOfModelFractions addObject:objectToAdd];
-                    verticiesAmountToSubstract+=(unsigned int)[objectToAdd amountOfVerts];
-                    normalsAmountToSubstract+=(unsigned int)[objectToAdd amountOfNormals];
+                    verticiesAmountToSubtract+=(unsigned int)[objectToAdd amountOfVerts];
+                    normalsAmountToSubtract+=(unsigned int)[objectToAdd amountOfNormals];
                     textureAmountToSubtract+=(unsigned int)[objectToAdd amountOfTextureCoordinates];
 
                 }
@@ -54,14 +57,24 @@ static float coord[3];
                 [MSLoaderOBJ handleS:modelFile model:objectToAdd];
                 break;
             case FACE:
-                [MSLoaderOBJ handleFace:modelFile model:objectToAdd vToSub:verticiesAmountToSubstract nToSub:normalsAmountToSubstract tToSub: textureAmountToSubtract];
+                [MSLoaderOBJ handleFace:modelFile model:objectToAdd vToSub:verticiesAmountToSubtract nToSub:normalsAmountToSubtract tToSub: textureAmountToSubtract];
                 break;
             case TEXTURE:
                 [MSLoaderOBJ handleTexture:modelFile model:objectToAdd];
                 break;
+            case USEMATERIAL:
+                [MSLoaderOBJ handleMaterial:modelFile model:objectToAdd tieWithMaterials:store];
+                break;
             case FILEEND:
                 shouldRead=false;
                 break;
+            case MATERIAL_LIB:
+            {
+                char* temp_ptr=NULL;
+                size_t temp_length = 0;
+                getline(&temp_ptr, &temp_length, modelFile);
+                free(temp_ptr);
+            }
             default:
                 break;
         }
@@ -79,7 +92,7 @@ static float coord[3];
     if((type = getc(descriptor))!=EOF){
         switch (type){
             case '#':
-                returningType=COMMENT;
+                returningType=OBJ_COMMENT;
                 break;
             case 'o':
                 returningType=OBJECT;
@@ -103,6 +116,12 @@ static float coord[3];
                 break;
             case 'f':
                 returningType=FACE;
+                break;
+            case 'm':
+                returningType=MATERIAL_LIB;
+                break;
+            case 'u':
+                returningType=USEMATERIAL;
                 break;
             default:
                 [NSException raise:@"Not implemented!!"
@@ -133,6 +152,21 @@ static float coord[3];
         [model setName:[[NSString alloc]initWithUTF8String:line]];
         free(line);
     }
+}
++(void)handleMaterial: (FILE*)descriptor model: (MSModelFraction*)model tieWithMaterials: (MSMaterialStore*) store{
+    char * line = NULL;
+    size_t len = 0;
+    size_t characterAmount = 0;
+    if ((characterAmount = getline(&line, &len, descriptor)) != -1){
+        line[characterAmount-1]='\0';
+        NSString* nameOfMaterial = [[NSString alloc] initWithUTF8String:&line[6]];
+            [model setMaterial:[store getMaterialWithName:nameOfMaterial]];
+        if([store hasMaterial:nameOfMaterial]){
+            NSLog(@"found such material!");
+
+        }
+    }
+    free(line);
 }
 +(void)handleVertex: (FILE*)descriptor model: (MSModelFraction*)model{
     fseek(descriptor,1,SEEK_CUR);
