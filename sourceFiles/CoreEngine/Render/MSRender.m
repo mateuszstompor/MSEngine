@@ -8,10 +8,13 @@
 
 #import "MSRender.h"
 
+
+
 @implementation MSRender
 -(void)drawObject: (MSPuppet*)model withProgram: (GLuint)shProg{
     for(MSModelFraction* frac in [model getModelComponents]){
         [self drawFraction:frac model:model program:shProg];
+        
     }
 }
 -(void)drawFraction:(MSModelFraction*)frac model:(MSPuppet*)md program: (GLuint)shProg{

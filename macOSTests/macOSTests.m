@@ -29,7 +29,7 @@
 }
 - (void)testObjectLoadingPerformance {
     [self measureBlock:^{
-       model = [MSLoaderOBJ loadModel:"/Users/mateusz/Desktop/classroom.obj"];
+       model = [MSLoaderOBJ loadModel:"/Users/mateusz/Desktop/classroom.obj" tieWithMaterials:nil];
     }];
 }
 - (void)testMatrixMultiplicationPerformance{

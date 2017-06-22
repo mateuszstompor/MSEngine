@@ -62,7 +62,9 @@
     self = [self initWithComponents:2,x,y];
     return self;
 }
-
+-(int)getDimension{
+    return self->dimension;
+}
 -(void)dealloc{
     free(self->components);
 }

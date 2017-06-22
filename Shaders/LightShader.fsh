@@ -1,6 +1,9 @@
+
 #version 410 core
 //#version 300 es
+
 precision highp float;
+
 in vec3 Normal;
 out vec4 outColor;
 uniform vec3 lightColor;

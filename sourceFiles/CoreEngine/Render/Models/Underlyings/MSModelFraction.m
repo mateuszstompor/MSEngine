@@ -19,12 +19,19 @@
         self->name=[[NSString alloc]initWithUTF8String:""];
         self->fractionColor=[[MSVectorND alloc] initZeroVecWithDimension:3];
         isLoadedToGraphics=false;
+        self->material=nil;
         [self generateRandomColor];
     }
     return self;
 }
 -(void)addVertex: (MSPoint3D*)point{
     [vertices addObject:point];
+}
+-(MSMaterial*)getMaterial{
+    return self->material;
+}
+-(void)setMaterial: (MSMaterial*)mat{
+    self->material=mat;
 }
 -(float*)getColor{
     return [fractionColor getArrayStyleVector];
@@ -87,7 +94,13 @@
     return [facesData count];
 }
 -(long) amountOfComponentsInsideEachFace {
-    return 3*3*2;
+    return [self amountOfNormalsPoints]+[self amountOfVerticesPoints];
+}
+-(long)amountOfNormalsPoints{
+    return 3*3;
+}
+-(long)amountOfVerticesPoints{
+    return 3*3;
 }
 -(void)loadVerticesAndNormals{
     glGenBuffers(1, &dataVBO);

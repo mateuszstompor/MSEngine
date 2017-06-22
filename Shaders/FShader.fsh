@@ -1,4 +1,3 @@
-
 //#version 300 es
 #version 410 core
 precision highp float;
