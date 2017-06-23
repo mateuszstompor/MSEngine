@@ -161,10 +161,6 @@ static float coord[3];
         line[characterAmount-1]='\0';
         NSString* nameOfMaterial = [[NSString alloc] initWithUTF8String:&line[6]];
             [model setMaterial:[store getMaterialWithName:nameOfMaterial]];
-        if([store hasMaterial:nameOfMaterial]){
-            NSLog(@"found such material!");
-
-        }
     }
     free(line);
 }

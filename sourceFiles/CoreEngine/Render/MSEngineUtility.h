@@ -7,8 +7,6 @@
 //
 
 
-
-
 #if macOS
 #import <OpenGL/gl3.h>
 #import <OpenGL/gl.h>
@@ -24,14 +22,13 @@
 
 #ifndef MSENGINEUTILITY_H
 #define MSENGINEUTILITY_H
+
 @interface MSEngineUtility : NSObject
-
--(instancetype)init NS_UNAVAILABLE;
-+(instancetype)alloc NS_UNAVAILABLE;
-+(GLuint)loadShader:(const char*)path type:(GLenum) type maxAmountOfCharacters:(unsigned long) maxAmount;
-+(GLuint)createBasicShaderProgramWithVertexShader: (GLuint)vertexSh fragmentShader: (GLuint)fragmentSh;
-+(GLuint)generateShaderProgramFromVertexShader: (const char*)vShader fragmentShader:(const char*)fShader;
-+(void)lookForErrors;
-
+-(instancetype)init     NS_UNAVAILABLE;
++(instancetype)alloc    NS_UNAVAILABLE;
++(GLuint)loadShaderAtFolder:(NSString*) pathToFolder fileName:(NSString*) fileName type:(GLenum) shaderType;
++(GLuint)createBasicShaderProgramWithVertexShader: (GLuint) vertexShader fragmentShader: (GLuint) fragmentShader;
++(GLuint)shaderProgramFromFiles: (NSString*) folderPath vertexShader: (NSString*) vShaderName fragmentShader: (NSString*) fShaderName;
 @end
+
 #endif

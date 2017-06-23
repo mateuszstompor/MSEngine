@@ -1,11 +1,10 @@
-//#version 300 es
-#version 410 core
-precision highp float;
-
-
 in vec3 Normal;
 in vec3 fragmentPositionInWorld;
-uniform vec3 fractionColor;
+
+uniform vec3 specularColor;
+uniform vec3 diffuseColor;
+uniform vec3 ambientColor;
+uniform float shininess;
 
 in vec3 cameraPositionInWorld;
 uniform vec3 lightColor;
@@ -17,23 +16,32 @@ out vec4 outColor;
 
 
 void main(void){
-    float ambientStrength = 0.5f;
-    vec3 ambient = ambientStrength * lightColor;
-    vec3 lightPos = vec3(vec4(lightPosition*vec4(1.0f)).xyz);
+    float specularStrength = 0.01f;
+    float ambientStrength = 0.1f;
+    float diffuseStrength = 0.85f;
+    float shininessStrength = 0.0009f;
+    
+    
+    
+    vec3 ambient = lightColor * ambientStrength * ambientColor;
+    vec3 lightPos = (lightPosition*vec4(1.0f)).xyz;
 
     
     vec3 direction = normalize(lightPos-fragmentPositionInWorld);
     vec3 normalizedNormal = normalize(Normal);
     
     float diff = max(dot(normalizedNormal, direction), 0.0);
-    vec3 diffuse = diff * lightColor;
+    vec3 diffuse = lightColor * diffuseStrength * diff * diffuseColor;
+    
+    
+    
+    
     
     //specular
-    float specularStrength = 0.1f;
     vec3 viewDir = normalize(cameraPositionInWorld - fragmentPositionInWorld);
     vec3 reflectDir = reflect(-lightPos, normalizedNormal);
-    float spec = max(dot(viewDir, reflectDir), 0.0) * max(dot(viewDir, reflectDir), 0.0);
-    vec3 specular = specularStrength * spec * lightColor;
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininessStrength*shininess);
+    vec3 specular = lightColor * specularStrength * spec;
     //specular end
     
     
@@ -48,12 +56,6 @@ void main(void){
     if((settings>>2 & 1)==1){
         sum+=diffuse;
     }
-    if(sum == vec3(0.0f)){
-        sum = vec3(1.0f);
-    }
-    vec3 result = sum * fractionColor;
-
-    
-    outColor = vec4(result,1.0f);
+    outColor = vec4(sum,1.0f);
     
 }

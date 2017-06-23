@@ -21,7 +21,8 @@
     NSMutableArray<MSLightSource*>* lightSources;
     MSMaterialStore* materialsInWorld;
 }
--(instancetype)init;
+-(instancetype)init NS_UNAVAILABLE;
+-(instancetype)initWithMaterials: (MSMaterialStore*)store;
 -(void)translateCameraX: (float)x y:(float)y z:(float)z;
 -(void)rotateCameraX: (float)x y:(float)y z:(float)z;
 -(MSCamera*)getCamera;
@@ -30,4 +31,5 @@
 -(NSMutableArray<MSLightSource*>*)getLightSources;
 -(void)addLightSourceToWorld: (MSLightSource*)lght;
 -(void)translatelight: (MSLightSource*)light x: (float)x y:(float)y z:(float)z;
+-(MSMaterialStore*)getAvailavleMaterials;
 @end

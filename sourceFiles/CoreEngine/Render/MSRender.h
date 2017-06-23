@@ -35,7 +35,7 @@
     int settings;
 }
 -(instancetype)init NS_UNAVAILABLE;
--(instancetype)initWithWorld: (MSWorld*)w vertexShader: (const char*)vsh fragmentShader:(const char*)fsh lightShader: (const char*) lfsh;
+-(instancetype)initWithWorld: (MSWorld*)w shadersFolderPath: (NSString*) path;
 -(void)drawEverything;
 -(void)run;
 -(int)getSettings;

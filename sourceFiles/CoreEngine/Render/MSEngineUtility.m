@@ -8,24 +8,22 @@
 #import "MSEngineUtility.h"
 
 @implementation MSEngineUtility
-+(GLuint)loadShader:(const char*)path type:(GLenum) type maxAmountOfCharacters:(unsigned long) maxAmount{
-    GLchar* buffer=(char*)malloc(maxAmount*sizeof(GLchar));
-    FILE* file = fopen(path, "r");
-    if(file==NULL){
-        perror("cannot open file from path");
-        [NSException raise:@"Cannot open file" format:@"file at path %s",path];
-    }
-    unsigned long long i=0;
-    char c;
-    while((c=getc(file))!=EOF){
-        *(buffer+i)=c;
-        i+=1;
-    }
-    *(buffer+i)='\0';
-    if(fclose(file)!=0){
-        [NSException raise:@"Cannot close file" format:@"file at path %s",path];
-    }
-    GLuint shader=glCreateShader(type);
++(GLuint)loadShaderAtFolder:(NSString*) pathToFolder fileName:(NSString*) fileName type:(GLenum) shaderType{
+    NSString * fullPathToShader = [pathToFolder stringByAppendingString:fileName];
+    NSMutableString * content = [[NSMutableString alloc] initWithContentsOfFile:fullPathToShader encoding:NSUTF8StringEncoding error:nil];
+    
+#if iOS
+    NSString * iosHeader = [[NSMutableString alloc] initWithContentsOfFile:[pathToFolder stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    [content insertString:iosHeader atIndex:0];
+#elif macOS
+    NSString * macHeader = [[NSMutableString alloc] initWithContentsOfFile:[pathToFolder stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    [content insertString:macHeader atIndex:0];
+#else
+    [NSException raise:@"There is no shaderProgram for such device" format:@""];
+#endif
+    
+    const char * buffer = [content UTF8String];
+    GLuint shader=glCreateShader(shaderType);
     glShaderSource(shader, 1,(GLchar const * const *)&buffer, NULL);
     glCompileShader(shader);
     GLint status;
@@ -36,32 +34,20 @@
         printf("%s",errorbuffer);
         [NSException raise:@"Program stopped due to shader compilation failure" format:@""];
     }
-    free (buffer);
     return shader;
 }
-+(GLuint)createBasicShaderProgramWithVertexShader: (GLuint)vertexSh fragmentShader: (GLuint)fragmentSh{
++(GLuint)createBasicShaderProgramWithVertexShader: (GLuint) vertexShader fragmentShader: (GLuint) fragmentShader{
     GLuint shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexSh);
-    glAttachShader(shaderProgram, fragmentSh);
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
     glLinkProgram(shaderProgram);
-    glUseProgram(shaderProgram);
-    glDeleteShader(vertexSh);
-    glDeleteShader(fragmentSh);
-    [MSEngineUtility lookForErrors];
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
     return shaderProgram;
 }
-+(void)lookForErrors{
-    if(glGetError()!=0){
-        printf("error occured");
-        [NSException raise:@"OpenGL failure" format:@""];
-    }
-}
-+(void)deleteShader: (GLuint) shader{
-    glDeleteShader(shader);
-}
-+(GLuint)generateShaderProgramFromVertexShader: (const char*)vShader fragmentShader:(const char*)fShader{
-    GLuint vertexShader = [MSEngineUtility loadShader:vShader type:GL_VERTEX_SHADER maxAmountOfCharacters:3000];
-    GLuint fragmentShader = [MSEngineUtility loadShader:fShader type:GL_FRAGMENT_SHADER maxAmountOfCharacters:3000];
++(GLuint)shaderProgramFromFiles: (NSString*) folderPath vertexShader: (NSString*) vShaderName fragmentShader: (NSString*) fShaderName{
+    GLuint vertexShader = [MSEngineUtility loadShaderAtFolder:folderPath fileName:vShaderName type:GL_VERTEX_SHADER];
+    GLuint fragmentShader = [MSEngineUtility loadShaderAtFolder:folderPath fileName:fShaderName type:GL_FRAGMENT_SHADER];
     return [MSEngineUtility createBasicShaderProgramWithVertexShader:vertexShader fragmentShader:fragmentShader];
 }
 @end

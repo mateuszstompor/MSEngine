@@ -19,6 +19,7 @@
     float *components;
     int dimension;
 }
++(instancetype)onesVector: (int)dimension;
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithZerosExceptIndex: (int) index number:(float) num dimensionOfVector: (int) dim;
 -(instancetype)initZeroVecWithDimension: (int const) dim;

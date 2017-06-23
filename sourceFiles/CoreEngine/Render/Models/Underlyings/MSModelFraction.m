@@ -12,13 +12,15 @@
 -(instancetype)init{
     self=[super init];
     if(self){
-        vertices=[[NSMutableArray alloc]init];
-        normals=[[NSMutableArray alloc]init];
-        facesData=[[NSMutableArray alloc]init];
-        textureCoordinates=[[NSMutableArray alloc] init];
+        self->vertices=[[NSMutableArray alloc]init];
+        self->normals=[[NSMutableArray alloc]init];
+        self->facesData=[[NSMutableArray alloc]init];
+        self->textureCoordinates=[[NSMutableArray alloc] init];
         self->name=[[NSString alloc]initWithUTF8String:""];
         self->fractionColor=[[MSVectorND alloc] initZeroVecWithDimension:3];
-        isLoadedToGraphics=false;
+        self->isLoadedToGraphics=false;
+        self->dataVBO=0;
+        self->verticiesVAO=0;
         self->material=nil;
         [self generateRandomColor];
     }
@@ -34,7 +36,12 @@
     self->material=mat;
 }
 -(float*)getColor{
-    return [fractionColor getArrayStyleVector];
+    if(material!=nil){
+        return [[material getDiffuse] getArrayStyleVector];
+    }else{
+       // NSLog(@"it was nil");
+        return [fractionColor getArrayStyleVector];
+    }
 }
 -(void)addNormal: (MSPoint3D*)point{
     [normals addObject:point];
@@ -138,6 +145,13 @@
 
         }
         currentIndex+=1;
+    }
+}
+-(void)dealloc{
+    NSLog(@"dealloc");
+    if(isLoadedToGraphics==true){
+        glDeleteBuffers(1, &dataVBO);
+        glDeleteVertexArrays(1, &verticiesVAO);
     }
 }
 @end

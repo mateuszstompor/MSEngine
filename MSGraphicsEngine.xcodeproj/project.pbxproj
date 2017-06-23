@@ -218,6 +218,8 @@
 		617DE2A21EE973F000189A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619A5F531EBA81460017DB89 /* MSLightSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLightSource.h; sourceTree = "<group>"; };
 		619A5F541EBA81460017DB89 /* MSLightSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLightSource.m; sourceTree = "<group>"; };
+		61BCA3BD1EFDC850004FA86D /* ios_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ios_shaders_header; sourceTree = "<group>"; };
+		61BCA3BE1EFDC866004FA86D /* mac_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mac_shaders_header; sourceTree = "<group>"; };
 		61DF1ED31ED66B1C008333A8 /* libiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DF1EF11ED66B80008333A8 /* libmacOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmacOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -434,6 +436,8 @@
 				615AF6E21EB8B3AF0086897F /* FShader.fsh */,
 				615AF6E31EB8B3AF0086897F /* VShader.vsh */,
 				611E214F1EBA7FF8000BCDD8 /* LightShader.fsh */,
+				61BCA3BD1EFDC850004FA86D /* ios_shaders_header */,
+				61BCA3BE1EFDC866004FA86D /* mac_shaders_header */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
