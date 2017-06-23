@@ -9,12 +9,13 @@
 #import "MSWorld.h"
 
 @implementation MSWorld
--(instancetype)init{
+-(instancetype)initWithMaterials: (MSMaterialStore*)store{
     self=[super init];
     if(self){
         self->camera=[[MSCamera alloc]init];
         self->objectsInWorld=[[NSMutableArray alloc]init];
         self->lightSources=[[NSMutableArray alloc]init];
+        self->materialsInWorld=store;
     }
     return self;
 }
@@ -49,5 +50,8 @@
 }
 -(void)addModelToWorld: (MSPuppet*)pup{
     [objectsInWorld addObject:pup];
+}
+-(MSMaterialStore*)getAvailavleMaterials{
+    return self->materialsInWorld;
 }
 @end

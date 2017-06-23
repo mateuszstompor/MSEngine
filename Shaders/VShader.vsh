@@ -1,7 +1,3 @@
-//#version 300 es
-#version 410 core
-precision highp float;
-
 in vec2 textureCoordinate;
 in vec3 position;
 in vec3 normal;
@@ -25,7 +21,7 @@ out vec3 fragmentPositionInWorld;
 void main(void){
     vec4 newPos =translation*rotation*scale*vec4(position,1.0f);
     newPos =projection*cameraTranslation*cameraRotation*newPos;
-    fragmentPositionInWorld=  vec4(translation*rotation*scale*vec4(position,1.0f)).xyz;
+    fragmentPositionInWorld=vec4(translation*rotation*scale*vec4(position,1.0f)).xyz;
     gl_Position = newPos;
     cameraPositionInWorld = vec4(cameraTranslation*cameraRotation*vec4(1.0f)).xyz;
     Normal=normal;

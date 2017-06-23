@@ -34,8 +34,6 @@
     MSVector3D* fractionColor;
     NSString* name;
     MSMaterial* material;
-    
-    
     GLuint dataVBO;
     GLuint verticiesVAO;
     BOOL isLoadedToGraphics;

@@ -27,7 +27,13 @@
     free (buffer);
     return self;
 }
-
++(instancetype)onesVector: (int)dimension{
+    MSVectorND* vectorToReturn = [[MSVectorND alloc] initZeroVecWithDimension:dimension];
+    for(int i=0; i<dimension; ++i){
+        [vectorToReturn setValueAtIdenx:i value:1.0f];
+    }
+    return vectorToReturn;
+}
 -(instancetype)initWithArrayOfComponents: (int const) dim components: (float const * const) array{
     self=[super self];
     if(self){

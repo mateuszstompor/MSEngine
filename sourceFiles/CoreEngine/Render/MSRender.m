@@ -34,8 +34,21 @@
 #endif
     [self loadTransformationFromModelToShader: md shaderProgram:shProg];
     [self updateCameraPositionInShader: shProg];
-    
-    glUniform3fv(glGetUniformLocation(shProg, "fractionColor"), 1, [frac getColor]);
+    if([frac getMaterial] != nil){
+        MSVector4D* diffuse = [[frac getMaterial] getDiffuse];
+        MSVector4D* ambient = [[frac getMaterial] getAmbient];
+        float shininess = [[frac getMaterial] getShininess];
+        glUniform3fv(glGetUniformLocation(shProg, "diffuseColor"), 1, [diffuse getArrayStyleVector]);
+        glUniform3fv(glGetUniformLocation(shProg, "ambientColor"), 1, [ambient getArrayStyleVector]);
+        glUniform1f(glGetUniformLocation(shProg, "shininess"), shininess);
+
+    }else{
+        glUniform3fv(glGetUniformLocation(shProg, "diffuseColor"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+        glUniform3fv(glGetUniformLocation(shProg, "ambientColor"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+        glUniform1f(glGetUniformLocation(shProg, "shininess"), 1.0f);
+    }
+
+    glUniform3fv(glGetUniformLocation(shProg, "specularColor"), 1, [frac getColor]);
     glUniform3fv(glGetUniformLocation(shProg, "lightColor"), 1, [[[[world getLightSources]objectAtIndex:0]getColor]getArrayStyleVector]);
     glUniformMatrix4fv(glGetUniformLocation(shProg, "lightPosition"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]getTranslation]matrixAsArray]);
 #if macOS
@@ -53,12 +66,12 @@
     glBindVertexArray(0);
     glEnableVertexAttribArray(0);
 }
--(instancetype)initWithWorld: (MSWorld*)w vertexShader: (const char*)vsh fragmentShader:(const char*)fsh lightShader: (const char*) lfsh{
+-(instancetype)initWithWorld: (MSWorld*)w shadersFolderPath: (NSString*) path{
     self=[super init];
     if(self){
         self->renderThread=[[NSThread alloc]initWithTarget:self selector:@selector(run) object:nil];
-        self->shaderProgram=[MSEngineUtility generateShaderProgramFromVertexShader:vsh fragmentShader:fsh];
-        self->lightShaderProgram=[MSEngineUtility generateShaderProgramFromVertexShader:vsh fragmentShader:lfsh];
+        self->shaderProgram = [MSEngineUtility shaderProgramFromFiles:path vertexShader:@"VShader.vsh" fragmentShader:@"FShader.fsh"];
+        self->lightShaderProgram = [MSEngineUtility shaderProgramFromFiles:path vertexShader:@"VShader.vsh" fragmentShader:@"LightShader.fsh"];
         self->world=w;
         self->settings=0;
         glEnable(GL_DEPTH_TEST);
