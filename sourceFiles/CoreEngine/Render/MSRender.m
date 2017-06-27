@@ -94,7 +94,7 @@
 -(void)updateCameraPositionInShader: (GLuint)shProg{
     MSCamera* cam = [world getCamera];
     [cam lockObject];
-    glUniformMatrix4fv(glGetUniformLocation(shProg, "cameraTranslation"), 1, GL_FALSE, [[cam getTranslation] matrixAsArray]);
+    glUniformMatrix4fv(glGetUniformLocation(shProg, "cameraTranslation.camTr"), 1, GL_FALSE, [[cam getTranslation] matrixAsArray]);
     glUniformMatrix4fv(glGetUniformLocation(shProg, "cameraRotation"), 1, GL_FALSE, [[cam getRotation] matrixAsArray]);
     [cam unLockObject];
 }
