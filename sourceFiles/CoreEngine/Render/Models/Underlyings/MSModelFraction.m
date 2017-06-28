@@ -37,9 +37,8 @@
 }
 -(float*)getColor{
     if(material!=nil){
-        return [[material getDiffuse] getArrayStyleVector];
+        return [[material diffuse] getArrayStyleVector];
     }else{
-       // NSLog(@"it was nil");
         return [fractionColor getArrayStyleVector];
     }
 }

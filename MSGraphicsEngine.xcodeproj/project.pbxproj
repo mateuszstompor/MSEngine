@@ -345,12 +345,9 @@
 		615AF69B1EB8B3930086897F /* Underlyings */ = {
 			isa = PBXGroup;
 			children = (
-				615AF69C1EB8B3930086897F /* MSModelFace.h */,
-				615AF69D1EB8B3930086897F /* MSModelFace.m */,
+				61D1E9271F0443590038AE3D /* Face */,
 				615AF69E1EB8B3930086897F /* MSModelFraction.h */,
 				615AF69F1EB8B3930086897F /* MSModelFraction.m */,
-				615AF6A21EB8B3930086897F /* MSVertexData.h */,
-				615AF6A31EB8B3930086897F /* MSVertexData.m */,
 			);
 			path = Underlyings;
 			sourceTree = "<group>";
@@ -458,6 +455,25 @@
 				617DE2A21EE973F000189A63 /* Info.plist */,
 			);
 			path = iOSTests;
+			sourceTree = "<group>";
+		};
+		61D1E9261F0443490038AE3D /* Vertex */ = {
+			isa = PBXGroup;
+			children = (
+				615AF6A21EB8B3930086897F /* MSVertexData.h */,
+				615AF6A31EB8B3930086897F /* MSVertexData.m */,
+			);
+			name = Vertex;
+			sourceTree = "<group>";
+		};
+		61D1E9271F0443590038AE3D /* Face */ = {
+			isa = PBXGroup;
+			children = (
+				61D1E9261F0443490038AE3D /* Vertex */,
+				615AF69C1EB8B3930086897F /* MSModelFace.h */,
+				615AF69D1EB8B3930086897F /* MSModelFace.m */,
+			);
+			name = Face;
 			sourceTree = "<group>";
 		};
 		61EEE5DD1EB8BC2800468123 /* point */ = {

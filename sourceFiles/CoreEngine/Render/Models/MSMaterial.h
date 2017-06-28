@@ -47,40 +47,19 @@ typedef NS_ENUM(NSUInteger, RenderMode) {
 
 @interface MSMaterial : NSObject
 
-{
-    NSString* name;
-    MSVector3D* ambient;
-    MSVector3D* diffuse;
-    MSVector3D* specular;
-    MSVector3D* emissive;
-    float shininess;
-    float transparency;
-    RenderMode mode;
-    float refraction;
-    NSString* associatedTexture;
-}
+    @property (atomic) NSString* name;
+    @property (atomic) MSVector3D* ambient;
+    @property (atomic) MSVector3D* diffuse;
+    @property (atomic) MSVector3D* specular;
+    @property (atomic) MSVector3D* emissive;
+    @property (atomic) float shininess;
+    @property (atomic) float transparency;
+    @property (atomic) RenderMode renderMode;
+    @property (atomic) float refraction;
+    @property (atomic) NSString* associatedTexture;
 
 -(instancetype)init;
--(void)setName: (NSString*) name;
--(NSString*)getName;
--(void)setAmbient: (MSVector3D*)amb;
--(MSVector3D*)getAmbient;
--(void)setDiffuse: (MSVector3D*)dif;
--(MSVector3D*)getDiffuse;
--(void)setSpecular: (MSVector3D*)spec;
--(MSVector3D*)getSpecular;
--(void)setShininess: (float)shin;
--(float)getShininess;
--(void)setRenderMode:(RenderMode)mod;
--(RenderMode)getRenderMode;
--(void)setRefraction: (float)refrac;
--(float)getRefraction;
--(void)setEmissive: (MSVector3D*)em;
--(MSVector3D*)getEmissive;
--(void)setAssociatedTexture: (NSString*)texture;
--(NSString*)getAssociatedTexture;
--(void)setTransparency: (float)transp;
--(float)getTransparency;
+
 @end
 
 

@@ -29,15 +29,12 @@
 #if macOS
     glBindFragDataLocation(shProg, 0, "outColor");
 #endif
-#if iOS
-   // glGetFragDataLocation(shProg, "outColor");
-#endif
     [self loadTransformationFromModelToShader: md shaderProgram:shProg];
     [self updateCameraPositionInShader: shProg];
     if([frac getMaterial] != nil){
-        MSVector4D* diffuse = [[frac getMaterial] getDiffuse];
-        MSVector4D* ambient = [[frac getMaterial] getAmbient];
-        float shininess = [[frac getMaterial] getShininess];
+        MSVector4D* diffuse = [[frac getMaterial] diffuse];
+        MSVector4D* ambient = [[frac getMaterial] ambient];
+        float shininess = [[frac getMaterial] shininess];
         glUniform3fv(glGetUniformLocation(shProg, "diffuseColor"), 1, [diffuse getArrayStyleVector]);
         glUniform3fv(glGetUniformLocation(shProg, "ambientColor"), 1, [ambient getArrayStyleVector]);
         glUniform1f(glGetUniformLocation(shProg, "shininess"), shininess);

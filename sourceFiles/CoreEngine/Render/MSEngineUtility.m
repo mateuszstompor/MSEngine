@@ -29,7 +29,6 @@
     GLint status;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
     if(status!=GL_TRUE){
-        //char errorbuffer[512];
         GLint length = 0;
         glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
         char* errorbuffer = (char*)malloc(length*sizeof(char));

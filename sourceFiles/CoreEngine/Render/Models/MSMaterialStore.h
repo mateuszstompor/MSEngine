@@ -13,16 +13,17 @@
 #ifndef MSMATERIALSTORE_H
 #define MSMATERIALSTORE_H
 @interface MSMaterialStore : NSObject
+
 {
-    NSString* name;
     NSMutableDictionary<NSString*,MSMaterial*>* availableMaterials;
 }
+@property (atomic) NSString* name;
+
 -(instancetype)init;
--(void)setStoreName: (NSString*) name;
--(NSString*)getStoreName;
 -(void)addMaterial: (MSMaterial*) material;
 -(BOOL)hasMaterial: (NSString*) material;
 -(MSMaterial*)getMaterialWithName: (NSString*) name;
 -(int)amountOfMaterials;
+
 @end
 #endif

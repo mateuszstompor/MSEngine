@@ -8,7 +8,7 @@
 
 #import "MSMaterialStore.h"
 @implementation MSMaterialStore
-
+@synthesize name;
 
 -(instancetype)init{
     self = [super init];
@@ -18,20 +18,11 @@
     }
     return self;
 }
--(MSMaterial*)getMaterial: (NSString*)materialName {
-    return [availableMaterials objectForKey:materialName];
-}
 -(void)addMaterial: (MSMaterial*) material{
-    [availableMaterials setObject:material forKey:[material getName]];
+    [availableMaterials setObject:material forKey:[material name]];
 }
 -(int)amountOfMaterials{
     return (int)[availableMaterials count];
-}
--(void)setStoreName: (NSString*) nam{
-    self->name=nam;
-}
--(NSString*)getStoreName{
-    return self->name;
 }
 -(BOOL)hasMaterial: (NSString*) material{
     return [availableMaterials objectForKey:material] != nil ? true : false;
