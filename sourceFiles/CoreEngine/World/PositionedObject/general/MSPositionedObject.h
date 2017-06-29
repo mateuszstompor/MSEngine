@@ -10,23 +10,15 @@
 
 #ifndef MSPOSITIONEDOBJECT_H
 #define MSPOSITIONEDOBJECT_H
-@interface MSPositionedObject : NSObject
-{
-    MSMatrix4D* scale;
-    MSMatrix4D* rotation;
-    MSMatrix4D* translation;
-    NSLock* objectLock;
-}
--(instancetype)init;
--(instancetype)initWithScale: (MSMatrix4D*)scaleM rotation: (MSMatrix4D*)rotationM translation:(MSMatrix4D*)trM;
+@protocol MSPositionedObject
+
 -(MSMatrix4D*)getScale;
 -(MSMatrix4D*)getRotation;
 -(MSMatrix4D*)getTranslation;
--(MSMatrix4D*)getTransformationMatrix;
--(void)lockObject;
--(void)unLockObject;
--(void)multiplyTranslationBy: (MSMatrixND*) tr;
--(void)multiplyRotationnBy: (MSMatrixND*) rot;
--(void)multiplyScaleBy:(MSMatrixND*) sc;
+
+-(void)translateBy: (MSMatrixND*) tr;
+-(void)rotateBy: (MSMatrixND*) rot;
+-(void)scaleBy:(MSMatrixND*) sc;
+
 @end
 #endif

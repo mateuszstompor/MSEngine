@@ -12,8 +12,10 @@
 @implementation MSPuppet
 
 -(instancetype)initWithScale: (MSMatrix4D*)scaleM rotation: (MSMatrix4D*)rotationM translation:(MSMatrix4D*)trM model: (NSArray<MSModelFraction*>*)mod{
-    self=[super initWithScale:scaleM rotation:rotationM translation:trM];
     if(self){
+        self->scale=scaleM;
+        self->rotation=rotationM;
+        self->translation=trM;
         self->model=mod;
     }
     return self;
@@ -25,4 +27,24 @@
     self=[self initWithScale:[MSMatrixND identityMatrix:4] rotation:[MSMatrixND identityMatrix:4] translation:[MSMatrixND identityMatrix:4] model:md];
     return self;
 }
+
+-(MSMatrix4D*)getScale{
+    return self->scale;
+}
+-(MSMatrix4D*)getRotation{
+    return self->rotation;
+}
+-(MSMatrix4D*)getTranslation{
+    return self->translation;
+}
+-(void)translateBy: (MSMatrixND*) tr{
+    self->translation=[tr multiplyByMatrix:translation];
+}
+-(void)rotateBy: (MSMatrixND*) rot{
+    self->rotation=[rot multiplyByMatrix:rotation];
+}
+-(void)scaleBy:(MSMatrixND*) sc{
+    self->scale=[sc multiplyByMatrix:self->scale];
+}
+
 @end

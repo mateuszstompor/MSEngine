@@ -14,7 +14,6 @@
 #ifndef MSTRANSFORMATIONMANAGER_H
 #define MSTRANSFORMATIONMANAGER_H
 @interface MSTransformationManager : NSObject
--(instancetype)init NS_UNAVAILABLE;
 +(instancetype)alloc NS_UNAVAILABLE;
 +(MSMatrixND*)rotationMatrixAboutXinRadians4x4: (float) radians;
 +(MSMatrixND*)rotationMatrixAboutYinRadians4x4: (float) radians;

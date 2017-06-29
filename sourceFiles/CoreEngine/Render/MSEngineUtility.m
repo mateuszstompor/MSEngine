@@ -13,10 +13,14 @@
     NSMutableString * content = [[NSMutableString alloc] initWithContentsOfFile:fullPathToShader encoding:NSUTF8StringEncoding error:nil];
     
 #if iOS
-    NSString * iosHeader = [[NSMutableString alloc] initWithContentsOfFile:[pathToFolder stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    NSString * iosHeader = [[NSMutableString alloc]
+                            initWithContentsOfFile:[pathToFolder
+                                                    stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
     [content insertString:iosHeader atIndex:0];
 #elif macOS
-    NSString * macHeader = [[NSMutableString alloc] initWithContentsOfFile:[pathToFolder stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    NSString * macHeader = [[NSMutableString alloc]
+                            initWithContentsOfFile:[pathToFolder
+                                                    stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
     [content insertString:macHeader atIndex:0];
 #else
     [NSException raise:@"There is no shaderProgram for such device" format:@""];
