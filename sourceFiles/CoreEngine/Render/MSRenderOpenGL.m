@@ -9,6 +9,9 @@
 #import "MSRenderOpenGL.h"
 
 @implementation MSRenderOpenGL
+
+@synthesize settings;
+
 -(instancetype)initWithWorld:(MSWorld *)w modelShader: (GLuint)mSh lightShader: (GLuint)lsh{
     self=[super init];
     if(self){
@@ -16,6 +19,9 @@
         self->modelsLoadedToGraphics = [[NSMutableDictionary alloc] init];
         self->lightShaderProgram=lsh;
         self->modelShaderProgram=mSh;
+        self->amountOfFramesRendered=0;
+        self->settings=0;
+        self->lastSecond=[NSDate date];
         [self loadObjectsToGraphics];
         [self setUpOpenGLOptions];
     }
@@ -53,14 +59,28 @@
     self->_beforeDrawAction=block;
 }
 -(void)drawScene{
+    [self printFPSOnConsole:false];
     [self clear];
     [self drawModels];
 }
+-(void)printFPSOnConsole: (BOOL) printOnConsole{
+    NSDate *now = [NSDate date];
+    NSTimeInterval executionTime = [now timeIntervalSinceDate:lastSecond];
+    if(executionTime > 1.0f && printOnConsole == true){
+        NSLog(@"%f", amountOfFramesRendered/executionTime);
+        amountOfFramesRendered=0;
+        lastSecond=[NSDate date];
+    }
+    amountOfFramesRendered+=1;
+}
 -(void)setUpUniforms: (MSModelFraction*) frac shaderProgram: (GLuint) prog{
+        glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
         if([frac material] != nil){
-            MSVector4D* diffuse = [[frac material] diffuse];
-            MSVector4D* ambient = [[frac material] ambient];
+            MSVector3D* diffuse = [[frac material] diffuse];
+            MSVector3D* ambient = [[frac material] ambient];
+            MSVector3D* specular = [[frac material] specular];
             float shininess = [[frac material] shininess];
+            glUniform3fv(glGetUniformLocation(prog, "specularColor"), 1, [specular getArrayStyleVector]);
             glUniform3fv(glGetUniformLocation(prog, "diffuseColor"), 1, [diffuse getArrayStyleVector]);
             glUniform3fv(glGetUniformLocation(prog, "ambientColor"), 1, [ambient getArrayStyleVector]);
             glUniform1f(glGetUniformLocation(prog, "shininess"), shininess);
@@ -72,26 +92,29 @@
 }
 -(void)drawModels{
     glUseProgram(modelShaderProgram);
+    MSCamera* cam = [world getCamera];
+
+    glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "camera.projection"), 1, GL_FALSE, [[cam getProjectionMatrix] matrixAsArray]);
+    glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "camera.translation"), 1, GL_FALSE, [[cam translation] matrixAsArray]);
+    glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "camera.rotation"), 1, GL_FALSE, [[cam rotation] matrixAsArray]);
+    
+    
+    
     for(MSPuppet* puppet in [world getModels]){
             glUniform3fv(glGetUniformLocation(modelShaderProgram, "lightColor"), 1, [[[[world getLightSources]objectAtIndex:0] color]getArrayStyleVector]);
-            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "lightPosition"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]getTranslation]matrixAsArray]);
-        id<MSPositionedObject> cam = [world getCamera];
-            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "cameraTranslation.camTr"), 1, GL_FALSE, [[cam getTranslation] matrixAsArray]);
-            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "cameraRotation"), 1, GL_FALSE, [[cam getRotation] matrixAsArray]);
-        MSMatrixND* perspectiveMatrix = [MSTransformationManager perpsectiveWithFoV:120 aspectRatio:16.0f/9.0f near:0.1 far:1000];
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "rotation"), 1, GL_FALSE,  [[puppet getRotation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "translation"), 1, GL_FALSE,  [[puppet getTranslation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "scale"), 1, GL_FALSE, [[puppet getScale] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "projection"), 1, GL_FALSE, [perspectiveMatrix matrixAsArray]);
+            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "lightPosition"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]translation]matrixAsArray]);
+        
+        
+        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.rotation"), 1, GL_FALSE,  [[puppet rotation] matrixAsArray]);
+        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.translation"), 1, GL_FALSE,  [[puppet translation] matrixAsArray]);
+        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.scale"), 1, GL_FALSE, [[puppet scale] matrixAsArray]);
         
         
         for(MSModelFraction* fraction in [puppet getModelComponents]){
             [self setUpUniforms:fraction shaderProgram:modelShaderProgram];
-            glUniform3fv(glGetUniformLocation(modelShaderProgram, "specularColor"), 1, [[[fraction material] specular] getArrayStyleVector]);
 
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
                 glBindVertexArray([modelToDraw vao]);
-                NSLog(@"%i", [modelToDraw trianglesToDraw]);
                 glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)([modelToDraw trianglesToDraw]), 1);
                 glBindVertexArray(0);
         }
@@ -100,10 +123,16 @@
 }
 -(void)clear{
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 -(void)setBehaviourAfterEachDraw: (void (^_Nullable)(void))block{
     self->_afterDrawAction=block;
 }
-
+-(void)setSettings: (int) set{
+    self->settings=set;
+}
+-(void)dealloc{
+    glDeleteProgram(modelShaderProgram);
+    glDeleteProgram(lightShaderProgram);
+}
 @end

@@ -22,11 +22,6 @@
     }
     return self;
 }
--(void)print{
-    for(MSVertexData* dat in associatedVertices){
-        [dat print];
-    }
-}
 -(NSMutableArray<MSVertexData*>*)getFaceData{
     return self->associatedVertices;
 }

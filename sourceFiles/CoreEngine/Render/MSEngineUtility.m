@@ -11,14 +11,18 @@
 +(GLuint)loadShaderAtFolder:(NSString*) pathToFolder fileName:(NSString*) fileName type:(GLenum) shaderType{
     NSString * fullPathToShader = [pathToFolder stringByAppendingString:fileName];
     NSMutableString * content = [[NSMutableString alloc] initWithContentsOfFile:fullPathToShader encoding:NSUTF8StringEncoding error:nil];
-    
+    NSString * constantDefinitions = [[NSString alloc]
+                                     initWithContentsOfFile:[pathToFolder
+                                                             stringByAppendingString:@"GraphicsConstants.h"]
+                                                                            encoding:NSUTF8StringEncoding error:nil];
+    [content insertString:constantDefinitions atIndex:0];
 #if iOS
-    NSString * iosHeader = [[NSMutableString alloc]
+    NSString * iosHeader = [[NSString alloc]
                             initWithContentsOfFile:[pathToFolder
                                                     stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
     [content insertString:iosHeader atIndex:0];
 #elif macOS
-    NSString * macHeader = [[NSMutableString alloc]
+    NSString * macHeader = [[NSString alloc]
                             initWithContentsOfFile:[pathToFolder
                                                     stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
     [content insertString:macHeader atIndex:0];

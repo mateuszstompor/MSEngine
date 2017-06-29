@@ -12,9 +12,10 @@
 #define MSPOSITIONEDOBJECT_H
 @protocol MSPositionedObject
 
--(MSMatrix4D*)getScale;
--(MSMatrix4D*)getRotation;
--(MSMatrix4D*)getTranslation;
+
+@property MSMatrix4D* scale;
+@property MSMatrix4D* rotation;
+@property MSMatrix4D* translation;
 
 -(void)translateBy: (MSMatrixND*) tr;
 -(void)rotateBy: (MSMatrixND*) rot;

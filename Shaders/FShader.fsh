@@ -1,6 +1,7 @@
 in vec3 Normal;
 in vec3 fragmentPositionInWorld;
 
+
 uniform vec3 specularColor;
 uniform vec3 diffuseColor;
 uniform vec3 ambientColor;
@@ -12,6 +13,7 @@ uniform mat4 lightPosition;
 
 out vec4 outColor;
 
+uniform int settings;
 
 void main(void){
     float specularStrength = 0.01f;
@@ -44,9 +46,15 @@ void main(void){
     
     
     vec3 sum = vec3(0.0f);
-    sum+=ambient;
-    sum+=specular;
-    sum+=diffuse;
+    if ((settings & AMBIENT_SETTING) > 0){
+        sum+=ambient;
+    }
+    if ((settings & DIFFUSE_SETTING) > 0){
+        sum+=diffuse;
+    }
+    if ((settings & SPECULAR_SETTING) > 0){
+        sum+=specular;
+    }
     outColor = vec4(sum,1.0f);
     
 }
