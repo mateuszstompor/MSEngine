@@ -26,10 +26,11 @@
 {
     GLuint modelShaderProgram;
     GLuint lightShaderProgram;
-    
+    NSDate *lastSecond;
     MSWorld* world;
-  
+    unsigned int amountOfFramesRendered;
     NSMutableDictionary<NSValue*,MSDrawableFraction*>* modelsLoadedToGraphics;
+    int settings;
 }
 
 @property (nonatomic, copy) void (^beforeDrawAction)(void);

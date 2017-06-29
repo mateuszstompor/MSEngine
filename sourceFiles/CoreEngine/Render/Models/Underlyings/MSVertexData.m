@@ -28,9 +28,4 @@
 -(unsigned int)getTextureCoordinateIndex{
     return self->indexOfTextureCoord;;
 }
--(void)print{
-    printf("%iu %iu", indexOfVertex,indexOfNormal);
-    printf("\n");
-    fflush(stdout);
-}
 @end

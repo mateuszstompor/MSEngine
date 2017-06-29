@@ -26,12 +26,7 @@
 #ifndef MSPUPPET_H
 #define MSPUPPET_H
 @interface MSPuppet : NSObject <MSPositionedObject>
-
 {
-
-    MSMatrix4D* scale;
-    MSMatrix4D* rotation;
-    MSMatrix4D* translation;
     NSArray<MSModelFraction*>* model;
 }
 -(instancetype _Nullable)init NS_UNAVAILABLE;

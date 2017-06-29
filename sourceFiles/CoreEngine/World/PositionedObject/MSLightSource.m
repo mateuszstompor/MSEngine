@@ -9,6 +9,7 @@
 #import "MSLightSource.h"
 
 @implementation MSLightSource
+
 @synthesize color;
 
 -(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md{

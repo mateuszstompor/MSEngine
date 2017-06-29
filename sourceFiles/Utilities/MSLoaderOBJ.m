@@ -142,7 +142,6 @@ static float coord[3];
     size_t len = 0;
     fseek(descriptor,1,SEEK_CUR);
     if (getline(&line, &len, descriptor) != -1) {
-        //printf("comment: %s", line);
         free(line);
     }
 }
@@ -170,7 +169,6 @@ static float coord[3];
     fseek(descriptor,1,SEEK_CUR);
     if(fscanf(descriptor,"%f %f %f",&coord[0],&coord[1],&coord[2]) == 3){
         MSPoint* point = [[MSPoint alloc]init3DimPointWithX:coord[0] y:coord[1] z:coord[2]];
-        //[point printPoint];
         [[model vertices] addObject:point];
     }
     else{

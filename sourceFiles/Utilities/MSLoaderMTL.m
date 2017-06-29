@@ -47,7 +47,6 @@
                 [materialUnderProcessing setName:[[NSString alloc] initWithUTF8String:&buffer[7]]];
                 break;
             case MTL_COMMENT:
-                //NSLog(@"%s", &buffer[2]);
                 break;
             case SHININESS:
             {
@@ -143,10 +142,9 @@
                 break;
             default:
                 [NSException raise:@"Unsupported line"
-                            format:@"\"%s\"", buffer];
+                            format:@"\"%s\" line: %i", buffer, currentLine];
                 break;
         }
-       
         length=0;
         free(buffer);
         buffer=NULL;

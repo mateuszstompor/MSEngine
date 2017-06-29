@@ -18,6 +18,5 @@
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithData: (int)amountOfVertexData,...;
 -(NSMutableArray<MSVertexData*>*)getFaceData;
--(void)print;
 @end
 #endif

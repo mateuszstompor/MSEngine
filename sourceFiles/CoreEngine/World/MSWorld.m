@@ -9,28 +9,25 @@
 #import "MSWorld.h"
 
 @implementation MSWorld
--(instancetype)initWithMaterials: (MSMaterialStore*)store{
+-(instancetype)initWithMaterials: (MSMaterialStore*)store camera: (MSCamera*)cam{
     self=[super init];
     if(self){
-        self->camera=[[MSPuppet alloc]initWithModel:nil];
+        self->camera=cam;
         self->objectsInWorld=[[NSMutableArray alloc]init];
         self->lightSources=[[NSMutableArray alloc]init];
         self->materialsInWorld=store;
     }
     return self;
 }
--(void)translateCameraX: (float)x y:(float)y z:(float)z{
-    [camera translateBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
+-(void)translateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z{
+    [obj translateBy: [MSTransformationManager translationMatrix4x4:x y:y z:z]];
 }
--(void)translatelight: (MSLightSource*)light x: (float)x y:(float)y z:(float)z{
-    [light translateBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
+-(void)rotateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z{
+    [obj rotateBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
+    [obj rotateBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
+    [obj rotateBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
 }
--(void)rotateCameraX: (float)x y:(float)y z:(float)z{
-    [camera rotateBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
-    [camera rotateBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
-    [camera rotateBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
-}
--(id<MSPositionedObject>)getCamera{
+-(MSCamera*)getCamera{
     return self->camera;
 }
 -(NSMutableArray<MSLightSource*>*)getLightSources{

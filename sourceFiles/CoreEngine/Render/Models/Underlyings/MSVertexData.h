@@ -21,6 +21,5 @@
 -(unsigned int)getVertexIndex;
 -(unsigned int)getNormalIndex;
 -(unsigned int)getTextureCoordinateIndex;
--(void)print;
 @end
 #endif

@@ -16,4 +16,5 @@
 
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md;
+
 @end

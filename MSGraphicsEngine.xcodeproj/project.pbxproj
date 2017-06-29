@@ -29,8 +29,6 @@
 		61D1E9461F04586F0038AE3D /* MSVectorND.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6BB1EB8B3930086897F /* MSVectorND.m */; };
 		61D1E9481F04586F0038AE3D /* MSLoaderOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */; };
 		61D1E9491F04586F0038AE3D /* MSLoaderMTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8BB1EFAF1A8009537F9 /* MSLoaderMTL.m */; };
-		61D1E94A1F04586F0038AE3D /* macOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DE2911EE973C100189A63 /* macOSTests.m */; };
-		61D1E94B1F04586F0038AE3D /* iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DE2A01EE973F000189A63 /* iOSTests.m */; };
 		61D1E94C1F04587E0038AE3D /* MSVertexData.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A21EB8B3930086897F /* MSVertexData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D1E94D1F04587E0038AE3D /* MSModelFace.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69C1EB8B3930086897F /* MSModelFace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D1E94E1F04587E0038AE3D /* MSModelFraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69E1EB8B3930086897F /* MSModelFraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -109,6 +107,12 @@
 		61D1E9B31F0530F10038AE3D /* MSModelManager.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; };
 		61D1E9B41F0530F10038AE3D /* MSLoaderMTL.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; };
 		61D1E9B81F0531910038AE3D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617DE2871EE9734400189A63 /* XCTest.framework */; };
+		61D9B1E81F05B9E20063DD04 /* GraphicsConstants.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 61D9B1E61F05B9800063DD04 /* GraphicsConstants.h */; };
+		61D9B1EB1F05BDDB0063DD04 /* MSCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D9B1E91F05BDDB0063DD04 /* MSCamera.h */; };
+		61D9B1EC1F05BDDB0063DD04 /* MSCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D9B1E91F05BDDB0063DD04 /* MSCamera.h */; };
+		61D9B1ED1F05BDDB0063DD04 /* MSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */; };
+		61D9B1EE1F05BDDB0063DD04 /* MSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */; };
+		61D9B1EF1F05C2650063DD04 /* MSCamera.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 61D9B1E91F05BDDB0063DD04 /* MSCamera.h */; };
 		61DF1EDC1ED66B33008333A8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61314EED1ED64B70001A3519 /* OpenGLES.framework */; };
 		61DF1F281ED66BB2008333A8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6122CA241EAA4EBE0002F881 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
@@ -137,6 +141,8 @@
 			dstPath = /usr/local/include;
 			dstSubfolderSpec = 0;
 			files = (
+				61D9B1EF1F05C2650063DD04 /* MSCamera.h in Copy Files */,
+				61D9B1E81F05B9E20063DD04 /* GraphicsConstants.h in Copy Files */,
 				61D1E9A11F0530F00038AE3D /* MSVertexData.h in Copy Files */,
 				61D1E9A21F0530F00038AE3D /* MSModelFace.h in Copy Files */,
 				61D1E9A31F0530F00038AE3D /* MSModelFraction.h in Copy Files */,
@@ -179,7 +185,6 @@
 		615AF6A41EB8B3930086897F /* MSEngineUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEngineUtility.h; sourceTree = "<group>"; };
 		615AF6A51EB8B3930086897F /* MSEngineUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEngineUtility.m; sourceTree = "<group>"; };
 		615AF6A61EB8B3930086897F /* MSRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRender.h; sourceTree = "<group>"; };
-		615AF6A71EB8B3930086897F /* MSRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRender.m; sourceTree = "<group>"; };
 		615AF6A91EB8B3930086897F /* MSWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWorld.h; sourceTree = "<group>"; };
 		615AF6AA1EB8B3930086897F /* MSWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWorld.m; sourceTree = "<group>"; };
 		615AF6AD1EB8B3930086897F /* MSPositionedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPositionedObject.h; sourceTree = "<group>"; };
@@ -218,6 +223,9 @@
 		61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRenderOpenGL.m; sourceTree = "<group>"; };
 		61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDrawableFraction.h; path = OpenGL/MSDrawableFraction.h; sourceTree = "<group>"; };
 		61D1E9321F044F6B0038AE3D /* MSDrawableFraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDrawableFraction.m; path = OpenGL/MSDrawableFraction.m; sourceTree = "<group>"; };
+		61D9B1E61F05B9800063DD04 /* GraphicsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsConstants.h; sourceTree = "<group>"; };
+		61D9B1E91F05BDDB0063DD04 /* MSCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCamera.h; sourceTree = "<group>"; };
+		61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCamera.m; sourceTree = "<group>"; };
 		61DF1ED31ED66B1C008333A8 /* libiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DF1EF11ED66B80008333A8 /* libmacOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmacOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -322,7 +330,6 @@
 				615AF6A41EB8B3930086897F /* MSEngineUtility.h */,
 				615AF6A51EB8B3930086897F /* MSEngineUtility.m */,
 				615AF6A61EB8B3930086897F /* MSRender.h */,
-				615AF6A71EB8B3930086897F /* MSRender.m */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -368,6 +375,8 @@
 				615AF6B21EB8B3930086897F /* MSPuppet.m */,
 				619A5F531EBA81460017DB89 /* MSLightSource.h */,
 				619A5F541EBA81460017DB89 /* MSLightSource.m */,
+				61D9B1E91F05BDDB0063DD04 /* MSCamera.h */,
+				61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */,
 			);
 			path = PositionedObject;
 			sourceTree = "<group>";
@@ -430,6 +439,7 @@
 				611E214F1EBA7FF8000BCDD8 /* LightShader.fsh */,
 				61BCA3BD1EFDC850004FA86D /* ios_shaders_header */,
 				61BCA3BE1EFDC866004FA86D /* mac_shaders_header */,
+				61D9B1E61F05B9800063DD04 /* GraphicsConstants.h */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -498,6 +508,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61D9B1EC1F05BDDB0063DD04 /* MSCamera.h in Headers */,
 				61D1E98D1F0530C40038AE3D /* MSVertexData.h in Headers */,
 				61D1E98E1F0530C40038AE3D /* MSModelFace.h in Headers */,
 				61D1E98F1F0530C40038AE3D /* MSModelFraction.h in Headers */,
@@ -525,6 +536,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61D9B1EB1F05BDDB0063DD04 /* MSCamera.h in Headers */,
 				61D1E94C1F04587E0038AE3D /* MSVertexData.h in Headers */,
 				61D1E94D1F04587E0038AE3D /* MSModelFace.h in Headers */,
 				61D1E94E1F04587E0038AE3D /* MSModelFraction.h in Headers */,
@@ -715,6 +727,7 @@
 				61D1E9381F04586F0038AE3D /* MSModelFace.m in Sources */,
 				61D1E9391F04586F0038AE3D /* MSModelFraction.m in Sources */,
 				61D1E93A1F04586F0038AE3D /* MSMaterial.m in Sources */,
+				61D9B1ED1F05BDDB0063DD04 /* MSCamera.m in Sources */,
 				61D1E93B1F04586F0038AE3D /* MSMaterialStore.m in Sources */,
 				61D1E93C1F04586F0038AE3D /* MSRenderOpenGL.m in Sources */,
 				61D1E93D1F04586F0038AE3D /* MSDrawableFraction.m in Sources */,
@@ -728,8 +741,6 @@
 				61D1E9461F04586F0038AE3D /* MSVectorND.m in Sources */,
 				61D1E9481F04586F0038AE3D /* MSLoaderOBJ.m in Sources */,
 				61D1E9491F04586F0038AE3D /* MSLoaderMTL.m in Sources */,
-				61D1E94A1F04586F0038AE3D /* macOSTests.m in Sources */,
-				61D1E94B1F04586F0038AE3D /* iOSTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +752,7 @@
 				61D1E97A1F0530AE0038AE3D /* MSModelFace.m in Sources */,
 				61D1E97B1F0530AE0038AE3D /* MSModelFraction.m in Sources */,
 				61D1E97C1F0530AE0038AE3D /* MSMaterial.m in Sources */,
+				61D9B1EE1F05BDDB0063DD04 /* MSCamera.m in Sources */,
 				61D1E97D1F0530AE0038AE3D /* MSMaterialStore.m in Sources */,
 				61D1E97E1F0530AE0038AE3D /* MSRenderOpenGL.m in Sources */,
 				61D1E97F1F0530AE0038AE3D /* MSDrawableFraction.m in Sources */,

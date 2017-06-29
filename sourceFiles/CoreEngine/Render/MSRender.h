@@ -7,12 +7,8 @@
 //
 
 #import "MSWorld.h"
+#import "GraphicsConstants.h"
 
-
-#define AMBIENT_SETTING 1
-#define DIFFUSE_SETTING 2
-#define SPECULAR_SETTING 4
-#define ONLY_CONTOUR_SETTING 8
 
 
 #ifndef MSRENDER_H
@@ -20,16 +16,11 @@
 
 @protocol MSRender
 
+@property (atomic) int settings;
+
 -(void)setBehavioureforeEachDraw: (void (^_Nullable)(void))block;
 -(void)drawScene;
 -(void)setBehaviourAfterEachDraw: (void (^_Nullable)(void))block;
-
-//-(int)getSettings;
-//
-//-(void)renderAmbient: (BOOL) value;
-//-(void)renderSpecular: (BOOL) value;
-//-(void)renderDiffuse: (BOOL) value;
-//-(void)renderOnlyContour: (BOOL) value;
 
 @end
 
