@@ -10,8 +10,6 @@ in vec3 cameraPositionInWorld;
 uniform vec3 lightColor;
 uniform mat4 lightPosition;
 
-uniform int settings;
-
 out vec4 outColor;
 
 
@@ -46,16 +44,9 @@ void main(void){
     
     
     vec3 sum = vec3(0.0f);
-    
-    if((settings>>0 & 1)==1){
-        sum+=ambient;
-    }
-    if((settings>>1 & 1)==1){
-        sum+=specular;
-    }
-    if((settings>>2 & 1)==1){
-        sum+=diffuse;
-    }
+    sum+=ambient;
+    sum+=specular;
+    sum+=diffuse;
     outColor = vec4(sum,1.0f);
     
 }

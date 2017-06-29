@@ -10,79 +10,30 @@
 
 @implementation MSMaterial
 
+@synthesize name = _name;
+@synthesize ambient = _ambient;
+@synthesize diffuse = _diffuse;
+@synthesize specular = _specular;
+@synthesize shininess = _shininess;
+@synthesize transparency = _transparency;
+@synthesize renderMode = _renderMode;
+@synthesize refraction = _refraction;
+@synthesize associatedTexture = _associatedTexture;
+
 -(instancetype)init{
     self = [super init];
     if(self != nil){
-        self->name=nil;
-        self->ambient=nil;
-        self->diffuse=nil;
-        self->specular=nil;
-        shininess=0;
-        transparency=0;
-        mode=COLOR_ON_AMBIENT_OFF;
-        refraction=0;
-        associatedTexture=nil;
+        self->_name=nil;
+        self->_ambient=nil;
+        self->_diffuse=nil;
+        self->_specular=nil;
+        self->_shininess=0;
+        self->_transparency=0;
+        self->_renderMode=COLOR_ON_AMBIENT_OFF;
+        self->_refraction=0;
+        self->_associatedTexture=nil;
     }
     return self;
 }
--(void)setName: (NSString*) nam{
-    self->name=nam;
-}
--(NSString*)getName{
-    return self->name;
-}
--(void)setAmbient: (MSVector3D*)amb{
-    self->ambient=amb;
-}
--(MSVector3D*)getAmbient{
-    return self->ambient;
-}
--(void)setDiffuse: (MSVector3D*)dif{
-    self->diffuse=dif;
-}
--(MSVector3D*)getDiffuse{
-    return self->diffuse;
-}
--(void)setShininess: (float)shin{
-    self->shininess=shin;
-}
--(float)getShininess{
-    return self->shininess;
-}
--(void)setRenderMode:(RenderMode)mod{
-    self->mode=mod;
-}
--(RenderMode)getRenderMode{
-    return self->mode;
-}
--(void)setRefraction: (float)refrac{
-    self->refraction=refrac;
-}
--(float)getRefraction{
-    return self->refraction;
-}
--(void)setAssociatedTexture: (NSString*)texture{
-    self->associatedTexture=texture;
-}
--(NSString*)getAssociatedTexture{
-    return self->associatedTexture;
-}
--(void)setSpecular: (MSVector3D*)spec{
-    self->specular=spec;
-}
--(MSVector3D*)getSpecular{
-    return self->specular;
-}
--(void)setEmissive: (MSVector3D*)em{
-    self->emissive=em;
-}
--(MSVector3D*)getEmissive{
-    return self->emissive;
-}
--(void)setTransparency: (float)transp{
-    self->transparency=transp;
-}
--(float)getTransparency{
-    return self->transparency;
-}
+
 @end

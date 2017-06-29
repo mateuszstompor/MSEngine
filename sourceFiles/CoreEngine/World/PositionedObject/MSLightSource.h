@@ -11,15 +11,9 @@
 #import "MSTransformationManager.h"
 
 @interface MSLightSource : MSPuppet
-{
-    MSVector3D* color;
-}
+
+@property (atomic) MSVector3D* color;
+
 -(instancetype)init NS_UNAVAILABLE;
--(instancetype)initWithScale: (MSMatrix4D*)scaleM rotation: (MSMatrix4D*)rotationM translation:(MSMatrix4D*)trM NS_UNAVAILABLE;
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md NS_UNAVAILABLE;
--(instancetype)initWithScale: (MSMatrix4D*)scaleM rotation: (MSMatrix4D*)rotationM translation:(MSMatrix4D*)trM model: (NSArray<MSModelFraction*>*)mod NS_UNAVAILABLE;
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md andColor:(MSVector3D*) col;
--(instancetype)initWithScale: (MSMatrix4D*)scaleM rotation: (MSMatrix4D*)rotationM translation:(MSMatrix4D*)trM model: (NSArray<MSModelFraction*>*)mod andColor:(MSVector3D*) col;
--(void)setColor: (MSVector3D*)col;
--(MSVector3D*)getColor;
+-(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md;
 @end

@@ -26,35 +26,17 @@
 #ifndef MSMODELFRACTION_H
 #define MSMODELFRACTION_H
 @interface MSModelFraction : NSObject
-{
-    NSMutableArray<MSPoint3D*>* vertices;
-    NSMutableArray<MSPoint3D*>* normals;
-    NSMutableArray<MSPoint2D*>* textureCoordinates;
-    NSMutableArray<MSModelFace*>* facesData;
-    MSVector3D* fractionColor;
-    NSString* name;
-    MSMaterial* material;
-    GLuint dataVBO;
-    GLuint verticiesVAO;
-    BOOL isLoadedToGraphics;
-}
+
+@property (atomic) NSMutableArray<MSPoint3D*>* vertices;
+@property (atomic) NSMutableArray<MSPoint3D*>* normals;
+@property (atomic) NSMutableArray<MSPoint2D*>* textureCoordinates;
+@property (atomic) NSMutableArray<MSModelFace*>* facesData;
+@property (atomic) MSMaterial* material;
+@property (atomic) NSString* name;
+@property (atomic) NSValue* uniqueName;
+
 -(instancetype)init;
--(void)addVertex: (MSPoint3D*)point;
--(void)addNormal: (MSPoint3D*)point;
--(void)addTextureCoordinate: (MSPoint2D*)point;
--(void)addFace: (MSModelFace*)face;
--(void)setName: (NSString*)newName;
--(NSUInteger)amountOfVerts;
--(NSUInteger)amountOfNormals;
--(NSUInteger)amountOfTextureCoordinates;
--(void)printVerts;
--(long long)amountOfElemntsToLoadToGraphics;
--(GLuint)getVerticiesVAO;
--(GLuint)getBuffer;
--(void)loadDataToGraphicsCard;
--(NSString*)getName;
--(float*)getColor;
--(MSMaterial*)getMaterial;
--(void)setMaterial: (MSMaterial*)mat;
+-(NSValue*)getUniqueName;
+
 @end
 #endif

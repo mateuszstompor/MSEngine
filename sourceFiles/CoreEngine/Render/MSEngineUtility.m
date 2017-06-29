@@ -13,10 +13,14 @@
     NSMutableString * content = [[NSMutableString alloc] initWithContentsOfFile:fullPathToShader encoding:NSUTF8StringEncoding error:nil];
     
 #if iOS
-    NSString * iosHeader = [[NSMutableString alloc] initWithContentsOfFile:[pathToFolder stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    NSString * iosHeader = [[NSMutableString alloc]
+                            initWithContentsOfFile:[pathToFolder
+                                                    stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
     [content insertString:iosHeader atIndex:0];
 #elif macOS
-    NSString * macHeader = [[NSMutableString alloc] initWithContentsOfFile:[pathToFolder stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    NSString * macHeader = [[NSMutableString alloc]
+                            initWithContentsOfFile:[pathToFolder
+                                                    stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
     [content insertString:macHeader atIndex:0];
 #else
     [NSException raise:@"There is no shaderProgram for such device" format:@""];
@@ -29,9 +33,12 @@
     GLint status;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
     if(status!=GL_TRUE){
-        char errorbuffer[512];
-        glGetShaderInfoLog(shader, 512, NULL, errorbuffer);
+        GLint length = 0;
+        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
+        char* errorbuffer = (char*)malloc(length*sizeof(char));
+        glGetShaderInfoLog(shader, length, NULL, errorbuffer);
         printf("%s",errorbuffer);
+        free(errorbuffer);
         [NSException raise:@"Program stopped due to shader compilation failure" format:@""];
     }
     return shader;

@@ -9,22 +9,16 @@
 #import "MSModelFace.h"
 
 @implementation MSModelFace
--(instancetype)initWithData: (int)amountOfVertexData,...{
-    self=[self init];
+-(instancetype)initWithData: (int)amountOfVertexData, ... {
+    self=[super init];
     if(self){
+        associatedVertices=[[NSMutableArray alloc] init];
         va_list listOfComponents;
         va_start(listOfComponents, amountOfVertexData);
         for(int i=0; i<amountOfVertexData; i++){
             [associatedVertices addObject:(MSVertexData*)va_arg(listOfComponents, MSVertexData*)];
         }
         va_end(listOfComponents);
-    }
-    return self;
-}
--(instancetype)init{
-    self=[super init];
-    if(self){
-        associatedVertices=[[NSMutableArray alloc] init];
     }
     return self;
 }

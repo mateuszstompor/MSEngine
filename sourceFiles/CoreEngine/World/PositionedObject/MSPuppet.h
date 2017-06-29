@@ -25,14 +25,18 @@
 
 #ifndef MSPUPPET_H
 #define MSPUPPET_H
-@interface MSPuppet : MSPositionedObject
+@interface MSPuppet : NSObject <MSPositionedObject>
+
 {
+
+    MSMatrix4D* scale;
+    MSMatrix4D* rotation;
+    MSMatrix4D* translation;
     NSArray<MSModelFraction*>* model;
 }
--(instancetype)init NS_UNAVAILABLE;
--(instancetype)initWithScale: (MSMatrix4D*)scaleM rotation: (MSMatrix4D*)rotationM translation:(MSMatrix4D*)trM NS_UNAVAILABLE;
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md;
--(instancetype)initWithScale: (MSMatrix4D*)scaleM rotation: (MSMatrix4D*)rotationM translation:(MSMatrix4D*)trM model: (NSArray<MSModelFraction*>*)mod;
--(NSArray<MSModelFraction*>*)getModelComponents;
+-(instancetype _Nullable)init NS_UNAVAILABLE;
+-(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nullable)md;
+-(NSArray<MSModelFraction*>* _Nullable)getModelComponents;
+
 @end
 #endif

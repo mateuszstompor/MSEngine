@@ -12,7 +12,7 @@
 -(instancetype)initWithMaterials: (MSMaterialStore*)store{
     self=[super init];
     if(self){
-        self->camera=[[MSCamera alloc]init];
+        self->camera=[[MSPuppet alloc]initWithModel:nil];
         self->objectsInWorld=[[NSMutableArray alloc]init];
         self->lightSources=[[NSMutableArray alloc]init];
         self->materialsInWorld=store;
@@ -20,23 +20,17 @@
     return self;
 }
 -(void)translateCameraX: (float)x y:(float)y z:(float)z{
-    [camera lockObject];
-    [camera multiplyTranslationBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
-    [camera unLockObject];
+    [camera translateBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
 }
 -(void)translatelight: (MSLightSource*)light x: (float)x y:(float)y z:(float)z{
-    [light lockObject];
-    [light multiplyTranslationBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
-    [light unLockObject];
+    [light translateBy:[MSTransformationManager translationMatrix4x4:x y:y z:z]];
 }
 -(void)rotateCameraX: (float)x y:(float)y z:(float)z{
-    [camera lockObject];
-    [camera multiplyRotationnBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
-    [camera multiplyRotationnBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
-    [camera multiplyRotationnBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
-    [camera unLockObject];
+    [camera rotateBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
+    [camera rotateBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
+    [camera rotateBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
 }
--(MSCamera*)getCamera{
+-(id<MSPositionedObject>)getCamera{
     return self->camera;
 }
 -(NSMutableArray<MSLightSource*>*)getLightSources{

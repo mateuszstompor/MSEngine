@@ -9,10 +9,12 @@
 #import "MSLoaderOBJ.h"
 
 @implementation MSLoaderOBJ
+
 static int first[3];
 static int second[3];
 static int third[3];
 static float coord[3];
+
 +(instancetype)alloc{
     [NSException raise:@"Cannot be instantiated!" format:@"Static class 'MSLoaderOBJ' cannot be instantiated!"];
     return nil;
@@ -39,9 +41,9 @@ static float coord[3];
             case OBJECT:
                 if(objectToAdd!=nil){
                     [arrayOfModelFractions addObject:objectToAdd];
-                    verticiesAmountToSubtract+=(unsigned int)[objectToAdd amountOfVerts];
-                    normalsAmountToSubtract+=(unsigned int)[objectToAdd amountOfNormals];
-                    textureAmountToSubtract+=(unsigned int)[objectToAdd amountOfTextureCoordinates];
+                    verticiesAmountToSubtract+=(unsigned int)[[objectToAdd vertices] count];
+                    normalsAmountToSubtract+=(unsigned int)[[objectToAdd normals] count];
+                    textureAmountToSubtract+=(unsigned int)[[objectToAdd textureCoordinates] count];
 
                 }
                 objectToAdd=[[MSModelFraction alloc]init];
@@ -169,7 +171,7 @@ static float coord[3];
     if(fscanf(descriptor,"%f %f %f",&coord[0],&coord[1],&coord[2]) == 3){
         MSPoint* point = [[MSPoint alloc]init3DimPointWithX:coord[0] y:coord[1] z:coord[2]];
         //[point printPoint];
-        [model addVertex:point];
+        [[model vertices] addObject:point];
     }
     else{
         [NSException raise:@"Error occured!!" format:@""];
@@ -181,7 +183,7 @@ static float coord[3];
     fseek(descriptor,1,SEEK_CUR);
     if(fscanf(descriptor,"%f %f",&coord[0],&coord[1]) == 2){
         MSPoint* point = [[MSPoint alloc]init2DimPointWithX: coord[0] y:coord[1]];
-        [model addTextureCoordinate:point];
+        [[model textureCoordinates] addObject:point];
     }
     else{
         [NSException raise:@"Error occured!!" format:@""];
@@ -193,7 +195,7 @@ static float coord[3];
     fseek(descriptor,1,SEEK_CUR);
     if(fscanf(descriptor,"%f %f %f",&coord[0],&coord[1],&coord[2]) == 3){
         MSPoint* point = [[MSPoint alloc]init3DimPointWithX:coord[0] y:coord[1] z:coord[2]];
-        [model addNormal:point];
+        [[model normals] addObject:point];
     }
     else{
         [NSException raise:@"Error occured!!" format:@""];
@@ -235,7 +237,7 @@ static float coord[3];
     MSVertexData* sData = [[MSVertexData alloc]initWithIndexOfVertex:*(second)-1-subV normalIndex:*(second+1)-1-subN textureIndex:*(second+2)-1-subT];
     MSVertexData* tData = [[MSVertexData alloc]initWithIndexOfVertex:*(third)-1-subV normalIndex:*(third+1)-1-subN textureIndex:*(third+2)-1-subT];
     MSModelFace* face =[[MSModelFace alloc] initWithData:3, fData,sData,tData];
-    [arOfModels addFace:face];
+    [[arOfModels facesData] addObject:face];
     
 }
 
