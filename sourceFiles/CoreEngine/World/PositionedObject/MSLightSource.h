@@ -15,6 +15,7 @@
 @property (atomic) MSVector3D* color;
 
 -(instancetype)init NS_UNAVAILABLE;
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md;
+-(instancetype)initWithModel: (NSArray<MSModelFraction*>*) model NS_UNAVAILABLE;
+-(instancetype)initWithModel: (NSArray<MSModelFraction*>*) model color: (MSVector3D*) color;
 
 @end

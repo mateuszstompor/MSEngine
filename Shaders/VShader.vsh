@@ -1,12 +1,6 @@
 in vec3 position;
 in vec3 normal;
 
-
-
-
-
-
-
 struct Transformation{
     mat4 rotation;
     mat4 scale;
@@ -21,30 +15,21 @@ struct Camera {
 };
 uniform Camera camera;
 
+out vec3 surfaceNormal;
 
 
-
-
-
-//test
-
-//test end
-
-
-out vec3 cameraPositionInWorld;
-out vec3 Normal;
 out vec3 fragmentPositionInWorld;
+out vec3 cameraPositionInWorld;
 
 
 void main(void){
+    mat4 modelToWorld = transformation.translation * transformation.rotation * transformation.scale;
+    vec4 positionInWorld = modelToWorld * vec4(position,1.0f);
+    mat4 cameraTransform = camera.translation * camera.rotation;
+    fragmentPositionInWorld = positionInWorld.xyz;
     
-    vec4 newPos =transformation.translation*transformation.rotation*transformation.scale*vec4(position,1.0f);
-    mat4 cameraTransform = camera.translation*camera.rotation;
-    newPos = camera.projection*cameraTransform*newPos;
-    fragmentPositionInWorld=vec4(transformation.translation*transformation.rotation*transformation.scale*vec4(position,1.0f)).xyz;
-    gl_Position = newPos;
+    gl_Position = camera.projection * cameraTransform * positionInWorld;
     cameraPositionInWorld = vec4(cameraTransform*vec4(1.0f)).xyz;
-    Normal=normal;
+    
+    surfaceNormal=normal;
 }
-
-

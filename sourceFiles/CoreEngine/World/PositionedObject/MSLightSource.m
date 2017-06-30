@@ -12,10 +12,10 @@
 
 @synthesize color;
 
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md{
+-(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md color: (MSVector3D*) c{
     self=[super initWithModel:md];
     if(self){
-        color=[MSVectorND onesVector:3];
+        color=c;
     }
     return self;
 }

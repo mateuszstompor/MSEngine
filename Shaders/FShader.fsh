@@ -1,47 +1,63 @@
-in vec3 Normal;
+in vec3 surfaceNormal;
 in vec3 fragmentPositionInWorld;
 
 
-uniform vec3 specularColor;
-uniform vec3 diffuseColor;
-uniform vec3 ambientColor;
-uniform float shininess;
+#define OMNI_LIGHTS_AMOUNT 10
+
+struct Material{
+    vec3    specular;
+    vec3    diffuse;
+    vec3    ambient;
+    float   shininess;
+};
+uniform Material material;
+
+struct OmniLight {
+    vec3 color;
+    mat4 translation;
+    mat4 rotation;
+    mat4 scale;
+};
+uniform OmniLight [OMNI_LIGHTS_AMOUNT] light;
 
 in vec3 cameraPositionInWorld;
-uniform vec3 lightColor;
-uniform mat4 lightPosition;
 
 out vec4 outColor;
 
+uniform int omniLightsAmount;
 uniform int settings;
 
 void main(void){
-    float specularStrength = 0.01f;
-    float ambientStrength = 0.1f;
-    float diffuseStrength = 0.85f;
-    float shininessStrength = 0.0009f;
+    float specularStrength = 4.8f;
+    float ambientStrength = 0.09f;
+    float diffuseStrength = 0.80f;
+    float distanceFactor = 0.1f;
     
     
+    vec3 ambient = light[0].color * ambientStrength * material.ambient * material.diffuse;
+    vec3 lightPos = ( light[0].translation * light[0].rotation * light[0].scale * vec4(1.0f) ).xyz;
     
-    vec3 ambient = lightColor * ambientStrength * ambientColor;
-    vec3 lightPos = (lightPosition*vec4(1.0f)).xyz;
-
+    
+    float distance = dot(lightPos-fragmentPositionInWorld,lightPos-fragmentPositionInWorld);
+    float lightintensity = 1.0f/(1.0f+distanceFactor * pow(distance,2));
+    
     
     vec3 direction = normalize(lightPos-fragmentPositionInWorld);
-    vec3 normalizedNormal = normalize(Normal);
+    vec3 normalizedNormal = normalize(surfaceNormal);
     
     float diff = max(dot(normalizedNormal, direction), 0.0);
-    vec3 diffuse = lightColor * diffuseStrength * diff * diffuseColor;
-    
-    
+    vec3 diffuse = lightintensity * light[0].color * diffuseStrength * diff * material.diffuse;
     
     
     
     //specular
-    vec3 viewDir = normalize(cameraPositionInWorld - fragmentPositionInWorld);
-    vec3 reflectDir = reflect(-lightPos, normalizedNormal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininessStrength*shininess);
-    vec3 specular = lightColor * specularStrength * spec;
+    vec3 incidenceVector = -normalize(lightPos-fragmentPositionInWorld);
+    vec3 reflectionVector = reflect(incidenceVector, surfaceNormal);
+    vec3 surfaceToCamera = normalize(cameraPositionInWorld - fragmentPositionInWorld);
+    float cosAngle = max(0.0, dot(surfaceToCamera, reflectionVector));
+    float specularCoefficient = pow(cosAngle, material.shininess);
+    
+    vec3 specular = lightintensity * light[0].color * specularCoefficient * specularStrength * material.specular;
     //specular end
     
     
