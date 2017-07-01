@@ -11,11 +11,13 @@
 @implementation MSLightSource
 
 @synthesize color;
+@synthesize power;
 
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*)md color: (MSVector3D*) c{
+-(instancetype)initWithModel: (NSArray<MSModelFraction*>*) md color: (MSVector3D*) c power: (float)pw{
     self=[super initWithModel:md];
     if(self){
-        color=c;
+        self->color=c;
+        self->power=pw;
     }
     return self;
 }

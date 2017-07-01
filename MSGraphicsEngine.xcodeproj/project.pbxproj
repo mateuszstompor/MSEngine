@@ -17,7 +17,7 @@
 		61D1E9391F04586F0038AE3D /* MSModelFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69F1EB8B3930086897F /* MSModelFraction.m */; };
 		61D1E93A1F04586F0038AE3D /* MSMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8B51EFAECD9009537F9 /* MSMaterial.m */; };
 		61D1E93B1F04586F0038AE3D /* MSMaterialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8C11EFAFAD8009537F9 /* MSMaterialStore.m */; };
-		61D1E93C1F04586F0038AE3D /* MSRenderOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.m */; };
+		61D1E93C1F04586F0038AE3D /* MSRenderOpenGL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */; };
 		61D1E93D1F04586F0038AE3D /* MSDrawableFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E9321F044F6B0038AE3D /* MSDrawableFraction.m */; };
 		61D1E93E1F04586F0038AE3D /* MSEngineUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A51EB8B3930086897F /* MSEngineUtility.m */; };
 		61D1E9401F04586F0038AE3D /* MSWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6AA1EB8B3930086897F /* MSWorld.m */; };
@@ -54,7 +54,7 @@
 		61D1E97B1F0530AE0038AE3D /* MSModelFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69F1EB8B3930086897F /* MSModelFraction.m */; };
 		61D1E97C1F0530AE0038AE3D /* MSMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8B51EFAECD9009537F9 /* MSMaterial.m */; };
 		61D1E97D1F0530AE0038AE3D /* MSMaterialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8C11EFAFAD8009537F9 /* MSMaterialStore.m */; };
-		61D1E97E1F0530AE0038AE3D /* MSRenderOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.m */; };
+		61D1E97E1F0530AE0038AE3D /* MSRenderOpenGL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */; };
 		61D1E97F1F0530AE0038AE3D /* MSDrawableFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E9321F044F6B0038AE3D /* MSDrawableFraction.m */; };
 		61D1E9801F0530AE0038AE3D /* MSEngineUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A51EB8B3930086897F /* MSEngineUtility.m */; };
 		61D1E9821F0530AE0038AE3D /* MSWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6AA1EB8B3930086897F /* MSWorld.m */; };
@@ -220,7 +220,7 @@
 		61BCA3BD1EFDC850004FA86D /* ios_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ios_shaders_header; sourceTree = "<group>"; };
 		61BCA3BE1EFDC866004FA86D /* mac_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mac_shaders_header; sourceTree = "<group>"; };
 		61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRenderOpenGL.h; sourceTree = "<group>"; };
-		61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRenderOpenGL.m; sourceTree = "<group>"; };
+		61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MSRenderOpenGL.mm; sourceTree = "<group>"; };
 		61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDrawableFraction.h; path = OpenGL/MSDrawableFraction.h; sourceTree = "<group>"; };
 		61D1E9321F044F6B0038AE3D /* MSDrawableFraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDrawableFraction.m; path = OpenGL/MSDrawableFraction.m; sourceTree = "<group>"; };
 		61D9B1E61F05B9800063DD04 /* GraphicsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsConstants.h; sourceTree = "<group>"; };
@@ -485,7 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */,
-				61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.m */,
+				61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */,
 				61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */,
 				61D1E9321F044F6B0038AE3D /* MSDrawableFraction.m */,
 			);
@@ -729,7 +729,7 @@
 				61D1E93A1F04586F0038AE3D /* MSMaterial.m in Sources */,
 				61D9B1ED1F05BDDB0063DD04 /* MSCamera.m in Sources */,
 				61D1E93B1F04586F0038AE3D /* MSMaterialStore.m in Sources */,
-				61D1E93C1F04586F0038AE3D /* MSRenderOpenGL.m in Sources */,
+				61D1E93C1F04586F0038AE3D /* MSRenderOpenGL.mm in Sources */,
 				61D1E93D1F04586F0038AE3D /* MSDrawableFraction.m in Sources */,
 				61D1E93E1F04586F0038AE3D /* MSEngineUtility.m in Sources */,
 				61D1E9401F04586F0038AE3D /* MSWorld.m in Sources */,
@@ -754,7 +754,7 @@
 				61D1E97C1F0530AE0038AE3D /* MSMaterial.m in Sources */,
 				61D9B1EE1F05BDDB0063DD04 /* MSCamera.m in Sources */,
 				61D1E97D1F0530AE0038AE3D /* MSMaterialStore.m in Sources */,
-				61D1E97E1F0530AE0038AE3D /* MSRenderOpenGL.m in Sources */,
+				61D1E97E1F0530AE0038AE3D /* MSRenderOpenGL.mm in Sources */,
 				61D1E97F1F0530AE0038AE3D /* MSDrawableFraction.m in Sources */,
 				61D1E9801F0530AE0038AE3D /* MSEngineUtility.m in Sources */,
 				61D1E9821F0530AE0038AE3D /* MSWorld.m in Sources */,

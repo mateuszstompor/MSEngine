@@ -12,7 +12,6 @@
 
 #if macOS
 #import <OpenGL/gl3.h>
-#import <OpenGL/gl.h>
 #endif
 
 #if iOS

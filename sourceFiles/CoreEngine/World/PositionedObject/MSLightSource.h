@@ -13,9 +13,10 @@
 @interface MSLightSource : MSPuppet
 
 @property (atomic) MSVector3D* color;
+@property (atomic) float power;
 
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithModel: (NSArray<MSModelFraction*>*) model NS_UNAVAILABLE;
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*) model color: (MSVector3D*) color;
+-(instancetype)initWithModel: (NSArray<MSModelFraction*>*) model color: (MSVector3D*) color power: (float)power;
 
 @end

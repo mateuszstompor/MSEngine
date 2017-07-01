@@ -116,10 +116,12 @@
             glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [diffuse getArrayStyleVector]);
             glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [ambient getArrayStyleVector]);
             glUniform1f(glGetUniformLocation(prog, "material.shininess"), shininess);
+            
         }else{
-            glUniform3fv(glGetUniformLocation(prog, "diffuseColor"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
-            glUniform3fv(glGetUniformLocation(prog, "ambientColor"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
-            glUniform1f(glGetUniformLocation(prog, "shininess"), 1.0f);
+            glUniform3fv(glGetUniformLocation(prog, "material.specular"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+            glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+            glUniform3fv(glGetUniformLocation(prog, "material.ambien"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+            glUniform1f(glGetUniformLocation(prog, "material.shininess"), 0.0f);
         }
 }
 -(void)setUpCameraUniforms: (GLuint) shaderProgram{
@@ -130,13 +132,30 @@
 }
 -(void)drawModels{
     glUseProgram(modelShaderProgram);
-    glUniform1f(glGetUniformLocation(modelShaderProgram, "omniLightsAmount"), [[world getLightSources] count]);
+    glUniform1i(glGetUniformLocation(modelShaderProgram, "omniLightsAmount"), (int)[[world getLightSources] count]);
     [self setUpCameraUniforms: modelShaderProgram];
+    
+    std::string color = "light[0].color";
+    std::string power = "light[0].power";
+    std::string scale = "light[0].scale";
+    std::string rotation = "light[0].rotation";
+    std::string translation = "light[0].translation";
+
     for(MSPuppet* puppet in [world getModels]){
-        glUniform3fv(glGetUniformLocation(modelShaderProgram, "light[0].color"), 1, [[[[world getLightSources]objectAtIndex:0] color]getArrayStyleVector]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "light[0].translation"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]translation]matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "light[0].scale"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]scale]matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "light[0].rotation"), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:0]rotation]matrixAsArray]);
+        
+        for(long lightIndex=0; lightIndex<[[world getLightSources] count]; ++lightIndex){
+            
+            color[6]=48+lightIndex;
+            power[6]=48+lightIndex;
+            scale[6]=48+lightIndex;
+            rotation[6]=48+lightIndex;
+            translation[6]=48+lightIndex;
+            glUniform3fv(glGetUniformLocation(modelShaderProgram, color.c_str()), 1, [[[[world getLightSources]objectAtIndex:lightIndex] color]getArrayStyleVector]);
+            glUniform1f(glGetUniformLocation(modelShaderProgram, power.c_str()), [[[world getLightSources] objectAtIndex:lightIndex] power]);
+            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, translation.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]translation]matrixAsArray]);
+            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, scale.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]scale]matrixAsArray]);
+            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, rotation.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]rotation]matrixAsArray]);
+        }
         
         glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.rotation"), 1, GL_FALSE,  [[puppet rotation] matrixAsArray]);
         glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.translation"), 1, GL_FALSE,  [[puppet translation] matrixAsArray]);

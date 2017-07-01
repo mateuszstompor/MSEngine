@@ -9,7 +9,6 @@
 
 #if macOS
 #import <OpenGL/gl3.h>
-#import <OpenGL/gl.h>
 #import <Cocoa/Cocoa.h>
 #endif
 

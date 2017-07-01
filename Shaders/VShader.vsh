@@ -22,6 +22,8 @@ out vec3 fragmentPositionInWorld;
 out vec3 cameraPositionInWorld;
 
 
+
+
 void main(void){
     mat4 modelToWorld = transformation.translation * transformation.rotation * transformation.scale;
     vec4 positionInWorld = modelToWorld * vec4(position,1.0f);
