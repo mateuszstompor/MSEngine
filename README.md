@@ -4,9 +4,9 @@ Currently only basics are implemented.
 
 Hover on picture to see date.
 
-I have implemented specular light properly and brightness that is based on distance between light source and object.
+I have implemented multiple light sources, specular light properly and brightness that is based on distance between light source and object.
 
-![Alt text](https://image.ibb.co/gtRXnk/Screen_Shot_2017_06_30_at_16_23_03.png "Date: 30.06.2017")
+![Alt text](https://image.ibb.co/nttL9a/Screen_Shot_2017_07_02_at_13_11_48.png "Date: 02.07.2017")
 
 Implementation of materials.
 
