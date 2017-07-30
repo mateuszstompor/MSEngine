@@ -9,20 +9,6 @@
 #import "MSPositionedObject.h"
 #import "MSModelFraction.h"
 
-#if macOS
-#import <OpenGL/gl3.h>
-#import <OpenGL/gl.h>
-#import <Cocoa/Cocoa.h>
-#endif
-
-#if iOS
-#import <OpenGLES/ES3/gl.h>
-#endif
-
-
-
-
-
 #ifndef MSPUPPET_H
 #define MSPUPPET_H
 @interface MSPuppet : NSObject <MSPositionedObject>
