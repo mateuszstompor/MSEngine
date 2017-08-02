@@ -13,18 +13,27 @@
     NSMutableString * content = [[NSMutableString alloc] initWithContentsOfFile:fullPathToShader encoding:NSUTF8StringEncoding error:nil];
     NSString * constantDefinitions = [[NSString alloc]
                                      initWithContentsOfFile:[pathToFolder
-                                                             stringByAppendingString:@"GraphicsConstants.h"]
+                                                             stringByAppendingString:@"MSGraphicsConstants.h"]
                                                                             encoding:NSUTF8StringEncoding error:nil];
+    if (constantDefinitions == nil) {
+        [NSException raise:@"Cannot find constants header" format:@""];
+    }
     [content insertString:constantDefinitions atIndex:0];
 #if iOS
     NSString * iosHeader = [[NSString alloc]
                             initWithContentsOfFile:[pathToFolder
                                                     stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    if (iosHeader == nil) {
+        [NSException raise:@"Cannot find ios header" format:@""];
+    }
     [content insertString:iosHeader atIndex:0];
 #elif macOS
     NSString * macHeader = [[NSString alloc]
                             initWithContentsOfFile:[pathToFolder
                                                     stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    if (macHeader == nil) {
+        [NSException raise:@"Cannot find mac header" format:@""];
+    }
     [content insertString:macHeader atIndex:0];
 #else
     [NSException raise:@"There is no shaderProgram for such device" format:@""];
@@ -56,6 +65,7 @@
     glDeleteShader(fragmentShader);
     return shaderProgram;
 }
+
 +(GLuint)shaderProgramFromFiles: (NSString*) folderPath vertexShader: (NSString*) vShaderName fragmentShader: (NSString*) fShaderName{
     GLuint vertexShader = [MSEngineUtility loadShaderAtFolder:folderPath fileName:vShaderName type:GL_VERTEX_SHADER];
     GLuint fragmentShader = [MSEngineUtility loadShaderAtFolder:folderPath fileName:fShaderName type:GL_FRAGMENT_SHADER];

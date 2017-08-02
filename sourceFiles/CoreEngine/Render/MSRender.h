@@ -7,7 +7,7 @@
 //
 
 #import "MSWorld.h"
-#import "GraphicsConstants.h"
+#import "MSGraphicsConstants.h"
 
 
 

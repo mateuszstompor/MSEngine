@@ -92,7 +92,7 @@ vec3 countColor(Material m, OmniLight l, vec3 fPosInWC, vec3 cPosInWC, vec3 norm
     
     float distance = dot(lightPos-fPosInWC,lightPos-fPosInWC);
     float distanceFactor = 1.0f / l.power;
-    float lightintensity = 1.0f / (1.0f + distanceFactor * pow(distance, 2));
+    float lightintensity = 1.0f / (1.0f + distanceFactor * pow(distance, 2.0));
     
     vec3 fragmentToLightVec = lightPos - fPosInWC;
     

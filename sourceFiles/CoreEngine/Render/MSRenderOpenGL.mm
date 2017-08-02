@@ -7,6 +7,7 @@
 //
 
 #import "MSRenderOpenGL.h"
+#include <string>
 
 @implementation MSRenderOpenGL
 
@@ -167,7 +168,8 @@
 
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
                 glBindVertexArray([modelToDraw vao]);
-                glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)([modelToDraw trianglesToDraw]), 1);
+                NSLog(@"%i", (GLsizei)([modelToDraw trianglesToDraw]/3));
+                glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw trianglesToDraw]/2.5), 1);
                 glBindVertexArray(0);
         }
     }
