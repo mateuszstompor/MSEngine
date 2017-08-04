@@ -27,7 +27,7 @@
         self->normalsBuffer=0;
         self->textureBuffer=0;
         self->verticesBuffer=0;
-        self->trianglesToDraw=0;
+        self->indiciesToDraw=0;
         self->vao=0;
         self->isLoadedToGraphicsCard=NO;
         [self loadToGraphics];
@@ -60,7 +60,7 @@
         unsigned int writeIndex=0;
         unsigned int amountOfElements = dim*POINTS_PER_FACE*(unsigned int)[[associatedFraction facesData] count];
         glBufferData(GL_ARRAY_BUFFER, amountOfElements*siz, NULL, GL_STATIC_DRAW);
-        trianglesToDraw=amountOfElements;
+        indiciesToDraw=POINTS_PER_FACE*(unsigned int)[[associatedFraction facesData] count];
         float* buffer = glMapBufferRange(GL_ARRAY_BUFFER, 0, siz*amountOfElements, GL_MAP_WRITE_BIT);
         for(MSModelFace* face in [associatedFraction facesData]){
             for(MSVertexData* dat in [face getFaceData]){
@@ -88,7 +88,9 @@
 -(void)dealloc {
     [self unloadFromGraphics];
 }
--(unsigned int)trianglesToDraw{
-    return self->trianglesToDraw;
+
+//amounts of vertices to draw vertex consists of 3 numbers x, y and z position
+-(unsigned int)indiciesToDraw{
+    return self->indiciesToDraw;
 }
 @end
