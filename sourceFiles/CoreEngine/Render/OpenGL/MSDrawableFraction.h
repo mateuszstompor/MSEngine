@@ -27,7 +27,7 @@
 @interface MSDrawableFraction : NSObject
 
 {
-    unsigned int trianglesToDraw;
+    unsigned int indiciesToDraw;
     BOOL isLoadedToGraphicsCard;
     MSModelFraction* associatedFraction;
 }
@@ -42,7 +42,7 @@
 -(BOOL)isloadedToGraphics;
 -(void)loadToGraphics;
 -(void)unloadFromGraphics;
--(unsigned int)trianglesToDraw;
+-(unsigned int)indiciesToDraw;
 
 @end
 

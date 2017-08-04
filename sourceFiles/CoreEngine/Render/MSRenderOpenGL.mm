@@ -90,12 +90,13 @@
             
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
             glBindVertexArray([modelToDraw vao]);
-            glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)([modelToDraw trianglesToDraw]), 1);
+            glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)([modelToDraw indiciesToDraw]), 1);
             glBindVertexArray(0);
         }
     }
     glUseProgram(0);
 }
+
 -(void)printFPSOnConsole: (BOOL) printOnConsole{
     NSDate *now = [NSDate date];
     NSTimeInterval executionTime = [now timeIntervalSinceDate:lastSecond];
@@ -106,6 +107,7 @@
     }
     amountOfFramesRendered+=1;
 }
+
 -(void)setUpUniforms: (MSModelFraction*) frac shaderProgram: (GLuint) prog{
         glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
         if([frac material] != nil){
@@ -168,8 +170,8 @@
 
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
                 glBindVertexArray([modelToDraw vao]);
-                NSLog(@"%i", (GLsizei)([modelToDraw trianglesToDraw]/3));
-                glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw trianglesToDraw]/2.5), 1);
+                NSLog(@"%i", (GLsizei)([modelToDraw indiciesToDraw]));
+                glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
                 glBindVertexArray(0);
         }
     }
