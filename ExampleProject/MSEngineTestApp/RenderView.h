@@ -14,8 +14,11 @@
 @interface RenderView : GLKView
 
 {
+    @public
     MSWorld* world;
     id<MSRender> renderer;
+    CGPoint rotation;
+    CGPoint translation;
 }
 
 -(void)setUp;

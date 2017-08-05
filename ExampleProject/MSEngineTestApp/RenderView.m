@@ -29,13 +29,13 @@
     MSMaterialStore* materialStore = [MSLoaderMTL loadMaterials:[pathToClassroomMaterials UTF8String]];
 
     
-    
-    MSLightSource* light = [[MSLightSource alloc] initWithModel:[MSLoaderOBJ loadModel:[pathToCube UTF8String] tieWithMaterials:materialStore] color:firstColor power:50.0f];
+    NSArray<MSModelFraction*>* lightModel = [MSLoaderOBJ loadModel:[pathToCube UTF8String] tieWithMaterials:materialStore];
+    MSLightSource* light = [[MSLightSource alloc] initWithModel: lightModel color:firstColor power:50.0f];
     
     
 
     [light scaleBy:[MSTransformationManager scaleMatrix4x4:0.05 repeatToIndex:2]];
-    MSLightSource* secondLight = [[MSLightSource alloc] initWithModel:[MSLoaderOBJ loadModel:[pathToCube UTF8String] tieWithMaterials:materialStore] color:secondColor power:80.0f];
+    MSLightSource* secondLight = [[MSLightSource alloc] initWithModel: lightModel color:secondColor power:80.0f];
 
     [secondLight scaleBy:[MSTransformationManager scaleMatrix4x4:0.05 repeatToIndex:2]];
 
@@ -52,8 +52,14 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    float fraction = 0.05;
+    float rotationFraction = 0.1;
     [EAGLContext setCurrentContext:[self context]];
     if(renderer!=nil){
+        [world translateObject:[world getCamera] x:-self->translation.x*fraction y:0 z:self->translation.y*fraction];
+
+        [world rotateObject:[world getCamera] x:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
+        
         [renderer drawScene];
     }
 }

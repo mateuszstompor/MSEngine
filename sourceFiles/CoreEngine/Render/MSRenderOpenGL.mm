@@ -89,9 +89,11 @@
             [self setUpUniforms:fraction shaderProgram:lightShaderProgram];
             
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
-            glBindVertexArray([modelToDraw vao]);
-            glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)([modelToDraw indiciesToDraw]), 1);
-            glBindVertexArray(0);
+            if ([modelToDraw indiciesToDraw]>0){
+                glBindVertexArray([modelToDraw vao]);
+                glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)([modelToDraw indiciesToDraw]), 1);
+                glBindVertexArray(0);
+            }
         }
     }
     glUseProgram(0);
@@ -169,10 +171,12 @@
             [self setUpUniforms:fraction shaderProgram:modelShaderProgram];
 
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
+            if ([modelToDraw indiciesToDraw] > 0){
                 glBindVertexArray([modelToDraw vao]);
-                NSLog(@"%i", (GLsizei)([modelToDraw indiciesToDraw]));
+                //NSLog(@"%i", (GLsizei)([modelToDraw indiciesToDraw]));
                 glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
                 glBindVertexArray(0);
+            }
         }
     }
     glUseProgram(0);

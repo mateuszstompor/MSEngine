@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+
+
 @interface ViewController ()
 
 @end
@@ -17,19 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    RenderView* view = (RenderView*)self.view;
-    view.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+    RenderView* renderView = (RenderView*)self.view;
+    renderView.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
     
     // Configure renderbuffers created by the view
-    view.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
-    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-    view.drawableStencilFormat = GLKViewDrawableStencilFormat8;
+    renderView.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
+    renderView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    renderView.drawableStencilFormat = GLKViewDrawableStencilFormat8;
     
     // Enable multisampling
-    self.preferredFramesPerSecond = 60;
-    view.drawableMultisample = GLKViewDrawableMultisample4X;
-    
-    [view setUp];
+    self.preferredFramesPerSecond = 10;
+    renderView.drawableMultisample = GLKViewDrawableMultisample4X;
+    self->_rotationJoy.delegate = self;
+    self->_translationJoy.delegate = self;
+    [renderView setUp];
 }
 
 
@@ -38,5 +41,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)joyPositionDidChangedWithSender:(JoystickView * _Nonnull)sender{
+    RenderView* renderView = (RenderView*)self.view;
+    if (sender == self.translationJoy){
+        renderView->translation = sender.currentPosition;
+    }else if (sender == self.rotationJoy) {
+        renderView->rotation = sender.currentPosition;
+    }
+}
+- (void)joyTouchRecognitionDidEndWithSender:(JoystickView * _Nonnull)sender{
+    RenderView* renderView = (RenderView*)self.view;
+    if (sender == self.translationJoy){
+        renderView->translation = CGPointMake(0, 0);
+    }else if (sender == self.rotationJoy) {
+        renderView->rotation = CGPointMake(0, 0);
+    }
+}
 @end
