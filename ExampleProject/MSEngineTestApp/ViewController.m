@@ -29,7 +29,7 @@
     renderView.drawableStencilFormat = GLKViewDrawableStencilFormat8;
     renderView->labelToUpdate = self->_fpsMeter;
     // Enable multisampling
-    self.preferredFramesPerSecond = 30;
+    self.preferredFramesPerSecond = 60;
     renderView.drawableMultisample = GLKViewDrawableMultisample4X;
     self->_rotationJoy.delegate = self;
     self->_translationJoy.delegate = self;

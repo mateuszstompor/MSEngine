@@ -12,6 +12,7 @@
 		619CFB811F38C38B004FACBE /* MSVectorND_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB801F38C38B004FACBE /* MSVectorND_Tests.m */; };
 		619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */ = {isa = PBXBuildFile; fileRef = 619CFB831F38E1B9004FACBE /* MSMathException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		619CFB861F38E1B9004FACBE /* MSMathException.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB841F38E1B9004FACBE /* MSMathException.m */; };
+		619CFB8A1F390992004FACBE /* MSPoint_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB881F3907A8004FACBE /* MSPoint_Tests.m */; };
 		61D6CDF41F32368D0021133D /* iMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D6CDE61F32368C0021133D /* iMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CDFB1F3236A40021133D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61314EED1ED64B70001A3519 /* OpenGLES.framework */; };
 		61D6CDFD1F3236A90021133D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D6CDFC1F3236A90021133D /* Foundation.framework */; };
@@ -121,6 +122,7 @@
 		619CFB801F38C38B004FACBE /* MSVectorND_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSVectorND_Tests.m; path = Math/MSVectorND_Tests.m; sourceTree = "<group>"; };
 		619CFB831F38E1B9004FACBE /* MSMathException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMathException.h; sourceTree = "<group>"; };
 		619CFB841F38E1B9004FACBE /* MSMathException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMathException.m; sourceTree = "<group>"; };
+		619CFB881F3907A8004FACBE /* MSPoint_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPoint_Tests.m; path = Math/MSPoint_Tests.m; sourceTree = "<group>"; };
 		61BCA3BD1EFDC850004FA86D /* ios_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ios_shaders_header; sourceTree = "<group>"; };
 		61BCA3BE1EFDC866004FA86D /* mac_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mac_shaders_header; sourceTree = "<group>"; };
 		61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRenderOpenGL.h; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				619CFB801F38C38B004FACBE /* MSVectorND_Tests.m */,
+				619CFB881F3907A8004FACBE /* MSPoint_Tests.m */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619CFB8A1F390992004FACBE /* MSPoint_Tests.m in Sources */,
 				619CFB811F38C38B004FACBE /* MSVectorND_Tests.m in Sources */,
 				619CFB781F38C363004FACBE /* MSGraphicsEngineTests_iOS.m in Sources */,
 			);
@@ -776,6 +780,7 @@
 				619CFB7F1F38C363004FACBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61D6CDF91F32368D0021133D /* Build configuration list for PBXNativeTarget "iMSGraphicsEngine" */ = {
 			isa = XCConfigurationList;

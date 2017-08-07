@@ -79,7 +79,7 @@
 -(float**)getColumnMajorArrayStyleMatrix{
     float** cStyleMatrix = (float**)malloc(amountOfColumns*sizeof(float*));
     for(int i=0;i<amountOfColumns;i++){
-        *(cStyleMatrix+i)=[(MSVectorND*)[matrix objectAtIndex:i] getArrayStyleVector];
+        *(cStyleMatrix+i)=(float*)[(MSVectorND*)[matrix objectAtIndex:i] getArrayStyleVector];
     }
     free(cMatrix);
     cMatrix = cStyleMatrix;

@@ -28,34 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6104CEF81F3245C8000547D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61DF1ED31ED66B1C008333A8;
-			remoteInfo = iOS;
-		};
-		6104CEFA1F3245C8000547D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61DF1EF11ED66B80008333A8;
-			remoteInfo = macOS;
-		};
-		6104CEFC1F3245C8000547D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 617DE28F1EE973C100189A63;
-			remoteInfo = macOSTests;
-		};
-		6104CEFE1F3245C8000547D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 617DE29E1EE973F000189A63;
-			remoteInfo = iOSTests;
-		};
 		6104CF001F3245C8000547D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
@@ -69,6 +41,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 61D6CDE31F32368C0021133D;
 			remoteInfo = iMSGraphicsEngine;
+		};
+		610D993A1F3910FD0059F77E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 619CFB751F38C363004FACBE;
+			remoteInfo = MSGraphicsEngineTests_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -130,11 +109,8 @@
 		6104CEF11F3245C8000547D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6104CEF91F3245C8000547D8 /* libiOS.a */,
-				6104CEFB1F3245C8000547D8 /* libmacOS.a */,
-				6104CEFD1F3245C8000547D8 /* macOSTests.xctest */,
-				6104CEFF1F3245C8000547D8 /* iOSTests.xctest */,
 				6104CF011F3245C8000547D8 /* iMSGraphicsEngine.framework */,
+				610D993B1F3910FD0059F77E /* MSGraphicsEngineTests_iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -317,39 +293,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		6104CEF91F3245C8000547D8 /* libiOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libiOS.a;
-			remoteRef = 6104CEF81F3245C8000547D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6104CEFB1F3245C8000547D8 /* libmacOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libmacOS.a;
-			remoteRef = 6104CEFA1F3245C8000547D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6104CEFD1F3245C8000547D8 /* macOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = macOSTests.xctest;
-			remoteRef = 6104CEFC1F3245C8000547D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6104CEFF1F3245C8000547D8 /* iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = iOSTests.xctest;
-			remoteRef = 6104CEFE1F3245C8000547D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		6104CF011F3245C8000547D8 /* iMSGraphicsEngine.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = iMSGraphicsEngine.framework;
 			remoteRef = 6104CF001F3245C8000547D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		610D993B1F3910FD0059F77E /* MSGraphicsEngineTests_iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MSGraphicsEngineTests_iOS.xctest;
+			remoteRef = 610D993A1F3910FD0059F77E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -511,6 +466,7 @@
 		61D6CE211F3237490021133D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -534,6 +490,7 @@
 		61D6CE221F3237490021133D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;

@@ -70,10 +70,8 @@
 }
 
 -(void)subtract: (MSVectorND const* const) vec{
-    int i=0;
-    while(i<dimension){
+    for(int i=0; i<dimension; ++i){
         *(components+i)-=*(vec->components+i);
-        i+=1;
     }
 }
 
@@ -91,11 +89,9 @@
 }
 
 -(float)dotProduct: (MSVectorND const* const ) vec{
-    int i=0;
     float sum=0;
-    while(i<dimension){
+    for(int i=0; i<dimension; ++i){
         sum+=*(components+i)**(vec->components+i);
-        i+=1;
     }
     return sum;
 }
@@ -159,7 +155,7 @@
     return [self valueAtIndex:index];
 }
 
--(float*)getArrayStyleVector{
+-(float const*)getArrayStyleVector{
     return self->components;
 }
 
