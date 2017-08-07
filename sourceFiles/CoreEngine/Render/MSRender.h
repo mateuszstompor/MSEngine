@@ -21,6 +21,7 @@
 -(void)setBehavioureforeEachDraw: (void (^_Nullable)(void))block;
 -(void)drawScene;
 -(void)setBehaviourAfterEachDraw: (void (^_Nullable)(void))block;
+-(float)getCurrentFrameRate;
 
 @end
 

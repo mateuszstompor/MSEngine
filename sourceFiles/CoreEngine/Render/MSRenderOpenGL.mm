@@ -20,8 +20,8 @@
         self->modelsLoadedToGraphics = [[NSMutableDictionary alloc] init];
         self->lightShaderProgram=lsh;
         self->modelShaderProgram=mSh;
-        self->amountOfFramesRendered=0;
         self->settings=0;
+        self->lastFrameRate=0;
         self->lastSecond=[NSDate date];
         [self loadObjectsToGraphics];
         [self setUpOpenGLOptions];
@@ -31,6 +31,8 @@
 -(void)setUpOpenGLOptions{
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
+    //glEnable(GL_BLEND);
+    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 -(void)loadObjectsToGraphics{
     for(MSPuppet* model in [world getModels]){
@@ -70,7 +72,7 @@
     self->_beforeDrawAction=block;
 }
 -(void)drawScene{
-    [self printFPSOnConsole:false];
+    [self countFrameRate];
     [self clear];
     [self drawModels];
     [self drawLights];
@@ -80,30 +82,23 @@
     [self setUpCameraUniforms: lightShaderProgram];
     for(MSLightSource* light in [world getLightSources]){
         glUniform3fv(glGetUniformLocation(lightShaderProgram, "color"), 1, [[light color]getArrayStyleVector]);
-        glUniformMatrix4fv(glGetUniformLocation(lightShaderProgram, "transformation.rotation"), 1, GL_FALSE,  [[light rotation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(lightShaderProgram, "transformation.translation"), 1, GL_FALSE,  [[light translation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(lightShaderProgram, "transformation.scale"), 1, GL_FALSE, [[light scale] matrixAsArray]);
-        
-        
-        for(MSModelFraction* fraction in [light getModelComponents]){
-            [self setUpUniforms:fraction shaderProgram:lightShaderProgram];
-            
-            MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
-            glBindVertexArray([modelToDraw vao]);
-            glDrawArraysInstanced(GL_TRIANGLES, 0, (GLsizei)([modelToDraw indiciesToDraw]), 1);
-            glBindVertexArray(0);
-        }
+        [self drawPuppet:light withProgram:lightShaderProgram];
     }
     glUseProgram(0);
 }
 
--(void)printFPSOnConsole: (BOOL) printOnConsole{
+-(float)getCurrentFrameRate{
+    return self->lastFrameRate;
+}
+
+-(void)countFrameRate{
+    static unsigned int amountOfFramesRendered = 0;
     NSDate *now = [NSDate date];
     NSTimeInterval executionTime = [now timeIntervalSinceDate:lastSecond];
-    if(executionTime > 1.0f && printOnConsole == true){
-        NSLog(@"%f", amountOfFramesRendered/executionTime);
+    if(executionTime > 1.0f){
+        self->lastFrameRate = amountOfFramesRendered/executionTime;
         amountOfFramesRendered=0;
-        lastSecond=[NSDate date];
+        lastSecond=now;
     }
     amountOfFramesRendered+=1;
 }
@@ -119,12 +114,15 @@
             glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [diffuse getArrayStyleVector]);
             glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [ambient getArrayStyleVector]);
             glUniform1f(glGetUniformLocation(prog, "material.shininess"), shininess);
+            glUniform1f(glGetUniformLocation(prog, "material.alpha"), [[frac material] transparency]);
             
         }else{
             glUniform3fv(glGetUniformLocation(prog, "material.specular"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
             glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
-            glUniform3fv(glGetUniformLocation(prog, "material.ambien"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+            glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
             glUniform1f(glGetUniformLocation(prog, "material.shininess"), 0.0f);
+            glUniform1f(glGetUniformLocation(prog, "material.alpha"), 1.0f);
+
         }
 }
 -(void)setUpCameraUniforms: (GLuint) shaderProgram{
@@ -159,23 +157,27 @@
             glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, scale.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]scale]matrixAsArray]);
             glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, rotation.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]rotation]matrixAsArray]);
         }
-        
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.rotation"), 1, GL_FALSE,  [[puppet rotation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.translation"), 1, GL_FALSE,  [[puppet translation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, "transformation.scale"), 1, GL_FALSE, [[puppet scale] matrixAsArray]);
-        
-        
-        for(MSModelFraction* fraction in [puppet getModelComponents]){
-            [self setUpUniforms:fraction shaderProgram:modelShaderProgram];
-
-            MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
-                glBindVertexArray([modelToDraw vao]);
-                NSLog(@"%i", (GLsizei)([modelToDraw indiciesToDraw]));
-                glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
-                glBindVertexArray(0);
-        }
+        [self drawPuppet:puppet withProgram:modelShaderProgram];
     }
     glUseProgram(0);
+}
+-(void)drawPuppet: (MSPuppet*)puppet withProgram: (GLuint) shaderProgram {
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.rotation"), 1, GL_FALSE,  [[puppet rotation] matrixAsArray]);
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.translation"), 1, GL_FALSE,  [[puppet translation] matrixAsArray]);
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.scale"), 1, GL_FALSE, [[puppet scale] matrixAsArray]);
+    
+    
+    for(MSModelFraction* fraction in [puppet getModelComponents]){
+        [self setUpUniforms:fraction shaderProgram:shaderProgram];
+        
+        MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
+        if ([modelToDraw indiciesToDraw] > 0){
+            glBindVertexArray([modelToDraw vao]);
+            //NSLog(@"%i", (GLsizei)([modelToDraw indiciesToDraw]));
+            glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
+            glBindVertexArray(0);
+        }
+    }
 }
 -(void)clear{
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

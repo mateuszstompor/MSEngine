@@ -9,40 +9,43 @@
 #import "MSVectorND.h"
 
 @implementation MSVectorND
--(instancetype)initWithComponents: (int const) dim, ...{
-    va_list listPointer;
-    va_start(listPointer, dim);
-    float* buffer=(float*)malloc(dim*sizeof(float));
-    int i=0;
-    while(i<dim){
-        float numberToAdd=(float)va_arg(listPointer, double);
-        if(isinf(numberToAdd)){
-            [NSException raise:@"Invalid number of arguments" format:@"Too few of them"];
-        }
-        *(buffer+i)=numberToAdd;
-        i+=1;
-    }
-    va_end(listPointer);
-    self=[self initWithArrayOfComponents:dim components:buffer];
-    free (buffer);
-    return self;
-}
-+(instancetype)onesVector: (int)dimension{
-    MSVectorND* vectorToReturn = [[MSVectorND alloc] initZeroVecWithDimension:dimension];
+
++(instancetype)onesVector: (unsigned int const)dimension{
+    MSVectorND* vectorToReturn = [[MSVectorND alloc] initVecWithDimension:dimension];
     for(int i=0; i<dimension; ++i){
         [vectorToReturn setValueAtIdenx:i value:1.0f];
     }
     return vectorToReturn;
 }
--(instancetype)initWithArrayOfComponents: (int const) dim components: (float const * const) array{
-    self=[super self];
+
+-(instancetype)initVecWithDimension: (unsigned int const) dim {
+    self = [super init];
+    if (self) {
+        self->dimension = dim;
+        self->components = (float*)malloc(dim*sizeof(float));
+    }
+    return self;
+}
+
+-(instancetype)initWithComponents: (unsigned int const) dim, ...{
+    va_list listPointer;
+    va_start(listPointer, dim);
+    self->dimension=dim;
+    self->components=(float*)malloc(dim*sizeof(float));
+    for(int i=0; i<dim; ++i){
+        *(self->components+i)=(float)va_arg(listPointer, double);
+    }
+    va_end(listPointer);
+    return self;
+}
+
+-(instancetype)initWithArrayOfComponents: (unsigned int const) dim components: (float const * const) array{
+    self=[super init];
     if(self){
         self->dimension=dim;
         self->components=(float*)malloc(dimension*sizeof(float));
-        int i=0;
-        while(i<dimension){
+        for(int i=0; i<dimension; ++i){
             *(components+i)=*(array+i);
-            i+=1;
         }
     }
     return self;
@@ -52,27 +55,42 @@
     self=[self initWithArrayOfComponents:vec->dimension components:vec->components];
     return self;
 }
+
 -(void)add: (MSVectorND const* const) vec{
-    [self checkDimensions:vec];
     int i=0;
     while(i<dimension){
         *(components+i)+=*(vec->components+i);
         i+=1;
     }
 }
+
+-(void)safeAdd: (MSVectorND const* const) vec{
+    [self matchDimensions:vec];
+    [self add:vec];
+}
+
 -(void)subtract: (MSVectorND const* const) vec{
-    [self checkDimensions:vec];
     int i=0;
     while(i<dimension){
         *(components+i)-=*(vec->components+i);
         i+=1;
     }
 }
--(float)length{
-    return sqrtf([self dotProduct:self]);
+
+-(void)safeSubtract: (MSVectorND const* const) vec{
+    [self matchDimensions:vec];
+    [self subtract:vec];
 }
+
+-(float)length{
+    return sqrtf([self lengthSquared]);
+}
+
+-(float)lengthSquared{
+    return [self dotProduct:self];
+}
+
 -(float)dotProduct: (MSVectorND const* const ) vec{
-    [self checkDimensions:vec];
     int i=0;
     float sum=0;
     while(i<dimension){
@@ -81,6 +99,12 @@
     }
     return sum;
 }
+
+-(float)safeDotProduct: (MSVectorND const* const ) vec{
+    [self matchDimensions:vec];
+    return [self dotProduct:vec];
+}
+
 -(void)multiplyByScalar: (float const) scalar{
     int i=0;
     while(i<dimension){
@@ -88,7 +112,8 @@
         i+=1;
     }
 }
--(instancetype)initZeroVecWithDimension: (int const) dim{
+
+-(instancetype)initZeroVecWithDimension: (unsigned int const) dim{
     float arrayToPass[dim];
     for(int i=0;i<dim;i++){
         arrayToPass[i]=0.0f;
@@ -96,13 +121,15 @@
     self=[self initWithArrayOfComponents:dim components:arrayToPass];
     return self;
 }
--(void)checkDimensions: (MSVectorND const * const) vec{
-        if(vec->dimension!=self->dimension){
-            [NSException raise:@"Dimensions are different" format:@"self was %i and argument was %i", dimension,vec->dimension];
-        }
+
+-(void)matchDimensions: (MSVectorND const * const) vec{
+    if(vec->dimension!=self->dimension){
+        [MSMathDimensionMismatchException raise:@"Dimensions are different" format:@"self was %i and argument was %i", dimension,vec->dimension];
+    }
 }
--(instancetype)initWithZerosExceptIndex: (int) index number:(float) num dimensionOfVector: (int) dim{
-    if((index>dim-1)||(index<0)){
+
+-(instancetype)initWithZerosExceptIndex: (unsigned int const) index number:(float const) num dimensionOfVector: (unsigned int const) dim{
+    if(index>=dim){
         [NSException raise:@"Incorrect index" format:@"index was %i", index];
     }
     self=[self initZeroVecWithDimension:dim];
@@ -111,43 +138,94 @@
     }
     return self;
 }
+
 -(int)getDimension{
     return self->dimension;
 }
+
 -(void)normalize{
     float lengthOfVec = [self length];
     for(int i=0;i<dimension;i++){
         *(components+i)/=lengthOfVec;
     }
 }
--(float)valueAtIndex:(int)index{
-    if((index>dimension-1)||index<0){
-        [NSException raise:@"Incorrect index!" format:@"Dim of vec is %i and you want %i", dimension,index];
-    }
+
+-(float)valueAtIndex:(unsigned int const)index{
     return *(components+index);
 }
+
+-(float)safeValueAtIndex:(unsigned int const)index{
+    [self checkIndexBound:index];
+    return [self valueAtIndex:index];
+}
+
 -(float*)getArrayStyleVector{
     return self->components;
 }
--(void)setValueAtIdenx:(int)index value: (float)val{
-    if(index>=dimension || index<0){
-        [NSException raise:@"Index out of bounds!" format:@"Wanted index %i, vec is only %i size",index,dimension];
-    }
+
+-(void)setValueAtIdenx:(unsigned int const)index value: (float)val{
     *(components+index)=val;
 }
--(void)printVector{
-    int i=0;
-    printf("Dimension is %i\n",dimension);
-    printf("Components: ");
 
-    while(i<dimension){
-        printf("%f ",*(components+i));
-        i+=1;
-    }
-    printf("\n");
-    fflush(stdout);
+-(void)safeSetValueAtIdenx:(unsigned int const)index value: (float)val{
+    [self checkIndexBound:index];
+    [self setValueAtIdenx:index value:val];
 }
+
+-(void)checkIndexBound: (int) index {
+    if(index>=dimension || index<0){
+        [MSMathIndexOutOfBounds raise:@"Index out of bounds!" format:@"Wanted index %i, vec is only %i size",index,dimension];
+    }
+}
+
+-(BOOL)safeIsEqualToVector: (MSVectorND*) vec{
+    return [self safeIsEqualToVector:vec withMaxDifference:0.0];
+}
+
+-(BOOL)safeIsEqualToVector: (MSVectorND*) vec withMaxDifference: (float) difference{
+    [self matchDimensions:vec];
+    return [self safeIsEqualToVector:vec withMaxDifference:difference];
+}
+
+-(BOOL)isEqualToVector: (MSVectorND*) vec{
+    return [self isEqualToVector: vec withMaxDifference: 0.0];
+}
+
+-(BOOL)isEqualToVector: (MSVectorND*) vec withMaxDifference: (float) difference{
+    for(int i=0; i<self->dimension; ++i){
+        float vectorDifference = *(self->components+i) - *(vec->components+i);
+        if (vectorDifference*vectorDifference > difference*difference){
+            return false;
+        }
+    }
+    return true;
+}
+
+-(MSVectorND*)newVectorFromAddition: (MSVectorND const * const) vec{
+    MSVectorND* vectorToReturn = [[MSVectorND alloc] initWithVector:self];
+    [vectorToReturn add:vec];
+    return vectorToReturn;
+    
+}
+
+-(MSVectorND*)newVectorFromSafeAddition: (MSVectorND const * const) vec{
+    [self matchDimensions:vec];
+    return [self newVectorFromAddition:vec];
+}
+
+-(MSVectorND*)newVectorFromSubtraction: (MSVectorND const * const) vec{
+    MSVectorND* vectorToReturn = [[MSVectorND alloc] initWithVector:self];
+    [vectorToReturn subtract:vec];
+    return vectorToReturn;
+}
+
+-(MSVectorND*)newVectorFromSafeSubtraction: (MSVectorND const * const) vec{
+    [self matchDimensions:vec];
+    return [self newVectorFromSubtraction:vec];
+}
+
 -(void)dealloc{
     free (self->components);
 }
+
 @end

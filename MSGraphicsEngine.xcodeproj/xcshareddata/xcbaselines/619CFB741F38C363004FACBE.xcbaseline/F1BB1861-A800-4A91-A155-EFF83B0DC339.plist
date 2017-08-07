@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>classNames</key>
+	<dict>
+		<key>mathTests</key>
+		<dict>
+			<key>testInitalizerInitWithZero</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.16964</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:18:28</string>
+				</dict>
+			</dict>
+			<key>testInitalizerInitWithZeroExcept</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.20382</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:18:29</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithArrayOfComponents</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.13943</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:18:31</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithComponents</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.22002</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:18:33</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithDimmension</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.12961</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:18:35</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithOnes</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.1619</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:18:36</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithVector</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.1913</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:18:38</string>
+				</dict>
+			</dict>
+			<key>testSafeVectorMultiplicationPerformance</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.075232</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:10:48</string>
+				</dict>
+			</dict>
+			<key>testVectorMultiplicationPerformance</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.031246</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>7 Aug 2017, 21:10:45</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

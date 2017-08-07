@@ -16,6 +16,7 @@
 		6104CF161F324C62000547D8 /* MSGraphicsConstants.h in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF101F32473D000547D8 /* MSGraphicsConstants.h */; };
 		6104CF171F324C62000547D8 /* VShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF111F32473D000547D8 /* VShader.vert */; };
 		6104CF181F3250F6000547D8 /* iMSGraphicsEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6104CF011F3245C8000547D8 /* iMSGraphicsEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617CA6391F352EE30096F1DD /* JoystickView.swift */; };
 		61D6CE0E1F3237490021133D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE0D1F3237490021133D /* main.m */; };
 		61D6CE111F3237490021133D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE101F3237490021133D /* AppDelegate.m */; };
 		61D6CE141F3237490021133D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE131F3237490021133D /* ViewController.m */; };
@@ -96,6 +97,8 @@
 		6104CF0F1F32473D000547D8 /* mac_shaders_header */ = {isa = PBXFileReference; lastKnownFileType = text; path = mac_shaders_header; sourceTree = "<group>"; };
 		6104CF101F32473D000547D8 /* MSGraphicsConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphicsConstants.h; sourceTree = "<group>"; };
 		6104CF111F32473D000547D8 /* VShader.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = VShader.vert; sourceTree = "<group>"; };
+		617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSEngineTestApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		617CA6391F352EE30096F1DD /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
 		61D6CE091F3237490021133D /* MSEngineTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSEngineTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D6CE0D1F3237490021133D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61D6CE0F1F3237490021133D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,6 +164,34 @@
 			path = ../../Shaders;
 			sourceTree = "<group>";
 		};
+		617CA6351F352DA30096F1DD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				61D6CE151F3237490021133D /* Main.storyboard */,
+				61D6CE1A1F3237490021133D /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		617CA6361F352DBB0096F1DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				61D6CE121F3237490021133D /* ViewController.h */,
+				61D6CE131F3237490021133D /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		617CA6371F352DC50096F1DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61D6CE951F3241A30021133D /* RenderView.h */,
+				61D6CE961F3241A30021133D /* RenderView.m */,
+				617CA6391F352EE30096F1DD /* JoystickView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		61D6CE001F3237490021133D = {
 			isa = PBXGroup;
 			children = (
@@ -182,18 +213,15 @@
 		61D6CE0B1F3237490021133D /* MSEngineTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				61D6CE0C1F3237490021133D /* Supporting Files */,
+				617CA6371F352DC50096F1DD /* Views */,
+				617CA6361F352DBB0096F1DD /* Controllers */,
+				617CA6351F352DA30096F1DD /* Storyboards */,
 				61D6CEAD1F3245160021133D /* Assets */,
 				61D6CE0F1F3237490021133D /* AppDelegate.h */,
 				61D6CE101F3237490021133D /* AppDelegate.m */,
-				61D6CE121F3237490021133D /* ViewController.h */,
-				61D6CE131F3237490021133D /* ViewController.m */,
-				61D6CE951F3241A30021133D /* RenderView.h */,
-				61D6CE961F3241A30021133D /* RenderView.m */,
-				61D6CE151F3237490021133D /* Main.storyboard */,
-				61D6CE181F3237490021133D /* Assets.xcassets */,
-				61D6CE1A1F3237490021133D /* LaunchScreen.storyboard */,
 				61D6CE1D1F3237490021133D /* Info.plist */,
-				61D6CE0C1F3237490021133D /* Supporting Files */,
+				617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */,
 			);
 			path = MSEngineTestApp;
 			sourceTree = "<group>";
@@ -218,6 +246,7 @@
 		61D6CEAD1F3245160021133D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				61D6CE181F3237490021133D /* Assets.xcassets */,
 				6104CF0B1F32473D000547D8 /* Shaders */,
 				6104CF041F32471A000547D8 /* 3DModels */,
 			);
@@ -258,6 +287,7 @@
 					61D6CE081F3237490021133D = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = R78NEXF6E2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -353,6 +383,7 @@
 				61D6CE141F3237490021133D /* ViewController.m in Sources */,
 				61D6CE111F3237490021133D /* AppDelegate.m in Sources */,
 				61D6CE971F3241A30021133D /* RenderView.m in Sources */,
+				617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */,
 				61D6CE0E1F3237490021133D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +512,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R78NEXF6E2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,7 +523,11 @@
 				INFOPLIST_FILE = MSEngineTestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.MSEngineTestApp;
+				PRODUCT_MODULE_NAME = MSEngineTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MSEngineTestApp/MSEngineTestApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -498,6 +535,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R78NEXF6E2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -507,7 +546,10 @@
 				INFOPLIST_FILE = MSEngineTestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.MSEngineTestApp;
+				PRODUCT_MODULE_NAME = MSEngineTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MSEngineTestApp/MSEngineTestApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

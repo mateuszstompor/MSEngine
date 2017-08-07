@@ -20,21 +20,36 @@
                ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6174E4521F374C1300B1BD5B"
+               BuildableName = "mathTests.xctest"
+               BlueprintName = "mathTests"
+               ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61D6CDEB1F32368D0021133D"
-               BuildableName = "iMSGraphicsEngineTests.xctest"
-               BlueprintName = "iMSGraphicsEngineTests"
+               BlueprintIdentifier = "619CFB741F38C363004FACBE"
+               BuildableName = "MSGraphicsEngineTests_iOS.xctest"
+               BlueprintName = "MSGraphicsEngineTests_iOS"
                ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
             </BuildableReference>
          </TestableReference>

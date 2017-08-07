@@ -7,112 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		612061721F2E477D0062997A /* FShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6120616F1F2E477D0062997A /* FShader.frag */; };
-		612061731F2E477D0062997A /* FShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6120616F1F2E477D0062997A /* FShader.frag */; };
-		612061741F2E477D0062997A /* LightShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 612061701F2E477D0062997A /* LightShader.frag */; };
-		612061751F2E477D0062997A /* LightShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 612061701F2E477D0062997A /* LightShader.frag */; };
-		612061761F2E477D0062997A /* VShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 612061711F2E477D0062997A /* VShader.vert */; };
-		612061771F2E477D0062997A /* VShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 612061711F2E477D0062997A /* VShader.vert */; };
-		617DE28A1EE9734900189A63 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617DE2891EE9734900189A63 /* XCTest.framework */; };
-		617DE2921EE973C100189A63 /* macOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DE2911EE973C100189A63 /* macOSTests.m */; };
-		617DE2941EE973C100189A63 /* libmacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DF1EF11ED66B80008333A8 /* libmacOS.a */; };
-		617DE2A11EE973F000189A63 /* iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DE2A01EE973F000189A63 /* iOSTests.m */; };
-		617DE2A31EE973F000189A63 /* libiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DF1ED31ED66B1C008333A8 /* libiOS.a */; };
-		61D1E9371F04586F0038AE3D /* MSVertexData.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A31EB8B3930086897F /* MSVertexData.m */; };
-		61D1E9381F04586F0038AE3D /* MSModelFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69D1EB8B3930086897F /* MSModelFace.m */; };
-		61D1E9391F04586F0038AE3D /* MSModelFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69F1EB8B3930086897F /* MSModelFraction.m */; };
-		61D1E93A1F04586F0038AE3D /* MSMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8B51EFAECD9009537F9 /* MSMaterial.m */; };
-		61D1E93B1F04586F0038AE3D /* MSMaterialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8C11EFAFAD8009537F9 /* MSMaterialStore.m */; };
-		61D1E93C1F04586F0038AE3D /* MSRenderOpenGL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */; };
-		61D1E93D1F04586F0038AE3D /* MSDrawableFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E9321F044F6B0038AE3D /* MSDrawableFraction.m */; };
-		61D1E93E1F04586F0038AE3D /* MSEngineUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A51EB8B3930086897F /* MSEngineUtility.m */; };
-		61D1E9401F04586F0038AE3D /* MSWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6AA1EB8B3930086897F /* MSWorld.m */; };
-		61D1E9411F04586F0038AE3D /* MSPuppet.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6B21EB8B3930086897F /* MSPuppet.m */; };
-		61D1E9421F04586F0038AE3D /* MSLightSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A5F541EBA81460017DB89 /* MSLightSource.m */; };
-		61D1E9431F04586F0038AE3D /* MSTransformationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A11EB8B3930086897F /* MSTransformationManager.m */; };
-		61D1E9441F04586F0038AE3D /* MSPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6B81EB8B3930086897F /* MSPoint.m */; };
-		61D1E9451F04586F0038AE3D /* MSMatrixND.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6B61EB8B3930086897F /* MSMatrixND.m */; };
-		61D1E9461F04586F0038AE3D /* MSVectorND.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6BB1EB8B3930086897F /* MSVectorND.m */; };
-		61D1E9481F04586F0038AE3D /* MSLoaderOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */; };
-		61D1E9491F04586F0038AE3D /* MSLoaderMTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8BB1EFAF1A8009537F9 /* MSLoaderMTL.m */; };
-		61D1E94C1F04587E0038AE3D /* MSVertexData.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A21EB8B3930086897F /* MSVertexData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E94D1F04587E0038AE3D /* MSModelFace.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69C1EB8B3930086897F /* MSModelFace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E94E1F04587E0038AE3D /* MSModelFraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69E1EB8B3930086897F /* MSModelFraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E94F1F04587E0038AE3D /* MSMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8B41EFAECD9009537F9 /* MSMaterial.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9501F04587E0038AE3D /* MSMaterialStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8C01EFAFAD8009537F9 /* MSMaterialStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9511F04587E0038AE3D /* MSRenderOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9521F04587E0038AE3D /* MSDrawableFraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9531F04587E0038AE3D /* MSEngineUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A41EB8B3930086897F /* MSEngineUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9541F04587E0038AE3D /* MSRender.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A61EB8B3930086897F /* MSRender.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9551F04587E0038AE3D /* MSWorld.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A91EB8B3930086897F /* MSWorld.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9561F04587E0038AE3D /* MSPositionedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6AD1EB8B3930086897F /* MSPositionedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9571F04587E0038AE3D /* MSPuppet.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B11EB8B3930086897F /* MSPuppet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9581F04587E0038AE3D /* MSLightSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 619A5F531EBA81460017DB89 /* MSLightSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9591F04587E0038AE3D /* MSTransformationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A01EB8B3930086897F /* MSTransformationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E95A1F04587E0038AE3D /* MSPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B71EB8B3930086897F /* MSPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E95B1F04587E0038AE3D /* MSMatrixND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B51EB8B3930086897F /* MSMatrixND.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E95C1F04587E0038AE3D /* MSVectorND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BA1EB8B3930086897F /* MSVectorND.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E95E1F04587E0038AE3D /* MSLoaderOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E95F1F04587E0038AE3D /* MSModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9601F04587E0038AE3D /* MSLoaderMTL.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9791F0530AE0038AE3D /* MSVertexData.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A31EB8B3930086897F /* MSVertexData.m */; };
-		61D1E97A1F0530AE0038AE3D /* MSModelFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69D1EB8B3930086897F /* MSModelFace.m */; };
-		61D1E97B1F0530AE0038AE3D /* MSModelFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69F1EB8B3930086897F /* MSModelFraction.m */; };
-		61D1E97C1F0530AE0038AE3D /* MSMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8B51EFAECD9009537F9 /* MSMaterial.m */; };
-		61D1E97D1F0530AE0038AE3D /* MSMaterialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8C11EFAFAD8009537F9 /* MSMaterialStore.m */; };
-		61D1E97E1F0530AE0038AE3D /* MSRenderOpenGL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */; };
-		61D1E97F1F0530AE0038AE3D /* MSDrawableFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D1E9321F044F6B0038AE3D /* MSDrawableFraction.m */; };
-		61D1E9801F0530AE0038AE3D /* MSEngineUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A51EB8B3930086897F /* MSEngineUtility.m */; };
-		61D1E9821F0530AE0038AE3D /* MSWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6AA1EB8B3930086897F /* MSWorld.m */; };
-		61D1E9831F0530AE0038AE3D /* MSPuppet.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6B21EB8B3930086897F /* MSPuppet.m */; };
-		61D1E9841F0530AE0038AE3D /* MSLightSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A5F541EBA81460017DB89 /* MSLightSource.m */; };
-		61D1E9851F0530AE0038AE3D /* MSTransformationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A11EB8B3930086897F /* MSTransformationManager.m */; };
-		61D1E9861F0530AE0038AE3D /* MSPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6B81EB8B3930086897F /* MSPoint.m */; };
-		61D1E9871F0530AE0038AE3D /* MSMatrixND.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6B61EB8B3930086897F /* MSMatrixND.m */; };
-		61D1E9881F0530AE0038AE3D /* MSVectorND.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6BB1EB8B3930086897F /* MSVectorND.m */; };
-		61D1E9891F0530AE0038AE3D /* MSLoaderOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */; };
-		61D1E98A1F0530AE0038AE3D /* MSLoaderMTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 615EE8BB1EFAF1A8009537F9 /* MSLoaderMTL.m */; };
-		61D1E98D1F0530C40038AE3D /* MSVertexData.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A21EB8B3930086897F /* MSVertexData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E98E1F0530C40038AE3D /* MSModelFace.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69C1EB8B3930086897F /* MSModelFace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E98F1F0530C40038AE3D /* MSModelFraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF69E1EB8B3930086897F /* MSModelFraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9901F0530C40038AE3D /* MSMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8B41EFAECD9009537F9 /* MSMaterial.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9911F0530C40038AE3D /* MSMaterialStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8C01EFAFAD8009537F9 /* MSMaterialStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9921F0530C40038AE3D /* MSRenderOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9931F0530C40038AE3D /* MSDrawableFraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9941F0530C40038AE3D /* MSEngineUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A41EB8B3930086897F /* MSEngineUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9951F0530C40038AE3D /* MSRender.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A61EB8B3930086897F /* MSRender.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9961F0530C40038AE3D /* MSWorld.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A91EB8B3930086897F /* MSWorld.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9971F0530C40038AE3D /* MSPositionedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6AD1EB8B3930086897F /* MSPositionedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9981F0530C40038AE3D /* MSPuppet.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B11EB8B3930086897F /* MSPuppet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9991F0530C40038AE3D /* MSLightSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 619A5F531EBA81460017DB89 /* MSLightSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E99A1F0530C40038AE3D /* MSTransformationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A01EB8B3930086897F /* MSTransformationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E99B1F0530C40038AE3D /* MSPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B71EB8B3930086897F /* MSPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E99C1F0530C40038AE3D /* MSMatrixND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B51EB8B3930086897F /* MSMatrixND.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E99D1F0530C40038AE3D /* MSVectorND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BA1EB8B3930086897F /* MSVectorND.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E99E1F0530C40038AE3D /* MSLoaderOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E99F1F0530C40038AE3D /* MSModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9A01F0530C40038AE3D /* MSLoaderMTL.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D1E9A11F0530F00038AE3D /* MSVertexData.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6A21EB8B3930086897F /* MSVertexData.h */; };
-		61D1E9A21F0530F00038AE3D /* MSModelFace.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF69C1EB8B3930086897F /* MSModelFace.h */; };
-		61D1E9A31F0530F00038AE3D /* MSModelFraction.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF69E1EB8B3930086897F /* MSModelFraction.h */; };
-		61D1E9A41F0530F00038AE3D /* MSMaterial.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615EE8B41EFAECD9009537F9 /* MSMaterial.h */; };
-		61D1E9A51F0530F00038AE3D /* MSMaterialStore.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615EE8C01EFAFAD8009537F9 /* MSMaterialStore.h */; };
-		61D1E9A61F0530F00038AE3D /* MSRenderOpenGL.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */; };
-		61D1E9A71F0530F00038AE3D /* MSDrawableFraction.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */; };
-		61D1E9A81F0530F00038AE3D /* MSEngineUtility.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6A41EB8B3930086897F /* MSEngineUtility.h */; };
-		61D1E9A91F0530F00038AE3D /* MSRender.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6A61EB8B3930086897F /* MSRender.h */; };
-		61D1E9AA1F0530F00038AE3D /* MSWorld.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6A91EB8B3930086897F /* MSWorld.h */; };
-		61D1E9AB1F0530F00038AE3D /* MSPositionedObject.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6AD1EB8B3930086897F /* MSPositionedObject.h */; };
-		61D1E9AC1F0530F00038AE3D /* MSPuppet.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6B11EB8B3930086897F /* MSPuppet.h */; };
-		61D1E9AD1F0530F00038AE3D /* MSLightSource.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 619A5F531EBA81460017DB89 /* MSLightSource.h */; };
-		61D1E9AE1F0530F00038AE3D /* MSTransformationManager.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6A01EB8B3930086897F /* MSTransformationManager.h */; };
-		61D1E9AF1F0530F00038AE3D /* MSPoint.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6B71EB8B3930086897F /* MSPoint.h */; };
-		61D1E9B01F0530F00038AE3D /* MSMatrixND.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6B51EB8B3930086897F /* MSMatrixND.h */; };
-		61D1E9B11F0530F00038AE3D /* MSVectorND.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6BA1EB8B3930086897F /* MSVectorND.h */; };
-		61D1E9B21F0530F00038AE3D /* MSLoaderOBJ.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; };
-		61D1E9B31F0530F10038AE3D /* MSModelManager.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; };
-		61D1E9B41F0530F10038AE3D /* MSLoaderMTL.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; };
-		61D1E9B81F0531910038AE3D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617DE2871EE9734400189A63 /* XCTest.framework */; };
+		619CFB781F38C363004FACBE /* MSGraphicsEngineTests_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB771F38C363004FACBE /* MSGraphicsEngineTests_iOS.m */; };
+		619CFB7A1F38C363004FACBE /* iMSGraphicsEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D6CDE41F32368C0021133D /* iMSGraphicsEngine.framework */; };
+		619CFB811F38C38B004FACBE /* MSVectorND_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB801F38C38B004FACBE /* MSVectorND_Tests.m */; };
+		619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */ = {isa = PBXBuildFile; fileRef = 619CFB831F38E1B9004FACBE /* MSMathException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		619CFB861F38E1B9004FACBE /* MSMathException.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB841F38E1B9004FACBE /* MSMathException.m */; };
 		61D6CDF41F32368D0021133D /* iMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D6CDE61F32368C0021133D /* iMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CDFB1F3236A40021133D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61314EED1ED64B70001A3519 /* OpenGLES.framework */; };
 		61D6CDFD1F3236A90021133D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D6CDFC1F3236A90021133D /* Foundation.framework */; };
@@ -162,67 +61,17 @@
 		61D6CE8D1F323F800021133D /* ios_shaders_header in Resources */ = {isa = PBXBuildFile; fileRef = 61BCA3BD1EFDC850004FA86D /* ios_shaders_header */; };
 		61D6CE8E1F323F800021133D /* mac_shaders_header in Resources */ = {isa = PBXBuildFile; fileRef = 61BCA3BE1EFDC866004FA86D /* mac_shaders_header */; };
 		61D6CE8F1F323F800021133D /* MSGraphicsConstants.h in Resources */ = {isa = PBXBuildFile; fileRef = 61D9B1E61F05B9800063DD04 /* MSGraphicsConstants.h */; };
-		61D9B1E81F05B9E20063DD04 /* MSGraphicsConstants.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 61D9B1E61F05B9800063DD04 /* MSGraphicsConstants.h */; };
-		61D9B1EB1F05BDDB0063DD04 /* MSCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D9B1E91F05BDDB0063DD04 /* MSCamera.h */; };
-		61D9B1EC1F05BDDB0063DD04 /* MSCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D9B1E91F05BDDB0063DD04 /* MSCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D9B1ED1F05BDDB0063DD04 /* MSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */; };
-		61D9B1EE1F05BDDB0063DD04 /* MSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */; };
-		61D9B1EF1F05C2650063DD04 /* MSCamera.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 61D9B1E91F05BDDB0063DD04 /* MSCamera.h */; };
-		61DF1EDC1ED66B33008333A8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61314EED1ED64B70001A3519 /* OpenGLES.framework */; };
-		61DF1F281ED66BB2008333A8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6122CA241EAA4EBE0002F881 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		617DE2951EE973C100189A63 /* PBXContainerItemProxy */ = {
+		619CFB7B1F38C363004FACBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6122CA141EAA4EB40002F881 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 61DF1EF01ED66B80008333A8;
-			remoteInfo = macOS;
-		};
-		617DE2A41EE973F000189A63 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6122CA141EAA4EB40002F881 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 61DF1ED21ED66B1C008333A8;
-			remoteInfo = iOS;
+			remoteGlobalIDString = 61D6CDE31F32368C0021133D;
+			remoteInfo = iMSGraphicsEngine;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		61CE7BF91EFB066000B9C425 /* Copy Files */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/local/include;
-			dstSubfolderSpec = 0;
-			files = (
-				61D9B1EF1F05C2650063DD04 /* MSCamera.h in Copy Files */,
-				61D9B1E81F05B9E20063DD04 /* MSGraphicsConstants.h in Copy Files */,
-				61D1E9A11F0530F00038AE3D /* MSVertexData.h in Copy Files */,
-				61D1E9A21F0530F00038AE3D /* MSModelFace.h in Copy Files */,
-				61D1E9A31F0530F00038AE3D /* MSModelFraction.h in Copy Files */,
-				61D1E9A41F0530F00038AE3D /* MSMaterial.h in Copy Files */,
-				61D1E9A51F0530F00038AE3D /* MSMaterialStore.h in Copy Files */,
-				61D1E9A61F0530F00038AE3D /* MSRenderOpenGL.h in Copy Files */,
-				61D1E9A71F0530F00038AE3D /* MSDrawableFraction.h in Copy Files */,
-				61D1E9A81F0530F00038AE3D /* MSEngineUtility.h in Copy Files */,
-				61D1E9A91F0530F00038AE3D /* MSRender.h in Copy Files */,
-				61D1E9AA1F0530F00038AE3D /* MSWorld.h in Copy Files */,
-				61D1E9AB1F0530F00038AE3D /* MSPositionedObject.h in Copy Files */,
-				61D1E9AC1F0530F00038AE3D /* MSPuppet.h in Copy Files */,
-				61D1E9AD1F0530F00038AE3D /* MSLightSource.h in Copy Files */,
-				61D1E9AE1F0530F00038AE3D /* MSTransformationManager.h in Copy Files */,
-				61D1E9AF1F0530F00038AE3D /* MSPoint.h in Copy Files */,
-				61D1E9B01F0530F00038AE3D /* MSMatrixND.h in Copy Files */,
-				61D1E9B11F0530F00038AE3D /* MSVectorND.h in Copy Files */,
-				61D1E9B21F0530F00038AE3D /* MSLoaderOBJ.h in Copy Files */,
-				61D1E9B31F0530F10038AE3D /* MSModelManager.h in Copy Files */,
-				61D1E9B41F0530F10038AE3D /* MSLoaderMTL.h in Copy Files */,
-			);
-			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6120616F1F2E477D0062997A /* FShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FShader.frag; sourceTree = "<group>"; };
@@ -252,7 +101,7 @@
 		615AF6B71EB8B3930086897F /* MSPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPoint.h; sourceTree = "<group>"; };
 		615AF6B81EB8B3930086897F /* MSPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPoint.m; sourceTree = "<group>"; };
 		615AF6BA1EB8B3930086897F /* MSVectorND.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVectorND.h; sourceTree = "<group>"; };
-		615AF6BB1EB8B3930086897F /* MSVectorND.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVectorND.m; sourceTree = "<group>"; };
+		615AF6BB1EB8B3930086897F /* MSVectorND.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVectorND.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoaderOBJ.h; sourceTree = "<group>"; };
 		615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoaderOBJ.m; sourceTree = "<group>"; };
 		615AF6C11EB8B3930086897F /* MSModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSModelManager.h; sourceTree = "<group>"; };
@@ -264,14 +113,14 @@
 		615EE8C11EFAFAD8009537F9 /* MSMaterialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMaterialStore.m; sourceTree = "<group>"; };
 		617DE2871EE9734400189A63 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		617DE2891EE9734900189A63 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		617DE28F1EE973C100189A63 /* macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		617DE2911EE973C100189A63 /* macOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = macOSTests.m; sourceTree = "<group>"; };
-		617DE2931EE973C100189A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		617DE29E1EE973F000189A63 /* iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		617DE2A01EE973F000189A63 /* iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSTests.m; sourceTree = "<group>"; };
-		617DE2A21EE973F000189A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619A5F531EBA81460017DB89 /* MSLightSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLightSource.h; sourceTree = "<group>"; };
 		619A5F541EBA81460017DB89 /* MSLightSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLightSource.m; sourceTree = "<group>"; };
+		619CFB751F38C363004FACBE /* MSGraphicsEngineTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSGraphicsEngineTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		619CFB771F38C363004FACBE /* MSGraphicsEngineTests_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphicsEngineTests_iOS.m; sourceTree = "<group>"; };
+		619CFB791F38C363004FACBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		619CFB801F38C38B004FACBE /* MSVectorND_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSVectorND_Tests.m; path = Math/MSVectorND_Tests.m; sourceTree = "<group>"; };
+		619CFB831F38E1B9004FACBE /* MSMathException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMathException.h; sourceTree = "<group>"; };
+		619CFB841F38E1B9004FACBE /* MSMathException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMathException.m; sourceTree = "<group>"; };
 		61BCA3BD1EFDC850004FA86D /* ios_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ios_shaders_header; sourceTree = "<group>"; };
 		61BCA3BE1EFDC866004FA86D /* mac_shaders_header */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mac_shaders_header; sourceTree = "<group>"; };
 		61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRenderOpenGL.h; sourceTree = "<group>"; };
@@ -285,24 +134,14 @@
 		61D9B1E61F05B9800063DD04 /* MSGraphicsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphicsConstants.h; sourceTree = "<group>"; };
 		61D9B1E91F05BDDB0063DD04 /* MSCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCamera.h; sourceTree = "<group>"; };
 		61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCamera.m; sourceTree = "<group>"; };
-		61DF1ED31ED66B1C008333A8 /* libiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		61DF1EF11ED66B80008333A8 /* libmacOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmacOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		617DE28C1EE973C100189A63 /* Frameworks */ = {
+		619CFB721F38C363004FACBE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				617DE2941EE973C100189A63 /* libmacOS.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		617DE29B1EE973F000189A63 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				617DE2A31EE973F000189A63 /* libiOS.a in Frameworks */,
+				619CFB7A1F38C363004FACBE /* iMSGraphicsEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,24 +154,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61DF1ED01ED66B1C008333A8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61D1E9B81F0531910038AE3D /* XCTest.framework in Frameworks */,
-				61DF1EDC1ED66B33008333A8 /* OpenGLES.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		61DF1EEE1ED66B80008333A8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				617DE28A1EE9734900189A63 /* XCTest.framework in Frameworks */,
-				61DF1F281ED66BB2008333A8 /* OpenGL.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -341,8 +162,7 @@
 			children = (
 				615AF6E11EB8B3AF0086897F /* Shaders */,
 				615AF6971EB8B3930086897F /* sourceFiles */,
-				617DE2901EE973C100189A63 /* macOSTests */,
-				617DE29F1EE973F000189A63 /* iOSTests */,
+				619CFB761F38C363004FACBE /* MSGraphicsEngineTests_iOS */,
 				6122CA1D1EAA4EB40002F881 /* Products */,
 				6122CA231EAA4EBE0002F881 /* Frameworks */,
 			);
@@ -351,11 +171,8 @@
 		6122CA1D1EAA4EB40002F881 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				61DF1ED31ED66B1C008333A8 /* libiOS.a */,
-				61DF1EF11ED66B80008333A8 /* libmacOS.a */,
-				617DE28F1EE973C100189A63 /* macOSTests.xctest */,
-				617DE29E1EE973F000189A63 /* iOSTests.xctest */,
 				61D6CDE41F32368C0021133D /* iMSGraphicsEngine.framework */,
+				619CFB751F38C363004FACBE /* MSGraphicsEngineTests_iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -398,8 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				61D1E9291F0448D20038AE3D /* OpenGL */,
-				615AF6A41EB8B3930086897F /* MSEngineUtility.h */,
-				615AF6A51EB8B3930086897F /* MSEngineUtility.m */,
 				615AF6A61EB8B3930086897F /* MSRender.h */,
 			);
 			path = Render;
@@ -468,6 +283,8 @@
 				61EEE5DD1EB8BC2800468123 /* point */,
 				615AF6B41EB8B3930086897F /* matrices */,
 				615AF6B91EB8B3930086897F /* vectors */,
+				619CFB831F38E1B9004FACBE /* MSMathException.h */,
+				619CFB841F38E1B9004FACBE /* MSMathException.m */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -515,22 +332,22 @@
 			path = Shaders;
 			sourceTree = "<group>";
 		};
-		617DE2901EE973C100189A63 /* macOSTests */ = {
+		619CFB761F38C363004FACBE /* MSGraphicsEngineTests_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				617DE2911EE973C100189A63 /* macOSTests.m */,
-				617DE2931EE973C100189A63 /* Info.plist */,
+				619CFB821F38C3B5004FACBE /* Math */,
+				619CFB771F38C363004FACBE /* MSGraphicsEngineTests_iOS.m */,
+				619CFB791F38C363004FACBE /* Info.plist */,
 			);
-			path = macOSTests;
+			path = MSGraphicsEngineTests_iOS;
 			sourceTree = "<group>";
 		};
-		617DE29F1EE973F000189A63 /* iOSTests */ = {
+		619CFB821F38C3B5004FACBE /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				617DE2A01EE973F000189A63 /* iOSTests.m */,
-				617DE2A21EE973F000189A63 /* Info.plist */,
+				619CFB801F38C38B004FACBE /* MSVectorND_Tests.m */,
 			);
-			path = iOSTests;
+			name = Math;
 			sourceTree = "<group>";
 		};
 		61D1E9261F0443490038AE3D /* Vertex */ = {
@@ -555,6 +372,8 @@
 		61D1E9291F0448D20038AE3D /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				615AF6A41EB8B3930086897F /* MSEngineUtility.h */,
+				615AF6A51EB8B3930086897F /* MSEngineUtility.m */,
 				61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */,
 				61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */,
 				61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */,
@@ -610,103 +429,30 @@
 				61D6CE721F323F5A0021133D /* MSVectorND.h in Headers */,
 				61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */,
 				61D6CE741F323F5A0021133D /* MSModelManager.h in Headers */,
+				619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */,
 				61D6CE751F323F5A0021133D /* MSLoaderMTL.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		61DF1EEF1ED66B80008333A8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61D1E98D1F0530C40038AE3D /* MSVertexData.h in Headers */,
-				61D1E98E1F0530C40038AE3D /* MSModelFace.h in Headers */,
-				61D1E98F1F0530C40038AE3D /* MSModelFraction.h in Headers */,
-				61D1E9901F0530C40038AE3D /* MSMaterial.h in Headers */,
-				61D1E9911F0530C40038AE3D /* MSMaterialStore.h in Headers */,
-				61D1E9921F0530C40038AE3D /* MSRenderOpenGL.h in Headers */,
-				61D1E9931F0530C40038AE3D /* MSDrawableFraction.h in Headers */,
-				61D1E9941F0530C40038AE3D /* MSEngineUtility.h in Headers */,
-				61D1E9951F0530C40038AE3D /* MSRender.h in Headers */,
-				61D1E9961F0530C40038AE3D /* MSWorld.h in Headers */,
-				61D1E9971F0530C40038AE3D /* MSPositionedObject.h in Headers */,
-				61D1E9981F0530C40038AE3D /* MSPuppet.h in Headers */,
-				61D1E9991F0530C40038AE3D /* MSLightSource.h in Headers */,
-				61D1E99A1F0530C40038AE3D /* MSTransformationManager.h in Headers */,
-				61D1E99B1F0530C40038AE3D /* MSPoint.h in Headers */,
-				61D1E99C1F0530C40038AE3D /* MSMatrixND.h in Headers */,
-				61D1E99D1F0530C40038AE3D /* MSVectorND.h in Headers */,
-				61D1E99E1F0530C40038AE3D /* MSLoaderOBJ.h in Headers */,
-				61D1E99F1F0530C40038AE3D /* MSModelManager.h in Headers */,
-				61D9B1EC1F05BDDB0063DD04 /* MSCamera.h in Headers */,
-				61D1E9A01F0530C40038AE3D /* MSLoaderMTL.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		61DF1F161ED66B9F008333A8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61D9B1EB1F05BDDB0063DD04 /* MSCamera.h in Headers */,
-				61D1E94C1F04587E0038AE3D /* MSVertexData.h in Headers */,
-				61D1E94D1F04587E0038AE3D /* MSModelFace.h in Headers */,
-				61D1E94E1F04587E0038AE3D /* MSModelFraction.h in Headers */,
-				61D1E94F1F04587E0038AE3D /* MSMaterial.h in Headers */,
-				61D1E9501F04587E0038AE3D /* MSMaterialStore.h in Headers */,
-				61D1E9511F04587E0038AE3D /* MSRenderOpenGL.h in Headers */,
-				61D1E9521F04587E0038AE3D /* MSDrawableFraction.h in Headers */,
-				61D1E9531F04587E0038AE3D /* MSEngineUtility.h in Headers */,
-				61D1E9541F04587E0038AE3D /* MSRender.h in Headers */,
-				61D1E9551F04587E0038AE3D /* MSWorld.h in Headers */,
-				61D1E9561F04587E0038AE3D /* MSPositionedObject.h in Headers */,
-				61D1E9571F04587E0038AE3D /* MSPuppet.h in Headers */,
-				61D1E9581F04587E0038AE3D /* MSLightSource.h in Headers */,
-				61D1E9591F04587E0038AE3D /* MSTransformationManager.h in Headers */,
-				61D1E95A1F04587E0038AE3D /* MSPoint.h in Headers */,
-				61D1E95B1F04587E0038AE3D /* MSMatrixND.h in Headers */,
-				61D1E95C1F04587E0038AE3D /* MSVectorND.h in Headers */,
-				61D1E95E1F04587E0038AE3D /* MSLoaderOBJ.h in Headers */,
-				61D1E95F1F04587E0038AE3D /* MSModelManager.h in Headers */,
-				61D1E9601F04587E0038AE3D /* MSLoaderMTL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		617DE28E1EE973C100189A63 /* macOSTests */ = {
+		619CFB741F38C363004FACBE /* MSGraphicsEngineTests_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 617DE2971EE973C100189A63 /* Build configuration list for PBXNativeTarget "macOSTests" */;
+			buildConfigurationList = 619CFB7D1F38C363004FACBE /* Build configuration list for PBXNativeTarget "MSGraphicsEngineTests_iOS" */;
 			buildPhases = (
-				617DE28B1EE973C100189A63 /* Sources */,
-				617DE28C1EE973C100189A63 /* Frameworks */,
-				617DE28D1EE973C100189A63 /* Resources */,
+				619CFB711F38C363004FACBE /* Sources */,
+				619CFB721F38C363004FACBE /* Frameworks */,
+				619CFB731F38C363004FACBE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				617DE2961EE973C100189A63 /* PBXTargetDependency */,
+				619CFB7C1F38C363004FACBE /* PBXTargetDependency */,
 			);
-			name = macOSTests;
-			productName = macOSTests;
-			productReference = 617DE28F1EE973C100189A63 /* macOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		617DE29D1EE973F000189A63 /* iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 617DE2A61EE973F000189A63 /* Build configuration list for PBXNativeTarget "iOSTests" */;
-			buildPhases = (
-				617DE29A1EE973F000189A63 /* Sources */,
-				617DE29B1EE973F000189A63 /* Frameworks */,
-				617DE29C1EE973F000189A63 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				617DE2A51EE973F000189A63 /* PBXTargetDependency */,
-			);
-			name = iOSTests;
-			productName = iOSTests;
-			productReference = 617DE29E1EE973F000189A63 /* iOSTests.xctest */;
+			name = MSGraphicsEngineTests_iOS;
+			productName = MSGraphicsEngineTests_iOS;
+			productReference = 619CFB751F38C363004FACBE /* MSGraphicsEngineTests_iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		61D6CDE31F32368C0021133D /* iMSGraphicsEngine */ = {
@@ -727,41 +473,6 @@
 			productReference = 61D6CDE41F32368C0021133D /* iMSGraphicsEngine.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		61DF1ED21ED66B1C008333A8 /* iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 61DF1ED91ED66B1C008333A8 /* Build configuration list for PBXNativeTarget "iOS" */;
-			buildPhases = (
-				61DF1ECF1ED66B1C008333A8 /* Sources */,
-				61DF1ED01ED66B1C008333A8 /* Frameworks */,
-				61DF1F161ED66B9F008333A8 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = iOS;
-			productName = iOS;
-			productReference = 61DF1ED31ED66B1C008333A8 /* libiOS.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		61DF1EF01ED66B80008333A8 /* macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 61DF1EF21ED66B80008333A8 /* Build configuration list for PBXNativeTarget "macOS" */;
-			buildPhases = (
-				61DF1EED1ED66B80008333A8 /* Sources */,
-				61DF1EEE1ED66B80008333A8 /* Frameworks */,
-				61DF1EEF1ED66B80008333A8 /* Headers */,
-				61CE7BF91EFB066000B9C425 /* Copy Files */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = macOS;
-			productName = macOS;
-			productReference = 61DF1EF11ED66B80008333A8 /* libmacOS.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -771,28 +482,13 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Mateusz Stompór";
 				TargetAttributes = {
-					617DE28E1EE973C100189A63 = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = R78NEXF6E2;
-						ProvisioningStyle = Automatic;
-					};
-					617DE29D1EE973F000189A63 = {
-						CreatedOnToolsVersion = 8.3.2;
+					619CFB741F38C363004FACBE = {
+						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = R78NEXF6E2;
 						ProvisioningStyle = Automatic;
 					};
 					61D6CDE31F32368C0021133D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = R78NEXF6E2;
-						ProvisioningStyle = Automatic;
-					};
-					61DF1ED21ED66B1C008333A8 = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = R78NEXF6E2;
-						ProvisioningStyle = Automatic;
-					};
-					61DF1EF01ED66B80008333A8 = {
-						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = R78NEXF6E2;
 						ProvisioningStyle = Automatic;
 					};
@@ -810,33 +506,17 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				61DF1ED21ED66B1C008333A8 /* iOS */,
-				61DF1EF01ED66B80008333A8 /* macOS */,
-				617DE28E1EE973C100189A63 /* macOSTests */,
-				617DE29D1EE973F000189A63 /* iOSTests */,
 				61D6CDE31F32368C0021133D /* iMSGraphicsEngine */,
+				619CFB741F38C363004FACBE /* MSGraphicsEngineTests_iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		617DE28D1EE973C100189A63 /* Resources */ = {
+		619CFB731F38C363004FACBE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				612061761F2E477D0062997A /* VShader.vert in Resources */,
-				612061721F2E477D0062997A /* FShader.frag in Resources */,
-				612061741F2E477D0062997A /* LightShader.frag in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		617DE29C1EE973F000189A63 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				612061771F2E477D0062997A /* VShader.vert in Resources */,
-				612061731F2E477D0062997A /* FShader.frag in Resources */,
-				612061751F2E477D0062997A /* LightShader.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,19 +536,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		617DE28B1EE973C100189A63 /* Sources */ = {
+		619CFB711F38C363004FACBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				617DE2921EE973C100189A63 /* macOSTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		617DE29A1EE973F000189A63 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				617DE2A11EE973F000189A63 /* iOSTests.m in Sources */,
+				619CFB811F38C38B004FACBE /* MSVectorND_Tests.m in Sources */,
+				619CFB781F38C363004FACBE /* MSGraphicsEngineTests_iOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +554,7 @@
 				61D6CE781F323F660021133D /* MSModelFraction.m in Sources */,
 				61D6CE791F323F660021133D /* MSMaterial.m in Sources */,
 				61D6CE7A1F323F660021133D /* MSMaterialStore.m in Sources */,
+				619CFB861F38E1B9004FACBE /* MSMathException.m in Sources */,
 				61D6CE7B1F323F660021133D /* MSRenderOpenGL.mm in Sources */,
 				61D6CE7C1F323F660021133D /* MSDrawableFraction.m in Sources */,
 				61D6CE7D1F323F660021133D /* MSEngineUtility.m in Sources */,
@@ -897,68 +571,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61DF1ECF1ED66B1C008333A8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61D1E9371F04586F0038AE3D /* MSVertexData.m in Sources */,
-				61D1E9381F04586F0038AE3D /* MSModelFace.m in Sources */,
-				61D1E9391F04586F0038AE3D /* MSModelFraction.m in Sources */,
-				61D1E93A1F04586F0038AE3D /* MSMaterial.m in Sources */,
-				61D9B1ED1F05BDDB0063DD04 /* MSCamera.m in Sources */,
-				61D1E93B1F04586F0038AE3D /* MSMaterialStore.m in Sources */,
-				61D1E93C1F04586F0038AE3D /* MSRenderOpenGL.mm in Sources */,
-				61D1E93D1F04586F0038AE3D /* MSDrawableFraction.m in Sources */,
-				61D1E93E1F04586F0038AE3D /* MSEngineUtility.m in Sources */,
-				61D1E9401F04586F0038AE3D /* MSWorld.m in Sources */,
-				61D1E9411F04586F0038AE3D /* MSPuppet.m in Sources */,
-				61D1E9421F04586F0038AE3D /* MSLightSource.m in Sources */,
-				61D1E9431F04586F0038AE3D /* MSTransformationManager.m in Sources */,
-				61D1E9441F04586F0038AE3D /* MSPoint.m in Sources */,
-				61D1E9451F04586F0038AE3D /* MSMatrixND.m in Sources */,
-				61D1E9461F04586F0038AE3D /* MSVectorND.m in Sources */,
-				61D1E9481F04586F0038AE3D /* MSLoaderOBJ.m in Sources */,
-				61D1E9491F04586F0038AE3D /* MSLoaderMTL.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		61DF1EED1ED66B80008333A8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61D1E9791F0530AE0038AE3D /* MSVertexData.m in Sources */,
-				61D1E97A1F0530AE0038AE3D /* MSModelFace.m in Sources */,
-				61D1E97B1F0530AE0038AE3D /* MSModelFraction.m in Sources */,
-				61D1E97C1F0530AE0038AE3D /* MSMaterial.m in Sources */,
-				61D9B1EE1F05BDDB0063DD04 /* MSCamera.m in Sources */,
-				61D1E97D1F0530AE0038AE3D /* MSMaterialStore.m in Sources */,
-				61D1E97E1F0530AE0038AE3D /* MSRenderOpenGL.mm in Sources */,
-				61D1E97F1F0530AE0038AE3D /* MSDrawableFraction.m in Sources */,
-				61D1E9801F0530AE0038AE3D /* MSEngineUtility.m in Sources */,
-				61D1E9821F0530AE0038AE3D /* MSWorld.m in Sources */,
-				61D1E9831F0530AE0038AE3D /* MSPuppet.m in Sources */,
-				61D1E9841F0530AE0038AE3D /* MSLightSource.m in Sources */,
-				61D1E9851F0530AE0038AE3D /* MSTransformationManager.m in Sources */,
-				61D1E9861F0530AE0038AE3D /* MSPoint.m in Sources */,
-				61D1E9871F0530AE0038AE3D /* MSMatrixND.m in Sources */,
-				61D1E9881F0530AE0038AE3D /* MSVectorND.m in Sources */,
-				61D1E9891F0530AE0038AE3D /* MSLoaderOBJ.m in Sources */,
-				61D1E98A1F0530AE0038AE3D /* MSLoaderMTL.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		617DE2961EE973C100189A63 /* PBXTargetDependency */ = {
+		619CFB7C1F38C363004FACBE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 61DF1EF01ED66B80008333A8 /* macOS */;
-			targetProxy = 617DE2951EE973C100189A63 /* PBXContainerItemProxy */;
-		};
-		617DE2A51EE973F000189A63 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 61DF1ED21ED66B1C008333A8 /* iOS */;
-			targetProxy = 617DE2A41EE973F000189A63 /* PBXContainerItemProxy */;
+			target = 61D6CDE31F32368C0021133D /* iMSGraphicsEngine */;
+			targetProxy = 619CFB7B1F38C363004FACBE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1052,53 +671,29 @@
 			};
 			name = Release;
 		};
-		617DE2981EE973C100189A63 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = R78NEXF6E2;
-				INFOPLIST_FILE = macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		617DE2991EE973C100189A63 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = R78NEXF6E2;
-				INFOPLIST_FILE = macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		617DE2A71EE973F000189A63 /* Debug */ = {
+		619CFB7E1F38C363004FACBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = R78NEXF6E2;
-				INFOPLIST_FILE = iOSTests/Info.plist;
+				INFOPLIST_FILE = MSGraphicsEngineTests_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.iOSTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stompor.mateusz.MSGraphicsEngineTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		617DE2A81EE973F000189A63 /* Release */ = {
+		619CFB7F1F38C363004FACBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = R78NEXF6E2;
-				INFOPLIST_FILE = iOSTests/Info.plist;
+				INFOPLIST_FILE = MSGraphicsEngineTests_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.iOSTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stompor.mateusz.MSGraphicsEngineTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1162,61 +757,6 @@
 			};
 			name = Release;
 		};
-		61DF1EDA1ED66B1C008333A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R78NEXF6E2;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"iOS=1",
-					"DEBUG=1",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		61DF1EDB1ED66B1C008333A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R78NEXF6E2;
-				GCC_PREPROCESSOR_DEFINITIONS = "iOS=1";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		61DF1EF31ED66B80008333A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = R78NEXF6E2;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"macOS=1",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		61DF1EF41ED66B80008333A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = R78NEXF6E2;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "macOS=1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1229,47 +769,19 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		617DE2971EE973C100189A63 /* Build configuration list for PBXNativeTarget "macOSTests" */ = {
+		619CFB7D1F38C363004FACBE /* Build configuration list for PBXNativeTarget "MSGraphicsEngineTests_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				617DE2981EE973C100189A63 /* Debug */,
-				617DE2991EE973C100189A63 /* Release */,
+				619CFB7E1F38C363004FACBE /* Debug */,
+				619CFB7F1F38C363004FACBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		617DE2A61EE973F000189A63 /* Build configuration list for PBXNativeTarget "iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				617DE2A71EE973F000189A63 /* Debug */,
-				617DE2A81EE973F000189A63 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		61D6CDF91F32368D0021133D /* Build configuration list for PBXNativeTarget "iMSGraphicsEngine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61D6CDF51F32368D0021133D /* Debug */,
 				61D6CDF61F32368D0021133D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		61DF1ED91ED66B1C008333A8 /* Build configuration list for PBXNativeTarget "iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				61DF1EDA1ED66B1C008333A8 /* Debug */,
-				61DF1EDB1ED66B1C008333A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		61DF1EF21ED66B80008333A8 /* Build configuration list for PBXNativeTarget "macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				61DF1EF31ED66B80008333A8 /* Debug */,
-				61DF1EF41ED66B80008333A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

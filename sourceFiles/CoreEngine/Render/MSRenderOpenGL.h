@@ -29,7 +29,7 @@
     GLuint lightShaderProgram;
     NSDate *lastSecond;
     MSWorld* world;
-    unsigned int amountOfFramesRendered;
+    float lastFrameRate;
     NSMutableDictionary<NSValue*,MSDrawableFraction*>* modelsLoadedToGraphics;
     int settings;
 }

@@ -10,15 +10,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "617DE29D1EE973F000189A63"
-               BuildableName = "iOSTests.xctest"
-               BlueprintName = "iOSTests"
+               BlueprintIdentifier = "619CFB741F38C363004FACBE"
+               BuildableName = "MSGraphicsEngineTests_iOS.xctest"
+               BlueprintName = "MSGraphicsEngineTests_iOS"
                ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
             </BuildableReference>
          </TestableReference>

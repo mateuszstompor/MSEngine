@@ -23,7 +23,7 @@
         self->amountOfRows=[(MSVectorND*)[matrix objectAtIndex:0] getDimension];
         for(int i=0;i<numberOfColumns-1;i++){
             MSVectorND* objToAdd=(MSVectorND*)va_arg(listOfColumnsVecs, MSVectorND*);
-            [(MSVectorND*)[matrix objectAtIndex:0] checkDimensions:objToAdd];
+            [(MSVectorND*)[matrix objectAtIndex:0] matchDimensions:objToAdd];
             [matrix addObject:[[MSVectorND alloc] initWithVector:objToAdd]];
         }
         va_end(listOfColumnsVecs);
@@ -55,7 +55,7 @@
     return self;
 }
 -(void)extendMatrixAboutColumn:(MSVectorND const* const)vec{
-    [(MSVectorND*)[matrix objectAtIndex:0] checkDimensions:vec];
+    [(MSVectorND*)[matrix objectAtIndex:0] matchDimensions:vec];
     [matrix addObject:[[MSVectorND alloc] initWithVector:vec]];
     self->amountOfColumns+=1;
 }

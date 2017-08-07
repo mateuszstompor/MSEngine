@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
+#import "MSEngineTestApp-Swift.h"
 #import "RenderView.h"
 
-@interface ViewController : GLKViewController
+@class JoystickView;
+@protocol JoystickEventHandler;
 
+@interface ViewController : GLKViewController <JoystickEventHandler>
+
+@property (weak, nonatomic) IBOutlet JoystickView *rotationJoy;
+@property (weak, nonatomic) IBOutlet JoystickView *translationJoy;
+@property (weak, nonatomic) IBOutlet UILabel *fpsMeter;
 
 @end
 
