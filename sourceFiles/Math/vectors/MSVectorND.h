@@ -47,7 +47,7 @@
 -(MSVectorND*)newVectorFromSafeSubtraction: (MSVectorND const * const) vec;
 
 
--(float*)getArrayStyleVector;
+-(float const*)getArrayStyleVector;
 -(void)multiplyByScalar: (float const) scalar;
 
 
