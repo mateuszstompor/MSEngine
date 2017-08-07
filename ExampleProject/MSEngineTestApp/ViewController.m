@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self->_fpsMeter setText:@""];
     // Do any additional setup after loading the view.
     RenderView* renderView = (RenderView*)self.view;
     renderView.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
@@ -26,9 +27,9 @@
     renderView.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
     renderView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     renderView.drawableStencilFormat = GLKViewDrawableStencilFormat8;
-    
+    renderView->labelToUpdate = self->_fpsMeter;
     // Enable multisampling
-    self.preferredFramesPerSecond = 10;
+    self.preferredFramesPerSecond = 30;
     renderView.drawableMultisample = GLKViewDrawableMultisample4X;
     self->_rotationJoy.delegate = self;
     self->_translationJoy.delegate = self;

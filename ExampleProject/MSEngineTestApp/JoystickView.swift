@@ -11,14 +11,14 @@ import UIKit
 @objc class JoystickView: UIView, UIGestureRecognizerDelegate {
     
     private var joyLayer: CALayer?
-    private var pangest: UIPanGestureRecognizer?
+    private var panGestureRecognizer: UIPanGestureRecognizer?
     
     var delegate: JoystickEventHandler?
     
     var currentPosition: CGPoint {
         get {
-            let distancetocenterX = Float(pangest!.location(in: self).x - self.bounds.width/2)
-            let distancetocenterY = Float(pangest!.location(in: self).y - self.bounds.height/2)
+            let distancetocenterX = Float(panGestureRecognizer!.location(in: self).x - self.bounds.width/2)
+            let distancetocenterY = Float(panGestureRecognizer!.location(in: self).y - self.bounds.height/2)
             let xPos = CGFloat(distancetocenterX)/(self.bounds.width/2.0)
             let yPos = -CGFloat(distancetocenterY)/(self.bounds.height/2.0)
             return CGPoint(x: xPos, y: yPos)
@@ -27,15 +27,15 @@ import UIKit
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.prepareAppearance()
+        self.prepareView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.prepareAppearance()
+        self.prepareView()
     }
     
-    private func prepareAppearance() {
+    private func prepareView() {
         self.alpha = 0.3
 
         let sizeinside = 50
@@ -49,14 +49,18 @@ import UIKit
         self.joyLayer = layerCircle
         
         self.layer.cornerRadius = self.frame.width/2
-        self.pangest = UIPanGestureRecognizer(target: self, action: #selector(panGest(_:)))
-        self.pangest?.delegate = self
-        self.pangest?.maximumNumberOfTouches = 1
-        self.pangest?.minimumNumberOfTouches = 1
-        self.addGestureRecognizer(self.pangest!)
+        self.setUpGestureRecognizer()
     }
     
-    @objc private func panGest (_ panget: UIPanGestureRecognizer){
+    @objc private func setUpGestureRecognizer() {
+        self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(recognizePan(_:)))
+        self.panGestureRecognizer?.delegate = self
+        self.panGestureRecognizer?.maximumNumberOfTouches = 1
+        self.panGestureRecognizer?.minimumNumberOfTouches = 1
+        self.addGestureRecognizer(self.panGestureRecognizer!)
+    }
+    
+    @objc private func recognizePan (_ panget: UIPanGestureRecognizer){
         
         switch panget.state {
         case .ended:
@@ -69,7 +73,7 @@ import UIKit
             break
         }
         
-        var locationInSuperLayer = pangest!.location(in: self)
+        var locationInSuperLayer = panGestureRecognizer!.location(in: self)
         
         locationInSuperLayer = CGPoint(x: locationInSuperLayer.x-self.bounds.width/2, y: locationInSuperLayer.y-self.bounds.height/2)
         self.joyLayer?.position = locationInSuperLayer

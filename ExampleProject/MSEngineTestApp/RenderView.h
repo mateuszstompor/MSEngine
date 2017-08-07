@@ -19,6 +19,7 @@
     id<MSRender> renderer;
     CGPoint rotation;
     CGPoint translation;
+    UILabel* labelToUpdate;
 }
 
 -(void)setUp;

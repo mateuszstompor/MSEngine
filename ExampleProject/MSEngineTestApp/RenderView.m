@@ -19,8 +19,8 @@
     NSString* bundlePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/"];
     NSString* pathToCube = [[NSBundle mainBundle] pathForResource:@"simpleCube" ofType:@"obj"];
     
-    MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 0.0f];
-    MSVector3D* secondColor = [[MSVector3D alloc] initWithComponents:3, 0.5f, 0.8f, 1.0f];
+    MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
+    MSVector3D* secondColor = [[MSVector3D alloc] initWithComponents:3, 0.7f, 0.9f, 1.0f];
     
     
     GLuint modelShader = [MSEngineUtility shaderProgramFromFiles: bundlePath vertexShader:@"VShader.vert" fragmentShader:@"FShader.frag"];
@@ -59,7 +59,7 @@
         [world translateObject:[world getCamera] x:-self->translation.x*fraction y:0 z:self->translation.y*fraction];
 
         [world rotateObject:[world getCamera] x:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
-        
+        [self->labelToUpdate setText:[[NSString alloc] initWithFormat:@"%.1f",[self->renderer getCurrentFrameRate]]];
         [renderer drawScene];
     }
 }

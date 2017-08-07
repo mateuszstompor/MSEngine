@@ -9,6 +9,7 @@ struct Material{
     vec3    specular;
     vec3    diffuse;
     vec3    ambient;
+    float   alpha;
     float   shininess;
 };
 uniform Material material;
@@ -54,7 +55,7 @@ void main(void){
     for(int i=0; i<omniLightsAmount; ++i){
         tempColor += countColor(material, light[i], fragmentPositionInWorld, cameraPositionInWorld, surfaceNormal);
     }
-    outColor = vec4(tempColor, 1.0f);
+    outColor = vec4(tempColor, material.alpha);
     
 }
 

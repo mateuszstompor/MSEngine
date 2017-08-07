@@ -31,19 +31,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9a-ka-waY">
+                                <rect key="frame" x="20" y="20" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <connections>
                             <outlet property="delegate" destination="WIi-mQ-knU" id="sm9-ga-Jvw"/>
                         </connections>
                     </glkView>
                     <connections>
+                        <outlet property="fpsMeter" destination="X9a-ka-waY" id="jkJ-BS-29N"/>
                         <outlet property="rotationJoy" destination="mhw-Xm-Gk1" id="FMy-7E-x1C"/>
                         <outlet property="translationJoy" destination="xbk-MZ-k7K" id="efl-Ot-FAV"/>
                     </connections>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nno-G2-Rjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="149"/>
+            <point key="canvasLocation" x="877.81690140845069" y="148.125"/>
         </scene>
     </scenes>
 </document>
