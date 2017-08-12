@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MSGraphicsEngineTests_iOS.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>iMSGraphicsEngine.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 		<key>macMSGraphicsEngine.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>macMSGraphicsEngineTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
@@ -28,6 +28,21 @@
 			<true/>
 		</dict>
 		<key>6122CA1B1EAA4EB40002F881</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6125681D1F3FBA6700ED5962</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6125683D1F3FBC2C00ED5962</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6125684C1F3FBC3F00ED5962</key>
 		<dict>
 			<key>primary</key>
 			<true/>

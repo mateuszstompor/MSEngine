@@ -67,7 +67,6 @@
         glBindBuffer(GL_ARRAY_BUFFER, [fraction textureBuffer]);
         glVertexAttribPointer(glGetAttribLocation(shaderProgram, "textureCoordinates"), 2, GL_FLOAT, GL_FALSE, 2*sizeof(float), 0);
         glEnableVertexAttribArray(glGetAttribLocation(shaderProgram, "textureCoordinates"));
-        
     }
     
     #if macOS
@@ -197,12 +196,10 @@
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
             if ([modelToDraw indiciesToDraw] > 0){
                 glBindVertexArray([modelToDraw vao]);
-                //NSLog(@"%i", (GLsizei)([modelToDraw indiciesToDraw]));
                 glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
                 glBindVertexArray(0);
             }
         }else{
-//            [transparentFractions ap]
             [transparentFractions addObject:fraction];
         }
 

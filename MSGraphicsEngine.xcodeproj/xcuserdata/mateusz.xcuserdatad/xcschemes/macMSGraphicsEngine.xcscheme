@@ -26,9 +26,29 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6125684C1F3FBC3F00ED5962"
+               BuildableName = "macMSGraphicsEngineTests.xctest"
+               BlueprintName = "macMSGraphicsEngineTests"
+               ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6101C8691F3CC9E30011117A"
+            BuildableName = "macMSGraphicsEngine.framework"
+            BlueprintName = "macMSGraphicsEngine"
+            ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

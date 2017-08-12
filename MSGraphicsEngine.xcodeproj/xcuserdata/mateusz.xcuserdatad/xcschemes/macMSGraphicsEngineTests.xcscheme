@@ -17,9 +17,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "619CFB741F38C363004FACBE"
-               BuildableName = "MSGraphicsEngineTests_iOS.xctest"
-               BlueprintName = "MSGraphicsEngineTests_iOS"
+               BlueprintIdentifier = "6125684C1F3FBC3F00ED5962"
+               BuildableName = "macMSGraphicsEngineTests.xctest"
+               BlueprintName = "macMSGraphicsEngineTests"
                ReferencedContainer = "container:MSGraphicsEngine.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -12,7 +12,6 @@
 @interface MSPoint_Tests : XCTestCase
 {
     MSPoint* point;
-    long testAmount;
 }
 @end
 
@@ -49,12 +48,12 @@
     }
     point = [[MSPoint alloc] init2DimPointWithX:0.0f y:1.0f];
     XCTAssertTrue([point getDimension]==2);
-    for (int i=0; [point getDimension]; ++i){
+    for (int i=0; i<[point getDimension]; ++i){
         XCTAssertTrue([point getComponent:i] == i);
     }
     point = [[MSPoint alloc] init3DimPointWithX:0.0f y:1.0f z:2.0f];
     XCTAssertTrue([point getDimension]==3);
-    for (int i=0; [point getDimension]; ++i){
+    for (int i=0; i<[point getDimension]; ++i){
         XCTAssertTrue([point getComponent:i] == i);
     }
 }

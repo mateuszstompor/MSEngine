@@ -1,21 +1,18 @@
 //
-//  MSLoaderMTL_Tests.m
-//  MSGraphicsEngine
+//  macMSGraphicsEngineTests.m
+//  macMSGraphicsEngineTests
 //
-//  Created by Mateusz Stompór on 12/08/2017.
+//  Created by Mateusz Stompór on 13/08/2017.
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
-
 #import <XCTest/XCTest.h>
-#import "MSLoaderMTL.h"
 
-@interface MSLoaderMTL_Tests : XCTestCase
-{
-    MSMaterialStore* store;
-}
+
+@interface macMSGraphicsEngineTests : XCTestCase
+
 @end
 
-@implementation MSLoaderMTL_Tests
+@implementation macMSGraphicsEngineTests
 
 - (void)setUp {
     [super setUp];
@@ -28,8 +25,8 @@
 }
 
 - (void)testExample {
-    store = [MSLoaderMTL loadMaterials:"/Users/mateusz/Desktop/graphics/classroomWithMaterials/classroom.mtl"];
-    
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
 - (void)testPerformanceExample {
