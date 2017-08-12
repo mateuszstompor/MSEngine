@@ -11,6 +11,9 @@
 #import "MSEngineTestApp-Swift.h"
 #import "RenderView.h"
 
+#ifndef ViewController_h
+#define ViewController_h
+
 @class JoystickView;
 @protocol JoystickEventHandler;
 
@@ -22,3 +25,4 @@
 
 @end
 
+#endif

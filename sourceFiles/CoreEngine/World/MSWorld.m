@@ -30,10 +30,10 @@
 -(MSCamera*)getCamera{
     return self->camera;
 }
--(NSMutableArray<MSLightSource*>*)getLightSources{
+-(NSMutableArray<MSPointLight*>*)getLightSources{
     return lightSources;
 }
--(void)addLightSourceToWorld: (MSLightSource*)lght{
+-(void)addLightSourceToWorld: (MSPointLight*)lght{
     [lightSources addObject:lght];
 }
 -(NSMutableArray<MSPuppet*>*)getModels{

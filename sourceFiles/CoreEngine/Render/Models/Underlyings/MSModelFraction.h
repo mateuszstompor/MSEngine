@@ -25,6 +25,7 @@
 
 -(instancetype)init;
 -(NSValue*)getUniqueName;
+-(BOOL)isOpaque;
 
 @end
 #endif

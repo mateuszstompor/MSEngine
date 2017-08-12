@@ -15,8 +15,10 @@
 #define MSLOADER_H
 
 @interface MSLoaderOBJ : NSObject <MSModelManager>
-+ (instancetype)alloc;
+
++ (instancetype)alloc NS_UNAVAILABLE;
 +(NSArray<MSModelFraction*>*)loadModel: (const char*)path tieWithMaterials: (MSMaterialStore*) store;
+
 @end
 
 typedef NS_ENUM(NSUInteger, MSOBJEventType) {
@@ -32,4 +34,5 @@ typedef NS_ENUM(NSUInteger, MSOBJEventType) {
     MATERIAL_LIB,
     USEMATERIAL
 };
+
 #endif

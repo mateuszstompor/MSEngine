@@ -2,6 +2,9 @@
 in vec3 surfaceNormal;
 in vec3 fragmentPositionInWorld;
 in vec3 cameraPositionInWorld;
+in vec2 textureCoords;
+
+uniform sampler2D myTextureSampler;
 
 out vec4 outColor;
 
@@ -11,8 +14,10 @@ struct Material{
     vec3    ambient;
     float   alpha;
     float   shininess;
+    bool    hasTexture;
 };
-uniform Material material;
+
+in Material materiall;
 
 struct OmniLight {
     vec3 color;
@@ -21,6 +26,7 @@ struct OmniLight {
     mat4 rotation;
     mat4 scale;
 };
+
 uniform OmniLight [OMNI_LIGHTS_AMOUNT] light;
 
 
@@ -51,11 +57,16 @@ vec3 countColor(Material m, OmniLight l, vec3 fPosInWC, vec3 cPosInWC, vec3 norm
 void main(void){
     
     
-    vec3 tempColor = vec3(0.0f);
+    vec3 worldInfluenceFromPointLight = vec3(0.0f);
+    
     for(int i=0; i<omniLightsAmount; ++i){
-        tempColor += countColor(material, light[i], fragmentPositionInWorld, cameraPositionInWorld, surfaceNormal);
+        worldInfluenceFromPointLight += countColor(materiall, light[i], fragmentPositionInWorld, cameraPositionInWorld, surfaceNormal);
     }
-    outColor = vec4(tempColor, material.alpha);
+    if (materiall.hasTexture == true) {
+        worldInfluenceFromPointLight *= texture( myTextureSampler, textureCoords ).rgb;
+    }
+    
+    outColor = vec4(worldInfluenceFromPointLight, materiall.alpha);
     
 }
 
@@ -87,7 +98,7 @@ vec3 omniLightSpecular(Material m, OmniLight l,
 }
 vec3 countColor(Material m, OmniLight l, vec3 fPosInWC, vec3 cPosInWC, vec3 normalVector){
     
-    vec3 ambient = omniLightAmbient(material, l);
+    vec3 ambient = omniLightAmbient(m, l);
     vec3 lightPos = ( l.translation * l.rotation * l.scale * vec4(1.0f) ).xyz;
     
     

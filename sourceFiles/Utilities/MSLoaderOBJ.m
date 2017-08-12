@@ -15,10 +15,6 @@ static int second[3];
 static int third[3];
 static float coord[3];
 
-+(instancetype)alloc{
-    [NSException raise:@"Cannot be instantiated!" format:@"Static class 'MSLoaderOBJ' cannot be instantiated!"];
-    return nil;
-}
 +(NSArray<MSModelFraction*>*)loadModel: (const char*)path tieWithMaterials: (MSMaterialStore*) store{
     unsigned int currentLine=0;
     NSMutableArray<MSModelFraction*>*arrayOfModelFractions = [[NSMutableArray alloc]init];

@@ -27,10 +27,11 @@
     renderView.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
     renderView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     renderView.drawableStencilFormat = GLKViewDrawableStencilFormat8;
+    renderView->parent = self;
     renderView->labelToUpdate = self->_fpsMeter;
     // Enable multisampling
     self.preferredFramesPerSecond = 60;
-    renderView.drawableMultisample = GLKViewDrawableMultisample4X;
+    //renderView.drawableMultisample = GLKViewDrawableMultisample4X;
     self->_rotationJoy.delegate = self;
     self->_translationJoy.delegate = self;
     [renderView setUp];

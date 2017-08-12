@@ -14,8 +14,8 @@
                 format:@"Static class 'MSLoaderMTL' cannot be instantiated!"];
     return nil;
 }
-+(MSMaterialStore*) loadMaterials: (const char*)path {
-    MSMaterialStore* loadedMaterials = [[MSMaterialStore alloc] init];
++(MSMaterialStore*)loadMaterials: (const char*)path handler: (id<MSGraphicsResourcesHandler>) handler{
+    MSMaterialStore* loadedMaterials = [[MSMaterialStore alloc] initWithGraphicsHandler:handler];
     FILE* materialFile = fopen(path, "r");
     if(materialFile==nil){
         [NSException raise:@"Cannot open file"
@@ -136,8 +136,24 @@
                 }
                 break;
             }
-            case MAP_DIFFUSE:
-                NSLog(@"\"MAP_DIFFUSE\" not implemented yet");
+            case MAP_DIFFUSE:{
+                char filepath [500];
+                if(sscanf(buffer, "map_Kd %s", filepath)==1){
+                    NSString * nameOfTexture = [[NSString alloc] initWithUTF8String:filepath];
+                    [materialUnderProcessing setAssociatedTexture: nameOfTexture];
+                    if([materials getTextureWithName:nameOfTexture] == nil){
+                        NSFileManager* fm = [NSFileManager defaultManager];
+                        if([fm fileExistsAtPath:nameOfTexture]){
+                            MSTexture* texture = [[MSTexture alloc] initTextureFromFile:nameOfTexture];
+                            [materials addTexture:texture];
+                        }
+                    }
+                }else{
+                    [NSException raise:@"Cannot Read RenderMode"
+                                format:@""];
+                }
+                break;
+            }
             case SKIP:
                 break;
             default:
@@ -150,10 +166,10 @@
         buffer=NULL;
         currentLine+=1;
     }
-    if(materialUnderProcessing!=nil){
-        [materials addMaterial:materialUnderProcessing];
-    }
+    [materials addMaterial:materialUnderProcessing];
 }
+
+
 +(MSMTLEventType) getType: (char*) line length: (size_t)length {
     switch (line[0]) {
         case '\n':

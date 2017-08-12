@@ -12,7 +12,6 @@
 #define DIMENSION_2D 2
 #define POINTS_PER_FACE 3
 
-
 @implementation MSDrawableFraction
 @synthesize vao;
 @synthesize verticesBuffer;
@@ -64,19 +63,25 @@
         float* buffer = glMapBufferRange(GL_ARRAY_BUFFER, 0, siz*amountOfElements, GL_MAP_WRITE_BIT);
         for(MSModelFace* face in [associatedFraction facesData]){
             for(MSVertexData* dat in [face getFaceData]){
-                
             #pragma clang diagnostic push
             #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                 unsigned int readIndex = (unsigned int)[dat performSelector:feedingFunction withObject:nil];
             #pragma clang diagnostic pop
-                memcpy(buffer+writeIndex, [[data objectAtIndex: readIndex] getComponents], dim*siz);
-                writeIndex+=dim;
-                
+            memcpy(buffer+writeIndex, [[data objectAtIndex: readIndex] getComponents], dim*siz);
+            writeIndex+=dim;
             }
         }
+        
     }
+//    else{
+//        glGenBuffers(1, &bufferDescriptor);
+//        glBindBuffer(GL_ARRAY_BUFFER, bufferDescriptor);
+//        glBufferData(GL_ARRAY_BUFFER, 100, NULL, GL_STATIC_DRAW);
+//
+//    }
     return bufferDescriptor;
 }
+
 -(void)unloadFromGraphics{
     if(isLoadedToGraphicsCard){
         glDeleteBuffers(1, &normalsBuffer);
@@ -85,6 +90,7 @@
         glDeleteVertexArrays(1, &vao);
     }
 }
+
 -(void)dealloc {
     [self unloadFromGraphics];
 }

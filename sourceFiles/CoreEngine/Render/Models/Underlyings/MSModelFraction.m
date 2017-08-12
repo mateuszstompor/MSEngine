@@ -33,4 +33,10 @@
 -(NSValue*)getUniqueName{
     return self->_uniqueName;
 }
+-(BOOL)isOpaque{
+    if ((self->material != nil) && ([self->material transparency] < 1.0f)) {
+        return false;
+    }
+    return true;
+}
 @end

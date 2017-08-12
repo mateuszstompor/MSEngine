@@ -37,6 +37,7 @@
 @property (atomic) GLuint normalsBuffer;
 @property (atomic) GLuint textureBuffer;
 
+
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithFraction: (MSModelFraction*) pup;
 -(BOOL)isloadedToGraphics;

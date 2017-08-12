@@ -6,9 +6,9 @@
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
 
-#import "MSLightSource.h"
+#import "MSPointLight.h"
 
-@implementation MSLightSource
+@implementation MSPointLight
 
 @synthesize color;
 @synthesize power;

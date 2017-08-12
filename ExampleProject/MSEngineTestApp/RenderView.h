@@ -8,8 +8,10 @@
 
 #import <GLKit/GLKit.h>
 #import <iMSGraphicsEngine/iMSGraphicsEngine.h>
+#import "ViewController.h"
 
-
+#ifndef m
+#define m
 
 @interface RenderView : GLKView
 
@@ -20,8 +22,11 @@
     CGPoint rotation;
     CGPoint translation;
     UILabel* labelToUpdate;
+    GLKViewController* parent;
 }
 
 -(void)setUp;
 
 @end
+
+#endif

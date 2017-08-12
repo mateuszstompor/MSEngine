@@ -26,4 +26,6 @@ FOUNDATION_EXPORT const unsigned char iMSGraphicsEngineVersionString[];
 #import <iMSGraphicsEngine/MSLoaderMTL.h>
 #import <iMSGraphicsEngine/MSEngineUtility.h>
 #import <iMSGraphicsEngine/MSLoaderOBJ.h>
+#import <iMSGraphicsEngine/MSTexture.h>
+#import <iMSGraphicsEngine/MSTextureOpenGL.h>
 

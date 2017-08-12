@@ -1,5 +1,6 @@
 in vec3 position;
 in vec3 normal;
+in vec2 textureCoordinates;
 
 struct Transformation{
     mat4 rotation;
@@ -7,6 +8,17 @@ struct Transformation{
     mat4 translation;
 };
 uniform Transformation transformation;
+
+struct Material{
+    vec3    specular;
+    vec3    diffuse;
+    vec3    ambient;
+    float   alpha;
+    float   shininess;
+    bool    hasTexture;
+};
+
+uniform Material material;
 
 struct Camera {
     mat4 projection;
@@ -20,7 +32,9 @@ out vec3 surfaceNormal;
 
 out vec3 fragmentPositionInWorld;
 out vec3 cameraPositionInWorld;
+out vec2 textureCoords;
 
+out Material materiall;
 
 
 
@@ -32,6 +46,9 @@ void main(void){
     
     gl_Position = camera.projection * cameraTransform * positionInWorld;
     cameraPositionInWorld = vec4(cameraTransform*vec4(1.0f)).xyz;
-    
+    if(material.hasTexture==true){
+        textureCoords=textureCoordinates;
+    }
     surfaceNormal=normal;
+    materiall=material;
 }

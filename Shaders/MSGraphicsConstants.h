@@ -1,3 +1,5 @@
+
+
 #ifndef GRAPHICSCONSTANTS_H
 #define GRAPHICSCONSTANTS_H
 
@@ -10,7 +12,5 @@
 #define AMBIENT_STRENGTH 0.09f
 #define DIFFUSE_STRENGTH 0.80f
 #define SPECULAR_STRENGTH 3.80f
-
-
 
 #endif

@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MSMaterialStore.h"
-
+#import "MSGraphicsResourcesHandler.h"
 
 #ifndef MSLOADERMTL_H
 #define MSLOADERMTL_H
 
 @interface MSLoaderMTL : NSObject
-+(MSMaterialStore*)loadMaterials: (const char*)path;
++(MSMaterialStore*)loadMaterials: (const char*)path handler: (id<MSGraphicsResourcesHandler>) handler;
 +(instancetype)alloc;
 @end
 

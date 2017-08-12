@@ -11,7 +11,7 @@
 
 #import "MSPuppet.h"
 #import "MSTransformationManager.h"
-#import "MSLightSource.h"
+#import "MSPointLight.h"
 #import "MSMaterialStore.h"
 #import "MSPositionedObject.h"
 #import "MSCamera.h"
@@ -23,7 +23,7 @@
 {
     MSCamera* camera;
     NSMutableArray<MSPuppet*>* objectsInWorld;
-    NSMutableArray<MSLightSource*>* lightSources;
+    NSMutableArray<MSPointLight*>* lightSources;
     MSMaterialStore* materialsInWorld;
 }
 -(instancetype)init NS_UNAVAILABLE;
@@ -33,8 +33,8 @@
 -(MSCamera*)getCamera;
 -(NSMutableArray<MSPuppet*>*)getModels;
 -(void)addModelToWorld: (MSPuppet*)pup;
--(NSMutableArray<MSLightSource*>*)getLightSources;
--(void)addLightSourceToWorld: (MSLightSource*)lght;
+-(NSMutableArray<MSPointLight*>*)getLightSources;
+-(void)addLightSourceToWorld: (MSPointLight*)lght;
 -(MSMaterialStore*)getAvailavleMaterials;
 @end
 #endif

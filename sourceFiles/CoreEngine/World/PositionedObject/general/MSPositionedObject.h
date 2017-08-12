@@ -13,9 +13,9 @@
 @protocol MSPositionedObject
 
 
-@property MSMatrix4D* scale;
-@property MSMatrix4D* rotation;
-@property MSMatrix4D* translation;
+@property (readonly) MSMatrix4D* scale;
+@property (readonly) MSMatrix4D* rotation;
+@property (readonly) MSMatrix4D* translation;
 
 -(void)translateBy: (MSMatrixND*) tr;
 -(void)rotateBy: (MSMatrixND*) rot;

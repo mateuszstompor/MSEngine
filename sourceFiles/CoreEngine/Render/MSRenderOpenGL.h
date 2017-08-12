@@ -1,4 +1,4 @@
-//
+  //
 //  MSRenderOpenGL.h
 //  MSGraphicsEngine
 //
@@ -24,6 +24,7 @@
 #ifndef MSRENDEROPENGL_H
 #define MSRENDEROPENGL_H
 @interface MSRenderOpenGL : NSObject  <MSRender>
+
 {
     GLuint modelShaderProgram;
     GLuint lightShaderProgram;
