@@ -88,7 +88,7 @@
     return [self dotProduct:self];
 }
 
--(float)dotProduct: (MSVectorND const* const ) vec{
+-(float)dotProduct: (MSVectorND const*) vec{
     float sum=0;
     for(int i=0; i<dimension; ++i){
         sum+=*(components+i)**(vec->components+i);
@@ -96,7 +96,7 @@
     return sum;
 }
 
--(float)safeDotProduct: (MSVectorND const* const ) vec{
+-(float)safeDotProduct: (MSVectorND const*) vec{
     [self matchDimensions:vec];
     return [self dotProduct:vec];
 }
@@ -118,7 +118,7 @@
     return self;
 }
 
--(void)matchDimensions: (MSVectorND const * const) vec{
+-(void)matchDimensions: (MSVectorND const *) vec{
     if(vec->dimension!=self->dimension){
         [MSMathDimensionMismatchException raise:@"Dimensions are different" format:@"self was %i and argument was %i", dimension,vec->dimension];
     }
@@ -180,7 +180,7 @@
 
 -(BOOL)safeIsEqualToVector: (MSVectorND*) vec withMaxDifference: (float) difference{
     [self matchDimensions:vec];
-    return [self safeIsEqualToVector:vec withMaxDifference:difference];
+    return [self isEqualToVector:vec withMaxDifference:difference];
 }
 
 -(BOOL)isEqualToVector: (MSVectorND*) vec{
@@ -219,7 +219,21 @@
     [self matchDimensions:vec];
     return [self newVectorFromSubtraction:vec];
 }
-
+-(MSVectorND*)crossProduct: (MSVectorND*)vector{
+    [NSException raise:@"Not implemented yet" format:@""];
+    return nil;
+}
+-(MSVectorND*)safeCrossProduct: (MSVectorND*)vector{
+    [NSException raise:@"Not implemented yet" format:@""];
+    return nil;
+}
+-(MSVectorND*)multiplyByMatrix: (MSMatrixND*) matrix{
+    [NSException raise:@"Not implemented yet" format:@""];
+    return nil;
+}
+-(MSVectorND*)safeMultiplyByMatrix: (MSMatrixND*) matrix{
+    return nil;
+}
 -(void)dealloc{
     free (self->components);
 }

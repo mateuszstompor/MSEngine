@@ -64,18 +64,6 @@
         [vec multiplyByScalar:scalar];
     }
 }
--(void)printMatrix{
-    for(int rowIterator=0;rowIterator<amountOfRows;rowIterator++){
-        for(int columntIterator=0;columntIterator<amountOfColumns;columntIterator++){
-            printf("%f ", [(MSVectorND*)[matrix objectAtIndex:columntIterator] valueAtIndex:rowIterator]);
-        }
-        printf("\n");
-        fflush(stdout);
-    }
-    printf("Amount of columns: %d\n", amountOfColumns);
-    printf("Amount of rows: %d\n", amountOfRows);
-    fflush(stdout);
-}
 -(float**)getColumnMajorArrayStyleMatrix{
     float** cStyleMatrix = (float**)malloc(amountOfColumns*sizeof(float*));
     for(int i=0;i<amountOfColumns;i++){
@@ -116,6 +104,14 @@
     }
     return [[MSVectorND alloc] initWithArrayOfComponents:amountOfRows components:result];
 }
+-(MSVectorND*)safeMultiplyByColumnVector: (MSVectorND*)vector{
+    [NSException raise:@"Not implemented" format:@""];
+    return nil;
+}
+-(MSMatrixND*)safeMultiplyByMatrix: (MSMatrixND*)otherMatrix{
+    [NSException raise:@"Not implemented" format:@""];
+    return nil;
+}
 +(instancetype)identityMatrix:(int const)dimension{
     return [[MSMatrixND alloc]initWithIdentityMatrix:dimension];
 }
@@ -143,6 +139,23 @@
     }
     return resultMatrix;
 }
+
+-(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix{
+    return [self isEqualToMatrix:secondMatrix withPrecision:0.0f];
+}
+
+-(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (float) accuracy{
+    float* firstArray = [self matrixAsArray];
+    float* secondArray = [secondMatrix matrixAsArray];
+    for (int i=0; i<((self->amountOfColumns)*(self->amountOfRows)); ++i){
+        float difference = (firstArray[i]-secondArray[i])*(firstArray[i]-secondArray[i]);
+        if(difference>(accuracy*accuracy)){
+            return false;
+        }
+    }
+    return true;
+}
+
 -(void)setValueAtRowIndex:(int) rowI andColumnIndex: (int) columnI value:(float)val{
     if(columnI<0 || columnI>=amountOfColumns){
         [NSException raise:@"Index out of bounds!" format:@"Wanted column with index %i, mat has only %i",columnI,amountOfColumns];

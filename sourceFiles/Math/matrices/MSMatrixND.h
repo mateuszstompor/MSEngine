@@ -19,11 +19,12 @@
 #ifndef MSMATRIXND_H
 #define MSMATRIXND_H
 
-
+@class MSVectorND;
 
 
 @interface MSMatrixND : NSObject
 {
+    @protected
     int amountOfRows;
     int amountOfColumns;
     NSMutableArray<MSVectorND*>* matrix;
@@ -39,12 +40,15 @@
 -(void)multiplyByScalar: (float)scalar;
 -(float**)getColumnMajorArrayStyleMatrix;
 -(MSVectorND*)multiplyByColumnVector: (MSVectorND*)vector;
+-(MSVectorND*)safeMultiplyByColumnVector: (MSVectorND*)vector;
 -(MSMatrixND*)multiplyByMatrix: (MSMatrixND*)otherMatrix;
+-(MSMatrixND*)safeMultiplyByMatrix: (MSMatrixND*)otherMatrix;
 -(int)getAmountOfColumns;
 -(int)getAmountOfRows;
+-(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix;
+-(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (float) accuracy;
 -(float*)matrixAsArray;
 -(void)setValueAtRowIndex:(int) rowI andColumnIndex: (int) columnI value:(float)val;
--(void)printMatrix;
 @end
 
 typedef MSMatrixND MSMatrix4D;

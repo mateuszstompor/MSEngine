@@ -7,6 +7,7 @@
 //
 
 #import "MSMathException.h"
+#import "MSMatrixND.h"
 
 #import <Foundation/Foundation.h>
 #import <stdlib.h>
@@ -15,7 +16,9 @@
 #ifndef MSVECTORND_H
 #define MSVECTORND_H
 
-//safe as prefix of function means that function tests for vector dimension mismatch
+@class MSMatrixND;
+
+//"safe" as prefix of function means that function tests for vector dimension mismatch
 
 @interface MSVectorND : NSObject
 
@@ -61,10 +64,10 @@
 -(float)safeValueAtIndex:(unsigned int const)index;
 -(float)valueAtIndex:(unsigned int const)index;
 
--(float)dotProduct: (MSVectorND const * const) vec;
--(float)safeDotProduct: (MSVectorND const * const) vec;
+-(float)dotProduct: (MSVectorND const *) vec;
+-(float)safeDotProduct: (MSVectorND const *) vec;
 
--(void)matchDimensions: (MSVectorND const * const) vec;
+-(void)matchDimensions: (MSVectorND const *) vec;
 -(int)getDimension;
 
 -(BOOL)isEqualToVector: (MSVectorND*) vec;
@@ -72,6 +75,12 @@
 
 -(BOOL)isEqualToVector: (MSVectorND*) vec withMaxDifference: (float) difference;
 -(BOOL)safeIsEqualToVector: (MSVectorND*) vec withMaxDifference: (float) difference;
+
+-(MSVectorND*)crossProduct: (MSVectorND*)vector;
+-(MSVectorND*)safeCrossProduct: (MSVectorND*)vector;
+
+-(MSVectorND*)multiplyByMatrix: (MSMatrixND*) matrix;
+-(MSVectorND*)safeMultiplyByMatrix: (MSMatrixND*) matrix;
 
 @end
 

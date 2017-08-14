@@ -140,6 +140,7 @@
 		61D6CE8D1F323F800021133D /* ios_shaders_header in Resources */ = {isa = PBXBuildFile; fileRef = 61BCA3BD1EFDC850004FA86D /* ios_shaders_header */; };
 		61D6CE8E1F323F800021133D /* mac_shaders_header in Resources */ = {isa = PBXBuildFile; fileRef = 61BCA3BE1EFDC866004FA86D /* mac_shaders_header */; };
 		61D6CE8F1F323F800021133D /* MSGraphicsConstants.h in Resources */ = {isa = PBXBuildFile; fileRef = 61D9B1E61F05B9800063DD04 /* MSGraphicsConstants.h */; };
+		61F1D7531F422FEC009A3BC1 /* MSMatrixND_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F1D7521F422FEC009A3BC1 /* MSMatrixND_Tests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +233,7 @@
 		61D9B1E61F05B9800063DD04 /* MSGraphicsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphicsConstants.h; sourceTree = "<group>"; };
 		61D9B1E91F05BDDB0063DD04 /* MSCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCamera.h; sourceTree = "<group>"; };
 		61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCamera.m; sourceTree = "<group>"; };
+		61F1D7521F422FEC009A3BC1 /* MSMatrixND_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMatrixND_Tests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +362,7 @@
 			children = (
 				612568651F3FBE4200ED5962 /* MSPoint_Tests.m */,
 				612568661F3FBE4200ED5962 /* MSVectorND_Tests.m */,
+				61F1D7521F422FEC009A3BC1 /* MSMatrixND_Tests.m */,
 			);
 			name = Math;
 			path = Tests/Common/Math;
@@ -886,6 +889,7 @@
 				612568691F3FBE4200ED5962 /* MSLoaderMTL_Tests.m in Sources */,
 				6125686B1F3FBE4200ED5962 /* MSPoint_Tests.m in Sources */,
 				612568601F3FBD0D00ED5962 /* macMSGraphicsEngineTests.m in Sources */,
+				61F1D7531F422FEC009A3BC1 /* MSMatrixND_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

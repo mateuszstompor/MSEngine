@@ -75,6 +75,30 @@
     XCTAssertTrue([vec3 safeValueAtIndex:3]==9.234f);
 
 }
+
+-(void)testVectorCrossProduct {
+    //#1
+    vec1 = [[MSVectorND alloc] initWithComponents:3, 0.0f, 1.0f, 0.0f];
+    vec2 = [[MSVectorND alloc] initWithComponents:3, 1.0f, 0.0f, 0.0f];
+    vec3 = [vec1 crossProduct:vec2];
+    XCTAssertNoThrow([vec1 safeCrossProduct:vec2]);
+    XCTAssertTrue([[vec1 safeCrossProduct:vec2] isEqualToVector:[vec1 crossProduct:vec2]]);
+    XCTAssertTrue([vec3 valueAtIndex:0]==0);
+    XCTAssertTrue([vec3 valueAtIndex:1]==0);
+    XCTAssertTrue([vec3 valueAtIndex:2]==-1);
+    
+    //#2
+    vec4 = [[MSVectorND alloc] initWithComponents:4, 1.0f, 0.0f, 0.0f, 0.0f];
+    XCTAssertNoThrow([vec1 crossProduct:vec4]);
+    
+    //#3
+    XCTAssertThrows([vec3 safeIsEqualToVector:vec4]);
+    XCTAssertTrue([vec3 isEqualToVector:vec4]);
+
+    //#4
+    XCTAssertThrows([vec1 safeCrossProduct:vec4]);
+}
+
 -(void)testVectorMultiplicationPerformance {
     [self measureBlock:^{
         for(long i=0; i<testAmount; ++i){
@@ -112,6 +136,21 @@
     XCTAssertEqualWithAccuracy([vec1 length], 1.0f, 0.1f);
     XCTAssertEqualWithAccuracy([vec1 lengthSquared], 1.0f, 0.01f);
 
+}
+-(void)testMultiplyByMatrix {
+    //#1
+    XCTAssertNoThrow([vec1 safeMultiplyByMatrix:[MSMatrixND identityMatrix:3]]);
+    XCTAssertThrows([vec1 safeMultiplyByMatrix:[MSMatrixND identityMatrix:4]]);
+    
+    //#2
+    XCTAssertTrue([[vec1 safeMultiplyByMatrix:[MSMatrixND identityMatrix:3]] isEqualToVector:[vec1 multiplyByMatrix:[MSMatrixND identityMatrix:4]]]);
+    
+    //#3
+    XCTAssertTrue([[vec1 safeMultiplyByMatrix:[MSMatrixND identityMatrix:3]] isEqualToVector:[vec1 multiplyByMatrix:[MSMatrixND identityMatrix:3]]]);
+
+    vec1 = [[MSVectorND alloc] initZeroVecWithDimension:3];
+    XCTAssertTrue([[vec1 multiplyByMatrix:[MSMatrixND identityMatrix:3]] isEqualToVector:[[MSVectorND alloc] initZeroVecWithDimension:3]]);
+    
 }
 -(void)testAdd {
     [vec1 normalize];
