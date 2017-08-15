@@ -118,10 +118,14 @@
     return self;
 }
 
--(void)matchDimensions: (MSVectorND const *) vec{
-    if(vec->dimension!=self->dimension){
+-(void)matchSpecificDimensions: (MSVectorND const *) vec dim: (unsigned int) dim {
+    if(!((vec->dimension==self->dimension)&&(vec->dimension==dim))){
         [MSMathDimensionMismatchException raise:@"Dimensions are different" format:@"self was %i and argument was %i", dimension,vec->dimension];
     }
+}
+
+-(void)matchDimensions: (MSVectorND const *) vec{
+    [self matchSpecificDimensions:vec dim:self->dimension];
 }
 
 -(instancetype)initWithZerosExceptIndex: (unsigned int const) index number:(float const) num dimensionOfVector: (unsigned int const) dim{
@@ -220,12 +224,15 @@
     return [self newVectorFromSubtraction:vec];
 }
 -(MSVectorND*)crossProduct: (MSVectorND*)vector{
-    [NSException raise:@"Not implemented yet" format:@""];
-    return nil;
+    MSVectorND* result = [[MSVectorND alloc] initVecWithDimension:3];
+    *(result->components) = *(self->components+1)**(vector->components+2)-*(self->components+2)**(vector->components+1);
+    *(result->components+1) = *(self->components+2)**(vector->components)-*(self->components)**(vector->components+2);
+    *(result->components+2) = *(self->components)**(vector->components+1)-*(self->components+1)**(vector->components);
+    return result;
 }
 -(MSVectorND*)safeCrossProduct: (MSVectorND*)vector{
-    [NSException raise:@"Not implemented yet" format:@""];
-    return nil;
+    [self matchSpecificDimensions:vector dim:3];
+    return [self crossProduct:vector];
 }
 -(MSVectorND*)multiplyByMatrix: (MSMatrixND*) matrix{
     [NSException raise:@"Not implemented yet" format:@""];

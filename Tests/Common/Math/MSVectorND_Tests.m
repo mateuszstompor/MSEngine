@@ -88,7 +88,7 @@
     XCTAssertTrue([vec3 valueAtIndex:2]==-1);
     
     //#2
-    vec4 = [[MSVectorND alloc] initWithComponents:4, 1.0f, 0.0f, 0.0f, 0.0f];
+    vec4 = [[MSVectorND alloc] initWithComponents:4, 0.0f, 0.0f, -1.0f, 0.0f];
     XCTAssertNoThrow([vec1 crossProduct:vec4]);
     
     //#3
@@ -97,6 +97,11 @@
 
     //#4
     XCTAssertThrows([vec1 safeCrossProduct:vec4]);
+    
+    vec1 = [[MSVectorND alloc] initWithComponents:3, 1.0f, 2.0f, 3.0f];
+    vec2 = [[MSVectorND alloc] initWithComponents:3, 1.0f, 2.0f, 3.0f];
+    
+    XCTAssertEqualWithAccuracy([[vec1 crossProduct:vec2] length], 0, 0.1f);
 }
 
 -(void)testVectorMultiplicationPerformance {
