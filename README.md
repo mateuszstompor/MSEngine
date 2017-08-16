@@ -4,8 +4,12 @@ Currently only basics are implemented.
 
 Hover on picture to see date.
 
-Added transperency.
 
+Texturing is working.
+
+![Alt text](https://image.ibb.co/ctn7ma/Screen_Shot_2017_08_12_at_21_31_11.png "Date: 16.08.2017")
+
+Added transperency.
 
 ![Alt text](https://image.ibb.co/gL2cxF/transparency.png "Date: 10.08.2017")
 
