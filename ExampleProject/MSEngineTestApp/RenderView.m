@@ -30,11 +30,11 @@
 
     
     
-    
-    MSMaterialStore* materialStore = [MSLoaderMTL loadMaterials:[pathToClassroomMaterials UTF8String]];
+    MSResourcesHandlerOpenGL* handler = [[MSResourcesHandlerOpenGL alloc] init];
+    MSMaterialStore* materialStore = [MSLoaderMTL loadMaterials:pathToClassroomMaterials handler:handler];
 
     
-    NSArray<MSModelFraction*>* lightModel = [MSLoaderOBJ loadModel:[pathToCube UTF8String] tieWithMaterials:materialStore];
+    NSArray<MSModelFraction*>* lightModel = [MSLoaderOBJ loadModel:pathToCube];
     MSPointLight* light = [[MSPointLight alloc] initWithModel: lightModel color:firstColor power:50.0f];
     
     
@@ -45,7 +45,7 @@
     [secondLight scaleBy:[MSTransformationManager scaleMatrix4x4:0.05 repeatToIndex:2]];
 
     
-    MSPuppet* classroom = [[MSPuppet alloc] initWithModel:[MSLoaderOBJ loadModel:[pathToClassroomModel UTF8String] tieWithMaterials:materialStore]];
+    MSPuppet* classroom = [[MSPuppet alloc] initWithModel:[MSLoaderOBJ loadModel:pathToClassroomModel]];
     MSCamera* cam = [[MSCamera alloc] initWithFOV:120 aspectRatio:width/height near:0.1 far:1000];
 
     world = [[MSWorld alloc] initWithMaterials:materialStore camera: cam];

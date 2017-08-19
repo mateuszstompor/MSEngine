@@ -16,6 +16,7 @@
 @interface MSTexture : NSObject
 
 {
+    @protected
     unsigned char * data;
     unsigned int width;
     unsigned int height;
@@ -24,6 +25,7 @@
 @property (atomic) NSString* name;
 
 -(instancetype)init;
+//-(instancetype)initWithData: (unsigned char*) data width: (unsigned int) width height: (unsigned int) height;
 -(instancetype)initTextureFromFile: (NSString*) path;
 
 @end

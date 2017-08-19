@@ -23,8 +23,7 @@ FOUNDATION_EXPORT const unsigned char macMSGraphicsEngineVersionString[];
 #import <macMSGraphicsEngine/MSMaterialStore.h>
 #import <macMSGraphicsEngine/MSRender.h>
 #import <macMSGraphicsEngine/MSRenderOpenGL.h>
-#import <macMSGraphicsEngine/MSLoaderMTL.h>
 #import <macMSGraphicsEngine/MSEngineUtility.h>
-#import <macMSGraphicsEngine/MSLoaderOBJ.h>
+#import <macMSGraphicsEngine/MSLoader.h>
 #import <macMSGraphicsEngine/MSTexture.h>
 #import <macMSGraphicsEngine/MSTextureOpenGL.h>

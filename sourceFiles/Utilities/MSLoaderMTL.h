@@ -14,7 +14,7 @@
 #define MSLOADERMTL_H
 
 @interface MSLoaderMTL : NSObject
-+(MSMaterialStore*)loadMaterials: (const char*)path handler: (id<MSGraphicsResourcesHandler>) handler;
++(MSMaterialStore*)loadMaterials: (NSString*)path handler: (id<MSGraphicsResourcesHandler>) handler;
 +(instancetype)alloc;
 @end
 

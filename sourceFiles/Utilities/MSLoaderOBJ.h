@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSModelManager.h"
 #import "MSMaterialStore.h"
-
+#import "MSModelFraction.h"
 
 #ifndef MSLOADER_H
 #define MSLOADER_H
 
-@interface MSLoaderOBJ : NSObject <MSModelManager>
+@interface MSLoaderOBJ : NSObject
 
 + (instancetype)alloc NS_UNAVAILABLE;
-+(NSArray<MSModelFraction*>*)loadModel: (const char*)path tieWithMaterials: (MSMaterialStore*) store;
++(NSArray<MSModelFraction*>*)loadModel: (NSString*)path;
 
 @end
 

@@ -112,14 +112,15 @@
 
 -(void)setUpUniforms: (MSModelFraction*) frac shaderProgram: (GLuint) prog{
         glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
-        if([frac material] != nil){
-            MSVector3D* diffuse = [[frac material] diffuse];
-            MSVector3D* ambient = [[frac material] ambient];
-            MSVector3D* specular = [[frac material] specular];
-            float shininess = [[frac material] shininess];
+    MSMaterial* material = [[world getAvailavleMaterials] getMaterialWithName:[frac materialName]];
+        if(material != nil){
+            MSVector3D* diffuse = [material diffuse];
+            MSVector3D* ambient = [material ambient];
+            MSVector3D* specular = [material specular];
+            float shininess = [material shininess];
             
-            if([[frac material] associatedTexture] != nil){
-                id<MSRenderableTexture> texture = [[self->world getAvailavleMaterials] getTextureWithName:[[frac material] associatedTexture]];
+            if([material associatedTexture] != nil){
+                id<MSRenderableTexture> texture = [[self->world getAvailavleMaterials] getTextureWithName:[ material associatedTexture]];
                 if (texture != nil){
                     [texture bindItself];
                     glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
@@ -135,7 +136,7 @@
             glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [diffuse getArrayStyleVector]);
             glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [ambient getArrayStyleVector]);
             glUniform1f(glGetUniformLocation(prog, "material.shininess"), shininess);
-            glUniform1f(glGetUniformLocation(prog, "material.alpha"), [[frac material] transparency]);
+            glUniform1f(glGetUniformLocation(prog, "material.alpha"), [material transparency]);
             
         }else{
             glUniform3fv(glGetUniformLocation(prog, "material.specular"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
@@ -191,7 +192,8 @@
     NSMutableArray<MSModelFraction*>* transparentFractions = [[NSMutableArray alloc] init];
     
     for(MSModelFraction* fraction in [puppet getModelComponents]){
-        if ([fraction isOpaque]){
+        MSMaterial* material = [[world getAvailavleMaterials] getMaterialWithName:[fraction materialName]];
+        if ([material transparency]==1.0f){
             [self setUpUniforms:fraction shaderProgram:shaderProgram];
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
             if ([modelToDraw indiciesToDraw] > 0){

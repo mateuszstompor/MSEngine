@@ -14,17 +14,17 @@
                 format:@"Static class 'MSLoaderMTL' cannot be instantiated!"];
     return nil;
 }
-+(MSMaterialStore*)loadMaterials: (const char*)path handler: (id<MSGraphicsResourcesHandler>) handler{
++(MSMaterialStore*)loadMaterials: (NSString*)pathToFile handler: (id<MSGraphicsResourcesHandler>) handler{
     MSMaterialStore* loadedMaterials = [[MSMaterialStore alloc] initWithGraphicsHandler:handler];
-    FILE* materialFile = fopen(path, "r");
+    FILE* materialFile = fopen([pathToFile UTF8String], "r");
     if(materialFile==nil){
         [NSException raise:@"Cannot open file"
-                    format:@"file at path %s",path];
+                    format:@"file at path %s",[pathToFile UTF8String]];
     }
     [self processFile:materialFile materials: loadedMaterials];
     if(fclose(materialFile)!=0){
         [NSException raise:@"Cannot close file"
-                    format:@"file at path %s",path];
+                    format:@"file at path %s",[pathToFile UTF8String]];
     }
     NSLog(@"Loaded %i materials", [loadedMaterials amountOfMaterials]);
     return loadedMaterials;

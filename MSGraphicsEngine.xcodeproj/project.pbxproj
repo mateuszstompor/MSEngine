@@ -49,7 +49,6 @@
 		6101C89D1F3CCA180011117A /* MSVectorND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BA1EB8B3930086897F /* MSVectorND.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C89E1F3CCA180011117A /* MSMathException.h in Headers */ = {isa = PBXBuildFile; fileRef = 619CFB831F38E1B9004FACBE /* MSMathException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C89F1F3CCA180011117A /* MSLoaderOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6101C8A01F3CCA180011117A /* MSModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C8A11F3CCA180011117A /* MSLoaderMTL.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C8A31F3CCA2B0011117A /* FShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6120616F1F2E477D0062997A /* FShader.frag */; };
 		6101C8A41F3CCA2B0011117A /* LightShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 612061701F2E477D0062997A /* LightShader.frag */; };
@@ -78,7 +77,7 @@
 		614C96C51F3F06D4007CE857 /* MSTextureOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 614C96C11F3F06D4007CE857 /* MSTextureOpenGL.m */; };
 		614D56C11F40806E00AA97ED /* MSFileSearcher_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D56C01F40806E00AA97ED /* MSFileSearcher_Tests.m */; };
 		614D56C61F4080E200AA97ED /* MSFileSearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 614D56C41F4080E200AA97ED /* MSFileSearcher.h */; };
-		614D56C71F4080E200AA97ED /* MSFileSearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 614D56C41F4080E200AA97ED /* MSFileSearcher.h */; };
+		614D56C71F4080E200AA97ED /* MSFileSearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 614D56C41F4080E200AA97ED /* MSFileSearcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		614D56C81F4080E200AA97ED /* MSFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D56C51F4080E200AA97ED /* MSFileSearcher.m */; };
 		614D56C91F4080E200AA97ED /* MSFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D56C51F4080E200AA97ED /* MSFileSearcher.m */; };
 		615A01241F3CB72C0003E9E9 /* MSLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01221F3CB72C0003E9E9 /* MSLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,6 +90,12 @@
 		6171D09B1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6171D0981F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6171D09C1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */; };
 		6171D09D1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */; };
+		618C50301F48F22F00D13A5C /* MSLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C502E1F48F22F00D13A5C /* MSLoader.h */; };
+		618C50311F48F22F00D13A5C /* MSLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C502E1F48F22F00D13A5C /* MSLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		618C50321F48F22F00D13A5C /* MSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 618C502F1F48F22F00D13A5C /* MSLoader.m */; };
+		618C50331F48F22F00D13A5C /* MSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 618C502F1F48F22F00D13A5C /* MSLoader.m */; };
+		618C50371F48F31F00D13A5C /* MSTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C50361F48F31F00D13A5C /* MSTextureLoader.h */; };
+		618C50381F48F31F00D13A5C /* MSTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C50361F48F31F00D13A5C /* MSTextureLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */ = {isa = PBXBuildFile; fileRef = 619CFB831F38E1B9004FACBE /* MSMathException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		619CFB861F38E1B9004FACBE /* MSMathException.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB841F38E1B9004FACBE /* MSMathException.m */; };
 		61D6CDFB1F3236A40021133D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61314EED1ED64B70001A3519 /* OpenGLES.framework */; };
@@ -114,7 +119,6 @@
 		61D6CE711F323F5A0021133D /* MSMatrixND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B51EB8B3930086897F /* MSMatrixND.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CE721F323F5A0021133D /* MSVectorND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BA1EB8B3930086897F /* MSVectorND.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D6CE741F323F5A0021133D /* MSModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6C11EB8B3930086897F /* MSModelManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CE751F323F5A0021133D /* MSLoaderMTL.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CE761F323F660021133D /* MSVertexData.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A31EB8B3930086897F /* MSVertexData.m */; };
 		61D6CE771F323F660021133D /* MSModelFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69D1EB8B3930086897F /* MSModelFace.m */; };
@@ -209,7 +213,6 @@
 		615AF6BB1EB8B3930086897F /* MSVectorND.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVectorND.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoaderOBJ.h; sourceTree = "<group>"; };
 		615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoaderOBJ.m; sourceTree = "<group>"; };
-		615AF6C11EB8B3930086897F /* MSModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSModelManager.h; sourceTree = "<group>"; };
 		615EE8B41EFAECD9009537F9 /* MSMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMaterial.h; sourceTree = "<group>"; };
 		615EE8B51EFAECD9009537F9 /* MSMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMaterial.m; sourceTree = "<group>"; };
 		615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoaderMTL.h; sourceTree = "<group>"; };
@@ -219,6 +222,9 @@
 		6171D0951F3F6130000A0D0C /* MSGraphicsResourcesHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSGraphicsResourcesHandler.h; path = Protocols/MSGraphicsResourcesHandler.h; sourceTree = "<group>"; };
 		6171D0981F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSResourcesHandlerOpenGL.h; path = OpenGL/MSResourcesHandlerOpenGL.h; sourceTree = "<group>"; };
 		6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSResourcesHandlerOpenGL.m; path = OpenGL/MSResourcesHandlerOpenGL.m; sourceTree = "<group>"; };
+		618C502E1F48F22F00D13A5C /* MSLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoader.h; sourceTree = "<group>"; };
+		618C502F1F48F22F00D13A5C /* MSLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoader.m; sourceTree = "<group>"; };
+		618C50361F48F31F00D13A5C /* MSTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextureLoader.h; path = Loaders/TextureLoaders/MSTextureLoader.h; sourceTree = "<group>"; };
 		619A5F531EBA81460017DB89 /* MSPointLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPointLight.h; sourceTree = "<group>"; };
 		619A5F541EBA81460017DB89 /* MSPointLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPointLight.m; sourceTree = "<group>"; };
 		619CFB831F38E1B9004FACBE /* MSMathException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMathException.h; sourceTree = "<group>"; };
@@ -397,6 +403,7 @@
 		614D56C21F4080A900AA97ED /* Loaders */ = {
 			isa = PBXGroup;
 			children = (
+				618C50341F48F2F200D13A5C /* TextureLoaders */,
 				615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */,
 				615EE8BB1EFAF1A8009537F9 /* MSLoaderMTL.m */,
 				615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */,
@@ -549,7 +556,8 @@
 			children = (
 				614D56C31F4080BA00AA97ED /* FileManagers */,
 				614D56C21F4080A900AA97ED /* Loaders */,
-				615AF6C11EB8B3930086897F /* MSModelManager.h */,
+				618C502E1F48F22F00D13A5C /* MSLoader.h */,
+				618C502F1F48F22F00D13A5C /* MSLoader.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -573,6 +581,14 @@
 				6171D0951F3F6130000A0D0C /* MSGraphicsResourcesHandler.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		618C50341F48F2F200D13A5C /* TextureLoaders */ = {
+			isa = PBXGroup;
+			children = (
+				618C50361F48F31F00D13A5C /* MSTextureLoader.h */,
+			);
+			name = TextureLoaders;
 			sourceTree = "<group>";
 		};
 		61D1E9261F0443490038AE3D /* Vertex */ = {
@@ -655,19 +671,20 @@
 				6101C8991F3CCA180011117A /* MSCamera.h in Headers */,
 				6101C89A1F3CCA180011117A /* MSTransformationManager.h in Headers */,
 				6101C89B1F3CCA180011117A /* MSPoint.h in Headers */,
-				614D56C71F4080E200AA97ED /* MSFileSearcher.h in Headers */,
 				6101C89C1F3CCA180011117A /* MSMatrixND.h in Headers */,
 				6101C89D1F3CCA180011117A /* MSVectorND.h in Headers */,
 				6101C89E1F3CCA180011117A /* MSMathException.h in Headers */,
-				6101C89F1F3CCA180011117A /* MSLoaderOBJ.h in Headers */,
 				614C96C31F3F06D4007CE857 /* MSTextureOpenGL.h in Headers */,
 				614C96BD1F3E24F9007CE857 /* MSTexture.h in Headers */,
-				6101C8A01F3CCA180011117A /* MSModelManager.h in Headers */,
 				6171D0971F3F6130000A0D0C /* MSGraphicsResourcesHandler.h in Headers */,
+				618C50311F48F22F00D13A5C /* MSLoader.h in Headers */,
 				6171D09B1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */,
+				614D56C71F4080E200AA97ED /* MSFileSearcher.h in Headers */,
+				6101C89F1F3CCA180011117A /* MSLoaderOBJ.h in Headers */,
+				6101C8A11F3CCA180011117A /* MSLoaderMTL.h in Headers */,
+				618C50381F48F31F00D13A5C /* MSTextureLoader.h in Headers */,
 				612568711F3FC2AC00ED5962 /* macMSGraphicsEngine.h in Headers */,
 				6171D0871F3F3748000A0D0C /* MSRenderableTexture.h in Headers */,
-				6101C8A11F3CCA180011117A /* MSLoaderMTL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +696,7 @@
 				61D6CE611F323F5A0021133D /* MSVertexData.h in Headers */,
 				61D6CE621F323F5A0021133D /* MSModelFace.h in Headers */,
 				61D6CE631F323F5A0021133D /* MSModelFraction.h in Headers */,
+				618C50371F48F31F00D13A5C /* MSTextureLoader.h in Headers */,
 				61D6CE641F323F5A0021133D /* MSMaterial.h in Headers */,
 				61D6CE651F323F5A0021133D /* MSMaterialStore.h in Headers */,
 				61D6CE661F323F5A0021133D /* MSRenderOpenGL.h in Headers */,
@@ -696,9 +714,9 @@
 				61D6CE721F323F5A0021133D /* MSVectorND.h in Headers */,
 				614D56C61F4080E200AA97ED /* MSFileSearcher.h in Headers */,
 				61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */,
-				61D6CE741F323F5A0021133D /* MSModelManager.h in Headers */,
 				619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */,
 				615A01241F3CB72C0003E9E9 /* MSLight.h in Headers */,
+				618C50301F48F22F00D13A5C /* MSLoader.h in Headers */,
 				61D6CE751F323F5A0021133D /* MSLoaderMTL.h in Headers */,
 				614C96C21F3F06D4007CE857 /* MSTextureOpenGL.h in Headers */,
 				6171D0961F3F6130000A0D0C /* MSGraphicsResourcesHandler.h in Headers */,
@@ -873,6 +891,7 @@
 				6101C87F1F3CC9EE0011117A /* MSPoint.m in Sources */,
 				6101C8801F3CC9EE0011117A /* MSMatrixND.m in Sources */,
 				6101C8811F3CC9EE0011117A /* MSVectorND.m in Sources */,
+				618C50331F48F22F00D13A5C /* MSLoader.m in Sources */,
 				6101C8821F3CC9EE0011117A /* MSMathException.m in Sources */,
 				6101C8831F3CC9EE0011117A /* MSLoaderOBJ.m in Sources */,
 				6101C8841F3CC9EE0011117A /* MSLoaderMTL.m in Sources */,
@@ -917,6 +936,7 @@
 				61D6CE821F323F660021133D /* MSTransformationManager.m in Sources */,
 				61D6CE831F323F660021133D /* MSPoint.m in Sources */,
 				61D6CE841F323F660021133D /* MSMatrixND.m in Sources */,
+				618C50321F48F22F00D13A5C /* MSLoader.m in Sources */,
 				61D6CE851F323F660021133D /* MSVectorND.m in Sources */,
 				61D6CE861F323F660021133D /* MSLoaderOBJ.m in Sources */,
 				61D6CE871F323F660021133D /* MSLoaderMTL.m in Sources */,

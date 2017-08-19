@@ -19,13 +19,12 @@
 @property (atomic) NSMutableArray<MSPoint3D*>* normals;
 @property (atomic) NSMutableArray<MSPoint2D*>* textureCoordinates;
 @property (atomic) NSMutableArray<MSModelFace*>* facesData;
-@property (atomic) MSMaterial* material;
+@property (atomic) NSString* materialName;
 @property (atomic) NSString* name;
 @property (atomic) NSValue* uniqueName;
 
 -(instancetype)init;
 -(NSValue*)getUniqueName;
--(BOOL)isOpaque;
 
 @end
 #endif

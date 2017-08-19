@@ -15,7 +15,8 @@ static int second[3];
 static int third[3];
 static float coord[3];
 
-+(NSArray<MSModelFraction*>*)loadModel: (const char*)path tieWithMaterials: (MSMaterialStore*) store{
++(NSArray<MSModelFraction*>*)loadModel: (NSString*)pathToFile{
+    const char* path = [pathToFile UTF8String];
     unsigned int currentLine=0;
     NSMutableArray<MSModelFraction*>*arrayOfModelFractions = [[NSMutableArray alloc]init];
     MSModelFraction* objectToAdd;
@@ -61,7 +62,7 @@ static float coord[3];
                 [MSLoaderOBJ handleTexture:modelFile model:objectToAdd];
                 break;
             case USEMATERIAL:
-                [MSLoaderOBJ handleMaterial:modelFile model:objectToAdd tieWithMaterials:store];
+                [MSLoaderOBJ handleMaterial:modelFile model:objectToAdd];
                 break;
             case FILEEND:
                 shouldRead=false;
@@ -150,14 +151,14 @@ static float coord[3];
         free(line);
     }
 }
-+(void)handleMaterial: (FILE*)descriptor model: (MSModelFraction*)model tieWithMaterials: (MSMaterialStore*) store{
++(void)handleMaterial: (FILE*)descriptor model: (MSModelFraction*)model{
     char * line = NULL;
     size_t len = 0;
     size_t characterAmount = 0;
     if ((characterAmount = getline(&line, &len, descriptor)) != -1){
         line[characterAmount-1]='\0';
         NSString* nameOfMaterial = [[NSString alloc] initWithUTF8String:&line[6]];
-            [model setMaterial:[store getMaterialWithName:nameOfMaterial]];
+            [model setMaterialName:nameOfMaterial];
     }
     free(line);
 }
