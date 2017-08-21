@@ -22,5 +22,5 @@
 -(instancetype)initRecursiveSearcher: (unsigned int) levelsToSearch;
 -(void)addSearchPath: (NSString*) path;
 -(NSArray<MSModelFraction*>*)loadModel: (NSString*) fileName;
--(MSMaterialStore*)loadMaterials: (NSString*) fileName;
+-(NSArray<MSMaterial*>*)loadMaterials: (NSString*) fileName;
 @end

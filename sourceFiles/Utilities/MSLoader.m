@@ -27,13 +27,11 @@
     }
     return arrayToReturn;
 }
--(MSMaterialStore*)loadMaterials: (NSString*) fileName{
-    MSMaterialStore* materialsToReturn = nil;
+-(NSArray<MSMaterial*>*)loadMaterials: (NSString*) fileName{
     NSString* pathToFile = [self->searcher pathForFile:fileName];
     if(pathToFile!=nil){
-        
-        materialsToReturn = [MSLoaderMTL loadMaterials:pathToFile handler:[[MSResourcesHandlerOpenGL alloc] init]];
+        return [MSLoaderMTL loadMaterials:pathToFile];
     }
-    return materialsToReturn;
+    return nil;
 }
 @end

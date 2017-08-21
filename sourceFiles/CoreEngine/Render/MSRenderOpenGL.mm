@@ -120,14 +120,14 @@
             float shininess = [material shininess];
             
             if([material associatedTexture] != nil){
-                id<MSRenderableTexture> texture = [[self->world getAvailavleMaterials] getTextureWithName:[ material associatedTexture]];
-                if (texture != nil){
-                    [texture bindItself];
-                    glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
-                }
-                else{
+//                id<MSRenderableTexture> texture = [[self->world getAvailavleMaterials] getTextureWithName:[ material associatedTexture]];
+//                if (texture != nil){
+//                    [texture bindItself];
+//                    glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
+//                }
+//                else{
                     glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
-                }
+//                }
             }else{
                 glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
             }

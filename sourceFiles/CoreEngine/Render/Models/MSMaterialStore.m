@@ -11,10 +11,9 @@
 
 @synthesize name;
 
--(instancetype)initWithGraphicsHandler: (id<MSGraphicsResourcesHandler>) graphicsHandler{
+-(instancetype)init{
     self = [super init];
     if(self != nil){
-        self->handler=graphicsHandler;
         self->name=nil;
         self->availableMaterials=[[NSMutableDictionary alloc]init];
         self->availableTextures=[[NSMutableDictionary alloc]init];
@@ -26,13 +25,17 @@
     [availableMaterials setObject:material forKey:[material name]];
 }
 -(void)addTexture: (MSTexture*) texture{
-    id<MSRenderableTexture> renderableTexture = [handler renderableTextureFrom:texture shouldLoad:true];
-    [availableTextures setObject: renderableTexture forKey:[renderableTexture name]];
+    [availableTextures setObject: texture forKey:[texture name]];
 }
 -(int)amountOfMaterials{
     return (int)[availableMaterials count];
 }
--(id<MSRenderableTexture>)getTextureWithName: (NSString*) textureName{
+-(void)addMaterials: (NSArray<MSMaterial*>*) materials{
+    for(MSMaterial* mat in materials){
+        [self addMaterial:mat];
+    }
+}
+-(MSTexture*)getTextureWithName: (NSString*) textureName{
     return [availableTextures objectForKey:textureName];
 }
 -(MSMaterial*)getMaterialWithName: (NSString*) nameOfMaterial{

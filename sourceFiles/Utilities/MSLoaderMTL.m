@@ -14,8 +14,8 @@
                 format:@"Static class 'MSLoaderMTL' cannot be instantiated!"];
     return nil;
 }
-+(MSMaterialStore*)loadMaterials: (NSString*)pathToFile handler: (id<MSGraphicsResourcesHandler>) handler{
-    MSMaterialStore* loadedMaterials = [[MSMaterialStore alloc] initWithGraphicsHandler:handler];
++(NSArray<MSMaterial*>*)loadMaterials: (NSString*)pathToFile{
+    NSMutableArray<MSMaterial*>* loadedMaterials = [[NSMutableArray alloc]init];
     FILE* materialFile = fopen([pathToFile UTF8String], "r");
     if(materialFile==nil){
         [NSException raise:@"Cannot open file"
@@ -26,10 +26,10 @@
         [NSException raise:@"Cannot close file"
                     format:@"file at path %s",[pathToFile UTF8String]];
     }
-    NSLog(@"Loaded %i materials", [loadedMaterials amountOfMaterials]);
+    NSLog(@"Loaded %lu materials", [loadedMaterials count]);
     return loadedMaterials;
 }
-+(void)processFile: (FILE*) file materials: (MSMaterialStore*) materials{
++(void)processFile: (FILE*) file materials: (NSMutableArray<MSMaterial*>*) materials{
     unsigned int currentLine = 0;
     MSMaterial* materialUnderProcessing = nil;
     char* buffer = NULL;
@@ -40,7 +40,7 @@
         switch(typeOfEvent){
             case NEW_MATERIAL:
                 if(materialUnderProcessing!=nil){
-                    [materials addMaterial:materialUnderProcessing];
+                    [materials addObject:materialUnderProcessing];
                 }
                 materialUnderProcessing = [[MSMaterial alloc] init];
                 buffer[charactersAmount-1]='\0';
@@ -137,17 +137,17 @@
                 break;
             }
             case MAP_DIFFUSE:{
-                char filepath [500];
-                if(sscanf(buffer, "map_Kd %s", filepath)==1){
-                    NSString * nameOfTexture = [[NSString alloc] initWithUTF8String:filepath];
+                char fileName [500];
+                if(sscanf(buffer, "map_Kd %s", fileName)==1){
+                    NSString * nameOfTexture = [[NSString alloc] initWithUTF8String:fileName];
                     [materialUnderProcessing setAssociatedTexture: nameOfTexture];
-                    if([materials getTextureWithName:nameOfTexture] == nil){
-                        NSFileManager* fm = [NSFileManager defaultManager];
-                        if([fm fileExistsAtPath:nameOfTexture]){
-                            MSTexture* texture = [[MSTexture alloc] initTextureFromFile:nameOfTexture];
-                            [materials addTexture:texture];
-                        }
-                    }
+//                    if([materials getTextureWithName:nameOfTexture] == nil){
+//                        NSFileManager* fm = [NSFileManager defaultManager];
+//                        if([fm fileExistsAtPath:nameOfTexture]){
+//                            MSTexture* texture = [[MSTexture alloc] initTextureFromFile:nameOfTexture];
+//                            [materials addTexture:texture];
+//                        }
+//                    }
                 }else{
                     [NSException raise:@"Cannot Read RenderMode"
                                 format:@""];
@@ -166,7 +166,7 @@
         buffer=NULL;
         currentLine+=1;
     }
-    [materials addMaterial:materialUnderProcessing];
+    [materials addObject:materialUnderProcessing];
 }
 
 

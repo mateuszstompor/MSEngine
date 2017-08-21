@@ -10,8 +10,6 @@
 
 #import "MSMaterial.h"
 #import "MSTexture.h"
-#import "MSRenderableTexture.h"
-#import "MSGraphicsResourcesHandler.h"
 
 #ifndef MSMATERIALSTORE_H
 #define MSMATERIALSTORE_H
@@ -19,19 +17,18 @@
 
 {
     @protected
-    NSMutableDictionary<NSString*,MSMaterial*>* availableMaterials;
-    NSMutableDictionary<NSString*,id<MSRenderableTexture>>* availableTextures;
-    id<MSGraphicsResourcesHandler> handler;
+    NSMutableDictionary<NSString*, MSMaterial*>* availableMaterials;
+    NSMutableDictionary<NSString*, MSTexture*>* availableTextures;
 }
 
 @property (atomic) NSString* name;
 
--(instancetype)init NS_UNAVAILABLE;
--(instancetype)initWithGraphicsHandler: (id<MSGraphicsResourcesHandler>) handler;
+-(instancetype)init;
 -(void)addMaterial: (MSMaterial*) material;
+-(void)addMaterials: (NSArray<MSMaterial*>*) materials;
 -(void)addTexture: (MSTexture*) material;
 -(MSMaterial*)getMaterialWithName: (NSString*) name;
--(id<MSRenderableTexture>)getTextureWithName: (NSString*) name;
+-(MSTexture*)getTextureWithName: (NSString*) name;
 
 -(int)amountOfMaterials;
 
