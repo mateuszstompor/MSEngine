@@ -18,7 +18,8 @@
 @synthesize textureID = _textureID;
 
 -(instancetype)initTextureFromFile: (NSString*) path withLoadingToGraphics: (BOOL) shoudLoad{
-    return [self initFromTexture:[[MSTexture alloc] initTextureFromFile:path] withLoadingToGraphics:shoudLoad];
+   
+    return nil;//[self initFromTexture:[[MSTexture alloc] initTextureFromFile:path] withLoadingToGraphics:shoudLoad];
 }
 
 -(instancetype)initFromTexture: (MSTexture*) texture withLoadingToGraphics: (BOOL) shoudLoad;{

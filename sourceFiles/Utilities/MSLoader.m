@@ -7,6 +7,7 @@
 //
 
 #import "MSLoader.h"
+#import "MSTextureLoaderBMP.h"
 
 @implementation MSLoader
 -(instancetype)initRecursiveSearcher: (unsigned int) levelsToSearch{
@@ -26,6 +27,16 @@
         arrayToReturn = [MSLoaderOBJ loadModel:pathToFile];
     }
     return arrayToReturn;
+}
+-(NSArray<MSTexture*>*)loadTexturesForMaterials: (NSArray<MSMaterial*>*) materials{
+    NSMutableArray<MSTexture*>* textures = [[NSMutableArray alloc] init];
+    for (MSMaterial* mat in materials){
+        NSString* pathToFile = [searcher pathForFile:[mat associatedTexture]];
+        if (pathToFile != nil){
+            [textures addObject:[MSTextureLoaderBMP loadTextureAtPath:pathToFile itsName:[mat associatedTexture]]];
+        }
+    }
+    return textures;
 }
 -(NSArray<MSMaterial*>*)loadMaterials: (NSString*) fileName{
     NSString* pathToFile = [self->searcher pathForFile:fileName];

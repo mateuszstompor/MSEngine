@@ -23,4 +23,5 @@
 -(void)addSearchPath: (NSString*) path;
 -(NSArray<MSModelFraction*>*)loadModel: (NSString*) fileName;
 -(NSArray<MSMaterial*>*)loadMaterials: (NSString*) fileName;
+-(NSArray<MSTexture*>*)loadTexturesForMaterials: (NSArray<MSMaterial*>*) materials;
 @end

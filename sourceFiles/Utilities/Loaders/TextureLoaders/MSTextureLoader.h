@@ -11,7 +11,7 @@
 #define MSTextureLoader_h
 
 @protocol MSTextureLoader
--(MSTexture*)loadTextureAtPath: (NSString*)pathToTexture;
++(MSTexture*)loadTextureAtPath: (NSString*)pathToTexture itsName: (NSString*) nam;
 @end
 
 #endif /* MSTextureLoader_h */
