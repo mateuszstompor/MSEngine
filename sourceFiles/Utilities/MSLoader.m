@@ -8,8 +8,15 @@
 
 #import "MSLoader.h"
 #import "MSTextureLoaderBMP.h"
+#import "MSFileSearcher.h"
+#import "MSLoaderOBJ.h"
+#import "MSLoaderMTL.h"
 
 @implementation MSLoader
+{
+@protected
+    MSFileSearcher* searcher;
+}
 -(instancetype)initRecursiveSearcher: (unsigned int) levelsToSearch{
     self=[super init];
     if(self){

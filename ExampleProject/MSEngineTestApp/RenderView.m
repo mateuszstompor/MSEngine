@@ -11,15 +11,19 @@
 #import <assert.h>
 
 @implementation RenderView
+{
+    MSLoader* loader;
+}
+
 -(void)setUp {
     float width = self.bounds.size.width;
     float height = self.bounds.size.height;
-    [EAGLContext setCurrentContext:[self context]];
+    loader = [[MSLoader alloc] initRecursiveSearcher:3];
+    [loader addSearchPath:[[NSBundle mainBundle] bundlePath]];
     
-    NSString* pathToClassroomMaterials = [[NSBundle mainBundle] pathForResource:@"classroom" ofType:@"mtl"];
-    NSString* pathToClassroomModel = [[NSBundle mainBundle] pathForResource:@"classroom" ofType:@"obj"];
+    [EAGLContext setCurrentContext:[self context]];
     NSString* bundlePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/"];
-    NSString* pathToCube = [[NSBundle mainBundle] pathForResource:@"simpleCube" ofType:@"obj"];
+    
     
     MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
     MSVector3D* secondColor = [[MSVector3D alloc] initWithComponents:3, 0.7f, 0.9f, 1.0f];
@@ -30,11 +34,11 @@
 
     
     
-    MSResourcesHandlerOpenGL* handler = [[MSResourcesHandlerOpenGL alloc] init];
-    MSMaterialStore* materialStore = [MSLoaderMTL loadMaterials:pathToClassroomMaterials handler:handler];
+    MSMaterialStore* materialStore = [[MSMaterialStore alloc] init];
+    [materialStore addMaterials:[loader loadMaterials:@"classroom.mtl"]];
 
     
-    NSArray<MSModelFraction*>* lightModel = [MSLoaderOBJ loadModel:pathToCube];
+    NSArray<MSModelFraction*>* lightModel = [loader loadModel:@"simpleCube.obj"];
     MSPointLight* light = [[MSPointLight alloc] initWithModel: lightModel color:firstColor power:50.0f];
     
     
@@ -45,7 +49,7 @@
     [secondLight scaleBy:[MSTransformationManager scaleMatrix4x4:0.05 repeatToIndex:2]];
 
     
-    MSPuppet* classroom = [[MSPuppet alloc] initWithModel:[MSLoaderOBJ loadModel:pathToClassroomModel]];
+    MSPuppet* classroom = [[MSPuppet alloc] initWithModel:[loader loadModel:@"classroom.obj"]];
     MSCamera* cam = [[MSCamera alloc] initWithFOV:120 aspectRatio:width/height near:0.1 far:1000];
 
     world = [[MSWorld alloc] initWithMaterials:materialStore camera: cam];

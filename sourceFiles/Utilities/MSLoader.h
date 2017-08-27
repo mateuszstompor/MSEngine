@@ -7,17 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSFileSearcher.h"
 #import "MSModelFraction.h"
-#import "MSLoaderOBJ.h"
-#import "MSLoaderMTL.h"
 #import "MSResourcesHandlerOpenGL.h"
 
+#ifndef MSLoader_h
+#define MSLoader_h
+
 @interface MSLoader : NSObject
-{
-    @protected
-    MSFileSearcher* searcher;
-}
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initRecursiveSearcher: (unsigned int) levelsToSearch;
 -(void)addSearchPath: (NSString*) path;
@@ -25,3 +21,5 @@
 -(NSArray<MSMaterial*>*)loadMaterials: (NSString*) fileName;
 -(NSArray<MSTexture*>*)loadTexturesForMaterials: (NSArray<MSMaterial*>*) materials;
 @end
+
+#endif

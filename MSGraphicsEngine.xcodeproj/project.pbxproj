@@ -94,7 +94,7 @@
 		6171D09B1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6171D0981F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6171D09C1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */; };
 		6171D09D1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */; };
-		618C50301F48F22F00D13A5C /* MSLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C502E1F48F22F00D13A5C /* MSLoader.h */; };
+		618C50301F48F22F00D13A5C /* MSLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C502E1F48F22F00D13A5C /* MSLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		618C50311F48F22F00D13A5C /* MSLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C502E1F48F22F00D13A5C /* MSLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		618C50321F48F22F00D13A5C /* MSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 618C502F1F48F22F00D13A5C /* MSLoader.m */; };
 		618C50331F48F22F00D13A5C /* MSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 618C502F1F48F22F00D13A5C /* MSLoader.m */; };
@@ -122,8 +122,8 @@
 		61D6CE701F323F5A0021133D /* MSPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B71EB8B3930086897F /* MSPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CE711F323F5A0021133D /* MSMatrixND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6B51EB8B3930086897F /* MSMatrixND.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61D6CE721F323F5A0021133D /* MSVectorND.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BA1EB8B3930086897F /* MSVectorND.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D6CE751F323F5A0021133D /* MSLoaderMTL.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */; };
+		61D6CE751F323F5A0021133D /* MSLoaderMTL.h in Headers */ = {isa = PBXBuildFile; fileRef = 615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */; };
 		61D6CE761F323F660021133D /* MSVertexData.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A31EB8B3930086897F /* MSVertexData.m */; };
 		61D6CE771F323F660021133D /* MSModelFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69D1EB8B3930086897F /* MSModelFace.m */; };
 		61D6CE781F323F660021133D /* MSModelFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69F1EB8B3930086897F /* MSModelFraction.m */; };
@@ -731,16 +731,16 @@
 				616D32091F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */,
 				61D6CE721F323F5A0021133D /* MSVectorND.h in Headers */,
 				614D56C61F4080E200AA97ED /* MSFileSearcher.h in Headers */,
-				61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */,
 				619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */,
 				615A01241F3CB72C0003E9E9 /* MSLight.h in Headers */,
-				618C50301F48F22F00D13A5C /* MSLoader.h in Headers */,
-				61D6CE751F323F5A0021133D /* MSLoaderMTL.h in Headers */,
 				614C96C21F3F06D4007CE857 /* MSTextureOpenGL.h in Headers */,
 				6171D0961F3F6130000A0D0C /* MSGraphicsResourcesHandler.h in Headers */,
+				618C50301F48F22F00D13A5C /* MSLoader.h in Headers */,
 				6171D09A1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */,
 				614C96BC1F3E24F9007CE857 /* MSTexture.h in Headers */,
 				6171D0881F3F3756000A0D0C /* MSRenderableTexture.h in Headers */,
+				61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */,
+				61D6CE751F323F5A0021133D /* MSLoaderMTL.h in Headers */,
 				612568741F3FC2D900ED5962 /* iMSGraphicsEngine.h in Headers */,
 				615A01261F3CB8140003E9E9 /* MSPositionedLight.h in Headers */,
 			);
