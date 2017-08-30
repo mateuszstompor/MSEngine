@@ -60,8 +60,8 @@
 
 }
 - (void)drawRect:(CGRect)rect {
-    float fraction = 0.05;
-    float rotationFraction = 0.1;
+    float fraction = 0.006;
+    float rotationFraction = 0.008;
     [EAGLContext setCurrentContext:[self context]];
     if(renderer!=nil){
         [world translateObject:[world getCamera] x:-self->translation.x*fraction y:0 z:self->translation.y*fraction];

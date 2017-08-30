@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WIi-mQ-knU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WIi-mQ-knU">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhw-Xm-Gk1" customClass="JoystickView" customModule="MSEngineTestApp" customModuleProvider="target">
-                                <rect key="frame" x="405" y="157" width="128" height="128"/>
+                                <rect key="frame" x="390" y="142" width="128" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mhw-Xm-Gk1" secondAttribute="height" multiplier="1:1" id="3BG-pz-VTD"/>
@@ -32,7 +32,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbk-MZ-k7K" customClass="JoystickView" customModule="MSEngineTestApp" customModuleProvider="target">
-                                <rect key="frame" x="35" y="157" width="128" height="128"/>
+                                <rect key="frame" x="50" y="142" width="128" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="Rnb-Sa-7Qq"/>
@@ -49,10 +49,10 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="xbk-MZ-k7K" firstAttribute="leading" secondItem="BeI-gv-QBx" secondAttribute="leading" constant="35" id="Exf-zQ-bc6"/>
-                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="xbk-MZ-k7K" secondAttribute="bottom" constant="35" id="Sec-Qy-iU7"/>
-                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="mhw-Xm-Gk1" secondAttribute="bottom" constant="35" id="drG-0j-DzP"/>
-                            <constraint firstAttribute="trailing" secondItem="mhw-Xm-Gk1" secondAttribute="trailing" constant="35" id="eLg-KY-7JT"/>
+                            <constraint firstItem="xbk-MZ-k7K" firstAttribute="leading" secondItem="BeI-gv-QBx" secondAttribute="leading" constant="50" id="Exf-zQ-bc6"/>
+                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="xbk-MZ-k7K" secondAttribute="bottom" constant="50" id="Sec-Qy-iU7"/>
+                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="mhw-Xm-Gk1" secondAttribute="bottom" constant="50" id="drG-0j-DzP"/>
+                            <constraint firstAttribute="trailing" secondItem="mhw-Xm-Gk1" secondAttribute="trailing" constant="50" id="eLg-KY-7JT"/>
                         </constraints>
                         <connections>
                             <outlet property="delegate" destination="WIi-mQ-knU" id="sm9-ga-Jvw"/>
