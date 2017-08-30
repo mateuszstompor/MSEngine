@@ -2,16 +2,18 @@
 //  MSResourcesHandlerOpenGL.h
 //  MSGraphicsEngine
 //
-//  Created by Mateusz Stompór on 12/08/2017.
+//  Created by Mateusz Stompór on 30/08/2017.
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "MSGraphicsResourcesHandler.h"
-#import "MSTextureOpenGL.h"
+#import "MSRenderResourcesHandler.h"
 
-@interface MSResourcesHandlerOpenGL : NSObject <MSGraphicsResourcesHandler>
+#ifndef MSResourcesHandlerOpenGL_h
+#define MSResourcesHandlerOpenGL_h
 
--(MSTextureOpenGL*)renderableTextureFrom: (MSTexture*) texture shouldLoad: (BOOL) should;
+@interface MSResourcesHandlerOpenGL : NSObject <MSRenderResourcesHandler>
 
 @end
+
+#endif

@@ -2,7 +2,7 @@
 //  MSResourcesHandlerOpenGL.m
 //  MSGraphicsEngine
 //
-//  Created by Mateusz Stompór on 12/08/2017.
+//  Created by Mateusz Stompór on 30/08/2017.
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
 
@@ -10,9 +10,8 @@
 
 @implementation MSResourcesHandlerOpenGL
 
--(MSTextureOpenGL*)renderableTextureFrom: (MSTexture*) texture shouldLoad: (BOOL) should{
-    return [[MSTextureOpenGL alloc] initFromTexture:texture withLoadingToGraphics:should];
+-(id<MSRenderableTexture>)getRenderableTextureForName: (NSString*) name {
+    return nil;
 }
-
 
 @end

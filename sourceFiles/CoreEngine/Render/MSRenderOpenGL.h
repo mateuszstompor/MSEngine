@@ -8,7 +8,7 @@
 
 #import "MSRender.h"
 #import "MSDrawableFraction.h"
-
+#import "MSRenderResourcesHandler.h"
 
 
 #if macOS

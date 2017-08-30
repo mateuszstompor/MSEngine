@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MSModelFraction.h"
-#import "MSResourcesHandlerOpenGL.h"
+#import "MSTexture.h"
 
 #ifndef MSLoader_h
 #define MSLoader_h

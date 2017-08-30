@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MSMaterialStore.h"
-#import "MSGraphicsResourcesHandler.h"
 
 #ifndef MSLOADERMTL_H
 #define MSLOADERMTL_H

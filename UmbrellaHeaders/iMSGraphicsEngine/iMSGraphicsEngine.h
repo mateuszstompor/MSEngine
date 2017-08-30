@@ -14,7 +14,8 @@ FOUNDATION_EXPORT double iMSGraphicsEngineVersionNumber;
 //! Project version string for iMSGraphicsEngine.
 FOUNDATION_EXPORT const unsigned char iMSGraphicsEngineVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <iMSGraphicsEngine/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like
+// #import <iMSGraphicsEngine/PublicHeader.h>
 
 
 #import <iMSGraphicsEngine/MSVectorND.h>
@@ -26,6 +27,4 @@ FOUNDATION_EXPORT const unsigned char iMSGraphicsEngineVersionString[];
 #import <iMSGraphicsEngine/MSEngineUtility.h>
 #import <iMSGraphicsEngine/MSTexture.h>
 #import <iMSGraphicsEngine/MSTextureOpenGL.h>
-#import <iMSGraphicsEngine/MSResourcesHandlerOpenGL.h>
 #import <iMSGraphicsEngine/MSLoader.h>
-

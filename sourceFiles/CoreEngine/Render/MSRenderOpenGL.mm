@@ -12,6 +12,7 @@
 @implementation MSRenderOpenGL
 
 @synthesize settings;
+@synthesize resourcesHandler;
 
 -(instancetype)initWithWorld:(MSWorld *)w modelShader: (GLuint)mSh lightShader: (GLuint)lsh{
     self=[super init];

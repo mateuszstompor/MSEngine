@@ -26,7 +26,7 @@
         [NSException raise:@"Cannot close file"
                     format:@"file at path %s",[pathToFile UTF8String]];
     }
-    NSLog(@"Loaded %lu materials", [loadedMaterials count]);
+    NSLog(@"Loaded %lu materials", (unsigned long)[loadedMaterials count]);
     return loadedMaterials;
 }
 +(void)processFile: (FILE*) file materials: (NSMutableArray<MSMaterial*>*) materials{

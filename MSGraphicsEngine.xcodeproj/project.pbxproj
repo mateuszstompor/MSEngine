@@ -58,6 +58,8 @@
 		6101C8A81F3CCA2B0011117A /* MSGraphicsConstants.h in Resources */ = {isa = PBXBuildFile; fileRef = 61D9B1E61F05B9800063DD04 /* MSGraphicsConstants.h */; };
 		6101C8AA1F3CCA640011117A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6101C8A91F3CCA640011117A /* Foundation.framework */; };
 		6101C8AB1F3CCA690011117A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6122CA241EAA4EBE0002F881 /* OpenGL.framework */; };
+		611C96771F575940008F5335 /* MSRenderResourcesHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 611C96751F575940008F5335 /* MSRenderResourcesHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		611C96781F575940008F5335 /* MSRenderResourcesHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 611C96751F575940008F5335 /* MSRenderResourcesHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		612568521F3FBC3F00ED5962 /* macMSGraphicsEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6101C86A1F3CC9E30011117A /* macMSGraphicsEngine.framework */; };
 		6125685E1F3FBCD600ED5962 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6125685D1F3FBCD600ED5962 /* XCTest.framework */; };
 		612568601F3FBD0D00ED5962 /* macMSGraphicsEngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6125685A1F3FBC6200ED5962 /* macMSGraphicsEngineTests.m */; };
@@ -67,6 +69,10 @@
 		6125686C1F3FBE4200ED5962 /* MSVectorND_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612568661F3FBE4200ED5962 /* MSVectorND_Tests.m */; };
 		612568711F3FC2AC00ED5962 /* macMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6125686F1F3FC2AC00ED5962 /* macMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		612568741F3FC2D900ED5962 /* iMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 612568721F3FC2D900ED5962 /* iMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6144A1641F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6144A1621F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h */; };
+		6144A1651F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6144A1621F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h */; };
+		6144A1661F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6144A1631F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m */; };
+		6144A1671F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6144A1631F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m */; };
 		614C96BC1F3E24F9007CE857 /* MSTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96BA1F3E24F9007CE857 /* MSTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		614C96BD1F3E24F9007CE857 /* MSTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96BA1F3E24F9007CE857 /* MSTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		614C96BE1F3E24F9007CE857 /* MSTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 614C96BB1F3E24F9007CE857 /* MSTexture.m */; };
@@ -88,12 +94,6 @@
 		616D320C1F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 616D32081F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m */; };
 		6171D0871F3F3748000A0D0C /* MSRenderableTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96C81F3F071C007CE857 /* MSRenderableTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6171D0881F3F3756000A0D0C /* MSRenderableTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96C81F3F071C007CE857 /* MSRenderableTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6171D0961F3F6130000A0D0C /* MSGraphicsResourcesHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6171D0951F3F6130000A0D0C /* MSGraphicsResourcesHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6171D0971F3F6130000A0D0C /* MSGraphicsResourcesHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6171D0951F3F6130000A0D0C /* MSGraphicsResourcesHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6171D09A1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6171D0981F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6171D09B1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6171D0981F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6171D09C1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */; };
-		6171D09D1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */; };
 		618C50301F48F22F00D13A5C /* MSLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C502E1F48F22F00D13A5C /* MSLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		618C50311F48F22F00D13A5C /* MSLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C502E1F48F22F00D13A5C /* MSLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		618C50321F48F22F00D13A5C /* MSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 618C502F1F48F22F00D13A5C /* MSLoader.m */; };
@@ -164,6 +164,7 @@
 /* Begin PBXFileReference section */
 		6101C86A1F3CC9E30011117A /* macMSGraphicsEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = macMSGraphicsEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6101C8A91F3CCA640011117A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		611C96751F575940008F5335 /* MSRenderResourcesHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRenderResourcesHandler.h; path = Protocols/MSRenderResourcesHandler.h; sourceTree = "<group>"; };
 		6120616F1F2E477D0062997A /* FShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FShader.frag; sourceTree = "<group>"; };
 		612061701F2E477D0062997A /* LightShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightShader.frag; sourceTree = "<group>"; };
 		612061711F2E477D0062997A /* VShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = VShader.vert; sourceTree = "<group>"; };
@@ -183,6 +184,8 @@
 		612568731F3FC2D900ED5962 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = UmbrellaHeaders/iMSGraphicsEngine/Info.plist; sourceTree = SOURCE_ROOT; };
 		61314EDC1ED64802001A3519 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		61314EED1ED64B70001A3519 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		6144A1621F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSResourcesHandlerOpenGL.h; path = OpenGL/MSResourcesHandlerOpenGL.h; sourceTree = "<group>"; };
+		6144A1631F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSResourcesHandlerOpenGL.m; path = OpenGL/MSResourcesHandlerOpenGL.m; sourceTree = "<group>"; };
 		614C96BA1F3E24F9007CE857 /* MSTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTexture.h; sourceTree = "<group>"; };
 		614C96BB1F3E24F9007CE857 /* MSTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTexture.m; sourceTree = "<group>"; };
 		614C96C01F3F06D4007CE857 /* MSTextureOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTextureOpenGL.h; sourceTree = "<group>"; };
@@ -225,9 +228,6 @@
 		615EE8C11EFAFAD8009537F9 /* MSMaterialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMaterialStore.m; sourceTree = "<group>"; };
 		616D32071F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextureLoaderBMP.h; path = Loaders/TextureLoaders/MSTextureLoaderBMP.h; sourceTree = "<group>"; };
 		616D32081F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSTextureLoaderBMP.m; path = Loaders/TextureLoaders/MSTextureLoaderBMP.m; sourceTree = "<group>"; };
-		6171D0951F3F6130000A0D0C /* MSGraphicsResourcesHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSGraphicsResourcesHandler.h; path = Protocols/MSGraphicsResourcesHandler.h; sourceTree = "<group>"; };
-		6171D0981F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSResourcesHandlerOpenGL.h; path = OpenGL/MSResourcesHandlerOpenGL.h; sourceTree = "<group>"; };
-		6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSResourcesHandlerOpenGL.m; path = OpenGL/MSResourcesHandlerOpenGL.m; sourceTree = "<group>"; };
 		618C502E1F48F22F00D13A5C /* MSLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoader.h; sourceTree = "<group>"; };
 		618C502F1F48F22F00D13A5C /* MSLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoader.m; sourceTree = "<group>"; };
 		618C50361F48F31F00D13A5C /* MSTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextureLoader.h; path = Loaders/TextureLoaders/MSTextureLoader.h; sourceTree = "<group>"; };
@@ -394,6 +394,7 @@
 			children = (
 				615AF6A61EB8B3930086897F /* MSRender.h */,
 				614C96C81F3F071C007CE857 /* MSRenderableTexture.h */,
+				611C96751F575940008F5335 /* MSRenderResourcesHandler.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -479,7 +480,6 @@
 		615AF69A1EB8B3930086897F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6171D0941F3F6109000A0D0C /* Protocols */,
 				615AF69B1EB8B3930086897F /* Underlyings */,
 				615EE8B41EFAECD9009537F9 /* MSMaterial.h */,
 				615EE8B51EFAECD9009537F9 /* MSMaterial.m */,
@@ -589,14 +589,6 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
-		6171D0941F3F6109000A0D0C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				6171D0951F3F6130000A0D0C /* MSGraphicsResourcesHandler.h */,
-			);
-			name = Protocols;
-			sourceTree = "<group>";
-		};
 		618C50341F48F2F200D13A5C /* TextureLoaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,8 +629,8 @@
 				61D1E92B1F0448F40038AE3D /* MSRenderOpenGL.mm */,
 				614C96C01F3F06D4007CE857 /* MSTextureOpenGL.h */,
 				614C96C11F3F06D4007CE857 /* MSTextureOpenGL.m */,
-				6171D0981F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h */,
-				6171D0991F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m */,
+				6144A1621F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h */,
+				6144A1631F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m */,
 			);
 			name = OpenGL;
 			sourceTree = "<group>";
@@ -668,6 +660,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6144A1651F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h in Headers */,
 				6101C8891F3CCA180011117A /* MSGraphicsConstants.h in Headers */,
 				6101C88A1F3CCA180011117A /* MSVertexData.h in Headers */,
 				6101C88B1F3CCA180011117A /* MSModelFace.h in Headers */,
@@ -693,9 +686,8 @@
 				6101C89E1F3CCA180011117A /* MSMathException.h in Headers */,
 				614C96C31F3F06D4007CE857 /* MSTextureOpenGL.h in Headers */,
 				614C96BD1F3E24F9007CE857 /* MSTexture.h in Headers */,
-				6171D0971F3F6130000A0D0C /* MSGraphicsResourcesHandler.h in Headers */,
+				611C96781F575940008F5335 /* MSRenderResourcesHandler.h in Headers */,
 				618C50311F48F22F00D13A5C /* MSLoader.h in Headers */,
-				6171D09B1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */,
 				612568711F3FC2AC00ED5962 /* macMSGraphicsEngine.h in Headers */,
 				614D56C71F4080E200AA97ED /* MSFileSearcher.h in Headers */,
 				6171D0871F3F3748000A0D0C /* MSRenderableTexture.h in Headers */,
@@ -709,6 +701,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6144A1641F575CA200ACAB9F /* MSResourcesHandlerOpenGL.h in Headers */,
 				61D6CE601F323F5A0021133D /* MSGraphicsConstants.h in Headers */,
 				61D6CE611F323F5A0021133D /* MSVertexData.h in Headers */,
 				61D6CE621F323F5A0021133D /* MSModelFace.h in Headers */,
@@ -734,9 +727,8 @@
 				619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */,
 				615A01241F3CB72C0003E9E9 /* MSLight.h in Headers */,
 				614C96C21F3F06D4007CE857 /* MSTextureOpenGL.h in Headers */,
-				6171D0961F3F6130000A0D0C /* MSGraphicsResourcesHandler.h in Headers */,
 				618C50301F48F22F00D13A5C /* MSLoader.h in Headers */,
-				6171D09A1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.h in Headers */,
+				611C96771F575940008F5335 /* MSRenderResourcesHandler.h in Headers */,
 				614C96BC1F3E24F9007CE857 /* MSTexture.h in Headers */,
 				6171D0881F3F3756000A0D0C /* MSRenderableTexture.h in Headers */,
 				61D6CE731F323F5A0021133D /* MSLoaderOBJ.h in Headers */,
@@ -890,7 +882,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6101C8721F3CC9EE0011117A /* MSVertexData.m in Sources */,
-				6171D09D1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */,
 				6101C8731F3CC9EE0011117A /* MSModelFace.m in Sources */,
 				6101C8741F3CC9EE0011117A /* MSModelFraction.m in Sources */,
 				614C96BF1F3E24F9007CE857 /* MSTexture.m in Sources */,
@@ -898,6 +889,7 @@
 				6101C8761F3CC9EE0011117A /* MSMaterialStore.m in Sources */,
 				6101C8771F3CC9EE0011117A /* MSEngineUtility.m in Sources */,
 				614C96C51F3F06D4007CE857 /* MSTextureOpenGL.m in Sources */,
+				6144A1671F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m in Sources */,
 				6101C8781F3CC9EE0011117A /* MSRenderOpenGL.mm in Sources */,
 				614D56C91F4080E200AA97ED /* MSFileSearcher.m in Sources */,
 				6101C8791F3CC9EE0011117A /* MSDrawableFraction.m in Sources */,
@@ -936,7 +928,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				61D6CE761F323F660021133D /* MSVertexData.m in Sources */,
-				6171D09C1F3F61C0000A0D0C /* MSResourcesHandlerOpenGL.m in Sources */,
 				61D6CE771F323F660021133D /* MSModelFace.m in Sources */,
 				61D6CE781F323F660021133D /* MSModelFraction.m in Sources */,
 				614C96BE1F3E24F9007CE857 /* MSTexture.m in Sources */,
@@ -944,6 +935,7 @@
 				61D6CE7A1F323F660021133D /* MSMaterialStore.m in Sources */,
 				619CFB861F38E1B9004FACBE /* MSMathException.m in Sources */,
 				614C96C41F3F06D4007CE857 /* MSTextureOpenGL.m in Sources */,
+				6144A1661F575CA200ACAB9F /* MSResourcesHandlerOpenGL.m in Sources */,
 				61D6CE7B1F323F660021133D /* MSRenderOpenGL.mm in Sources */,
 				614D56C81F4080E200AA97ED /* MSFileSearcher.m in Sources */,
 				61D6CE7C1F323F660021133D /* MSDrawableFraction.m in Sources */,
