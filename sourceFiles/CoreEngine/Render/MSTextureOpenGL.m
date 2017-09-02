@@ -8,19 +8,9 @@
 
 #import "MSTextureOpenGL.h"
 
-
-#if iOS
-#define GL_BGR 0x80E0
-#endif
-
 @implementation MSTextureOpenGL
 
 @synthesize textureID = _textureID;
-
--(instancetype)initTextureFromFile: (NSString*) path withLoadingToGraphics: (BOOL) shoudLoad{
-   
-    return nil;//[self initFromTexture:[[MSTexture alloc] initTextureFromFile:path] withLoadingToGraphics:shoudLoad];
-}
 
 -(instancetype)initFromTexture: (MSTexture*) texture withLoadingToGraphics: (BOOL) shoudLoad;{
     self = [super init];
@@ -42,14 +32,12 @@
 -(void)loadToGraphicsMemory{
         glGenTextures(1, &self->_textureID);
         glBindTexture(GL_TEXTURE_2D, _textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
-    
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);    
+//            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+//            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glGenerateMipmap(GL_TEXTURE_2D);
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//    
         glBindTexture(GL_TEXTURE_2D, 0);
 }
 

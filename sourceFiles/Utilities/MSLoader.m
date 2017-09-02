@@ -38,9 +38,11 @@
 -(NSArray<MSTexture*>*)loadTexturesForMaterials: (NSArray<MSMaterial*>*) materials{
     NSMutableArray<MSTexture*>* textures = [[NSMutableArray alloc] init];
     for (MSMaterial* mat in materials){
-        NSString* pathToFile = [searcher pathForFile:[mat associatedTexture]];
-        if (pathToFile != nil){
-            [textures addObject:[MSTextureLoaderBMP loadTextureAtPath:pathToFile itsName:[mat associatedTexture]]];
+        if ([mat associatedTexture] != nil) {
+            NSString* pathToFile = [searcher pathForFile:[mat associatedTexture]];
+            if (pathToFile != nil){
+                [textures addObject:[MSTextureLoaderBMP loadTextureAtPath:pathToFile itsName:[mat associatedTexture]]];
+            }
         }
     }
     return textures;

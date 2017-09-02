@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6104CF081F324723000547D8 /* classroom.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF051F32471A000547D8 /* classroom.mtl */; };
 		6104CF091F324723000547D8 /* classroom.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF061F32471A000547D8 /* classroom.obj */; };
 		6104CF0A1F324723000547D8 /* simpleCube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF071F32471A000547D8 /* simpleCube.obj */; };
-		6104CF131F324C62000547D8 /* FShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0C1F32473D000547D8 /* FShader.frag */; };
 		6104CF141F324C62000547D8 /* ios_shaders_header in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0D1F32473D000547D8 /* ios_shaders_header */; };
 		6104CF151F324C62000547D8 /* LightShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0E1F32473D000547D8 /* LightShader.frag */; };
 		6104CF161F324C62000547D8 /* MSGraphicsConstants.h in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF101F32473D000547D8 /* MSGraphicsConstants.h */; };
 		6104CF171F324C62000547D8 /* VShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF111F32473D000547D8 /* VShader.vert */; };
 		6104CF181F3250F6000547D8 /* iMSGraphicsEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6104CF011F3245C8000547D8 /* iMSGraphicsEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		615D78A61F588CB900EAE383 /* classroom.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 615D78A51F588CB900EAE383 /* classroom.mtl */; };
+		615D78B11F589E6D00EAE383 /* FShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0C1F32473D000547D8 /* FShader.frag */; };
+		615D78B21F589E9900EAE383 /* base_bareMetal.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1351F5878CD005A122C /* base_bareMetal.bmp */; };
+		615D78B31F589E9900EAE383 /* base_brightWood.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1361F5878CD005A122C /* base_brightWood.bmp */; };
+		615D78B41F589E9900EAE383 /* base_brownWood.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1371F5878CD005A122C /* base_brownWood.bmp */; };
+		615D78B51F589E9900EAE383 /* base_darkWood.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1381F5878CD005A122C /* base_darkWood.bmp */; };
+		615D78B61F589E9900EAE383 /* base_wallPaint.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1391F5878CD005A122C /* base_wallPaint.bmp */; };
+		615D78B71F589E9900EAE383 /* base_woodFloor.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D13A1F5878CD005A122C /* base_woodFloor.bmp */; };
+		615D78B81F589E9900EAE383 /* blackBoard.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D13B1F5878CD005A122C /* blackBoard.bmp */; };
+		615D78BA1F589E9900EAE383 /* cork.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D13D1F5878CD005A122C /* cork.bmp */; };
+		615D78BB1F589E9900EAE383 /* europeMap.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D13E1F5878CD005A122C /* europeMap.bmp */; };
+		615D78BC1F589E9900EAE383 /* glass.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D13F1F5878CD005A122C /* glass.bmp */; };
+		615D78BD1F589E9900EAE383 /* wallClock.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1401F5878CD005A122C /* wallClock.bmp */; };
+		615D78BE1F589E9900EAE383 /* woodPlanks.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1411F5878CD005A122C /* woodPlanks.bmp */; };
 		617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617CA6391F352EE30096F1DD /* JoystickView.swift */; };
 		61D6CE0E1F3237490021133D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE0D1F3237490021133D /* main.m */; };
 		61D6CE111F3237490021133D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE101F3237490021133D /* AppDelegate.m */; };
@@ -42,12 +54,19 @@
 			remoteGlobalIDString = 61D6CDE31F32368C0021133D;
 			remoteInfo = iMSGraphicsEngine;
 		};
-		610D993A1F3910FD0059F77E /* PBXContainerItemProxy */ = {
+		6140D1511F5878CE005A122C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 619CFB751F38C363004FACBE;
-			remoteInfo = MSGraphicsEngineTests_iOS;
+			remoteGlobalIDString = 6101C86A1F3CC9E30011117A;
+			remoteInfo = macMSGraphicsEngine;
+		};
+		6140D1531F5878CE005A122C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6125684D1F3FBC3F00ED5962;
+			remoteInfo = macMSGraphicsEngineTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,7 +86,6 @@
 
 /* Begin PBXFileReference section */
 		6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MSGraphicsEngine.xcodeproj; path = ../MSGraphicsEngine.xcodeproj; sourceTree = "<group>"; };
-		6104CF051F32471A000547D8 /* classroom.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; path = classroom.mtl; sourceTree = "<group>"; };
 		6104CF061F32471A000547D8 /* classroom.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = classroom.obj; sourceTree = "<group>"; };
 		6104CF071F32471A000547D8 /* simpleCube.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = simpleCube.obj; sourceTree = "<group>"; };
 		6104CF0C1F32473D000547D8 /* FShader.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FShader.frag; sourceTree = "<group>"; };
@@ -76,6 +94,19 @@
 		6104CF0F1F32473D000547D8 /* mac_shaders_header */ = {isa = PBXFileReference; lastKnownFileType = text; path = mac_shaders_header; sourceTree = "<group>"; };
 		6104CF101F32473D000547D8 /* MSGraphicsConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphicsConstants.h; sourceTree = "<group>"; };
 		6104CF111F32473D000547D8 /* VShader.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = VShader.vert; sourceTree = "<group>"; };
+		6140D1351F5878CD005A122C /* base_bareMetal.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_bareMetal.bmp; path = ../Textures/base_bareMetal.bmp; sourceTree = "<group>"; };
+		6140D1361F5878CD005A122C /* base_brightWood.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_brightWood.bmp; path = ../Textures/base_brightWood.bmp; sourceTree = "<group>"; };
+		6140D1371F5878CD005A122C /* base_brownWood.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_brownWood.bmp; path = ../Textures/base_brownWood.bmp; sourceTree = "<group>"; };
+		6140D1381F5878CD005A122C /* base_darkWood.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_darkWood.bmp; path = ../Textures/base_darkWood.bmp; sourceTree = "<group>"; };
+		6140D1391F5878CD005A122C /* base_wallPaint.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_wallPaint.bmp; path = ../Textures/base_wallPaint.bmp; sourceTree = "<group>"; };
+		6140D13A1F5878CD005A122C /* base_woodFloor.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_woodFloor.bmp; path = ../Textures/base_woodFloor.bmp; sourceTree = "<group>"; };
+		6140D13B1F5878CD005A122C /* blackBoard.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = blackBoard.bmp; path = ../Textures/blackBoard.bmp; sourceTree = "<group>"; };
+		6140D13D1F5878CD005A122C /* cork.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = cork.bmp; path = ../Textures/cork.bmp; sourceTree = "<group>"; };
+		6140D13E1F5878CD005A122C /* europeMap.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = europeMap.bmp; path = ../Textures/europeMap.bmp; sourceTree = "<group>"; };
+		6140D13F1F5878CD005A122C /* glass.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = glass.bmp; path = ../Textures/glass.bmp; sourceTree = "<group>"; };
+		6140D1401F5878CD005A122C /* wallClock.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = wallClock.bmp; path = ../Textures/wallClock.bmp; sourceTree = "<group>"; };
+		6140D1411F5878CD005A122C /* woodPlanks.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = woodPlanks.bmp; path = ../Textures/woodPlanks.bmp; sourceTree = "<group>"; };
+		615D78A51F588CB900EAE383 /* classroom.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = classroom.mtl; sourceTree = "<group>"; };
 		617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSEngineTestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		617CA6391F352EE30096F1DD /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
 		61D6CE091F3237490021133D /* MSEngineTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSEngineTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				6104CF011F3245C8000547D8 /* iMSGraphicsEngine.framework */,
-				610D993B1F3910FD0059F77E /* MSGraphicsEngineTests_iOS.xctest */,
+				6140D1521F5878CE005A122C /* macMSGraphicsEngine.framework */,
+				6140D1541F5878CE005A122C /* macMSGraphicsEngineTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,7 +150,7 @@
 		6104CF041F32471A000547D8 /* 3DModels */ = {
 			isa = PBXGroup;
 			children = (
-				6104CF051F32471A000547D8 /* classroom.mtl */,
+				615D78A51F588CB900EAE383 /* classroom.mtl */,
 				6104CF061F32471A000547D8 /* classroom.obj */,
 				6104CF071F32471A000547D8 /* simpleCube.obj */,
 			);
@@ -138,6 +170,25 @@
 			);
 			name = Shaders;
 			path = ../../Shaders;
+			sourceTree = "<group>";
+		};
+		6140D1551F5878D9005A122C /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				6140D1351F5878CD005A122C /* base_bareMetal.bmp */,
+				6140D1361F5878CD005A122C /* base_brightWood.bmp */,
+				6140D1371F5878CD005A122C /* base_brownWood.bmp */,
+				6140D1381F5878CD005A122C /* base_darkWood.bmp */,
+				6140D1391F5878CD005A122C /* base_wallPaint.bmp */,
+				6140D13A1F5878CD005A122C /* base_woodFloor.bmp */,
+				6140D13B1F5878CD005A122C /* blackBoard.bmp */,
+				6140D13D1F5878CD005A122C /* cork.bmp */,
+				6140D13E1F5878CD005A122C /* europeMap.bmp */,
+				6140D13F1F5878CD005A122C /* glass.bmp */,
+				6140D1401F5878CD005A122C /* wallClock.bmp */,
+				6140D1411F5878CD005A122C /* woodPlanks.bmp */,
+			);
+			name = Textures;
 			sourceTree = "<group>";
 		};
 		617CA6351F352DA30096F1DD /* Storyboards */ = {
@@ -222,6 +273,7 @@
 		61D6CEAD1F3245160021133D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6140D1551F5878D9005A122C /* Textures */,
 				61D6CE181F3237490021133D /* Assets.xcassets */,
 				6104CF0B1F32473D000547D8 /* Shaders */,
 				6104CF041F32471A000547D8 /* 3DModels */,
@@ -300,11 +352,18 @@
 			remoteRef = 6104CF001F3245C8000547D8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		610D993B1F3910FD0059F77E /* MSGraphicsEngineTests_iOS.xctest */ = {
+		6140D1521F5878CE005A122C /* macMSGraphicsEngine.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = macMSGraphicsEngine.framework;
+			remoteRef = 6140D1511F5878CE005A122C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6140D1541F5878CE005A122C /* macMSGraphicsEngineTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = MSGraphicsEngineTests_iOS.xctest;
-			remoteRef = 610D993A1F3910FD0059F77E /* PBXContainerItemProxy */;
+			path = macMSGraphicsEngineTests.xctest;
+			remoteRef = 6140D1531F5878CE005A122C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -314,12 +373,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6104CF131F324C62000547D8 /* FShader.frag in Resources */,
+				615D78B21F589E9900EAE383 /* base_bareMetal.bmp in Resources */,
+				615D78B31F589E9900EAE383 /* base_brightWood.bmp in Resources */,
+				615D78B41F589E9900EAE383 /* base_brownWood.bmp in Resources */,
+				615D78B51F589E9900EAE383 /* base_darkWood.bmp in Resources */,
+				615D78B61F589E9900EAE383 /* base_wallPaint.bmp in Resources */,
+				615D78B71F589E9900EAE383 /* base_woodFloor.bmp in Resources */,
+				615D78B81F589E9900EAE383 /* blackBoard.bmp in Resources */,
+				615D78BA1F589E9900EAE383 /* cork.bmp in Resources */,
+				615D78BB1F589E9900EAE383 /* europeMap.bmp in Resources */,
+				615D78BC1F589E9900EAE383 /* glass.bmp in Resources */,
+				615D78BD1F589E9900EAE383 /* wallClock.bmp in Resources */,
+				615D78BE1F589E9900EAE383 /* woodPlanks.bmp in Resources */,
+				615D78B11F589E6D00EAE383 /* FShader.frag in Resources */,
+				615D78A61F588CB900EAE383 /* classroom.mtl in Resources */,
 				6104CF141F324C62000547D8 /* ios_shaders_header in Resources */,
 				6104CF151F324C62000547D8 /* LightShader.frag in Resources */,
 				6104CF161F324C62000547D8 /* MSGraphicsConstants.h in Resources */,
 				6104CF171F324C62000547D8 /* VShader.vert in Resources */,
-				6104CF081F324723000547D8 /* classroom.mtl in Resources */,
 				6104CF091F324723000547D8 /* classroom.obj in Resources */,
 				6104CF0A1F324723000547D8 /* simpleCube.obj in Resources */,
 				61D6CE1C1F3237490021133D /* LaunchScreen.storyboard in Resources */,

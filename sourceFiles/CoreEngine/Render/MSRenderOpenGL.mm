@@ -12,13 +12,13 @@
 @implementation MSRenderOpenGL
 
 @synthesize settings;
-@synthesize resourcesHandler;
 
 -(instancetype)initWithWorld:(MSWorld *)w modelShader: (GLuint)mSh lightShader: (GLuint)lsh{
     self=[super init];
     if(self){
         self->world=w;
         self->modelsLoadedToGraphics = [[NSMutableDictionary alloc] init];
+        self->texturesLoadedToGraphics = [[NSMutableDictionary alloc] init];
         self->lightShaderProgram=lsh;
         self->modelShaderProgram=mSh;
         self->settings=0;
@@ -76,7 +76,7 @@
     
     glBindVertexArray(0);
 }
--(void)setBehavioureforeEachDraw: (void (^_Nullable)(void))block{
+-(void)setBehaviourBeforeEachDraw: (void (^_Nullable)(void))block{
     self->_beforeDrawAction=block;
 }
 -(void)drawScene{
@@ -121,14 +121,24 @@
             float shininess = [material shininess];
             
             if([material associatedTexture] != nil){
-//                id<MSRenderableTexture> texture = [[self->world getAvailavleMaterials] getTextureWithName:[ material associatedTexture]];
-//                if (texture != nil){
-//                    [texture bindItself];
-//                    glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
-//                }
-//                else{
-                    glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
-//                }
+                MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTexture]];
+                if (renderableTexture == nil) {
+                    MSTexture* texture = [[self->world getAvailavleMaterials] getTextureWithName:[material associatedTexture]];
+                    if (texture != nil) {
+                        renderableTexture = [[MSTextureOpenGL alloc] initFromTexture:texture withLoadingToGraphics:NO];
+                        [self->texturesLoadedToGraphics setObject:renderableTexture forKey:[material associatedTexture]];
+                        if ([renderableTexture textureID ] != 0){
+                            glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
+                        }else {
+                            glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
+                        }
+                    }else {
+                        glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
+                    }
+                }else {
+                    [renderableTexture bindItself];
+                    glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
+                }
             }else{
                 glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
             }

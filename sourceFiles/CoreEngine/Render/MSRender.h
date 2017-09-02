@@ -8,7 +8,6 @@
 
 #import "MSWorld.h"
 #import "MSGraphicsConstants.h"
-#import "MSRenderResourcesHandler.h"
 
 
 #ifndef MSRENDER_H
@@ -17,9 +16,8 @@
 @protocol MSRender
 
 @property (atomic) int settings;
-@property (atomic) _Nullable id< MSRenderResourcesHandler> resourcesHandler;
 
--(void)setBehavioureforeEachDraw: (void (^_Nullable)(void))block;
+-(void)setBehaviourBeforeEachDraw: (void (^_Nullable)(void))block;
 -(void)drawScene;
 -(void)setBehaviourAfterEachDraw: (void (^_Nullable)(void))block;
 -(float)getCurrentFrameRate;

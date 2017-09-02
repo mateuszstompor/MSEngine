@@ -27,6 +27,7 @@
 -(void)addMaterial: (MSMaterial*) material;
 -(void)addMaterials: (NSArray<MSMaterial*>*) materials;
 -(void)addTexture: (MSTexture*) material;
+-(void)addTextures: (NSArray<MSTexture*>*) textures;
 -(MSMaterial*)getMaterialWithName: (NSString*) name;
 -(MSTexture*)getTextureWithName: (NSString*) name;
 

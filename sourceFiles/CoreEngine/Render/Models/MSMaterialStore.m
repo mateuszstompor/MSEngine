@@ -35,6 +35,11 @@
         [self addMaterial:mat];
     }
 }
+-(void)addTextures: (NSArray<MSTexture*>*) textures {
+    for(MSTexture* tex in textures){
+        [self addTexture:tex];
+    }
+}
 -(MSTexture*)getTextureWithName: (NSString*) textureName{
     return [availableTextures objectForKey:textureName];
 }

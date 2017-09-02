@@ -108,6 +108,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd base_brightWood.bmp
 
 newmtl beigeWall
 Ns 96.078431
@@ -118,6 +119,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd base_wallPaint.bmp
 
 newmtl beige_paintedPipe
 Ns 96.078431
@@ -138,6 +140,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd blackBoard.bmp
 
 newmtl blackBoardLight
 Ns 96.078431
@@ -147,7 +150,7 @@ Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
-illum 2
+illum 2 blackBoard.bmp
 
 newmtl blackPaintedWood
 Ns 96.078431
@@ -178,6 +181,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd ceilingAirVent_AO.bmp
 
 newmtl ceilingLamp_BlackPlastic
 Ns 96.078431
@@ -228,6 +232,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd cork.bmp
 
 newmtl crinkledPaper_paper
 Ns 96.078431
@@ -356,8 +361,9 @@ Kd 0.640000 0.640000 0.640000
 Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.000000
-d 1.000000
+d 0.200000
 illum 2
+map_Kd glass.bmp
 
 newmtl greyDiffusePaint
 Ns 96.078431
@@ -558,6 +564,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd base_bareMetal.bmp
 
 newmtl schoolDesk_plastic
 Ns 96.078431
@@ -578,6 +585,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd base_brownWood.bmp
 
 newmtl suitCase_leather
 Ns 123.529412
@@ -658,6 +666,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd base_darkWood.bmp
 
 newmtl varnishedWoodDoor
 Ns 96.078431
@@ -708,6 +717,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd wallClock.bmp
 
 newmtl whiteChalk
 Ns 96.078431
@@ -748,6 +758,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd base_woodFloor.bmp
 
 newmtl woodPlanks
 Ns 96.078431
@@ -758,6 +769,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd woodPlanks.bmp
 
 newmtl worldMap
 Ns 96.078431
@@ -768,6 +780,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd europeMap.bmp
 
 newmtl yellowLetter
 Ns 96.078431

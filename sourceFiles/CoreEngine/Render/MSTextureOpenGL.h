@@ -15,8 +15,6 @@
 
 #if iOS
 #import <OpenGLES/ES3/gl.h>
-#import <OpenGLES/ES1/glext.h>
-#import <OpenGLES/ES1/gl.h>
 #endif
 
 #ifndef MSTextureOpenGL_h
@@ -29,7 +27,6 @@
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initTextureFromFile: (NSString*) path NS_UNAVAILABLE;
 -(instancetype)initFromTexture: (MSTexture*) texture withLoadingToGraphics: (BOOL) shoudLoad;
--(instancetype)initTextureFromFile: (NSString*) path withLoadingToGraphics: (BOOL) shoudLoad;
 
 @end
 

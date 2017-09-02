@@ -8,8 +8,7 @@
 
 #import "MSRender.h"
 #import "MSDrawableFraction.h"
-#import "MSRenderResourcesHandler.h"
-
+#import "MSTextureOpenGL.h"
 
 #if macOS
 #import <OpenGL/gl3.h>
@@ -32,6 +31,8 @@
     MSWorld* world;
     float lastFrameRate;
     NSMutableDictionary<NSValue*,MSDrawableFraction*>* modelsLoadedToGraphics;
+    NSMutableDictionary<NSString*,MSTextureOpenGL*>* texturesLoadedToGraphics;
+
     int settings;
 }
 

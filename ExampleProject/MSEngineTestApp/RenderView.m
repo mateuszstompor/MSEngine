@@ -35,8 +35,10 @@
     
     
     MSMaterialStore* materialStore = [[MSMaterialStore alloc] init];
-    [materialStore addMaterials:[loader loadMaterials:@"classroom.mtl"]];
-
+    NSArray<MSMaterial*>* materials = [loader loadMaterials:@"classroom.mtl"];
+    NSArray<MSTexture*>* textures = [loader loadTexturesForMaterials:materials];
+    [materialStore addMaterials:materials];
+    [materialStore addTextures: textures];
     
     NSArray<MSModelFraction*>* lightModel = [loader loadModel:@"simpleCube.obj"];
     MSPointLight* light = [[MSPointLight alloc] initWithModel: lightModel color:firstColor power:50.0f];
@@ -69,6 +71,11 @@
         [world rotateObject:[world getCamera] x:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
         [self->labelToUpdate setText:[[NSString alloc] initWithFormat:@"%.1f",[self->renderer getCurrentFrameRate]]];
         [renderer drawScene];
+        GLenum err;
+        
+        if((err = glGetError()) != GL_NO_ERROR){
+            NSLog(@"jest błąd %i", err);
+        }
     }
 }
 
