@@ -58,12 +58,10 @@
     CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width*4,
                                                        CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
     
-    // 3
     CGContextDrawImage(spriteContext, CGRectMake(0, 0, width, height), spriteImage);
     
     CGContextRelease(spriteContext);
-    MSTexture* textureToReturn = [[MSTexture alloc] initWithData:spriteData width:width height:height];
-    [textureToReturn setName:nam];
+    MSTexture* textureToReturn = [[MSTexture alloc] initWithData:spriteData width:width height:height name: nam];
     return textureToReturn;
 }
 @end

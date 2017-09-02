@@ -11,15 +11,14 @@
 
 @implementation MSTexture
 
-@synthesize name = _name;
-
--(instancetype)initWithData: (unsigned char*) dat width: (unsigned int) wid height: (unsigned int) hei {
+-(instancetype)initWithData: (unsigned char*) dat
+                      width: (size_t) wid height: (size_t) hei name: (NSString*) nam{
     self = [super init];
     if (self){
         self->data = dat;
         self->width = wid;
         self->height = hei;
-        self->_name = nil;
+        self->_name = [[NSString alloc] initWithString:nam];
     }
     return self;
 }
