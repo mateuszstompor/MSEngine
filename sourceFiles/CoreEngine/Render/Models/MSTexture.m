@@ -12,7 +12,7 @@
 @implementation MSTexture
 
 -(instancetype)initWithData: (unsigned char*) dat
-                      width: (size_t) wid height: (size_t) hei name: (NSString*) nam{
+                      width: (int) wid height: (int) hei name: (NSString*) nam{
     self = [super init];
     if (self){
         self->data = dat;

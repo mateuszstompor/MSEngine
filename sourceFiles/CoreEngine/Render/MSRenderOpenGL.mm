@@ -11,8 +11,6 @@
 
 @implementation MSRenderOpenGL
 
-@synthesize settings;
-
 -(instancetype)initWithWorld:(MSWorld *)w modelShader: (GLuint)mSh lightShader: (GLuint)lsh{
     self=[super init];
     if(self){
@@ -21,7 +19,7 @@
         self->texturesLoadedToGraphics = [[NSMutableDictionary alloc] init];
         self->lightShaderProgram=lsh;
         self->modelShaderProgram=mSh;
-        self->settings=0;
+//        self->settings=0;
         self->lastFrameRate=0;
         self->lastSecond=[NSDate date];
         [self loadObjectsToGraphics];
@@ -76,15 +74,8 @@
     
     glBindVertexArray(0);
 }
--(void)setBehaviourBeforeEachDraw: (void (^_Nullable)(void))block{
-    self->_beforeDrawAction=block;
-}
--(void)drawScene{
-    [self countFrameRate];
-    [self clear];
-    [self drawModels];
-    [self drawLights];
-}
+
+
 -(void)drawLights{
     glUseProgram(lightShaderProgram);
     [self setUpCameraUniforms: lightShaderProgram];
@@ -95,24 +86,8 @@
     glUseProgram(0);
 }
 
--(float)getCurrentFrameRate{
-    return self->lastFrameRate;
-}
-
--(void)countFrameRate{
-    static unsigned int amountOfFramesRendered = 0;
-    NSDate *now = [NSDate date];
-    NSTimeInterval executionTime = [now timeIntervalSinceDate:lastSecond];
-    if(executionTime > 1.0f){
-        self->lastFrameRate = amountOfFramesRendered/executionTime;
-        amountOfFramesRendered=0;
-        lastSecond=now;
-    }
-    amountOfFramesRendered+=1;
-}
-
 -(void)setUpUniforms: (MSModelFraction*) frac shaderProgram: (GLuint) prog{
-        glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
+//        glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
     MSMaterial* material = [[world getAvailavleMaterials] getMaterialWithName:[frac materialName]];
         if(material != nil){
             MSVector3D* diffuse = [material diffuse];
@@ -228,16 +203,11 @@
             }
     }
 }
--(void)clear{
+-(void)clearFrame{
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
--(void)setBehaviourAfterEachDraw: (void (^_Nullable)(void))block{
-    self->_afterDrawAction=block;
-}
--(void)setSettings: (int) set{
-    self->settings=set;
-}
+
 -(void)dealloc{
     glDeleteProgram(modelShaderProgram);
     glDeleteProgram(lightShaderProgram);

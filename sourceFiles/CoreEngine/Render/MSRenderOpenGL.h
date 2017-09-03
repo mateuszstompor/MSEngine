@@ -22,22 +22,15 @@
 
 #ifndef MSRENDEROPENGL_H
 #define MSRENDEROPENGL_H
-@interface MSRenderOpenGL : NSObject  <MSRender>
+@interface MSRenderOpenGL : MSRender
 
 {
     GLuint modelShaderProgram;
     GLuint lightShaderProgram;
-    NSDate *lastSecond;
     MSWorld* world;
-    float lastFrameRate;
     NSMutableDictionary<NSValue*,MSDrawableFraction*>* modelsLoadedToGraphics;
     NSMutableDictionary<NSString*,MSTextureOpenGL*>* texturesLoadedToGraphics;
-
-    int settings;
 }
-
-@property (nonatomic, copy) void (^beforeDrawAction)(void);
-@property (nonatomic, copy) void (^afterDrawAction)(void);
 
 -(instancetype)initWithWorld:(MSWorld *)world modelShader: (GLuint)mSh lightShader: (GLuint)lsh;
 

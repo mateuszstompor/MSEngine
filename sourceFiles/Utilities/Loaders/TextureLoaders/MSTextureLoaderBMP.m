@@ -29,8 +29,8 @@
                     format:@"Failed to load image %@", pathToTexture];
     }
     
-    size_t width = CGImageGetWidth(spriteImage);
-    size_t height = CGImageGetHeight(spriteImage);
+    int width = (int)CGImageGetWidth(spriteImage);
+    int height = (int)CGImageGetHeight(spriteImage);
     
     GLubyte * spriteData = (GLubyte *) malloc(width*height*4*sizeof(GLubyte));
     

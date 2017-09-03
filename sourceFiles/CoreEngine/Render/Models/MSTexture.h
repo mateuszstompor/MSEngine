@@ -17,14 +17,14 @@
 
 {
     unsigned char * data;
-    size_t width;
-    size_t height;
+    int width;
+    int height;
 }
 
 @property (atomic) NSString* name;
 
 -(instancetype)initWithData: (unsigned char*) data
-                      width: (size_t) width height: (size_t) height name: (NSString*) name;
+                      width: (int) width height: (int) height name: (NSString*) name;
 
 @end
 

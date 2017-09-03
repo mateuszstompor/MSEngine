@@ -18,7 +18,7 @@
 {
     @public
     MSWorld* world;
-    id<MSRender> renderer;
+    MSRender *renderer;
     CGPoint rotation;
     CGPoint translation;
     UILabel* labelToUpdate;

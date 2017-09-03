@@ -67,6 +67,7 @@
 		6125686C1F3FBE4200ED5962 /* MSVectorND_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612568661F3FBE4200ED5962 /* MSVectorND_Tests.m */; };
 		612568711F3FC2AC00ED5962 /* macMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6125686F1F3FC2AC00ED5962 /* macMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		612568741F3FC2D900ED5962 /* iMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 612568721F3FC2D900ED5962 /* iMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		613C61231F5C4F350088FE9D /* MSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 613C61221F5C4F350088FE9D /* MSRender.m */; };
 		6143DCA61F5C0AA100FBD92B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6143DCA51F5C0AA100FBD92B /* AppKit.framework */; };
 		614C96BC1F3E24F9007CE857 /* MSTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96BA1F3E24F9007CE857 /* MSTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		614C96BD1F3E24F9007CE857 /* MSTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96BA1F3E24F9007CE857 /* MSTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -181,6 +182,7 @@
 		612568731F3FC2D900ED5962 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = UmbrellaHeaders/iMSGraphicsEngine/Info.plist; sourceTree = SOURCE_ROOT; };
 		61314EDC1ED64802001A3519 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		61314EED1ED64B70001A3519 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		613C61221F5C4F350088FE9D /* MSRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRender.m; path = Base/MSRender.m; sourceTree = "<group>"; };
 		6143DCA51F5C0AA100FBD92B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		614C96BA1F3E24F9007CE857 /* MSTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTexture.h; sourceTree = "<group>"; };
 		614C96BB1F3E24F9007CE857 /* MSTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTexture.m; sourceTree = "<group>"; };
@@ -396,10 +398,18 @@
 			path = Tests/Common/testAssets;
 			sourceTree = "<group>";
 		};
-		614C96C61F3F06E1007CE857 /* Protocols */ = {
+		613C61211F5C4F020088FE9D /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				615AF6A61EB8B3930086897F /* MSRender.h */,
+				613C61221F5C4F350088FE9D /* MSRender.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		614C96C61F3F06E1007CE857 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
 				614C96C81F3F071C007CE857 /* MSRenderableTexture.h */,
 			);
 			name = Protocols;
@@ -477,6 +487,7 @@
 		615AF6991EB8B3930086897F /* Render */ = {
 			isa = PBXGroup;
 			children = (
+				613C61211F5C4F020088FE9D /* Base */,
 				614C96C61F3F06E1007CE857 /* Protocols */,
 				61D1E9291F0448D20038AE3D /* OpenGL */,
 			);
@@ -926,6 +937,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613C61231F5C4F350088FE9D /* MSRender.m in Sources */,
 				61D6CE761F323F660021133D /* MSVertexData.m in Sources */,
 				61D6CE771F323F660021133D /* MSModelFace.m in Sources */,
 				61D6CE781F323F660021133D /* MSModelFraction.m in Sources */,

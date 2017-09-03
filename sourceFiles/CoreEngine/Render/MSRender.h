@@ -8,18 +8,23 @@
 
 #import "MSWorld.h"
 #import "MSGraphicsConstants.h"
-
+#import <Foundation/Foundation.h>
 
 #ifndef MSRENDER_H
 #define MSRENDER_H
 
-@protocol MSRender
-
+@interface MSRender : NSObject
+{
+    float lastFrameRate;
+    NSDate *lastSecond;
+}
 @property (atomic) int settings;
 
--(void)setBehaviourBeforeEachDraw: (void (^_Nullable)(void))block;
+-(instancetype)alloc NS_UNAVAILABLE;
+-(void)clearFrame;
+-(void)drawLights;
+-(void)drawModels;
 -(void)drawScene;
--(void)setBehaviourAfterEachDraw: (void (^_Nullable)(void))block;
 -(float)getCurrentFrameRate;
 
 @end
