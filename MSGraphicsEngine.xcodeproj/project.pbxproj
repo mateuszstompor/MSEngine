@@ -67,6 +67,7 @@
 		6125686C1F3FBE4200ED5962 /* MSVectorND_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612568661F3FBE4200ED5962 /* MSVectorND_Tests.m */; };
 		612568711F3FC2AC00ED5962 /* macMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6125686F1F3FC2AC00ED5962 /* macMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		612568741F3FC2D900ED5962 /* iMSGraphicsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 612568721F3FC2D900ED5962 /* iMSGraphicsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6143DCA61F5C0AA100FBD92B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6143DCA51F5C0AA100FBD92B /* AppKit.framework */; };
 		614C96BC1F3E24F9007CE857 /* MSTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96BA1F3E24F9007CE857 /* MSTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		614C96BD1F3E24F9007CE857 /* MSTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 614C96BA1F3E24F9007CE857 /* MSTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		614C96BE1F3E24F9007CE857 /* MSTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 614C96BB1F3E24F9007CE857 /* MSTexture.m */; };
@@ -180,6 +181,7 @@
 		612568731F3FC2D900ED5962 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = UmbrellaHeaders/iMSGraphicsEngine/Info.plist; sourceTree = SOURCE_ROOT; };
 		61314EDC1ED64802001A3519 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		61314EED1ED64B70001A3519 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		6143DCA51F5C0AA100FBD92B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		614C96BA1F3E24F9007CE857 /* MSTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTexture.h; sourceTree = "<group>"; };
 		614C96BB1F3E24F9007CE857 /* MSTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTexture.m; sourceTree = "<group>"; };
 		614C96C01F3F06D4007CE857 /* MSTextureOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTextureOpenGL.h; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6143DCA61F5C0AA100FBD92B /* AppKit.framework in Frameworks */,
 				61C473701F5A8749007B41C7 /* CoreGraphics.framework in Frameworks */,
 				6101C8AB1F3CCA690011117A /* OpenGL.framework in Frameworks */,
 				6101C8AA1F3CCA640011117A /* Foundation.framework in Frameworks */,
@@ -312,6 +315,7 @@
 		6122CA231EAA4EBE0002F881 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6143DCA51F5C0AA100FBD92B /* AppKit.framework */,
 				61C473731F5A877E007B41C7 /* UIKit.framework */,
 				61C473711F5A8779007B41C7 /* CoreGraphics.framework */,
 				61C4736F1F5A8749007B41C7 /* CoreGraphics.framework */,

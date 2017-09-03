@@ -14,13 +14,17 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#if macOS
+#import <AppKit/AppKit.h>
+#endif
+
 #ifndef MSTextureLoaderBMP_h
 #define MSTextureLoaderBMP_h
 
 @interface MSTextureLoaderBMP : NSObject <MSTextureLoader>
 
 +(MSTexture*)loadTextureAtPath: (NSString*)pathToTexture itsName: (NSString*) nam;
-//+(MSTexture*)loadTextAtPath: (NSString*)path;
+
 @end
 
 #endif

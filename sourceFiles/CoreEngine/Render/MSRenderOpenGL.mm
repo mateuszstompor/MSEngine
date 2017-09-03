@@ -223,7 +223,6 @@
             MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
             if ([modelToDraw indiciesToDraw] > 0){
                 glBindVertexArray([modelToDraw vao]);
-                //NSLog(@"%i", (GLsizei)([modelToDraw indiciesToDraw]));
                 glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
                 glBindVertexArray(0);
             }
