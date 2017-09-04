@@ -11,15 +11,10 @@
 
 @protocol MSRenderableTexture
 
-@optional
--(void) deallocateFromGraphicsMemory;
-
 @required
 -(NSString*) name;
--(void) loadToGraphicsMemory;
--(BOOL) isLoadedToGraphicsMemory;
--(void) bindItself;
-
+-(instancetype)initFromTexture: (MSTexture*) texture;
+-(unsigned int)getUniqueID;
 @end
 
 #endif /* MSRenderableTexture_h */

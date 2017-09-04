@@ -26,7 +26,8 @@
 
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initTextureFromFile: (NSString*) path NS_UNAVAILABLE;
--(instancetype)initFromTexture: (MSTexture*) texture withLoadingToGraphics: (BOOL) shoudLoad;
+-(instancetype)initFromTexture: (MSTexture*) texture;
+-(instancetype)initFromOpenGLTexture: (GLuint) itsID width: (unsigned int) width height: (unsigned int) height;
 
 @end
 

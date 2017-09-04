@@ -19,7 +19,7 @@
         self->texturesLoadedToGraphics = [[NSMutableDictionary alloc] init];
         self->lightShaderProgram=lsh;
         self->modelShaderProgram=mSh;
-//        self->settings=0;
+        //        self->settings=0;
         self->lastFrameRate=0;
         self->lastSecond=[NSDate date];
         [self loadObjectsToGraphics];
@@ -44,6 +44,28 @@
             MSDrawableFraction* drawableFraction = [[MSDrawableFraction alloc] initWithFraction:frac];
             [modelsLoadedToGraphics setObject:drawableFraction forKey:[frac getUniqueName]];
             [self setShaderFeeding:drawableFraction program:shadingProgram];
+            [self loadTextureToGraphicsFor: frac];
+        }
+    }
+}
+
+-(void)loadTextureToGraphicsFor: (MSModelFraction*) modelFraction {
+    NSString* itsMaterialName = [modelFraction materialName];
+    if (itsMaterialName) {
+        MSMaterial* material = [[self->world getAvailavleMaterials] getMaterialWithName:itsMaterialName];
+        if (material) {
+            if([material associatedTexture] != nil){
+                MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTexture]];
+                if (renderableTexture == nil) {
+                    MSTexture* texture = [[self->world getAvailavleMaterials] getTextureWithName:[material associatedTexture]];
+                    if (texture != nil) {
+                        renderableTexture = [[MSTextureOpenGL alloc] initFromTexture:texture];
+                        if (renderableTexture != nil) {
+                            [self->texturesLoadedToGraphics setObject:renderableTexture forKey:[material associatedTexture]];
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -68,9 +90,9 @@
         glEnableVertexAttribArray(glGetAttribLocation(shaderProgram, "textureCoordinates"));
     }
     
-    #if macOS
+#if macOS
     glBindFragDataLocation(shaderProgram, 0, "outColor");
-    #endif
+#endif
     
     glBindVertexArray(0);
 }
@@ -87,52 +109,37 @@
 }
 
 -(void)setUpUniforms: (MSModelFraction*) frac shaderProgram: (GLuint) prog{
-//        glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
+    //        glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
     MSMaterial* material = [[world getAvailavleMaterials] getMaterialWithName:[frac materialName]];
-        if(material != nil){
-            MSVector3D* diffuse = [material diffuse];
-            MSVector3D* ambient = [material ambient];
-            MSVector3D* specular = [material specular];
-            float shininess = [material shininess];
-            
-            if([material associatedTexture] != nil){
-                MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTexture]];
-                if (renderableTexture == nil) {
-                    MSTexture* texture = [[self->world getAvailavleMaterials] getTextureWithName:[material associatedTexture]];
-                    if (texture != nil) {
-                        renderableTexture = [[MSTextureOpenGL alloc] initFromTexture:texture withLoadingToGraphics:NO];
-                        [self->texturesLoadedToGraphics setObject:renderableTexture forKey:[material associatedTexture]];
-                        if ([renderableTexture textureID ] != 0){
-                            glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
-                        }else {
-                            glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
-                        }
-                    }else {
-                        glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
-                    }
-                }else {
-                    [renderableTexture bindItself];
-                    glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
-                }
-            }else{
-                glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
-            }
-            
-            glUniform3fv(glGetUniformLocation(prog, "material.specular"), 1, [specular getArrayStyleVector]);
-            glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [diffuse getArrayStyleVector]);
-            glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [ambient getArrayStyleVector]);
-            glUniform1f(glGetUniformLocation(prog, "material.shininess"), shininess);
-            glUniform1f(glGetUniformLocation(prog, "material.alpha"), [material transparency]);
-            
-        }else{
-            glUniform3fv(glGetUniformLocation(prog, "material.specular"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
-            glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
-            glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
-            glUniform1f(glGetUniformLocation(prog, "material.shininess"), 0.0f);
-            glUniform1f(glGetUniformLocation(prog, "material.alpha"), 1.0f);
+    if(material != nil){
+        MSVector3D* diffuse = [material diffuse];
+        MSVector3D* ambient = [material ambient];
+        MSVector3D* specular = [material specular];
+        float shininess = [material shininess];
+        
+        MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTexture]];
+        if (renderableTexture == nil) {
             glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
-
+            glBindTexture(GL_TEXTURE_2D, 0);
+        } else {
+            glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), YES);
+            glBindTexture(GL_TEXTURE_2D, [renderableTexture getUniqueID]);
         }
+        glUniform3fv(glGetUniformLocation(prog, "material.specular"), 1, [specular getArrayStyleVector]);
+        glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [diffuse getArrayStyleVector]);
+        glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [ambient getArrayStyleVector]);
+        glUniform1f(glGetUniformLocation(prog, "material.shininess"), shininess);
+        glUniform1f(glGetUniformLocation(prog, "material.alpha"), [material transparency]);
+        
+    }else{
+        glUniform3fv(glGetUniformLocation(prog, "material.specular"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+        glUniform3fv(glGetUniformLocation(prog, "material.diffuse"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+        glUniform3fv(glGetUniformLocation(prog, "material.ambient"), 1, [[MSVectorND onesVector:3] getArrayStyleVector]);
+        glUniform1f(glGetUniformLocation(prog, "material.shininess"), 0.0f);
+        glUniform1f(glGetUniformLocation(prog, "material.alpha"), 1.0f);
+        glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
+        
+    }
 }
 -(void)setUpCameraUniforms: (GLuint) shaderProgram{
     MSCamera* cam = [world getCamera];
@@ -150,7 +157,7 @@
     std::string scale = "light[0].scale";
     std::string rotation = "light[0].rotation";
     std::string translation = "light[0].translation";
-
+    
     for(MSPuppet* puppet in [world getModels]){
         
         for(long lightIndex=0; lightIndex<[[world getLightSources] count]; ++lightIndex){
@@ -190,17 +197,17 @@
         }else{
             [transparentFractions addObject:fraction];
         }
-
+        
         
     }
     for(MSModelFraction* fraction in transparentFractions){
-            [self setUpUniforms:fraction shaderProgram:shaderProgram];
-            MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
-            if ([modelToDraw indiciesToDraw] > 0){
-                glBindVertexArray([modelToDraw vao]);
-                glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
-                glBindVertexArray(0);
-            }
+        [self setUpUniforms:fraction shaderProgram:shaderProgram];
+        MSDrawableFraction* modelToDraw = [modelsLoadedToGraphics objectForKey:[fraction getUniqueName]];
+        if ([modelToDraw indiciesToDraw] > 0){
+            glBindVertexArray([modelToDraw vao]);
+            glDrawArraysInstanced(GL_TRIANGLES, 0,(GLsizei)([modelToDraw indiciesToDraw]), 1);
+            glBindVertexArray(0);
+        }
     }
 }
 -(void)clearFrame{

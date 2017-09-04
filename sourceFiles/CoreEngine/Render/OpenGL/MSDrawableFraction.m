@@ -73,12 +73,6 @@
         }
         
     }
-//    else{
-//        glGenBuffers(1, &bufferDescriptor);
-//        glBindBuffer(GL_ARRAY_BUFFER, bufferDescriptor);
-//        glBufferData(GL_ARRAY_BUFFER, 100, NULL, GL_STATIC_DRAW);
-//
-//    }
     return bufferDescriptor;
 }
 
