@@ -62,25 +62,26 @@ void main(void){
     for(int i=0; i<omniLightsAmount; ++i){
         worldInfluenceFromPointLight += countColor(materiall, light[i], fragmentPositionInWorld, cameraPositionInWorld, surfaceNormal);
     }
-    if (materiall.hasTexture == true) {
-        worldInfluenceFromPointLight *= texture( myTextureSampler, textureCoords ).rgb;
-    }
     
     outColor = vec4(worldInfluenceFromPointLight, materiall.alpha);
     
 }
 
 vec3 omniLightAmbient(Material m, OmniLight l){
-    return l.color * AMBIENT_STRENGTH * m.ambient * m.diffuse;
+    return l.color * AMBIENT_STRENGTH * m.ambient;
 }
 vec3 omniLightDiffuse(Material m, OmniLight l,
                       float distanceBasedIntensity,
                       vec3 fragmentToLightVector,
                       vec3 normalToVertex){
     
+        vec3 baseDiffuseColor = texture( myTextureSampler, textureCoords ).rgb;
+        if (baseDiffuseColor == vec3(0.0f)) {
+            baseDiffuseColor = m.diffuse;
+        }
         vec3 direction = normalize(fragmentToLightVector);
         float diff = max(dot(normalToVertex, direction), 0.0);
-        return distanceBasedIntensity * l.color * DIFFUSE_STRENGTH * diff * m.diffuse;
+        return distanceBasedIntensity * l.color * DIFFUSE_STRENGTH * diff * baseDiffuseColor;
 }
 
 vec3 omniLightSpecular(Material m, OmniLight l,
