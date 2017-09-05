@@ -21,6 +21,7 @@
     MSRender *renderer;
     CGPoint rotation;
     CGPoint translation;
+    float zTranslation;
     UILabel* labelToUpdate;
     GLKViewController* parent;
 }

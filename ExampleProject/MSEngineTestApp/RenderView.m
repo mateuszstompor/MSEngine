@@ -64,10 +64,10 @@
 - (void)drawRect:(CGRect)rect {
     float fraction = 0.006;
     float rotationFraction = 0.008;
+    float yTranslation = zTranslation/5000.0f;
     [EAGLContext setCurrentContext:[self context]];
     if(renderer!=nil){
-        [world translateObject:[world getCamera] x:-self->translation.x*fraction y:0 z:self->translation.y*fraction];
-
+        [world translateObject:[world getCamera] x:-self->translation.x*fraction y:yTranslation z:self->translation.y*fraction];
         [world rotateObject:[world getCamera] x:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
         [self->labelToUpdate setText:[[NSString alloc] initWithFormat:@"%.1f",[self->renderer getCurrentFrameRate]]];
         [renderer drawScene];

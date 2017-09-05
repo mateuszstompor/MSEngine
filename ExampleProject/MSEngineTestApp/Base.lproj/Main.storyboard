@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WIi-mQ-knU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WIi-mQ-knU">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,14 +48,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xbk-MZ-k7K" firstAttribute="leading" secondItem="BeI-gv-QBx" secondAttribute="leading" constant="50" id="Exf-zQ-bc6"/>
-                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="xbk-MZ-k7K" secondAttribute="bottom" constant="50" id="Sec-Qy-iU7"/>
-                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="mhw-Xm-Gk1" secondAttribute="bottom" constant="50" id="drG-0j-DzP"/>
+                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="xbk-MZ-k7K" secondAttribute="bottom" constant="50" id="QrM-8x-8fs"/>
                             <constraint firstAttribute="trailing" secondItem="mhw-Xm-Gk1" secondAttribute="trailing" constant="50" id="eLg-KY-7JT"/>
+                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="mhw-Xm-Gk1" secondAttribute="bottom" constant="50" id="mvE-fd-Wdn"/>
                         </constraints>
                         <connections>
                             <outlet property="delegate" destination="WIi-mQ-knU" id="sm9-ga-Jvw"/>
+                            <outletCollection property="gestureRecognizers" destination="Mt3-uY-DlV" appends="YES" id="xa2-3N-if7"/>
                         </connections>
                     </glkView>
                     <connections>
@@ -65,6 +67,11 @@
                     </connections>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nno-G2-Rjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="2" maximumNumberOfTouches="2" id="Mt3-uY-DlV">
+                    <connections>
+                        <action selector="userMakePanGesture:" destination="WIi-mQ-knU" id="ILg-XO-vJq"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="877.81690140845069" y="148.125"/>
         </scene>

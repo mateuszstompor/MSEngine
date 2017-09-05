@@ -59,4 +59,11 @@
         renderView->rotation = CGPointMake(0, 0);
     }
 }
+- (IBAction)userMakePanGesture:(UIPanGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        ((RenderView*)self.view)->zTranslation = 0.0f;
+    } else {
+        ((RenderView*)self.view)->zTranslation = [sender translationInView:self.view].y;
+    }
+}
 @end
