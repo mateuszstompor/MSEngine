@@ -10,10 +10,11 @@
 #import "MSModelFace.h"
 #import "MSVectorND.h"
 #import "MSMaterial.h"
+#import "MSPositionedObject.h"
 
 #ifndef MSMODELFRACTION_H
 #define MSMODELFRACTION_H
-@interface MSModelFraction : NSObject
+@interface MSModelFraction : NSObject <MSPositionedObject>
 
 @property (atomic) NSMutableArray<MSPoint3D*>* vertices;
 @property (atomic) NSMutableArray<MSPoint3D*>* normals;

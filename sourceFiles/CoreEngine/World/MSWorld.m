@@ -20,12 +20,12 @@
     return self;
 }
 -(void)translateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z{
-    [obj translateBy: [MSTransformationManager translationMatrix4x4:x y:y z:z]];
+    [obj translateModelBy: [MSTransformationManager translationMatrix4x4:x y:y z:z]];
 }
 -(void)rotateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z{
-    [obj rotateBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
-    [obj rotateBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
-    [obj rotateBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
+    [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
+    [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
+    [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
 }
 -(MSCamera*)getCamera{
     return self->camera;

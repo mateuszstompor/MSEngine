@@ -11,13 +11,12 @@
 
 #ifndef MSPUPPET_H
 #define MSPUPPET_H
-@interface MSPuppet : NSObject <MSPositionedObject>
+@interface MSPuppet : NSObject
 {
     NSArray<MSModelFraction*>* model;
 }
 -(instancetype _Nullable)init NS_UNAVAILABLE;
--(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nullable)md;
--(NSArray<MSModelFraction*>* _Nullable)getModelComponents;
-
+-(NSArray<MSModelFraction*>* _Nonnull)getModelComponents;
+-(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod;
 @end
 #endif

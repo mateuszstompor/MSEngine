@@ -10,16 +10,16 @@
 
 @implementation MSCamera
 
-@synthesize scale;
-@synthesize translation;
-@synthesize rotation;
+@synthesize modelScale;
+@synthesize modelTranslation;
+@synthesize modelRotation;
 
 -(instancetype)initWithFOV: (float)fieldOV aspectRatio: (float)ar near: (float) nearPlane far: (float) farPlane{
     self=[super init];
     if(self){
-        self->scale=[MSMatrixND identityMatrix:4];
-        self->translation=[MSMatrixND identityMatrix:4];
-        self->rotation=[MSMatrixND identityMatrix:4];
+        self->modelScale=[MSMatrixND identityMatrix:4];
+        self->modelTranslation=[MSMatrixND identityMatrix:4];
+        self->modelRotation=[MSMatrixND identityMatrix:4];
         self->projectionMatrix=[MSTransformationManager perpsectiveWithFoV:fieldOV aspectRatio:ar near:nearPlane far:farPlane];
     }
     return self;
@@ -27,14 +27,14 @@
 -(MSMatrixND*)getProjectionMatrix{
     return self->projectionMatrix;
 }
--(void)translateBy: (MSMatrixND*) tr{
-    self->translation=[tr multiplyByMatrix:translation];
+-(void)translateModelBy: (MSMatrixND*) tr{
+    self->modelTranslation=[tr multiplyByMatrix:modelTranslation];
 }
--(void)rotateBy: (MSMatrixND*) rot{
-    self->rotation=[rot multiplyByMatrix:rotation];
+-(void)rotateModelBy: (MSMatrixND*) rot{
+    self->modelRotation=[rot multiplyByMatrix:modelRotation];
 }
--(void)scaleBy:(MSMatrixND*) sc{
-    self->scale=[sc multiplyByMatrix:self->scale];
+-(void)scaleModelBy:(MSMatrixND*) sc{
+    self->modelScale=[sc multiplyByMatrix:self->modelScale];
 }
 
 @end

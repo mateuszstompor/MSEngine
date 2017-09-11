@@ -13,8 +13,8 @@
 
 @interface MSPointLight : MSPuppet <MSPositionedLight>
 
--(instancetype)init NS_UNAVAILABLE;
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*) model NS_UNAVAILABLE;
--(instancetype)initWithModel: (NSArray<MSModelFraction*>*) model color: (MSVector3D*) color power: (float)power;
-
+-(instancetype _Nullable)init NS_UNAVAILABLE;
+-(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod NS_UNAVAILABLE;
+-(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod
+                                          color: (MSVector3D* _Nonnull) color power: (float)power;
 @end

@@ -13,13 +13,13 @@
 @protocol MSPositionedObject
 
 
-@property (readonly) MSMatrix4D* scale;
-@property (readonly) MSMatrix4D* rotation;
-@property (readonly) MSMatrix4D* translation;
+@property (readonly) MSMatrix4D* modelScale;
+@property (readonly) MSMatrix4D* modelRotation;
+@property (readonly) MSMatrix4D* modelTranslation;
 
--(void)translateBy: (MSMatrixND*) tr;
--(void)rotateBy: (MSMatrixND*) rot;
--(void)scaleBy:(MSMatrixND*) sc;
+-(void)translateModelBy: (MSMatrix4D*) tr;
+-(void)rotateModelBy: (MSMatrix4D*) rot;
+-(void)scaleModelBy:(MSMatrix4D*) sc;
 
 @end
 #endif
