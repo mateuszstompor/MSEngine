@@ -30,19 +30,19 @@
 }
 -(void)translateModelBy: (MSMatrixND*) tr{
     self->modelTranslation=[tr multiplyByMatrix:modelTranslation];
-    for (MSModelFraction* fraction in self->model) {
+    for (MSModelFraction* fraction in self->model){
         [fraction translateModelBy:tr];
     }
 }
 -(void)rotateModelBy: (MSMatrixND*) rot{
     self->modelRotation=[rot multiplyByMatrix:modelRotation];
-    for (MSModelFraction* fraction in self->model) {
+    for (MSModelFraction* fraction in self->model){
         [fraction rotateModelBy:rot];
     }
 }
 -(void)scaleModelBy:(MSMatrixND*) sc{
     self->modelScale=[sc multiplyByMatrix:self->modelScale];
-    for (MSModelFraction* fraction in self->model) {
+    for (MSModelFraction* fraction in self->model){
         [fraction scaleModelBy:sc];
     }
 }

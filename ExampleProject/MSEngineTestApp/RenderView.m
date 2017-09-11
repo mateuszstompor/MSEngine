@@ -45,10 +45,10 @@
     
     
 
-    [light scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.05 repeatToIndex:2]];
+    [light scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.2 repeatToIndex:2]];
     MSPointLight* secondLight = [[MSPointLight alloc] initWithModel: lightModel color:secondColor power:80.0f];
 
-    [secondLight scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.05 repeatToIndex:2]];
+    [secondLight scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.2 repeatToIndex:2]];
 
     
     MSPuppet* classroom = [[MSPuppet alloc] initWithModel:[loader loadModel:@"classroom.obj"]];
