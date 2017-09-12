@@ -14,6 +14,7 @@
 		6104CF161F324C62000547D8 /* MSGraphicsConstants.h in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF101F32473D000547D8 /* MSGraphicsConstants.h */; };
 		6104CF171F324C62000547D8 /* VShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF111F32473D000547D8 /* VShader.vert */; };
 		6104CF181F3250F6000547D8 /* iMSGraphicsEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6104CF011F3245C8000547D8 /* iMSGraphicsEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		615A8C401F68789300BD93AB /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615A8C3F1F68789300BD93AB /* InitialViewController.swift */; };
 		615D78A61F588CB900EAE383 /* classroom.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 615D78A51F588CB900EAE383 /* classroom.mtl */; };
 		615D78B11F589E6D00EAE383 /* FShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0C1F32473D000547D8 /* FShader.frag */; };
 		615D78B21F589E9900EAE383 /* base_bareMetal.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1351F5878CD005A122C /* base_bareMetal.bmp */; };
@@ -31,7 +32,7 @@
 		617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617CA6391F352EE30096F1DD /* JoystickView.swift */; };
 		61D6CE0E1F3237490021133D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE0D1F3237490021133D /* main.m */; };
 		61D6CE111F3237490021133D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE101F3237490021133D /* AppDelegate.m */; };
-		61D6CE141F3237490021133D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE131F3237490021133D /* ViewController.m */; };
+		61D6CE141F3237490021133D /* RenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE131F3237490021133D /* RenderViewController.m */; };
 		61D6CE171F3237490021133D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D6CE151F3237490021133D /* Main.storyboard */; };
 		61D6CE191F3237490021133D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61D6CE181F3237490021133D /* Assets.xcassets */; };
 		61D6CE1C1F3237490021133D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D6CE1A1F3237490021133D /* LaunchScreen.storyboard */; };
@@ -106,6 +107,7 @@
 		6140D13F1F5878CD005A122C /* glass.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = glass.bmp; path = ../Textures/glass.bmp; sourceTree = "<group>"; };
 		6140D1401F5878CD005A122C /* wallClock.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = wallClock.bmp; path = ../Textures/wallClock.bmp; sourceTree = "<group>"; };
 		6140D1411F5878CD005A122C /* woodPlanks.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = woodPlanks.bmp; path = ../Textures/woodPlanks.bmp; sourceTree = "<group>"; };
+		615A8C3F1F68789300BD93AB /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = Controllers/InitialViewController.swift; sourceTree = "<group>"; };
 		615D78A51F588CB900EAE383 /* classroom.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = classroom.mtl; sourceTree = "<group>"; };
 		617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSEngineTestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		617CA6391F352EE30096F1DD /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
@@ -113,8 +115,8 @@
 		61D6CE0D1F3237490021133D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61D6CE0F1F3237490021133D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		61D6CE101F3237490021133D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		61D6CE121F3237490021133D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		61D6CE131F3237490021133D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		61D6CE121F3237490021133D /* RenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderViewController.h; sourceTree = "<group>"; };
+		61D6CE131F3237490021133D /* RenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderViewController.m; sourceTree = "<group>"; };
 		61D6CE161F3237490021133D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61D6CE181F3237490021133D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61D6CE1B1F3237490021133D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -191,6 +193,14 @@
 			name = Textures;
 			sourceTree = "<group>";
 		};
+		615A8C3C1F68784700BD93AB /* InitialController */ = {
+			isa = PBXGroup;
+			children = (
+				615A8C3F1F68789300BD93AB /* InitialViewController.swift */,
+			);
+			name = InitialController;
+			sourceTree = "<group>";
+		};
 		617CA6351F352DA30096F1DD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,8 +213,9 @@
 		617CA6361F352DBB0096F1DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				61D6CE121F3237490021133D /* ViewController.h */,
-				61D6CE131F3237490021133D /* ViewController.m */,
+				615A8C3C1F68784700BD93AB /* InitialController */,
+				61D6CE121F3237490021133D /* RenderViewController.h */,
+				61D6CE131F3237490021133D /* RenderViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -247,8 +258,8 @@
 				61D6CEAD1F3245160021133D /* Assets */,
 				61D6CE0F1F3237490021133D /* AppDelegate.h */,
 				61D6CE101F3237490021133D /* AppDelegate.m */,
-				61D6CE1D1F3237490021133D /* Info.plist */,
 				617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */,
+				61D6CE1D1F3237490021133D /* Info.plist */,
 			);
 			path = MSEngineTestApp;
 			sourceTree = "<group>";
@@ -406,9 +417,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61D6CE141F3237490021133D /* ViewController.m in Sources */,
+				61D6CE141F3237490021133D /* RenderViewController.m in Sources */,
 				61D6CE111F3237490021133D /* AppDelegate.m in Sources */,
 				61D6CE971F3241A30021133D /* RenderView.m in Sources */,
+				615A8C401F68789300BD93AB /* InitialViewController.swift in Sources */,
 				617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */,
 				61D6CE0E1F3237490021133D /* main.m in Sources */,
 			);

@@ -6,18 +6,19 @@
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
 
+
+
+#ifndef RenderViewController_h
+#define RenderViewController_h
+
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
-#import "MSEngineTestApp-Swift.h"
 #import "RenderView.h"
-
-#ifndef ViewController_h
-#define ViewController_h
 
 @class JoystickView;
 @protocol JoystickEventHandler;
 
-@interface ViewController : GLKViewController <JoystickEventHandler>
+@interface RenderViewController : GLKViewController <JoystickEventHandler>
 - (IBAction)userMakePanGesture:(UIPanGestureRecognizer *)sender;
 
 @property (weak, nonatomic) IBOutlet JoystickView *rotationJoy;

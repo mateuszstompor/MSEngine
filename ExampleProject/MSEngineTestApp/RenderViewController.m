@@ -6,15 +6,10 @@
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RenderViewController.h"
+#import "MSEngineTestApp-Swift.h"
 
-
-
-@interface ViewController ()
-
-@end
-
-@implementation ViewController
+@implementation RenderViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,4 +61,5 @@
         ((RenderView*)self.view)->zTranslation = [sender translationInView:self.view].y;
     }
 }
+
 @end

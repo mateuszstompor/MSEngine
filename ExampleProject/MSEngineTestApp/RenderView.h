@@ -8,7 +8,7 @@
 
 #import <GLKit/GLKit.h>
 #import <iMSGraphicsEngine/iMSGraphicsEngine.h>
-#import "ViewController.h"
+#import "RenderViewController.h"
 
 #ifndef m
 #define m
