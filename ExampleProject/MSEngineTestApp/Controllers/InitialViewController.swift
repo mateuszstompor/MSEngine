@@ -12,18 +12,22 @@ class InitialViewController: UIViewController {
 
     @IBOutlet weak var myNameLabel: UILabel!
     @IBOutlet weak var createdByLabel: UILabel!
+    private var viewToPush: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myNameLabel?.alpha = 0.0
         self.createdByLabel?.alpha = 0.0
+        self.viewToPush = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RenderViewController")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animate(withDuration: 2.0, animations: {
-            self.myNameLabel?.alpha = 1.0
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [], animations: {
             self.createdByLabel?.alpha = 1.0
+        })
+        UIView.animate(withDuration: 2.0, delay: 0.5, options: [], animations: {
+            self.myNameLabel?.alpha = 1.0
         }, completion: { (Bool) in
             self.goToRenderView()
         })
@@ -32,10 +36,11 @@ class InitialViewController: UIViewController {
     private func goToRenderView() {
         let deadlineTime = DispatchTime.now() + .seconds(2)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let dest = storyboard.instantiateViewController(withIdentifier: "RenderViewController") as? RenderViewController {
-                UIView.animate(withDuration: 2.0, animations: {
+            if let dest =  self.viewToPush {
+                UIView.animate(withDuration: 2.0, delay: 0.0, options: [], animations: {
                     self.myNameLabel?.alpha = 0.0
+                })
+                UIView.animate(withDuration: 2.0, delay: 0.5, options: [], animations: {
                     self.createdByLabel?.alpha = 0.0
                 }, completion: { (Bool) in
                     self.navigationController?.pushViewController(dest, animated: true)

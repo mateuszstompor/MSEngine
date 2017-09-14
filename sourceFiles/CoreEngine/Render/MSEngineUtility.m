@@ -38,7 +38,10 @@
 #else
     [NSException raise:@"There is no shaderProgram for such device" format:@""];
 #endif
-    
+    return [self compileShaderProgram:content withType:shaderType];
+}
+
++(GLuint)compileShaderProgram: (NSString*) content withType:(GLenum) shaderType {
     const char * buffer = [content UTF8String];
     GLuint shader=glCreateShader(shaderType);
     glShaderSource(shader, 1,(GLchar const * const *)&buffer, NULL);
@@ -56,6 +59,7 @@
     }
     return shader;
 }
+
 +(GLuint)createBasicShaderProgramWithVertexShader: (GLuint) vertexShader fragmentShader: (GLuint) fragmentShader{
     GLuint shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, vertexShader);

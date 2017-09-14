@@ -45,7 +45,7 @@ void main(void){
     fragmentPositionInWorld = positionInWorld.xyz;
     
     gl_Position = camera.projection * cameraTransform * positionInWorld;
-    cameraPositionInWorld = vec4(cameraTransform*vec4(1.0f)).xyz;
+    cameraPositionInWorld = vec4(cameraTransform*vec4(0.0f)).xyz;
     if(material.hasTexture==true){
         textureCoords=textureCoordinates;
     }
