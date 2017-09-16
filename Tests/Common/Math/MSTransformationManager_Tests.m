@@ -40,6 +40,20 @@
     [super tearDown];
 }
 
+-(void)testRotationZ {
+    MSVectorND* result = [[MSTransformationManager rotationMatrixAboutZinRadians4x4:M_PI] multiplyByColumnVector:vector];
+    XCTAssertEqualWithAccuracy([result valueAtIndex:0], -1.0f, 0.001);
+    XCTAssertEqualWithAccuracy([result valueAtIndex:1], -1.0f, 0.001);
+    XCTAssertEqualWithAccuracy([result valueAtIndex:2], 1.0f, 0.001);
+}
+
+-(void)testRotationX {
+    MSVectorND* result = [[MSTransformationManager rotationMatrixAboutXinRadians4x4:M_PI] multiplyByColumnVector:vector];
+    XCTAssertEqualWithAccuracy([result valueAtIndex:0], 1.0f, 0.001);
+    XCTAssertEqualWithAccuracy([result valueAtIndex:1], -1.0f, 0.001);
+    XCTAssertEqualWithAccuracy([result valueAtIndex:2], -1.0f, 0.001);
+}
+
 -(void)testRotationY {
     MSVectorND* result = [[MSTransformationManager rotationMatrixAboutYinRadians4x4:M_PI] multiplyByColumnVector:vector];
     XCTAssertEqualWithAccuracy([result valueAtIndex:0], -1.0f, 0.001);
@@ -57,12 +71,12 @@
 
 - (void)testScale {
     MSMatrix4D* scaleMatrix = [MSTransformationManager scaleMatrix4x4:2.0f repeatToIndex:2];
-    [vector setValueAtIdenx:1 value:3.0f];
+    [vector setValueAtIdenx:1 value:2.0f];
     [scaleMatrix setValueAtRowIndex:1 andColumnIndex:1 value:3.0f];
     MSVectorND* resultingVector = [scaleMatrix multiplyByColumnVector:vector];
-    XCTAssertTrue([resultingVector safeValueAtIndex:0] == 2.0f);
-    XCTAssertTrue([resultingVector safeValueAtIndex:1] == 6.0f);
-    XCTAssertTrue([resultingVector safeValueAtIndex:0] == 2.0f);
+    XCTAssertEqualWithAccuracy([resultingVector safeValueAtIndex:0], 2.0f, 0.001);
+    XCTAssertEqualWithAccuracy([resultingVector safeValueAtIndex:1], 6.0f, 0.001);
+    XCTAssertEqualWithAccuracy([resultingVector safeValueAtIndex:2], 2.0f, 0.001);
 }
 
 @end
