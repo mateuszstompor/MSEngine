@@ -18,8 +18,12 @@
 +(MSMatrixND*)rotationMatrixAboutXinRadians4x4: (float) radians;
 +(MSMatrixND*)rotationMatrixAboutYinRadians4x4: (float) radians;
 +(MSMatrixND*)rotationMatrixAboutZinRadians4x4: (float) radians;
+
 +(MSMatrixND*)scaleMatrix4x4: (float)factor repeatToIndex: (int) repeat;
 +(MSMatrixND*)translationMatrix4x4: (float)x y:(float)y z:(float)z;
 +(MSMatrixND*)perpsectiveWithFoV: (float)fov aspectRatio: (float)ar near:(float)near far:(float)far;
++(float)degress: (float)radians;
++(float)radians: (float)degress;
+
 @end
 #endif

@@ -47,8 +47,11 @@
     [matrixToReturn setValueAtRowIndex:2 andColumnIndex:3 value:z];
     return matrixToReturn;
 }
++(float)degress: (float)radians{
+    return radians*(180.0f/M_PI);
+}
 +(float)radians: (float)degress{
-    return degress*(180.0f/M_PI);
+    return degress*(M_PI/180.0f);
 }
 +(MSMatrixND*)perpsectiveWithFoV: (float)fov aspectRatio: (float)ar near:(float)near far:(float)far{
     MSMatrixND* result;
