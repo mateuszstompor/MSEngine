@@ -27,7 +27,7 @@
     vec2 = [[MSVectorND alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
     vec3 = [[MSVectorND alloc] initWithComponents:4, 1.2f, 0.4f, 4.4f, 9.234f];
     vec4 = [[MSVectorND alloc] initWithComponents:4, 1.0f, 1.0f, 1.0f, 3.0f];
-    testAmount = 1;
+    testAmount = 300000;
 }
 
 - (void)tearDown {
