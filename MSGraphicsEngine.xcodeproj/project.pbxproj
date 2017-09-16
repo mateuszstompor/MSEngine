@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6100D92C1F6D0A97003BE81A /* MSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 613C61221F5C4F350088FE9D /* MSRender.m */; };
 		6101C8721F3CC9EE0011117A /* MSVertexData.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A31EB8B3930086897F /* MSVertexData.m */; };
 		6101C8731F3CC9EE0011117A /* MSModelFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69D1EB8B3930086897F /* MSModelFace.m */; };
 		6101C8741F3CC9EE0011117A /* MSModelFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69F1EB8B3930086897F /* MSModelFraction.m */; };
@@ -892,6 +893,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6100D92C1F6D0A97003BE81A /* MSRender.m in Sources */,
 				6101C8721F3CC9EE0011117A /* MSVertexData.m in Sources */,
 				6101C8731F3CC9EE0011117A /* MSModelFace.m in Sources */,
 				6101C8741F3CC9EE0011117A /* MSModelFraction.m in Sources */,

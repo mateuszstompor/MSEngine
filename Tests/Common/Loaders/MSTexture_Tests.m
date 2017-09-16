@@ -29,8 +29,7 @@
 
 - (void)testInitializer {
     //XCTAssertNoThrow([[MSTexture alloc] initTextureFromFile:_pathAtWhichCorrectFileExists]);
-    XCTAssertThrows([[MSTexture alloc] initTextureFromFile:@""]);
-    XCTAssertThrows([[MSTexture alloc] initTextureFromFile:nil]);
+   
     
 }
 
