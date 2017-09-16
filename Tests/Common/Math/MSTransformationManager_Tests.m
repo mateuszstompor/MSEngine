@@ -13,7 +13,7 @@
 
 @interface MSTransformationManager_Tests : XCTestCase
 {
-    MSMatrix4D* identityBaseVectorMatrix4D;
+    MSVectorND* vector;
 }
 @end
 
@@ -21,22 +21,34 @@
 
 - (void)setUp {
     [super setUp];
-    identityBaseVectorMatrix4D = [MSMatrixND identityMatrix:4];
+    vector = [MSVectorND onesVector:4];
 }
 
 -(void)testDegressToRadians {
-    XCTAssertEqualWithAccuracy([MSTransformationManager radians:360], 2*M_PI, 0.01);
+    XCTAssertEqualWithAccuracy([MSTransformationManager radians:360], 2*M_PI, 0.001);
     XCTAssertEqualWithAccuracy([MSTransformationManager radians:0], 0, 0.001);
     XCTAssertEqualWithAccuracy([MSTransformationManager radians:180], M_PI, 0.001);
+}
+
+-(void)testRadiansToDegress {
+    XCTAssertEqualWithAccuracy([MSTransformationManager degress:M_PI], 180, 0.001);
+    XCTAssertEqualWithAccuracy([MSTransformationManager degress:M_PI_2], 90, 0.001);
+    XCTAssertEqualWithAccuracy([MSTransformationManager degress:4*M_PI], 720, 0.001);
 }
 
 - (void)tearDown {
     [super tearDown];
 }
 
+-(void)testRotationY {
+    MSVectorND* result = [[MSTransformationManager rotationMatrixAboutYinRadians4x4:M_PI] multiplyByColumnVector:vector];
+    XCTAssertEqualWithAccuracy([result valueAtIndex:0], -1.0f, 0.001);
+    XCTAssertEqualWithAccuracy([result valueAtIndex:1], 1.0f, 0.001);
+    XCTAssertEqualWithAccuracy([result valueAtIndex:2], -1.0f, 0.001);
+}
+
 -(void)testTranslation {
     MSMatrix4D* translationMatrix = [MSTransformationManager translationMatrix4x4:1.0f y:2.0f z:3.0f];
-    MSVectorND* vector = [MSVectorND onesVector:4];
     MSVectorND* resultingVector = [translationMatrix multiplyByColumnVector:vector];
     XCTAssertTrue([resultingVector valueAtIndex:0]   == 2.0f);
     XCTAssertTrue([resultingVector valueAtIndex:1]   == 3.0f);
@@ -45,14 +57,10 @@
 
 - (void)testScale {
     MSMatrix4D* scaleMatrix = [MSTransformationManager scaleMatrix4x4:2.0f repeatToIndex:2];
-    [identityBaseVectorMatrix4D setValueAtRowIndex:1 andColumnIndex:1 value:3.0f];
-    MSMatrixND* result = [scaleMatrix multiplyByMatrix: identityBaseVectorMatrix4D];
-    MSVector4D* onesVec = [MSVectorND onesVector:4];
-    MSVectorND* resultingVector = [result multiplyByColumnVector:onesVec];
+    [vector setValueAtIdenx:1 value:3.0f];
+    [scaleMatrix setValueAtRowIndex:1 andColumnIndex:1 value:3.0f];
+    MSVectorND* resultingVector = [scaleMatrix multiplyByColumnVector:vector];
     XCTAssertTrue([resultingVector safeValueAtIndex:0] == 2.0f);
-    for (int i=0; i<4; ++i) {
-        NSLog(@"%i. value: %f", i, *([resultingVector getArrayStyleVector]+i));
-    }
     XCTAssertTrue([resultingVector safeValueAtIndex:1] == 6.0f);
     XCTAssertTrue([resultingVector safeValueAtIndex:0] == 2.0f);
 }
