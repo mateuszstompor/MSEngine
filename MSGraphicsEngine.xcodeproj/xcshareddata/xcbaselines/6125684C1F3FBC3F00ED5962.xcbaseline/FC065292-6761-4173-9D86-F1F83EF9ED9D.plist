@@ -11,9 +11,9 @@
 				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
 				<dict>
 					<key>baselineAverage</key>
-					<real>0.24536</real>
+					<real>0.23677</real>
 					<key>baselineIntegrationDisplayName</key>
-					<string>Local Baseline</string>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
 				</dict>
 			</dict>
 			<key>testPerformanceInitializeFromAnotherMatrix</key>
@@ -21,9 +21,115 @@
 				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
 				<dict>
 					<key>baselineAverage</key>
-					<real>0.61196</real>
+					<real>0.62013</real>
 					<key>baselineIntegrationDisplayName</key>
-					<string>Local Baseline</string>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>macMSGraphicsEngineTests</key>
+		<dict>
+			<key>testPerformanceExample</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>5.541e-07</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>mathTests</key>
+		<dict>
+			<key>testInitalizerInitWithZero</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.11321</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testInitalizerInitWithZeroExcept</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.12596</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithArrayOfComponents</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.10115</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithComponents</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.10576</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithDimmension</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.10279</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithOnes</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.11924</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testInitializerInitWithVector</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.11915</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testSafeVectorMultiplicationPerformance</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.044884</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
+				</dict>
+			</dict>
+			<key>testVectorMultiplicationPerformance</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.012751</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>macMSGraphicsEngine Bot – Integration 9</string>
 				</dict>
 			</dict>
 		</dict>
