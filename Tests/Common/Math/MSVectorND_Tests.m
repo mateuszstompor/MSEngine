@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "MSVectorND.h"
 
-@interface mathTests : XCTestCase
+@interface MSVectorND_Tests : XCTestCase
 {
     MSVector3D* vec1;
     MSVector3D* vec2;
@@ -19,7 +19,7 @@
 }
 @end
 
-@implementation mathTests
+@implementation MSVectorND_Tests
 
 - (void)setUp {
     [super setUp];
