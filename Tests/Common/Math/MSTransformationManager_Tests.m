@@ -5,7 +5,6 @@
 //  Created by Mateusz Stompór on 16/09/2017.
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
-
 #import <XCTest/XCTest.h>
 #import "MSVectorND.h"
 #import "MSMatrixND.h"

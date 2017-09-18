@@ -84,6 +84,7 @@
 		614D56C91F4080E200AA97ED /* MSFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D56C51F4080E200AA97ED /* MSFileSearcher.m */; };
 		615A01241F3CB72C0003E9E9 /* MSLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01221F3CB72C0003E9E9 /* MSLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		615A01261F3CB8140003E9E9 /* MSPositionedLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01231F3CB72C0003E9E9 /* MSPositionedLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		615C2D671F7061BE00882F01 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615C2D661F7061BE00882F01 /* OCMock.framework */; };
 		616D32091F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */ = {isa = PBXBuildFile; fileRef = 616D32071F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h */; };
 		616D320A1F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */ = {isa = PBXBuildFile; fileRef = 616D32071F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h */; };
 		616D320B1F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 616D32081F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m */; };
@@ -217,6 +218,7 @@
 		615AF6BB1EB8B3930086897F /* MSVectorND.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVectorND.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoaderOBJ.h; sourceTree = "<group>"; };
 		615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoaderOBJ.m; sourceTree = "<group>"; };
+		615C2D661F7061BE00882F01 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Frameworks/OCMock.framework; sourceTree = "<group>"; };
 		615EE8B41EFAECD9009537F9 /* MSMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMaterial.h; sourceTree = "<group>"; };
 		615EE8B51EFAECD9009537F9 /* MSMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMaterial.m; sourceTree = "<group>"; };
 		615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoaderMTL.h; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615C2D671F7061BE00882F01 /* OCMock.framework in Frameworks */,
 				6125685E1F3FBCD600ED5962 /* XCTest.framework in Frameworks */,
 				612568521F3FBC3F00ED5962 /* macMSGraphicsEngine.framework in Frameworks */,
 			);
@@ -316,6 +319,7 @@
 		6122CA231EAA4EBE0002F881 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				615C2D661F7061BE00882F01 /* OCMock.framework */,
 				6143DCA51F5C0AA100FBD92B /* AppKit.framework */,
 				61C473731F5A877E007B41C7 /* UIKit.framework */,
 				61C473711F5A8779007B41C7 /* CoreGraphics.framework */,
@@ -1058,6 +1062,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1100,6 +1105,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -1111,6 +1117,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R78NEXF6E2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = $SRCROOT/Tests/macMSGraphicsEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macMSGraphicsEngineTests;
@@ -1123,6 +1133,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R78NEXF6E2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = $SRCROOT/Tests/macMSGraphicsEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macMSGraphicsEngineTests;

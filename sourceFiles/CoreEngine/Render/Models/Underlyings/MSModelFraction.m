@@ -40,6 +40,25 @@
 -(NSValue*)getUniqueName{
     return self->_uniqueName;
 }
+
+-(float*)parsePointsToArray: (NSArray<MSPoint*>*) data feedingFunction: (SEL) feedingFunction buffer: (float*) buf {
+    unsigned int writeIndex=0;
+    if([data  count] > 0){
+        int dim = [[data objectAtIndex:0] getDimension];
+        for(MSModelFace* face in [self facesData]){
+            for(MSVertexData* dat in [face getFaceData]){
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                unsigned int readIndex = (unsigned int)[dat performSelector:feedingFunction withObject:nil];
+    #pragma clang diagnostic pop
+                memcpy(buf+writeIndex, [[data objectAtIndex: readIndex] getComponents], dim*sizeof(float));
+                writeIndex+=dim;
+            }
+        }
+    }
+    return (buf+writeIndex);
+}
+
 -(void)translateModelBy: (MSMatrixND*) tr{
     self->modelTranslation=[tr multiplyByMatrix:modelTranslation];
 }
