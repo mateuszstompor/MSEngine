@@ -97,6 +97,8 @@
 		618C50331F48F22F00D13A5C /* MSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 618C502F1F48F22F00D13A5C /* MSLoader.m */; };
 		618C50371F48F31F00D13A5C /* MSTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C50361F48F31F00D13A5C /* MSTextureLoader.h */; };
 		618C50381F48F31F00D13A5C /* MSTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C50361F48F31F00D13A5C /* MSTextureLoader.h */; };
+		6198AD6C1F7327050004BACE /* libredblacktree_macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6198AD6B1F7327050004BACE /* libredblacktree_macOS.a */; };
+		6198AD6D1F7327200004BACE /* libredblacktree_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6198AD671F73228B0004BACE /* libredblacktree_iOS.a */; };
 		619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */ = {isa = PBXBuildFile; fileRef = 619CFB831F38E1B9004FACBE /* MSMathException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		619CFB861F38E1B9004FACBE /* MSMathException.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB841F38E1B9004FACBE /* MSMathException.m */; };
 		61C473701F5A8749007B41C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C4736F1F5A8749007B41C7 /* CoreGraphics.framework */; };
@@ -230,6 +232,8 @@
 		618C502E1F48F22F00D13A5C /* MSLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoader.h; sourceTree = "<group>"; };
 		618C502F1F48F22F00D13A5C /* MSLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoader.m; sourceTree = "<group>"; };
 		618C50361F48F31F00D13A5C /* MSTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextureLoader.h; path = Loaders/TextureLoaders/MSTextureLoader.h; sourceTree = "<group>"; };
+		6198AD671F73228B0004BACE /* libredblacktree_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libredblacktree_iOS.a; path = Frameworks/libredblacktree_iOS.a; sourceTree = "<group>"; };
+		6198AD6B1F7327050004BACE /* libredblacktree_macOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libredblacktree_macOS.a; path = Frameworks/libredblacktree_macOS.a; sourceTree = "<group>"; };
 		619A5F531EBA81460017DB89 /* MSPointLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPointLight.h; sourceTree = "<group>"; };
 		619A5F541EBA81460017DB89 /* MSPointLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPointLight.m; sourceTree = "<group>"; };
 		619CFB831F38E1B9004FACBE /* MSMathException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMathException.h; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6198AD6C1F7327050004BACE /* libredblacktree_macOS.a in Frameworks */,
 				6143DCA61F5C0AA100FBD92B /* AppKit.framework in Frameworks */,
 				61C473701F5A8749007B41C7 /* CoreGraphics.framework in Frameworks */,
 				6101C8AB1F3CCA690011117A /* OpenGL.framework in Frameworks */,
@@ -276,6 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6198AD6D1F7327200004BACE /* libredblacktree_iOS.a in Frameworks */,
 				61C473741F5A877E007B41C7 /* UIKit.framework in Frameworks */,
 				61C473721F5A8779007B41C7 /* CoreGraphics.framework in Frameworks */,
 				61D6CDFB1F3236A40021133D /* OpenGLES.framework in Frameworks */,
@@ -319,6 +325,8 @@
 		6122CA231EAA4EBE0002F881 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6198AD6B1F7327050004BACE /* libredblacktree_macOS.a */,
+				6198AD671F73228B0004BACE /* libredblacktree_iOS.a */,
 				615C2D661F7061BE00882F01 /* OCMock.framework */,
 				6143DCA51F5C0AA100FBD92B /* AppKit.framework */,
 				61C473731F5A877E007B41C7 /* UIKit.framework */,
@@ -989,6 +997,10 @@
 				INFOPLIST_FILE = $SRCROOT/UmbrellaHeaders/macMSGraphicsEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macMSGraphicsEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1013,6 +1025,10 @@
 				INFOPLIST_FILE = $SRCROOT/UmbrellaHeaders/macMSGraphicsEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macMSGraphicsEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1062,11 +1078,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 			};
 			name = Debug;
 		};
@@ -1105,10 +1123,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 			};
 			name = Release;
 		};
@@ -1123,6 +1144,10 @@
 				);
 				INFOPLIST_FILE = $SRCROOT/Tests/macMSGraphicsEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macMSGraphicsEngineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1139,6 +1164,10 @@
 				);
 				INFOPLIST_FILE = $SRCROOT/Tests/macMSGraphicsEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.macMSGraphicsEngineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1160,15 +1189,21 @@
 					"$(inherited)",
 					"iOS=1",
 				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				INFOPLIST_FILE = $SRCROOT/UmbrellaHeaders/iMSGraphicsEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.iMSGraphicsEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1186,15 +1221,21 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREPROCESSOR_DEFINITIONS = "iOS=1";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				INFOPLIST_FILE = $SRCROOT/UmbrellaHeaders/iMSGraphicsEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.iMSGraphicsEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
