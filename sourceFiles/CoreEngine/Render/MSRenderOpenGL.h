@@ -32,7 +32,7 @@
     NSMutableDictionary<NSString*,MSTextureOpenGL*>* texturesLoadedToGraphics;
 }
 
--(instancetype)initWithWorld:(MSWorld *)world modelShader: (GLuint)mSh lightShader: (GLuint)lsh;
+-(instancetype)initWithWorld:(MSWorld *)world;
 
 @end
 #endif

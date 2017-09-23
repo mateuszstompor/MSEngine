@@ -28,12 +28,6 @@
     MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
     MSVector3D* secondColor = [[MSVector3D alloc] initWithComponents:3, 0.7f, 0.9f, 1.0f];
     
-    
-    GLuint modelShader = [MSEngineUtility shaderProgramFromFiles: bundlePath vertexShader:@"VShader.vert" fragmentShader:@"FShader.frag"];
-    GLuint lightShader = [MSEngineUtility shaderProgramFromFiles: bundlePath vertexShader:@"VShader.vert" fragmentShader:@"LightShader.frag"];
-
-    
-    
     MSMaterialStore* materialStore = [[MSMaterialStore alloc] init];
     NSArray<MSMaterial*>* materials = [loader loadMaterials:@"classroom.mtl"];
     NSArray<MSTexture*>* textures = [loader loadTexturesForMaterials:materials];
@@ -58,7 +52,7 @@
     [world addLightSourceToWorld:light];
     [world addLightSourceToWorld:secondLight];
     [world addModelToWorld:classroom];
-    renderer = [[MSRenderOpenGL alloc] initWithWorld:world modelShader:modelShader lightShader:lightShader];
+    renderer = [[MSRenderOpenGL alloc] initWithWorld:world];
 
 }
 - (void)drawRect:(CGRect)rect {

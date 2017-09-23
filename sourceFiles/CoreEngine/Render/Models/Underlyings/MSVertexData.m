@@ -7,6 +7,7 @@
 //
 
 #include "MSVertexData.h"
+#import "RedBlackTree.h"
 
 @implementation MSVertexData
 

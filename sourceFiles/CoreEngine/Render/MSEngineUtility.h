@@ -25,7 +25,7 @@
 @interface MSEngineUtility : NSObject
 -(instancetype)init     NS_UNAVAILABLE;
 +(instancetype)alloc    NS_UNAVAILABLE;
-+(GLuint)shaderProgramFromFiles: (NSString*) folderPath vertexShader: (NSString*) vShaderName fragmentShader: (NSString*) fShaderName;
++(GLuint)shaderProgramFromVertexShaderPath: (NSString*) vShaderPath fragmentShaderPath: (NSString*) fShaderPath;
 @end
 
 #endif

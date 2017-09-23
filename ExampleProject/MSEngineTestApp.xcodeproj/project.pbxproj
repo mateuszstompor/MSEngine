@@ -9,14 +9,9 @@
 /* Begin PBXBuildFile section */
 		6104CF091F324723000547D8 /* classroom.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF061F32471A000547D8 /* classroom.obj */; };
 		6104CF0A1F324723000547D8 /* simpleCube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF071F32471A000547D8 /* simpleCube.obj */; };
-		6104CF141F324C62000547D8 /* ios_shaders_header in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0D1F32473D000547D8 /* ios_shaders_header */; };
-		6104CF151F324C62000547D8 /* LightShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0E1F32473D000547D8 /* LightShader.frag */; };
-		6104CF161F324C62000547D8 /* MSGraphicsConstants.h in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF101F32473D000547D8 /* MSGraphicsConstants.h */; };
-		6104CF171F324C62000547D8 /* VShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF111F32473D000547D8 /* VShader.vert */; };
 		6104CF181F3250F6000547D8 /* iMSGraphicsEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6104CF011F3245C8000547D8 /* iMSGraphicsEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		615A8C401F68789300BD93AB /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615A8C3F1F68789300BD93AB /* InitialViewController.swift */; };
 		615D78A61F588CB900EAE383 /* classroom.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 615D78A51F588CB900EAE383 /* classroom.mtl */; };
-		615D78B11F589E6D00EAE383 /* FShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6104CF0C1F32473D000547D8 /* FShader.frag */; };
 		615D78B21F589E9900EAE383 /* base_bareMetal.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1351F5878CD005A122C /* base_bareMetal.bmp */; };
 		615D78B31F589E9900EAE383 /* base_brightWood.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1361F5878CD005A122C /* base_brightWood.bmp */; };
 		615D78B41F589E9900EAE383 /* base_brownWood.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1371F5878CD005A122C /* base_brownWood.bmp */; };
@@ -89,12 +84,6 @@
 		6104CEF01F3245C8000547D8 /* MSGraphicsEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MSGraphicsEngine.xcodeproj; path = ../MSGraphicsEngine.xcodeproj; sourceTree = "<group>"; };
 		6104CF061F32471A000547D8 /* classroom.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = classroom.obj; sourceTree = "<group>"; };
 		6104CF071F32471A000547D8 /* simpleCube.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = simpleCube.obj; sourceTree = "<group>"; };
-		6104CF0C1F32473D000547D8 /* FShader.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FShader.frag; sourceTree = "<group>"; };
-		6104CF0D1F32473D000547D8 /* ios_shaders_header */ = {isa = PBXFileReference; lastKnownFileType = text; path = ios_shaders_header; sourceTree = "<group>"; };
-		6104CF0E1F32473D000547D8 /* LightShader.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = LightShader.frag; sourceTree = "<group>"; };
-		6104CF0F1F32473D000547D8 /* mac_shaders_header */ = {isa = PBXFileReference; lastKnownFileType = text; path = mac_shaders_header; sourceTree = "<group>"; };
-		6104CF101F32473D000547D8 /* MSGraphicsConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphicsConstants.h; sourceTree = "<group>"; };
-		6104CF111F32473D000547D8 /* VShader.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = VShader.vert; sourceTree = "<group>"; };
 		6140D1351F5878CD005A122C /* base_bareMetal.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_bareMetal.bmp; path = ../Textures/base_bareMetal.bmp; sourceTree = "<group>"; };
 		6140D1361F5878CD005A122C /* base_brightWood.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_brightWood.bmp; path = ../Textures/base_brightWood.bmp; sourceTree = "<group>"; };
 		6140D1371F5878CD005A122C /* base_brownWood.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = base_brownWood.bmp; path = ../Textures/base_brownWood.bmp; sourceTree = "<group>"; };
@@ -158,20 +147,6 @@
 			);
 			name = 3DModels;
 			path = ../3DModels;
-			sourceTree = "<group>";
-		};
-		6104CF0B1F32473D000547D8 /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				6104CF0C1F32473D000547D8 /* FShader.frag */,
-				6104CF0D1F32473D000547D8 /* ios_shaders_header */,
-				6104CF0E1F32473D000547D8 /* LightShader.frag */,
-				6104CF0F1F32473D000547D8 /* mac_shaders_header */,
-				6104CF101F32473D000547D8 /* MSGraphicsConstants.h */,
-				6104CF111F32473D000547D8 /* VShader.vert */,
-			);
-			name = Shaders;
-			path = ../../Shaders;
 			sourceTree = "<group>";
 		};
 		6140D1551F5878D9005A122C /* Textures */ = {
@@ -286,7 +261,6 @@
 			children = (
 				6140D1551F5878D9005A122C /* Textures */,
 				61D6CE181F3237490021133D /* Assets.xcassets */,
-				6104CF0B1F32473D000547D8 /* Shaders */,
 				6104CF041F32471A000547D8 /* 3DModels */,
 			);
 			name = Assets;
@@ -396,12 +370,7 @@
 				615D78BC1F589E9900EAE383 /* glass.bmp in Resources */,
 				615D78BD1F589E9900EAE383 /* wallClock.bmp in Resources */,
 				615D78BE1F589E9900EAE383 /* woodPlanks.bmp in Resources */,
-				615D78B11F589E6D00EAE383 /* FShader.frag in Resources */,
 				615D78A61F588CB900EAE383 /* classroom.mtl in Resources */,
-				6104CF141F324C62000547D8 /* ios_shaders_header in Resources */,
-				6104CF151F324C62000547D8 /* LightShader.frag in Resources */,
-				6104CF161F324C62000547D8 /* MSGraphicsConstants.h in Resources */,
-				6104CF171F324C62000547D8 /* VShader.vert in Resources */,
 				6104CF091F324723000547D8 /* classroom.obj in Resources */,
 				6104CF0A1F324723000547D8 /* simpleCube.obj in Resources */,
 				61D6CE1C1F3237490021133D /* LaunchScreen.storyboard in Resources */,

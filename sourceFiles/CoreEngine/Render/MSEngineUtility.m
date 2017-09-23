@@ -8,29 +8,26 @@
 #import "MSEngineUtility.h"
 
 @implementation MSEngineUtility
-+(GLuint)loadShaderAtFolder:(NSString*) pathToFolder fileName:(NSString*) fileName type:(GLenum) shaderType{
-    NSString * fullPathToShader = [pathToFolder stringByAppendingString:fileName];
-    NSMutableString * content = [[NSMutableString alloc] initWithContentsOfFile:fullPathToShader encoding:NSUTF8StringEncoding error:nil];
-    NSString * constantDefinitions = [[NSString alloc]
-                                     initWithContentsOfFile:[pathToFolder
-                                                             stringByAppendingString:@"MSGraphicsConstants.h"]
-                                                                            encoding:NSUTF8StringEncoding error:nil];
++(GLuint)loadShaderAtPath:(NSString*) filePath type:(GLenum) shaderType{
+    NSMutableString * content = [[NSMutableString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+
+    NSBundle* bundle = [NSBundle bundleForClass:[MSEngineUtility class]];
+    NSString* pathToConstants = [bundle pathForResource:@"MSGraphicsConstants" ofType:@"h"];
+    NSString * constantDefinitions = [[NSString alloc] initWithContentsOfFile:pathToConstants];
     if (constantDefinitions == nil) {
         [NSException raise:@"Cannot find constants header" format:@""];
     }
     [content insertString:constantDefinitions atIndex:0];
 #if iOS
-    NSString * iosHeader = [[NSString alloc]
-                            initWithContentsOfFile:[pathToFolder
-                                                    stringByAppendingString:@"ios_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    NSString* pathToHeader = [bundle pathForResource:@"ios_shaders_header" ofType:@""];
+    NSString * iosHeader = [[NSString alloc] initWithContentsOfFile:pathToHeader];
     if (iosHeader == nil) {
         [NSException raise:@"Cannot find ios header" format:@""];
     }
     [content insertString:iosHeader atIndex:0];
 #elif macOS
-    NSString * macHeader = [[NSString alloc]
-                            initWithContentsOfFile:[pathToFolder
-                                                    stringByAppendingString:@"mac_shaders_header"] encoding:NSUTF8StringEncoding error:nil];
+    NSString* pathToHeader = [bundle pathForResource:@"mac_shaders_header" ofType:@""];
+    NSString * macHeader = [[NSString alloc] initWithContentsOfFile:pathToHeader];
     if (macHeader == nil) {
         [NSException raise:@"Cannot find mac header" format:@""];
     }
@@ -70,9 +67,9 @@
     return shaderProgram;
 }
 
-+(GLuint)shaderProgramFromFiles: (NSString*) folderPath vertexShader: (NSString*) vShaderName fragmentShader: (NSString*) fShaderName{
-    GLuint vertexShader = [MSEngineUtility loadShaderAtFolder:folderPath fileName:vShaderName type:GL_VERTEX_SHADER];
-    GLuint fragmentShader = [MSEngineUtility loadShaderAtFolder:folderPath fileName:fShaderName type:GL_FRAGMENT_SHADER];
++(GLuint)shaderProgramFromVertexShaderPath: (NSString*) vShaderPath fragmentShaderPath: (NSString*) fShaderPath{
+    GLuint vertexShader = [MSEngineUtility loadShaderAtPath: vShaderPath type:GL_VERTEX_SHADER];
+    GLuint fragmentShader = [MSEngineUtility loadShaderAtPath: fShaderPath type:GL_FRAGMENT_SHADER];
     return [MSEngineUtility createBasicShaderProgramWithVertexShader:vertexShader fragmentShader:fragmentShader];
 }
 @end

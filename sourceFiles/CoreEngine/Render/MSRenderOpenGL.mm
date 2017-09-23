@@ -8,17 +8,23 @@
 
 #import "MSRenderOpenGL.h"
 #include <string>
+#import "MSEngineUtility.h"
 
 @implementation MSRenderOpenGL
 
--(instancetype)initWithWorld:(MSWorld *)w modelShader: (GLuint)mSh lightShader: (GLuint)lsh{
+-(instancetype)initWithWorld:(MSWorld *)w {
     self=[super init];
     if(self){
         self->world=w;
         self->modelsLoadedToGraphics = [[NSMutableDictionary alloc] init];
         self->texturesLoadedToGraphics = [[NSMutableDictionary alloc] init];
-        self->lightShaderProgram=lsh;
-        self->modelShaderProgram=mSh;
+        NSBundle* bundle = [NSBundle bundleForClass:[MSEngineUtility class]];
+        NSString* lightShaderPath = [bundle pathForResource:@"LightShader" ofType:@"frag"];
+        NSString* vertexShaderPath = [bundle pathForResource:@"VShader" ofType:@"vert"];
+        NSString* fragmentShaderPath = [bundle pathForResource:@"FShader" ofType:@"frag"];
+        
+        self->lightShaderProgram=[MSEngineUtility shaderProgramFromVertexShaderPath: vertexShaderPath fragmentShaderPath:lightShaderPath];
+        self->modelShaderProgram=[MSEngineUtility shaderProgramFromVertexShaderPath: vertexShaderPath fragmentShaderPath:fragmentShaderPath];
         //        self->settings=0;
         self->lastFrameRate=0;
         self->lastSecond=[NSDate date];
@@ -27,6 +33,7 @@
     }
     return self;
 }
+
 -(void)setUpOpenGLOptions{
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
@@ -215,8 +222,7 @@
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
-
--(void)dealloc{
+-(void)clean {
     glDeleteProgram(modelShaderProgram);
     glDeleteProgram(lightShaderProgram);
 }

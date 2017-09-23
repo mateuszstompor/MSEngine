@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RedBlackTree.h"
 
 #ifndef MSVERTEXDATA_H
 #define MSVERTEXDATA_H
