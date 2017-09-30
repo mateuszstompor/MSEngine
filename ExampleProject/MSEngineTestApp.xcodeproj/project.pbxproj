@@ -25,6 +25,8 @@
 		615D78BD1F589E9900EAE383 /* wallClock.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1401F5878CD005A122C /* wallClock.bmp */; };
 		615D78BE1F589E9900EAE383 /* woodPlanks.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1411F5878CD005A122C /* woodPlanks.bmp */; };
 		617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617CA6391F352EE30096F1DD /* JoystickView.swift */; };
+		61D3C7971F8017D9008ED22B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D3C7951F8017D9008ED22B /* Fabric.framework */; };
+		61D3C7981F8017D9008ED22B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D3C7961F8017D9008ED22B /* Crashlytics.framework */; };
 		61D6CE0E1F3237490021133D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE0D1F3237490021133D /* main.m */; };
 		61D6CE111F3237490021133D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE101F3237490021133D /* AppDelegate.m */; };
 		61D6CE141F3237490021133D /* RenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE131F3237490021133D /* RenderViewController.m */; };
@@ -100,6 +102,8 @@
 		615D78A51F588CB900EAE383 /* classroom.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = classroom.mtl; sourceTree = "<group>"; };
 		617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSEngineTestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		617CA6391F352EE30096F1DD /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
+		61D3C7951F8017D9008ED22B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
+		61D3C7961F8017D9008ED22B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
 		61D6CE091F3237490021133D /* MSEngineTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSEngineTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D6CE0D1F3237490021133D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61D6CE0F1F3237490021133D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				61D6CE941F3241740021133D /* GLKit.framework in Frameworks */,
+				61D3C7981F8017D9008ED22B /* Crashlytics.framework in Frameworks */,
+				61D3C7971F8017D9008ED22B /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +256,8 @@
 		61D6CE231F32378C0021133D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61D3C7961F8017D9008ED22B /* Crashlytics.framework */,
+				61D3C7951F8017D9008ED22B /* Fabric.framework */,
 				61D6CE931F3241740021133D /* GLKit.framework */,
 				61D6CE901F32403F0021133D /* iMSGraphicsEngine.framework */,
 			);
@@ -277,6 +285,7 @@
 				61D6CE061F3237490021133D /* Frameworks */,
 				61D6CE071F3237490021133D /* Resources */,
 				61D6CE4A1F323E720021133D /* Embed Frameworks */,
+				6131FFAC1F8011B50008023A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -380,6 +389,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6131FFAC1F8011B50008023A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/Frameworks/Fabric.framework/run\" 38251d925c88b2ca833e12f8053d5ccff78eafbd 4877e164f31747aa936115b242698a53e3b60a9185a62c046ca40282940261b5";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		61D6CE051F3237490021133D /* Sources */ = {
@@ -526,10 +551,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"/Users/mateusz/Library/Developer/Xcode/DerivedData/MSGraphicsEngine-hhctpyiclkohqpdwogujdjqbhjhc/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/Frameworks",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MSEngineTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.MSEngineTestApp;
 				PRODUCT_MODULE_NAME = MSEngineTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,10 +578,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"/Users/mateusz/Library/Developer/Xcode/DerivedData/MSGraphicsEngine-hhctpyiclkohqpdwogujdjqbhjhc/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/Frameworks",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MSEngineTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stompor.mateusz.MSEngineTestApp;
 				PRODUCT_MODULE_NAME = MSEngineTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
