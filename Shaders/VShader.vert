@@ -59,6 +59,28 @@ mat4 lookAt( vec3 eye, vec3 target, vec3 up )
     return orientation * translation;
 }
 
+mat4 fpsCamera( vec3 eye, float pitch, float yaw ){
+    // I assume the values are already converted to radians.
+    float cosPitch = cos(pitch);
+    float sinPitch = sin(pitch);
+    float cosYaw = cos(yaw);
+    float sinYaw = sin(yaw);
+    
+    vec3 xaxis = vec3( cosYaw, 0, -sinYaw );
+    vec3 yaxis = vec3( sinYaw * sinPitch, cosPitch, cosYaw * sinPitch );
+    vec3 zaxis = vec3( sinYaw * cosPitch, -sinPitch, cosPitch * cosYaw );
+    
+    // Create a 4x4 view matrix from the right, up, forward and eye position vectors
+    mat4 viewMatrix = mat4(
+        vec4(       xaxis.x,            yaxis.x,            zaxis.x,      0 ),
+        vec4(       xaxis.y,            yaxis.y,            zaxis.y,      0 ),
+        vec4(       xaxis.z,            yaxis.z,            zaxis.z,      0 ),
+        vec4( -dot( xaxis, eye ), -dot( yaxis, eye ), -dot( zaxis, eye ), 1 )
+    );
+    
+    return viewMatrix;
+}
+
 void main(void){
     mat4 modelToWorld = transformation.translation * transformation.rotation * transformation.scale;
     vec4 positionInWorld = modelToWorld * vec4(position,1.0f);
