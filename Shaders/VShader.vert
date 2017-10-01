@@ -41,11 +41,9 @@ out Material materiall;
 void main(void){
     mat4 modelToWorld = transformation.translation * transformation.rotation * transformation.scale;
     vec4 positionInWorld = modelToWorld * vec4(position,1.0f);
-    mat4 cameraTransform = camera.translation * camera.rotation;
     fragmentPositionInWorld = positionInWorld.xyz;
-    
-    gl_Position = camera.projection * cameraTransform * positionInWorld;
-    cameraPositionInWorld = vec4(cameraTransform*vec4(0.0f)).xyz;
+    gl_Position = camera.projection * camera.rotation * camera.translation  * positionInWorld;
+    cameraPositionInWorld = vec4(camera.translation * camera.rotation*vec4(1.0f)).xyz;
     if(material.hasTexture==true){
         textureCoords=textureCoordinates;
     }
