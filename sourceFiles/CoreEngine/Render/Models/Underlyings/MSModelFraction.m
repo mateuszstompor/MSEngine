@@ -30,7 +30,7 @@
         self->textureCoordinates=[[NSMutableArray alloc] init];
         self->name=nil;
         self->materialName=nil;
-        self->_uniqueName=[NSValue valueWithNonretainedObject:self];
+        self->_uniqueID=[NSValue valueWithNonretainedObject:self];
         self->modelRotation = [MSMatrixND identityMatrix:4];
         self->modelScale = [MSMatrixND identityMatrix:4];
         self->modelTranslation = [MSMatrixND identityMatrix:4];
@@ -38,7 +38,7 @@
     return self;
 }
 -(NSValue*)getUniqueName{
-    return self->_uniqueName;
+    return self->_uniqueID;
 }
 
 -(float*)parsePointsToArray: (NSArray<MSPoint*>*) data feedingFunction: (SEL) feedingFunction buffer: (float*) buf {

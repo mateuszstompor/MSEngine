@@ -85,10 +85,6 @@
     }
 }
 
--(void)dealloc {
-    [self unloadFromGraphics];
-}
-
 //amounts of vertices to draw vertex consists of 3 numbers x, y and z position
 -(unsigned int)indiciesToDraw{
     return self->indiciesToDraw;

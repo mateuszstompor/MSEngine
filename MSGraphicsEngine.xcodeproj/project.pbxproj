@@ -737,7 +737,6 @@
 				61D6CE721F323F5A0021133D /* MSVectorND.h in Headers */,
 				614C96BC1F3E24F9007CE857 /* MSTexture.h in Headers */,
 				618C50371F48F31F00D13A5C /* MSTextureLoader.h in Headers */,
-				616D32091F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */,
 				614D56C61F4080E200AA97ED /* MSFileSearcher.h in Headers */,
 				61D6CE611F323F5A0021133D /* MSVertexData.h in Headers */,
 				61D6CE621F323F5A0021133D /* MSModelFace.h in Headers */,
@@ -747,6 +746,7 @@
 				6171D0881F3F3756000A0D0C /* MSRenderableTexture.h in Headers */,
 				612568741F3FC2D900ED5962 /* iMSGraphicsEngine.h in Headers */,
 				615A01261F3CB8140003E9E9 /* MSPositionedLight.h in Headers */,
+				616D32091F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

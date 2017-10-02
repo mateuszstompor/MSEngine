@@ -22,7 +22,7 @@
 @property (atomic) NSMutableArray<MSModelFace*>* facesData;
 @property (atomic) NSString* materialName;
 @property (atomic) NSString* name;
-@property (atomic) NSValue* uniqueName;
+@property (atomic) NSValue* uniqueID;
 
 -(instancetype)init;
 -(NSValue*)getUniqueName;
