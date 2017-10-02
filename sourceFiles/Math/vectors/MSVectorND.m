@@ -28,14 +28,17 @@
 }
 
 -(instancetype)initWithComponents: (unsigned int const) dim, ...{
-    va_list listPointer;
-    va_start(listPointer, dim);
-    self->dimension=dim;
-    self->components=(float*)malloc(dim*sizeof(float));
-    for(int i=0; i<dim; ++i){
-        *(self->components+i)=(float)va_arg(listPointer, double);
+    self = [super init];
+    if (self) {
+        va_list listPointer;
+        va_start(listPointer, dim);
+        self->dimension=dim;
+        self->components=(float*)malloc(dim*sizeof(float));
+        for(int i=0; i<dim; ++i){
+            *(self->components+i)=(float)va_arg(listPointer, double);
+        }
+        va_end(listPointer);
     }
-    va_end(listPointer);
     return self;
 }
 

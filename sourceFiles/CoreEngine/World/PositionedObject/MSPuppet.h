@@ -15,7 +15,7 @@
 {
     NSArray<MSModelFraction*>* model;
 }
--(instancetype _Nullable)init NS_UNAVAILABLE;
+-(instancetype _Nonnull)init NS_UNAVAILABLE;
 -(NSArray<MSModelFraction*>* _Nonnull)getModelComponents;
 -(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod;
 @end

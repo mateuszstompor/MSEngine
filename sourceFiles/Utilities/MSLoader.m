@@ -11,6 +11,8 @@
 #import "MSFileSearcher.h"
 #import "MSLoaderOBJ.h"
 #import "MSLoaderMTL.h"
+#import "MSModelFraction.h"
+#import "MSTexture.h"
 
 @implementation MSLoader
 {

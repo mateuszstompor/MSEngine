@@ -11,6 +11,16 @@
 
 @implementation MSRender
 
+-(instancetype)initWithWorld:(MSWorld *)worl {
+    self = [super init];
+    if (self) {
+        self->world = worl;
+        self->lastSecond = [[NSDate alloc] init];
+        self->lastFrameRate = 0;
+    }
+    return self;
+}
+
 -(void)drawScene {
     [self countFrameRate];
     [self clearFrame];

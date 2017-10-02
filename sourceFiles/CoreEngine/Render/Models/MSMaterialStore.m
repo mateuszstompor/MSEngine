@@ -25,7 +25,7 @@
     [availableMaterials setObject:material forKey:[material name]];
 }
 -(void)addTexture: (MSTexture*) texture{
-    [availableTextures setObject: texture forKey:[texture name]];
+    [availableTextures setObject: texture forKey:[texture getName]];
 }
 -(int)amountOfMaterials{
     return (int)[availableMaterials count];

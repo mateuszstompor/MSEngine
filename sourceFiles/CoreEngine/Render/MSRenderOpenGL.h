@@ -27,12 +27,9 @@
 {
     GLuint modelShaderProgram;
     GLuint lightShaderProgram;
-    MSWorld* world;
     NSMutableDictionary<NSValue*,MSDrawableFraction*>* modelsLoadedToGraphics;
     NSMutableDictionary<NSString*,MSTextureOpenGL*>* texturesLoadedToGraphics;
 }
-
--(instancetype)initWithWorld:(MSWorld *)world;
 
 @end
 #endif

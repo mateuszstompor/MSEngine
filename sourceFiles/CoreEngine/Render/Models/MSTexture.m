@@ -18,7 +18,7 @@
         self->data = dat;
         self->width = wid;
         self->height = hei;
-        self->_name = [[NSString alloc] initWithString:nam];
+        self->name = [[NSString alloc] initWithString:nam];
     }
     return self;
 }
@@ -26,6 +26,8 @@
 -(void)dealloc{
     free(self->data);
 }
-
+-(NSString*)getName {
+    return self->name;
+}
 @end
 

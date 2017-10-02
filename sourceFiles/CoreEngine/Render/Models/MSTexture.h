@@ -19,13 +19,12 @@
     unsigned char * data;
     int width;
     int height;
+    NSString* name;
 }
-
-@property (atomic) NSString* name;
 
 -(instancetype)initWithData: (unsigned char*) data
                       width: (int) width height: (int) height name: (NSString*) name;
-
+-(NSString*)getName;
 @end
 
 #endif

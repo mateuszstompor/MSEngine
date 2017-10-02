@@ -22,7 +22,9 @@
 
 @interface MSTextureOpenGL : MSTexture <MSRenderableTexture>
 
-@property (readonly) GLuint textureID;
+{
+    GLuint textureID;
+}
 
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initTextureFromFile: (NSString*) path NS_UNAVAILABLE;

@@ -13,9 +13,8 @@
 @implementation MSRenderOpenGL
 
 -(instancetype)initWithWorld:(MSWorld *)w {
-    self=[super init];
+    self=[super initWithWorld:w];
     if(self){
-        self->world=w;
         self->modelsLoadedToGraphics = [[NSMutableDictionary alloc] init];
         self->texturesLoadedToGraphics = [[NSMutableDictionary alloc] init];
         NSBundle* bundle = [NSBundle bundleForClass:[MSEngineUtility class]];
@@ -25,9 +24,7 @@
         
         self->lightShaderProgram=[MSEngineUtility shaderProgramFromVertexShaderPath: vertexShaderPath fragmentShaderPath:lightShaderPath];
         self->modelShaderProgram=[MSEngineUtility shaderProgramFromVertexShaderPath: vertexShaderPath fragmentShaderPath:fragmentShaderPath];
-        //        self->settings=0;
-        self->lastFrameRate=0;
-        self->lastSecond=[NSDate date];
+        
         [self loadObjectsToGraphics];
         [self setUpOpenGLOptions];
     }

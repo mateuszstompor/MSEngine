@@ -17,8 +17,8 @@
 {
     float lastFrameRate;
     NSDate *lastSecond;
+    MSWorld* world;
 }
-@property (atomic) int settings;
 
 -(instancetype)alloc NS_UNAVAILABLE;
 -(void)clearFrame;
@@ -26,6 +26,8 @@
 -(void)drawModels;
 -(void)drawScene;
 -(float)getCurrentFrameRate;
+
+-(instancetype)initWithWorld:(MSWorld *)world;
 
 @end
 

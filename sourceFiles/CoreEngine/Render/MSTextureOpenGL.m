@@ -10,23 +10,21 @@
 
 @implementation MSTextureOpenGL
 
-@synthesize textureID = _textureID;
-
 -(instancetype)initFromTexture: (MSTexture*) texture{
     self = [super init];
     if (self) {
         self->width = texture->width;
         self->height = texture->height;
-        self->_textureID = 0;
+        self->textureID = 0;
         self->data = texture->data;
-        self.name = [[NSString alloc] initWithString:texture.name];
+        self->name = [[NSString alloc] initWithString:[texture getName]];
         [self loadToGraphicsMemory];
     }
     return self;
 }
 
 -(unsigned int)getUniqueID {
-    return self->_textureID;
+    return self->textureID;
 }
 
 -(instancetype)initFromOpenGLTexture: (GLuint) itsID width: (unsigned int) wid height: (unsigned int) hei {
@@ -34,14 +32,14 @@
     if (self) {
         self->width = wid;
         self->height = hei;
-        self->_textureID = itsID;
+        self->textureID = itsID;
     }
     return self;
 }
 
 -(void)loadToGraphicsMemory{
-        glGenTextures(1, &self->_textureID);
-        glBindTexture(GL_TEXTURE_2D, _textureID);
+        glGenTextures(1, &self->textureID);
+        glBindTexture(GL_TEXTURE_2D, textureID);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -50,18 +48,18 @@
         glGenerateMipmap(GL_TEXTURE_2D);
     GLenum err = glGetError();
     if (err != GL_NO_ERROR){
-        NSLog(@"Error uploading texture. glError: 0x%04X, texture name \"%@\"", err, [self name]);
+        NSLog(@"Error uploading texture. glError: 0x%04X, texture name \"%@\"", err, [self getName]);
     }
     glBindTexture(GL_TEXTURE_2D, 0);
     
 }
 
 -(void) deallocateFromGraphicsMemory{
-    glDeleteTextures(1, &self->_textureID);
-    self->_textureID = 0;
+    glDeleteTextures(1, &self->textureID);
+    self->textureID = 0;
 }
 
--(void)dealloc{
+-(void) clean{
     [self deallocateFromGraphicsMemory];
 }
 
