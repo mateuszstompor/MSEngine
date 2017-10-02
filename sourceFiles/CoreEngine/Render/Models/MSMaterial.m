@@ -18,7 +18,7 @@
 @synthesize transparency = _transparency;
 @synthesize renderMode = _renderMode;
 @synthesize refraction = _refraction;
-@synthesize associatedTexture = _associatedTexture;
+@synthesize associatedTextureName = _associatedTextureName;
 
 -(instancetype)init{
     self = [super init];
@@ -31,7 +31,7 @@
         self->_transparency=0;
         self->_renderMode=COLOR_ON_AMBIENT_OFF;
         self->_refraction=0;
-        self->_associatedTexture=nil;
+        self->_associatedTextureName=nil;
     }
     return self;
 }

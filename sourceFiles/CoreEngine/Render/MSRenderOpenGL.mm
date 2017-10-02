@@ -61,14 +61,14 @@
     if (itsMaterialName) {
         MSMaterial* material = [[self->world getAvailavleMaterials] getMaterialWithName:itsMaterialName];
         if (material) {
-            if([material associatedTexture] != nil){
-                MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTexture]];
+            if([material associatedTextureName] != nil){
+                MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTextureName]];
                 if (renderableTexture == nil) {
-                    MSTexture* texture = [[self->world getAvailavleMaterials] getTextureWithName:[material associatedTexture]];
+                    MSTexture* texture = [[self->world getAvailavleMaterials] getTextureWithName:[material associatedTextureName]];
                     if (texture != nil) {
                         renderableTexture = [[MSTextureOpenGL alloc] initFromTexture:texture];
                         if (renderableTexture != nil) {
-                            [self->texturesLoadedToGraphics setObject:renderableTexture forKey:[material associatedTexture]];
+                            [self->texturesLoadedToGraphics setObject:renderableTexture forKey:[material associatedTextureName]];
                         }
                     }
                 }
@@ -124,7 +124,7 @@
         MSVector3D* specular = [material specular];
         float shininess = [material shininess];
         
-        MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTexture]];
+        MSTextureOpenGL* renderableTexture = [texturesLoadedToGraphics objectForKey:[material associatedTextureName]];
         if (renderableTexture == nil) {
             glUniform1i(glGetUniformLocation(prog, "material.hasTexture"), NO);
             glBindTexture(GL_TEXTURE_2D, 0);

@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, RenderMode) {
     @property (atomic) float transparency;
     @property (atomic) RenderMode renderMode;
     @property (atomic) float refraction;
-    @property (atomic) NSString* associatedTexture;
+    @property (atomic) NSString* associatedTextureName;
 
 -(instancetype)init;
 

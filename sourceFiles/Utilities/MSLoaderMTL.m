@@ -140,7 +140,7 @@
                 char fileName [500];
                 if(sscanf(buffer, "map_Kd %s", fileName)==1){
                     NSString * nameOfTexture = [[NSString alloc] initWithUTF8String:fileName];
-                    [materialUnderProcessing setAssociatedTexture: nameOfTexture];
+                    [materialUnderProcessing setAssociatedTextureName: nameOfTexture];
 //                    if([materials getTextureWithName:nameOfTexture] == nil){
 //                        NSFileManager* fm = [NSFileManager defaultManager];
 //                        if([fm fileExistsAtPath:nameOfTexture]){
