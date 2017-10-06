@@ -61,7 +61,18 @@
     float yTranslation = zTranslation/5000.0f;
     [EAGLContext setCurrentContext:[self context]];
     if(renderer!=nil){
-        [world translateObject:[world getCamera] x:-self->translation.x*fraction y:yTranslation z:self->translation.y*fraction];
+        MSMatrix4D* camRot = [[world getCamera] modelRotation];
+        MSVector4D* direction = [[MSVectorND alloc] initVecWithDimension:3];
+        [direction setValueAtIdenx:0 value:[camRot getValueAtRowIndex:2 andColumnIndex:0]];
+        [direction setValueAtIdenx:1 value:[camRot getValueAtRowIndex:2 andColumnIndex:1]];
+        [direction setValueAtIdenx:2 value:[camRot getValueAtRowIndex:2 andColumnIndex:2]];
+        MSVector4D* right = [[MSVectorND alloc] initVecWithDimension:3];
+        [right setValueAtIdenx:0 value:[camRot getValueAtRowIndex:0 andColumnIndex:0]];
+        [right setValueAtIdenx:1 value:[camRot getValueAtRowIndex:0 andColumnIndex:1]];
+        [right setValueAtIdenx:2 value:[camRot getValueAtRowIndex:0 andColumnIndex:2]];
+        
+        [world translateObject:[world getCamera] x:self->translation.y*[direction valueAtIndex:0]*fraction y:self->translation.y*[direction valueAtIndex:1]*fraction z:self->translation.y*[direction valueAtIndex:2]*fraction];
+        [world translateObject:[world getCamera] x:-self->translation.x*[right valueAtIndex:0]*fraction y:-self->translation.x*[right valueAtIndex:1]*fraction z:-self->translation.x*[right valueAtIndex:2]*fraction];
         [world rotateObject:[world getCamera] x:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
         [self->labelToUpdate setText:[[NSString alloc] initWithFormat:@"%.1f",[self->renderer getCurrentFrameRate]]];
         [renderer drawScene];

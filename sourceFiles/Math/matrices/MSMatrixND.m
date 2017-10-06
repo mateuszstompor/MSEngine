@@ -172,4 +172,10 @@
     free(cMatrix);
     free(asArrayMatrix);
 }
+-(MSVectorND*)getColumn: (int) columnIndex {
+    return [[MSVectorND alloc] initWithVector:[self->matrix objectAtIndex:columnIndex]];
+}
+-(float)getValueAtRowIndex:(int) row andColumnIndex: (int) column {
+    return [[self->matrix objectAtIndex:column] valueAtIndex:row];
+}
 @end

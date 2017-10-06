@@ -43,12 +43,14 @@
 -(MSVectorND*)safeMultiplyByColumnVector: (MSVectorND*)vector;
 -(MSMatrixND*)multiplyByMatrix: (MSMatrixND*)otherMatrix;
 -(MSMatrixND*)safeMultiplyByMatrix: (MSMatrixND*)otherMatrix;
+-(MSVectorND*)getColumn: (int) columnIndex;
 -(int)getAmountOfColumns;
 -(int)getAmountOfRows;
 -(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix;
 -(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (float) accuracy;
 -(float*)matrixAsArray;
 -(void)setValueAtRowIndex:(int) rowI andColumnIndex: (int) columnI value:(float)val;
+-(float)getValueAtRowIndex:(int) row andColumnIndex: (int) column;
 @end
 
 typedef MSMatrixND MSMatrix4D;
