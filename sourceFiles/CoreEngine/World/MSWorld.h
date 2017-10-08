@@ -28,8 +28,8 @@
 }
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithMaterials: (MSMaterialStore*)store camera: (MSCamera*)cam;
--(void)translateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z;
--(void)rotateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z;
+-(void)translateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z;
+-(void)rotateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z;
 -(MSCamera*)getCamera;
 -(NSMutableArray<MSPuppet*>*)getModels;
 -(void)addModelToWorld: (MSPuppet*)pup;

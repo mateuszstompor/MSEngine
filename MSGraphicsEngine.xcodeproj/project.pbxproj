@@ -85,6 +85,10 @@
 		615A01241F3CB72C0003E9E9 /* MSLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01221F3CB72C0003E9E9 /* MSLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		615A01261F3CB8140003E9E9 /* MSPositionedLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01231F3CB72C0003E9E9 /* MSPositionedLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		615C2D671F7061BE00882F01 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615C2D661F7061BE00882F01 /* OCMock.framework */; };
+		6162E17E1F8A6D8500257893 /* MSModelTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 6162E17C1F8A6D8500257893 /* MSModelTransform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6162E17F1F8A6D8500257893 /* MSModelTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 6162E17C1F8A6D8500257893 /* MSModelTransform.h */; };
+		6162E1801F8A6D8500257893 /* MSModelTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6162E17D1F8A6D8500257893 /* MSModelTransform.m */; };
+		6162E1811F8A6D8500257893 /* MSModelTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6162E17D1F8A6D8500257893 /* MSModelTransform.m */; };
 		616D32091F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */ = {isa = PBXBuildFile; fileRef = 616D32071F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		616D320A1F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */ = {isa = PBXBuildFile; fileRef = 616D32071F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h */; };
 		616D320B1F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 616D32081F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m */; };
@@ -227,6 +231,8 @@
 		615EE8BB1EFAF1A8009537F9 /* MSLoaderMTL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoaderMTL.m; sourceTree = "<group>"; };
 		615EE8C01EFAFAD8009537F9 /* MSMaterialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMaterialStore.h; sourceTree = "<group>"; };
 		615EE8C11EFAFAD8009537F9 /* MSMaterialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMaterialStore.m; sourceTree = "<group>"; };
+		6162E17C1F8A6D8500257893 /* MSModelTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSModelTransform.h; sourceTree = "<group>"; };
+		6162E17D1F8A6D8500257893 /* MSModelTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSModelTransform.m; sourceTree = "<group>"; };
 		616D32071F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextureLoaderBMP.h; path = Loaders/TextureLoaders/MSTextureLoaderBMP.h; sourceTree = "<group>"; };
 		616D32081F4B50FB00D8FFB9 /* MSTextureLoaderBMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSTextureLoaderBMP.m; path = Loaders/TextureLoaders/MSTextureLoaderBMP.m; sourceTree = "<group>"; };
 		618C502E1F48F22F00D13A5C /* MSLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoader.h; sourceTree = "<group>"; };
@@ -539,6 +545,8 @@
 				615AF6B21EB8B3930086897F /* MSPuppet.m */,
 				61D9B1E91F05BDDB0063DD04 /* MSCamera.h */,
 				61D9B1EA1F05BDDB0063DD04 /* MSCamera.m */,
+				6162E17C1F8A6D8500257893 /* MSModelTransform.h */,
+				6162E17D1F8A6D8500257893 /* MSModelTransform.m */,
 			);
 			path = PositionedObject;
 			sourceTree = "<group>";
@@ -678,6 +686,7 @@
 			files = (
 				6101C8891F3CCA180011117A /* MSGraphicsConstants.h in Headers */,
 				6101C88A1F3CCA180011117A /* MSVertexData.h in Headers */,
+				6162E17F1F8A6D8500257893 /* MSModelTransform.h in Headers */,
 				6101C88B1F3CCA180011117A /* MSModelFace.h in Headers */,
 				6101C88C1F3CCA180011117A /* MSModelFraction.h in Headers */,
 				6101C88D1F3CCA180011117A /* MSMaterial.h in Headers */,
@@ -745,6 +754,7 @@
 				61D6CE631F323F5A0021133D /* MSModelFraction.h in Headers */,
 				6171D0881F3F3756000A0D0C /* MSRenderableTexture.h in Headers */,
 				612568741F3FC2D900ED5962 /* iMSGraphicsEngine.h in Headers */,
+				6162E17E1F8A6D8500257893 /* MSModelTransform.h in Headers */,
 				615A01261F3CB8140003E9E9 /* MSPositionedLight.h in Headers */,
 				616D32091F4B50FB00D8FFB9 /* MSTextureLoaderBMP.h in Headers */,
 			);
@@ -893,6 +903,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6162E1811F8A6D8500257893 /* MSModelTransform.m in Sources */,
 				6100D92C1F6D0A97003BE81A /* MSRender.m in Sources */,
 				6101C8721F3CC9EE0011117A /* MSVertexData.m in Sources */,
 				6101C8731F3CC9EE0011117A /* MSModelFace.m in Sources */,
@@ -938,6 +949,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6162E1801F8A6D8500257893 /* MSModelTransform.m in Sources */,
 				613C61231F5C4F350088FE9D /* MSRender.m in Sources */,
 				61D6CE761F323F660021133D /* MSVertexData.m in Sources */,
 				61D6CE771F323F660021133D /* MSModelFace.m in Sources */,

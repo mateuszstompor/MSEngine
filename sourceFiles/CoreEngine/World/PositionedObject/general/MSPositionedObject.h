@@ -6,20 +6,13 @@
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import "MSMatrixND.h"
+#import "MSModelTransform.h"
 
 #ifndef MSPOSITIONEDOBJECT_H
 #define MSPOSITIONEDOBJECT_H
 @protocol MSPositionedObject
 
-
-@property (readonly) MSMatrix4D* modelScale;
-@property (readonly) MSMatrix4D* modelRotation;
-@property (readonly) MSMatrix4D* modelTranslation;
-
--(void)translateModelBy: (MSMatrix4D*) tr;
--(void)rotateModelBy: (MSMatrix4D*) rot;
--(void)scaleModelBy:(MSMatrix4D*) sc;
+-(MSModelTransform*) getTransformation;
 
 @end
 #endif

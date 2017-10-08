@@ -19,10 +19,10 @@
     }
     return self;
 }
--(void)translateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z{
+-(void)translateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z{
     [obj translateModelBy: [MSTransformationManager translationMatrix4x4:x y:y z:z]];
 }
--(void)rotateObject: (id<MSPositionedObject>)obj x:(float)x y:(float)y z:(float)z{
+-(void)rotateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z{
     [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
     [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
     [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];

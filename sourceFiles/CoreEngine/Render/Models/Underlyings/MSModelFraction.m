@@ -8,18 +8,18 @@
 
 #import "MSModelFraction.h"
 #import "MSMatrixND.h"
+#import "MSModelTransform.h"
 
 @implementation MSModelFraction
-
+{
+    MSModelTransform* transformation;
+}
 @synthesize materialName;
 @synthesize name;
 @synthesize vertices;
 @synthesize normals;
 @synthesize facesData;
 @synthesize textureCoordinates;
-@synthesize modelScale;
-@synthesize modelRotation;
-@synthesize modelTranslation;
 
 -(instancetype)init{
     self=[super init];
@@ -31,9 +31,7 @@
         self->name=nil;
         self->materialName=nil;
         self->_uniqueID=[NSValue valueWithNonretainedObject:self];
-        self->modelRotation = [MSMatrixND identityMatrix:4];
-        self->modelScale = [MSMatrixND identityMatrix:4];
-        self->modelTranslation = [MSMatrixND identityMatrix:4];
+        self->transformation = [[MSModelTransform alloc] initWithDimension:4];
     }
     return self;
 }
@@ -59,14 +57,7 @@
     return (buf+writeIndex);
 }
 
--(void)translateModelBy: (MSMatrixND*) tr{
-    self->modelTranslation=[tr multiplyByMatrix:modelTranslation];
+-(MSModelTransform*) getTransformation {
+    return self->transformation;
 }
--(void)rotateModelBy: (MSMatrixND*) rot{
-    self->modelRotation=[rot multiplyByMatrix:modelRotation];
-}
--(void)scaleModelBy:(MSMatrixND*) sc{
-    self->modelScale=[sc multiplyByMatrix:self->modelScale];
-}
-
 @end

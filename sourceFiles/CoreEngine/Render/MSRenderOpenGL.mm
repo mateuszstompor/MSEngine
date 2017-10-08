@@ -148,8 +148,8 @@
 -(void)setUpCameraUniforms: (GLuint) shaderProgram{
     MSCamera* cam = [world getCamera];
     glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "camera.projection"), 1, GL_FALSE, [[cam getProjectionMatrix] matrixAsArray]);
-    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "camera.translation"), 1, GL_FALSE, [[cam modelTranslation] matrixAsArray]);
-    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "camera.rotation"), 1, GL_FALSE, [[cam modelRotation] matrixAsArray]);
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "camera.translation"), 1, GL_FALSE, [[[cam getTransformation] modelTranslation] matrixAsArray]);
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "camera.rotation"), 1, GL_FALSE, [[[cam getTransformation] modelRotation] matrixAsArray]);
 }
 -(void)drawModels{
     glUseProgram(modelShaderProgram);
@@ -173,9 +173,9 @@
             translation[6]=48+lightIndex;
             glUniform3fv(glGetUniformLocation(modelShaderProgram, color.c_str()), 1, [[[[world getLightSources]objectAtIndex:lightIndex] color]getArrayStyleVector]);
             glUniform1f(glGetUniformLocation(modelShaderProgram, power.c_str()), [[[world getLightSources] objectAtIndex:lightIndex] power]);
-            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, translation.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]modelTranslation]matrixAsArray]);
-            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, scale.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]modelScale]matrixAsArray]);
-            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, rotation.c_str()), 1, GL_FALSE, [[[[world getLightSources]objectAtIndex:lightIndex]modelRotation]matrixAsArray]);
+            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, translation.c_str()), 1, GL_FALSE, [[[[[world getLightSources]objectAtIndex:lightIndex] getTransformation] modelTranslation]matrixAsArray]);
+            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, scale.c_str()), 1, GL_FALSE, [[[[[world getLightSources]objectAtIndex:lightIndex] getTransformation] modelScale]matrixAsArray]);
+            glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, rotation.c_str()), 1, GL_FALSE, [[[[[world getLightSources]objectAtIndex:lightIndex] getTransformation] modelRotation]matrixAsArray]);
         }
         [self drawPuppet:puppet withProgram:modelShaderProgram];
     }
@@ -186,9 +186,9 @@
     NSMutableArray<MSModelFraction*>* transparentFractions = [[NSMutableArray alloc] init];
     
     for(MSModelFraction* fraction in [puppet getModelComponents]){
-        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.rotation"), 1, GL_FALSE,  [[fraction modelRotation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.translation"), 1, GL_FALSE,  [[fraction modelTranslation] matrixAsArray]);
-        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.scale"), 1, GL_FALSE, [[fraction modelScale] matrixAsArray]);
+        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.rotation"), 1, GL_FALSE,  [[[fraction getTransformation] modelRotation] matrixAsArray]);
+        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.translation"), 1, GL_FALSE,  [[[fraction getTransformation] modelTranslation] matrixAsArray]);
+        glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transformation.scale"), 1, GL_FALSE, [[[fraction getTransformation] modelScale] matrixAsArray]);
         
         MSMaterial* material = [[world getAvailavleMaterials] getMaterialWithName:[fraction materialName]];
         if ([material transparency]==1.0f){
