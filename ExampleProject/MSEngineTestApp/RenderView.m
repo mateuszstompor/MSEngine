@@ -37,7 +37,6 @@
     [EAGLContext setCurrentContext:[self context]];    
     
     MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
-    MSVector3D* secondColor = [[MSVector3D alloc] initWithComponents:3, 0.7f, 0.9f, 1.0f];
     
     MSMaterialStore* materialStore = [[MSMaterialStore alloc] init];
     NSArray<MSMaterial*>* materials = [loader loadMaterials:@"classroom.mtl"];
@@ -46,14 +45,14 @@
     [materialStore addTextures: textures];
     
     NSArray<MSModelFraction*>* lightModel = [loader loadModel:@"simpleCube.obj"];
-    MSPointLight* light = [[MSPointLight alloc] initWithModel: lightModel color:firstColor power:50.0f];
-    
-    
 
+
+    MSPointLight* light = [[MSPointLight alloc] initWithModel: lightModel color:firstColor power:5000.0f];
+    
+    
     [[light getTransformation] scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.2 repeatToIndex:2]];
-    MSPointLight* secondLight = [[MSPointLight alloc] initWithModel: lightModel color:secondColor power:80.0f];
-
-    [[secondLight getTransformation] scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.2 repeatToIndex:2]];
+    [[[[light getModelComponents] objectAtIndex:0] getTransformation] scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.02 repeatToIndex:2]];
+    
 
     
     MSPuppet* classroom = [[MSPuppet alloc] initWithModel:[loader loadModel:@"classroom.obj"]];
@@ -61,7 +60,7 @@
 
     world = [[MSWorld alloc] initWithMaterials:materialStore camera: cam];
     [world addLightSourceToWorld:light];
-    [world addLightSourceToWorld:secondLight];
+
     [world addModelToWorld:classroom];
     renderer = [[MSRenderOpenGL alloc] initWithWorld:world];
 
