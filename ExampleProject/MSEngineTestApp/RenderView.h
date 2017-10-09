@@ -17,8 +17,6 @@
 
 {
     @public
-    MSWorld* world;
-    MSRender *renderer;
     CGPoint rotation;
     CGPoint translation;
     float zTranslation;

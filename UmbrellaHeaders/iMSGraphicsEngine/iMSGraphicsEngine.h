@@ -19,12 +19,6 @@ FOUNDATION_EXPORT const unsigned char iMSGraphicsEngineVersionString[];
 
 
 #import <iMSGraphicsEngine/MSVectorND.h>
-#import <iMSGraphicsEngine/MSWorld.h>
-#import <iMSGraphicsEngine/MSMaterial.h>
-#import <iMSGraphicsEngine/MSMaterialStore.h>
-#import <iMSGraphicsEngine/MSRender.h>
-#import <iMSGraphicsEngine/MSRenderOpenGL.h>
-#import <iMSGraphicsEngine/MSEngineUtility.h>
-#import <iMSGraphicsEngine/MSTexture.h>
-#import <iMSGraphicsEngine/MSTextureOpenGL.h>
-#import <iMSGraphicsEngine/MSLoader.h>
+#import <iMSGraphicsEngine/MSMatrixND.h>
+#import <iMSGraphicsEngine/MSEngine.h>
+

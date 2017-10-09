@@ -9,15 +9,19 @@
 #import "MSWorld.h"
 
 @implementation MSWorld
--(instancetype)initWithMaterials: (MSMaterialStore*)store camera: (MSCamera*)cam{
+-(instancetype)init{
     self=[super init];
     if(self){
-        self->camera=cam;
         self->objectsInWorld=[[NSMutableArray alloc]init];
         self->lightSources=[[NSMutableArray alloc]init];
-        self->materialsInWorld=store;
     }
     return self;
+}
+-(void)setCamera:(MSCamera *)cam{
+    self->camera = cam;
+}
+-(void)setMaterialStore:(MSMaterialStore *)store {
+    self->materialsInWorld = store;
 }
 -(void)translateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z{
     [obj translateModelBy: [MSTransformationManager translationMatrix4x4:x y:y z:z]];
