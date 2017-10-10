@@ -31,23 +31,27 @@
 -(void)addSearchPath:(NSString *)path {
     [self->loader addSearchPath:path];
 }
--(void)loadModelToCurrentWorld: (NSString*) modelName transformationMatrix: (MSMatrix4D*) transformation {
+-(NSArray<id<MSPositionedObject>>*)loadModelToCurrentWorld: (NSString*) modelName transformationMatrix: (MSMatrix4D*) transformation {
     NSArray<MSModelFraction*>* model = [loader loadModel:modelName];
     if (model) {
         [self->world addModelToWorld:[[MSPuppet alloc] initWithModel:model]];
     }
+    return model;
 }
--(void)addCameraWithFov: (float) fov aspectRatio: (float) aspect nearPlane: (float) np farPlane: (float) far transformationMatrix: (MSMatrix4D*) transformation {
-    [self->world setCamera:[[MSCamera alloc] initWithFOV:fov aspectRatio:aspect near:np far:far]];
+-(id<MSPositionedObject>)addCameraWithFov: (float) fov aspectRatio: (float) aspect nearPlane: (float) np farPlane: (float) far transformationMatrix: (MSMatrix4D*) transformation {
+    MSCamera* camera = [[MSCamera alloc] initWithFOV:fov aspectRatio:aspect near:np far:far];
+    [self->world setCamera: camera];
     self->renderer = [[MSRenderOpenGL alloc] initWithWorld:self->world];
+    return camera;
 }
--(void)loadOmniLightToCurrentWorld: (NSString*)modelName color:
+-(NSArray<id<MSPositionedObject>>*)loadOmniLightToCurrentWorld: (NSString*)modelName color:
 (MSVector3D*) color power: (float) pw transformationMatrix: (MSMatrix4D*) transformation {
     NSArray<MSModelFraction*>* model = [loader loadModel:modelName];
     if (model) {
         MSPointLight* light = [[MSPointLight alloc] initWithModel:model color:color power:pw];
         [self->world addLightSourceToWorld: light];
     }
+    return model;
 }
 -(void)loadMaterialsToCurrentWorld: (NSString*) materials {
     NSArray<MSMaterial*>* mat = [loader loadMaterials:materials];
@@ -63,5 +67,8 @@
     if([world getCamera] != nil) {
         [self->renderer drawScene];
     }
+}
+-(float)getFrameRate {
+    return [renderer getCurrentFrameRate];
 }
 @end

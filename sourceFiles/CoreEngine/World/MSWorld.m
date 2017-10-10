@@ -23,14 +23,6 @@
 -(void)setMaterialStore:(MSMaterialStore *)store {
     self->materialsInWorld = store;
 }
--(void)translateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z{
-    [obj translateModelBy: [MSTransformationManager translationMatrix4x4:x y:y z:z]];
-}
--(void)rotateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z{
-    [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutXinRadians4x4:x]];
-    [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutYinRadians4x4:y]];
-    [obj rotateModelBy:[MSTransformationManager rotationMatrixAboutZinRadians4x4:z]];
-}
 -(MSCamera*)getCamera{
     return self->camera;
 }

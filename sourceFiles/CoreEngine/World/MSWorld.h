@@ -27,8 +27,6 @@
     MSMaterialStore* materialsInWorld;
 }
 -(instancetype)init;
--(void)translateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z;
--(void)rotateObject: (MSModelTransform*)obj x:(float)x y:(float)y z:(float)z;
 -(MSCamera*)getCamera;
 -(void)setMaterialStore: (MSMaterialStore*) store;
 -(void)setCamera: (MSCamera*) camera;

@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "MSPuppet.h"
 #import "MSTransformationManager.h"
-#import "MSPositionedLight.h"
+#import "MSLight.h"
 
-@interface MSPointLight : MSPuppet <MSPositionedLight>
+@interface MSPointLight : MSPuppet <MSLight>
 
 -(instancetype _Nonnull)init NS_UNAVAILABLE;
 -(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod NS_UNAVAILABLE;

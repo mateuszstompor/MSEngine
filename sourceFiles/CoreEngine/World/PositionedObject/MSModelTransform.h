@@ -21,9 +21,14 @@
 }
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithDimension: (int) dimension;
+-(void)translateBy: (MSVectorND*) vector;
+-(void)rotateByAngleInRadians: (float) x y: (float) y z: (float) z;
+-(void)scaleBy:(MSVectorND*) sc;
 -(MSMatrixND*)translateModelBy: (MSMatrixND*) tr;
 -(MSMatrixND*)rotateModelBy: (MSMatrixND*) rot;
 -(MSMatrixND*)scaleModelBy:(MSMatrixND*) sc;
+-(MSVectorND*)right;
+-(MSVectorND*)direction;
 -(MSMatrixND*)modelScale;
 -(MSMatrixND*)modelRotation;
 -(MSMatrixND*)modelTranslation;

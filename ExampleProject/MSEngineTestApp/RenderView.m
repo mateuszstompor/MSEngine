@@ -14,6 +14,7 @@
 @implementation RenderView
 {
     MSEngine* engine;
+    id<MSPositionedObject> camera;
 }
 
 -(void)setUp {
@@ -28,17 +29,11 @@
     
     [engine loadMaterialsToCurrentWorld:@"classroom.mtl"];
     MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
-    [engine loadOmniLightToCurrentWorld:@"simpleCube.obj" color:firstColor power: 200 transformationMatrix:[MSMatrixND identityMatrix:4]];
-
-
-    
-    
-//    [[light getTransformation] scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.2 repeatToIndex:2]];
-//    [[[[light getModelComponents] objectAtIndex:0] getTransformation] scaleModelBy:[MSTransformationManager scaleMatrix4x4:0.02 repeatToIndex:2]];
-//
-
+    NSArray<id<MSPositionedObject>>* ar = [engine loadOmniLightToCurrentWorld:@"simpleCube.obj" color:firstColor power: 200 transformationMatrix:[MSMatrixND identityMatrix:4]];
+    id<MSPositionedObject> lightModel = [ar objectAtIndex: 0];
+    [[lightModel getTransformation] scaleBy:[[MSVectorND alloc] initWithComponents:4, 0.2, 0.2, 0.2, 1.0]];
     [engine loadModelToCurrentWorld:@"classroom.obj" transformationMatrix:[MSMatrixND identityMatrix:4]];
-    [engine addCameraWithFov:120 aspectRatio:width/height nearPlane:0.1 farPlane:1000 transformationMatrix:[MSMatrixND identityMatrix:4]];
+    self->camera = [engine addCameraWithFov:120 aspectRatio:width/height nearPlane:0.1 farPlane:1000 transformationMatrix:[MSMatrixND identityMatrix:4]];
 }
 - (void)drawRect:(CGRect)rect {
     float fraction = 0.006;
@@ -46,20 +41,15 @@
     float yTranslation = zTranslation/5000.0f;
     [EAGLContext setCurrentContext:[self context]];
     if(engine!=nil){
-//        MSMatrix4D* camRot = [[[world getCamera] getTransformation] modelRotation];
-//        MSVector4D* direction = [[MSVectorND alloc] initVecWithDimension:3];
-//        [direction setValueAtIdenx:0 value:[camRot getValueAtRowIndex:2 andColumnIndex:0]];
-//        [direction setValueAtIdenx:1 value:[camRot getValueAtRowIndex:2 andColumnIndex:1]];
-//        [direction setValueAtIdenx:2 value:[camRot getValueAtRowIndex:2 andColumnIndex:2]];
-//        MSVector4D* right = [[MSVectorND alloc] initVecWithDimension:3];
-//        [right setValueAtIdenx:0 value:[camRot getValueAtRowIndex:0 andColumnIndex:0]];
-//        [right setValueAtIdenx:1 value:[camRot getValueAtRowIndex:0 andColumnIndex:1]];
-//        [right setValueAtIdenx:2 value:[camRot getValueAtRowIndex:0 andColumnIndex:2]];
-//
-//        [world translateObject:[[world getCamera] getTransformation] x:self->translation.y*[direction valueAtIndex:0]*fraction y:self->translation.y*[direction valueAtIndex:1]*fraction z:self->translation.y*[direction valueAtIndex:2]*fraction];
-//        [world translateObject:[[world getCamera] getTransformation] x:-self->translation.x*[right valueAtIndex:0]*fraction y:-self->translation.x*[right valueAtIndex:1]*fraction z:-self->translation.x*[right valueAtIndex:2]*fraction];
-//        [world rotateObject:[[world getCamera] getTransformation] x:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
-//        [self->labelToUpdate setText:[[NSString alloc] initWithFormat:@"%.1f",[self->renderer getCurrentFrameRate]]];
+        
+        MSVector4D* direction = [[camera getTransformation] direction];
+        MSVector4D* right = [[camera getTransformation] right];
+        [direction multiplyByScalar:self->translation.y*fraction];
+        [right multiplyByScalar:-self->translation.x*fraction];
+        [[camera getTransformation] translateBy: direction];
+        [[camera getTransformation] translateBy: right];
+        [[camera getTransformation] rotateByAngleInRadians:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
+        [self->labelToUpdate setText:[[NSString alloc] initWithFormat:@"%.1f",[engine getFrameRate]]];
         [engine drawScene];
     }
 }

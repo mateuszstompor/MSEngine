@@ -22,12 +22,8 @@
     if(self){
         self->color=col;
         self->power=pw;
-        self->transformation = [[MSModelTransform alloc] initWithDimension:4];
     }
     return self;
-}
--(MSModelTransform*)getTransformation {
-    return self->transformation;
 }
 
 @end

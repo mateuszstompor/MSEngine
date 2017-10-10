@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MSPositionedObject.h"
-#import "MSPositionedLight.h"
 #import "MSMatrixND.h"
 #import "MSVectorND.h"
 
@@ -17,11 +16,12 @@
 @interface MSEngine : NSObject
 -(instancetype)init;
 -(void)addSearchPath: (NSString*) path;
--(void)loadModelToCurrentWorld: (NSString*) modelName transformationMatrix: (MSMatrix4D*) transformation;
--(void)loadOmniLightToCurrentWorld: (NSString*)modelName color:
+-(NSArray<id<MSPositionedObject>>*)loadModelToCurrentWorld: (NSString*) modelName transformationMatrix: (MSMatrix4D*) transformation;
+-(NSArray<id<MSPositionedObject>>*)loadOmniLightToCurrentWorld: (NSString*)modelName color:
 (MSVector3D*) color power: (float) pw transformationMatrix: (MSMatrix4D*) transformation;
 -(void)loadMaterialsToCurrentWorld: (NSString*) materials;
--(void)addCameraWithFov: (float) fov aspectRatio: (float) aspect nearPlane: (float) np farPlane: (float) far transformationMatrix: (MSMatrix4D*) transformation;
+-(id<MSPositionedObject>)addCameraWithFov: (float) fov aspectRatio: (float) aspect nearPlane: (float) np farPlane: (float) far transformationMatrix: (MSMatrix4D*) transformation;
 -(void)drawScene;
+-(float)getFrameRate;
 @end
 #endif
