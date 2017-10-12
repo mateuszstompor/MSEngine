@@ -20,6 +20,9 @@
     }
     return self;
 }
+-(void)setRotation: (MSMatrixND*) rotationMatrix {
+    self->modelRotation = [[MSMatrixND alloc] initWithMatrix:rotationMatrix];
+}
 -(MSMatrixND*)translateModelBy: (MSMatrixND*) tr {
     self->modelTranslation = [tr multiplyByMatrix:self->modelTranslation];
     return self->modelTranslation;

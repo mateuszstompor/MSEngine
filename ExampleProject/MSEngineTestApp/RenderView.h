@@ -10,16 +10,14 @@
 #import <iMSGraphicsEngine/iMSGraphicsEngine.h>
 #import "RenderViewController.h"
 
-#ifndef m
-#define m
+#ifndef RenderView_h
+#define RenderView_h
 
 @interface RenderView : GLKView
 
 {
     @public
-    CGPoint rotation;
     CGPoint translation;
-    float zTranslation;
     UILabel* labelToUpdate;
     GLKViewController* parent;
 }

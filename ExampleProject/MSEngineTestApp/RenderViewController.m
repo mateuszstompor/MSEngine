@@ -27,7 +27,6 @@
     // Enable multisampling
     self.preferredFramesPerSecond = 30;
     //renderView.drawableMultisample = GLKViewDrawableMultisample4X;
-    self->_rotationJoy.delegate = self;
     self->_translationJoy.delegate = self;
     [renderView setUp];
 }
@@ -40,26 +39,11 @@
 
 - (void)joyPositionDidChangedWithSender:(JoystickView * _Nonnull)sender{
     RenderView* renderView = (RenderView*)self.view;
-    if (sender == self.translationJoy){
-        renderView->translation = sender.currentPosition;
-    }else if (sender == self.rotationJoy) {
-        renderView->rotation = sender.currentPosition;
-    }
+    renderView->translation = sender.currentPosition;
 }
 - (void)joyTouchRecognitionDidEndWithSender:(JoystickView * _Nonnull)sender{
     RenderView* renderView = (RenderView*)self.view;
-    if (sender == self.translationJoy){
-        renderView->translation = CGPointMake(0, 0);
-    }else if (sender == self.rotationJoy) {
-        renderView->rotation = CGPointMake(0, 0);
-    }
-}
-- (IBAction)userMakePanGesture:(UIPanGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        ((RenderView*)self.view)->zTranslation = 0.0f;
-    } else {
-        ((RenderView*)self.view)->zTranslation = [sender translationInView:self.view].y;
-    }
+    renderView->translation = CGPointMake(0, 0);
 }
 
 @end

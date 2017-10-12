@@ -72,15 +72,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhw-Xm-Gk1" customClass="JoystickView" customModule="MSEngineTestApp" customModuleProvider="target">
-                                <rect key="frame" x="390" y="142" width="128" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mhw-Xm-Gk1" secondAttribute="height" multiplier="1:1" id="3BG-pz-VTD"/>
-                                    <constraint firstAttribute="width" constant="128" id="HTy-VC-SSc"/>
-                                    <constraint firstAttribute="height" constant="128" id="NGB-y1-WBa"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbk-MZ-k7K" customClass="JoystickView" customModule="MSEngineTestApp" customModuleProvider="target">
                                 <rect key="frame" x="50" y="142" width="128" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,26 +93,17 @@
                         <constraints>
                             <constraint firstItem="xbk-MZ-k7K" firstAttribute="leading" secondItem="BeI-gv-QBx" secondAttribute="leading" constant="50" id="Exf-zQ-bc6"/>
                             <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="xbk-MZ-k7K" secondAttribute="bottom" constant="50" id="QrM-8x-8fs"/>
-                            <constraint firstAttribute="trailing" secondItem="mhw-Xm-Gk1" secondAttribute="trailing" constant="50" id="eLg-KY-7JT"/>
-                            <constraint firstItem="Z1x-nQ-DjT" firstAttribute="top" secondItem="mhw-Xm-Gk1" secondAttribute="bottom" constant="50" id="mvE-fd-Wdn"/>
                         </constraints>
                         <connections>
                             <outlet property="delegate" destination="WIi-mQ-knU" id="sm9-ga-Jvw"/>
-                            <outletCollection property="gestureRecognizers" destination="Mt3-uY-DlV" appends="YES" id="xa2-3N-if7"/>
                         </connections>
                     </glkView>
                     <connections>
                         <outlet property="fpsMeter" destination="X9a-ka-waY" id="r5s-6H-IAL"/>
-                        <outlet property="rotationJoy" destination="mhw-Xm-Gk1" id="HEP-ut-QoD"/>
                         <outlet property="translationJoy" destination="xbk-MZ-k7K" id="ab1-63-Dso"/>
                     </connections>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nno-G2-Rjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="2" maximumNumberOfTouches="2" id="Mt3-uY-DlV">
-                    <connections>
-                        <action selector="userMakePanGesture:" destination="WIi-mQ-knU" id="ILg-XO-vJq"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1026" y="143"/>
         </scene>

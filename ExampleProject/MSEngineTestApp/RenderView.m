@@ -10,20 +10,23 @@
 #import <mach/mach.h>
 #import <assert.h>
 #import <CoreMotion/CoreMotion.h>
+#import "TouchHandler.h"
+#import "Rotator.h"
 
 @implementation RenderView
 {
     MSEngine* engine;
     id<MSPositionedObject> camera;
+    id<Rotator> rotator;
 }
 
 -(void)setUp {
-
+    
     float width = self.bounds.size.width;
     float height = self.bounds.size.height;
-
+    rotator = [[TouchHandler alloc] initOn:self frame:CGRectMake([[UIScreen mainScreen] bounds].size.width-50-128, [[UIScreen mainScreen] bounds].size.height-50-128, 128, 128)];
     
-    [EAGLContext setCurrentContext:[self context]];    
+    [EAGLContext setCurrentContext:[self context]];
     engine = [[MSEngine alloc] init];
     [engine addSearchPath:[[NSBundle mainBundle] bundlePath]];
     
@@ -31,14 +34,12 @@
     MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
     NSArray<id<MSPositionedObject>>* ar = [engine loadOmniLightToCurrentWorld:@"simpleCube.obj" color:firstColor power: 200 transformationMatrix:[MSMatrixND identityMatrix:4]];
     id<MSPositionedObject> lightModel = [ar objectAtIndex: 0];
-    [[lightModel getTransformation] scaleBy:[[MSVectorND alloc] initWithComponents:4, 0.2, 0.2, 0.2, 1.0]];
+    [[lightModel getTransformation] scaleBy:[[MSVectorND alloc] initWithComponents:4, 0.02, 0.02, 0.02, 1.0]];
     [engine loadModelToCurrentWorld:@"classroom.obj" transformationMatrix:[MSMatrixND identityMatrix:4]];
     self->camera = [engine addCameraWithFov:120 aspectRatio:width/height nearPlane:0.1 farPlane:1000 transformationMatrix:[MSMatrixND identityMatrix:4]];
 }
 - (void)drawRect:(CGRect)rect {
     float fraction = 0.006;
-    float rotationFraction = 0.008;
-    float yTranslation = zTranslation/5000.0f;
     [EAGLContext setCurrentContext:[self context]];
     if(engine!=nil){
         
@@ -46,9 +47,9 @@
         MSVector4D* right = [[camera getTransformation] right];
         [direction multiplyByScalar:self->translation.y*fraction];
         [right multiplyByScalar:-self->translation.x*fraction];
+        [rotator rotate:camera];
         [[camera getTransformation] translateBy: direction];
         [[camera getTransformation] translateBy: right];
-        [[camera getTransformation] rotateByAngleInRadians:-self->rotation.y*rotationFraction y:-self->rotation.x*rotationFraction z:0.0];
         [self->labelToUpdate setText:[[NSString alloc] initWithFormat:@"%.1f",[engine getFrameRate]]];
         [engine drawScene];
     }

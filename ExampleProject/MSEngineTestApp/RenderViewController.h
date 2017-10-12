@@ -19,9 +19,7 @@
 @protocol JoystickEventHandler;
 
 @interface RenderViewController : GLKViewController <JoystickEventHandler>
-- (IBAction)userMakePanGesture:(UIPanGestureRecognizer *)sender;
 
-@property (weak, nonatomic) IBOutlet JoystickView *rotationJoy;
 @property (weak, nonatomic) IBOutlet JoystickView *translationJoy;
 @property (weak, nonatomic) IBOutlet UILabel *fpsMeter;
 

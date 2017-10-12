@@ -13,6 +13,9 @@
 
 @interface MSPointLight : MSPuppet <MSLight>
 
+@property (atomic) MSVector3D* _Nonnull color;
+@property (atomic) float power;
+
 -(instancetype _Nonnull)init NS_UNAVAILABLE;
 -(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod NS_UNAVAILABLE;
 -(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod

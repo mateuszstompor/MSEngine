@@ -29,7 +29,7 @@ import UIKit
         }
     }
     
-    var delegate: JoystickEventHandler?
+    weak var delegate: JoystickEventHandler?
     
     var currentPosition: CGPoint {
         get {

@@ -25,6 +25,7 @@
 		615D78BD1F589E9900EAE383 /* wallClock.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1401F5878CD005A122C /* wallClock.bmp */; };
 		615D78BE1F589E9900EAE383 /* woodPlanks.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1411F5878CD005A122C /* woodPlanks.bmp */; };
 		617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617CA6391F352EE30096F1DD /* JoystickView.swift */; };
+		6182B4F91F9009B4008C5817 /* TouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182B4F81F9009B4008C5817 /* TouchHandler.m */; };
 		61D3C7971F8017D9008ED22B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D3C7951F8017D9008ED22B /* Fabric.framework */; };
 		61D3C7981F8017D9008ED22B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D3C7961F8017D9008ED22B /* Crashlytics.framework */; };
 		61D6CE0E1F3237490021133D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D6CE0D1F3237490021133D /* main.m */; };
@@ -102,6 +103,9 @@
 		615D78A51F588CB900EAE383 /* classroom.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = classroom.mtl; sourceTree = "<group>"; };
 		617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSEngineTestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		617CA6391F352EE30096F1DD /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
+		6182B4F41F90084F008C5817 /* Rotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rotator.h; sourceTree = "<group>"; };
+		6182B4F71F9009B4008C5817 /* TouchHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchHandler.h; sourceTree = "<group>"; };
+		6182B4F81F9009B4008C5817 /* TouchHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchHandler.m; sourceTree = "<group>"; };
 		61D3C7951F8017D9008ED22B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
 		61D3C7961F8017D9008ED22B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
 		61D6CE091F3237490021133D /* MSEngineTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSEngineTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,9 +198,12 @@
 		617CA6361F352DBB0096F1DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6182B4F41F90084F008C5817 /* Rotator.h */,
 				615A8C3C1F68784700BD93AB /* InitialController */,
 				61D6CE121F3237490021133D /* RenderViewController.h */,
 				61D6CE131F3237490021133D /* RenderViewController.m */,
+				6182B4F71F9009B4008C5817 /* TouchHandler.h */,
+				6182B4F81F9009B4008C5817 /* TouchHandler.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -412,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61D6CE141F3237490021133D /* RenderViewController.m in Sources */,
+				6182B4F91F9009B4008C5817 /* TouchHandler.m in Sources */,
 				61D6CE111F3237490021133D /* AppDelegate.m in Sources */,
 				61D6CE971F3241A30021133D /* RenderView.m in Sources */,
 				615A8C401F68789300BD93AB /* InitialViewController.swift in Sources */,

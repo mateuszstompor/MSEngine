@@ -10,10 +10,13 @@
 #define MSLight_h
 
 @protocol MSLight
-
-@property (atomic) MSVector3D* color;
-@property (atomic) float power;
-
+-(void)setColor: (MSVector3D*) color;
+-(void)getColor: (MSVector3D*) color;
+-(BOOL)isOn;
+-(void)turnON;
+-(void)turnOFF;
+-(float)getPower;
+-(float)setPower;
 @end
 
 #endif
