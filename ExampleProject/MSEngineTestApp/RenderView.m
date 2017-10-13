@@ -12,6 +12,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "TouchHandler.h"
 #import "Rotator.h"
+#import "GyroHandler.h"
 
 @implementation RenderView
 {
@@ -19,13 +20,13 @@
     id<MSPositionedObject> camera;
     id<Rotator> rotator;
 }
-
+-(void)setRotationHandler: (id<Rotator>) rotator_ {
+    self->rotator = rotator_;
+}
 -(void)setUp {
-    
+    self->rotator = [[TouchHandler alloc] initOn:self frame:CGRectMake([[UIScreen mainScreen] bounds].size.width-50-128, [[UIScreen mainScreen] bounds].size.height-50-128, 128, 128)];
     float width = self.bounds.size.width;
     float height = self.bounds.size.height;
-    rotator = [[TouchHandler alloc] initOn:self frame:CGRectMake([[UIScreen mainScreen] bounds].size.width-50-128, [[UIScreen mainScreen] bounds].size.height-50-128, 128, 128)];
-    
     [EAGLContext setCurrentContext:[self context]];
     engine = [[MSEngine alloc] init];
     [engine addSearchPath:[[NSBundle mainBundle] bundlePath]];

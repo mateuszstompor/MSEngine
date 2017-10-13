@@ -14,9 +14,9 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 #import "RenderView.h"
+#import "MSEngineTestApp-Swift.h"
 
 @class JoystickView;
-@protocol JoystickEventHandler;
 
 @interface RenderViewController : GLKViewController <JoystickEventHandler>
 

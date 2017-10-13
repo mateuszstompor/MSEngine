@@ -23,6 +23,10 @@
     return self;
 }
 
+-(NSString*)getName {
+    return self->name;
+}
+
 -(unsigned int)getUniqueID {
     return self->textureID;
 }

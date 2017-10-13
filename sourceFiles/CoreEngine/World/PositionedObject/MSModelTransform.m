@@ -31,6 +31,10 @@
     self->modelRotation = [rot multiplyByMatrix:self->modelRotation];
     return self->modelRotation;
 }
+-(void)setRotationInRadians: (float) x y: (float) y z: (float) z {
+    self->modelRotation = [MSMatrixND identityMatrix:self->dimension];
+    [self rotateByAngleInRadians:x y:y z:z];
+}
 -(MSMatrixND*)scaleModelBy:(MSMatrixND*) sc {
     self->modelScale = [sc multiplyByMatrix:self->modelScale];
     return self->modelScale;

@@ -8,8 +8,17 @@
 
 #import "RenderViewController.h"
 #import "MSEngineTestApp-Swift.h"
+#import "GyroHandler.h"
+#import "TouchHandler.h"
 
 @implementation RenderViewController
+- (IBAction)segmentedControlValueDidChange:(UISegmentedControl *)sender {
+    if ([sender selectedSegmentIndex] == 0) {
+        [(RenderView*)self.view setRotationHandler:[[TouchHandler alloc] initOn:self.view frame:CGRectMake([[UIScreen mainScreen] bounds].size.width-50-128, [[UIScreen mainScreen] bounds].size.height-50-128, 128, 128)]];
+    } else {
+        [(RenderView*)self.view setRotationHandler:[[GyroHandler alloc] init] ];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +39,6 @@
     self->_translationJoy.delegate = self;
     [renderView setUp];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

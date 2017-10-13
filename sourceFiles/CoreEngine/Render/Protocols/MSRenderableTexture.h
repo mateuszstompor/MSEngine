@@ -12,7 +12,7 @@
 @protocol MSRenderableTexture
 
 @required
--(NSString*) name;
+-(NSString*)getName;
 -(instancetype)initFromTexture: (MSTexture*) texture;
 -(unsigned int)getUniqueID;
 @end

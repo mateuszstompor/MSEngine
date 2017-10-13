@@ -9,6 +9,7 @@
 #import <GLKit/GLKit.h>
 #import <iMSGraphicsEngine/iMSGraphicsEngine.h>
 #import "RenderViewController.h"
+#import "Rotator.h"
 
 #ifndef RenderView_h
 #define RenderView_h
@@ -21,7 +22,7 @@
     UILabel* labelToUpdate;
     GLKViewController* parent;
 }
-
+-(void)setRotationHandler: (id<Rotator>) rotator;
 -(void)setUp;
 
 @end
