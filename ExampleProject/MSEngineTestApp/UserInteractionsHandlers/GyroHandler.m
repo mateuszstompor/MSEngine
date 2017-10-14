@@ -52,6 +52,7 @@
     return self;
 }
 -(void)rotate:(id<MSPositionedObject>) object {
-    [[object getTransformation] setRotationInRadians:-roll+M_PI_2 y:yaw z:pitch];
+    NSLog(@"pitch: %f yaw: %f roll %f", pitch, yaw, roll);
+    [[object getTransformation] setRotationInRadians:-roll+M_PI_2 y:yaw z:0];
 }
 @end

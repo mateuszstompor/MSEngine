@@ -28,7 +28,7 @@
     float width = self.bounds.size.width;
     float height = self.bounds.size.height;
     [EAGLContext setCurrentContext:[self context]];
-    engine = [[MSEngine alloc] init];
+    engine = [MSEngine getInstance];
     [engine addSearchPath:[[NSBundle mainBundle] bundlePath]];
     
     [engine loadMaterialsToCurrentWorld:@"classroom.mtl"];
@@ -43,7 +43,6 @@
     float fraction = 0.006;
     [EAGLContext setCurrentContext:[self context]];
     if(engine!=nil){
-        
         MSVector4D* direction = [[camera getTransformation] direction];
         MSVector4D* right = [[camera getTransformation] right];
         [direction multiplyByScalar:self->translation.y*fraction];

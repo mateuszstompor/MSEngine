@@ -14,7 +14,7 @@
 #ifndef MSEngine_h
 #define MSEngine_h
 @interface MSEngine : NSObject
--(instancetype)init;
++(instancetype)getInstance;
 -(void)addSearchPath: (NSString*) path;
 -(NSArray<id<MSPositionedObject>>*)loadModelToCurrentWorld: (NSString*) modelName transformationMatrix: (MSMatrix4D*) transformation;
 -(NSArray<id<MSPositionedObject>>*)loadOmniLightToCurrentWorld: (NSString*)modelName color:

@@ -19,14 +19,23 @@
     MSLoader* loader;
     MSWorld* world;
     MSRender* renderer;
+    
 }
 -(instancetype)init {
     self = [super init];
-    if(self) {
-        self->loader = [[MSLoader alloc] initRecursiveSearcher:5];
-        self->world = [[MSWorld alloc] init];
+    if(self){
+        
     }
     return self;
+}
++(instancetype)getInstance {
+    static MSEngine* engine;
+    if (engine == nil) {
+        engine = [[super alloc] init];
+        engine->loader = [[MSLoader alloc] initRecursiveSearcher:5];
+        engine->world = [[MSWorld alloc] init];
+    }
+    return engine;
 }
 -(void)addSearchPath:(NSString *)path {
     [self->loader addSearchPath:path];

@@ -106,6 +106,19 @@
     XCTAssertTrue([result safeIsEqualToVector: someVector4D]);
     
 }
+- (void)testMultiplication {
+    MSVector2D* firstColumn1 = [[MSVectorND alloc] initWithComponents:2, 11.0f, 33.0f];
+    MSVector2D* secondColumn1 = [[MSVectorND alloc] initWithComponents:2, 22.0f, 44.0f];
+    MSMatrixND* firstMatrix = [[MSMatrixND alloc] initWithVectors:2, firstColumn1, secondColumn1];
+    MSVector2D* firstColumn2 = [[MSVectorND alloc] initWithComponents:2, 12.0f, 56.0f];
+    MSVector2D* secondColumn2 = [[MSVectorND alloc] initWithComponents:2, 34.0f, 78.0f];
+    MSMatrixND* secondMatrix = [[MSMatrixND alloc] initWithVectors:2, firstColumn2, secondColumn2];
+    MSMatrixND* result = [firstMatrix multiplyByMatrix:secondMatrix];
+    XCTAssertEqualWithAccuracy([result getValueAtRowIndex:0 andColumnIndex:0], 1364, 0.1);
+    XCTAssertEqualWithAccuracy([result getValueAtRowIndex:1 andColumnIndex:0], 2860, 0.1);
+    XCTAssertEqualWithAccuracy([result getValueAtRowIndex:0 andColumnIndex:1], 2090, 0.1);
+    XCTAssertEqualWithAccuracy([result getValueAtRowIndex:1 andColumnIndex:1], 4554, 0.1);
+}
 - (void)testPerformanceInitializeFromAnotherMatrix {
     [self measureBlock:^{
         for(int i=0; i<amountOfTests; ++i){

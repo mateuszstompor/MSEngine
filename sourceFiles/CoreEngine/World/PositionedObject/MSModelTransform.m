@@ -58,7 +58,7 @@
     MSMatrixND* xMat = [MSTransformationManager rotationMatrixAboutXinRadians4x4:x];
     MSMatrixND* yMat = [MSTransformationManager rotationMatrixAboutYinRadians4x4:y];
     MSMatrixND* zMat = [MSTransformationManager rotationMatrixAboutZinRadians4x4:z];
-    [self rotateModelBy:[zMat multiplyByMatrix: [yMat multiplyByMatrix: xMat]]];
+    [self rotateModelBy:[xMat multiplyByMatrix: [yMat multiplyByMatrix: zMat]]];
 }
 -(MSVectorND*)right {
     MSVectorND* right = [[MSVectorND alloc] initVecWithDimension:self->dimension];

@@ -24,6 +24,8 @@
 		615D78BC1F589E9900EAE383 /* glass.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D13F1F5878CD005A122C /* glass.bmp */; };
 		615D78BD1F589E9900EAE383 /* wallClock.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1401F5878CD005A122C /* wallClock.bmp */; };
 		615D78BE1F589E9900EAE383 /* woodPlanks.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 6140D1411F5878CD005A122C /* woodPlanks.bmp */; };
+		616019111F92973A00E5DAF8 /* ModelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616019101F92973A00E5DAF8 /* ModelsTableViewController.swift */; };
+		616019151F929A1100E5DAF8 /* PointLightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616019141F929A1100E5DAF8 /* PointLightTableViewCell.swift */; };
 		617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617CA6391F352EE30096F1DD /* JoystickView.swift */; };
 		6182B4F91F9009B4008C5817 /* TouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182B4F81F9009B4008C5817 /* TouchHandler.m */; };
 		6182B4FD1F90DFBD008C5817 /* GyroHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182B4FC1F90DFBD008C5817 /* GyroHandler.m */; };
@@ -102,6 +104,8 @@
 		6140D1411F5878CD005A122C /* woodPlanks.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = woodPlanks.bmp; path = ../Textures/woodPlanks.bmp; sourceTree = "<group>"; };
 		615A8C3F1F68789300BD93AB /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = Controllers/InitialViewController.swift; sourceTree = "<group>"; };
 		615D78A51F588CB900EAE383 /* classroom.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = classroom.mtl; sourceTree = "<group>"; };
+		616019101F92973A00E5DAF8 /* ModelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelsTableViewController.swift; path = Controllers/ModelsTableViewController.swift; sourceTree = "<group>"; };
+		616019141F929A1100E5DAF8 /* PointLightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PointLightTableViewCell.swift; path = Controllers/PointLightTableViewCell.swift; sourceTree = "<group>"; };
 		617CA6381F352EE20096F1DD /* MSEngineTestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSEngineTestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		617CA6391F352EE30096F1DD /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
 		6182B4F41F90084F008C5817 /* Rotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rotator.h; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				615A8C3C1F68784700BD93AB /* InitialController */,
 				61D6CE121F3237490021133D /* RenderViewController.h */,
 				61D6CE131F3237490021133D /* RenderViewController.m */,
+				616019101F92973A00E5DAF8 /* ModelsTableViewController.swift */,
+				616019141F929A1100E5DAF8 /* PointLightTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -435,6 +441,8 @@
 				6182B4F91F9009B4008C5817 /* TouchHandler.m in Sources */,
 				61D6CE111F3237490021133D /* AppDelegate.m in Sources */,
 				61D6CE971F3241A30021133D /* RenderView.m in Sources */,
+				616019151F929A1100E5DAF8 /* PointLightTableViewCell.swift in Sources */,
+				616019111F92973A00E5DAF8 /* ModelsTableViewController.swift in Sources */,
 				615A8C401F68789300BD93AB /* InitialViewController.swift in Sources */,
 				617CA63A1F352EE30096F1DD /* JoystickView.swift in Sources */,
 				61D6CE0E1F3237490021133D /* main.m in Sources */,

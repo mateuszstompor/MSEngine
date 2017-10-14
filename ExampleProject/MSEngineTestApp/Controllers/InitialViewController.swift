@@ -10,7 +10,6 @@ import UIKit
 
 class InitialViewController: UIViewController {
 
-    @IBOutlet weak var engineLogoImageView: UIImageView!
     @IBOutlet weak var myNameLabel: UILabel!
     @IBOutlet weak var createdByLabel: UILabel!
     private var viewToPush: UIViewController?
@@ -25,9 +24,6 @@ class InitialViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animate(withDuration: 2.0, delay: 0.2, options: [], animations: {
-            self.engineLogoImageView?.alpha = 1.0
-        })
         UIView.animate(withDuration: 2.0, delay: 0.5, options: [], animations: {
             self.createdByLabel?.alpha = 1.0
         })
@@ -44,16 +40,12 @@ class InitialViewController: UIViewController {
             if let dest =  self.viewToPush {
                 UIView.animate(withDuration: 2.0, delay: 0.5, options: [], animations: {
                     self.myNameLabel?.alpha = 0.0
-                });
+                })
                 UIView.animate(withDuration: 2.0, delay: 0.8, options: [], animations: {
                     self.createdByLabel?.alpha = 0.0
-                });
-                UIView.animate(withDuration: 2.0, delay: 0.2, options: [], animations: {
-                    self.engineLogoImageView?.alpha = 0.0
                 } , completion: { (Bool) in
                     self.present(dest, animated: true, completion: nil)
                 })
-                
             }
         }
     }
