@@ -6,17 +6,21 @@
 //  Copyright © 2017 Mateusz Stompór. All rights reserved.
 //
 
+#import "MSVectorND.h"
+
 #ifndef MSLight_h
 #define MSLight_h
 
 @protocol MSLight
+-(instancetype)init NS_UNAVAILABLE;
+-(instancetype)initWithPower: (float) power color: (MSVector3D*) color;
+- (instancetype)initWithPower:(float)power color:(MSVector3D *)color isOn: (BOOL) isOn;
 -(void)setColor: (MSVector3D*) color;
--(void)getColor: (MSVector3D*) color;
+-(MSVector3D*)getColor;
 -(BOOL)isOn;
--(void)turnON;
--(void)turnOFF;
+-(void)lights: (BOOL) isOn;
 -(float)getPower;
--(float)setPower;
+-(void)setPower: (float) power;
 @end
 
 #endif

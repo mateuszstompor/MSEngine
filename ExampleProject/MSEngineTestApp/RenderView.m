@@ -33,9 +33,9 @@
     
     [engine loadMaterialsToCurrentWorld:@"classroom.mtl"];
     MSVector3D* firstColor = [[MSVector3D alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
-    NSArray<id<MSPositionedObject>>* ar = [engine loadOmniLightToCurrentWorld:@"simpleCube.obj" color:firstColor power: 200 transformationMatrix:[MSMatrixND identityMatrix:4]];
-    id<MSPositionedObject> lightModel = [ar objectAtIndex: 0];
-    [[lightModel getTransformation] scaleBy:[[MSVectorND alloc] initWithComponents:4, 0.02, 0.02, 0.02, 1.0]];
+    id<MSPositionedLight> ar = [engine loadOmniLightToCurrentWorld:@"simpleCube.obj" color:firstColor power: 200 transformationMatrix:[MSMatrixND identityMatrix:4]];
+    [[ar getLight] lights:true];
+    [[ar getTransformation] scaleBy:[[MSVectorND alloc] initWithComponents:4, 0.02, 0.02, 0.02, 1.0]];
     [engine loadModelToCurrentWorld:@"classroom.obj" transformationMatrix:[MSMatrixND identityMatrix:4]];
     self->camera = [engine addCameraWithFov:120 aspectRatio:width/height nearPlane:0.1 farPlane:1000 transformationMatrix:[MSMatrixND identityMatrix:4]];
 }

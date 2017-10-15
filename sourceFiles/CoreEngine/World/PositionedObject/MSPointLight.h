@@ -10,11 +10,9 @@
 #import "MSPuppet.h"
 #import "MSTransformationManager.h"
 #import "MSLight.h"
+#import "MSPositionedLight.h"
 
-@interface MSPointLight : MSPuppet <MSLight>
-
-@property (atomic) MSVector3D* _Nonnull color;
-@property (atomic) float power;
+@interface MSPointLight : MSPuppet <MSPositionedLight>
 
 -(instancetype _Nonnull)init NS_UNAVAILABLE;
 -(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod NS_UNAVAILABLE;

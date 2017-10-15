@@ -7,23 +7,27 @@
 //
 
 #import "MSPointLight.h"
+#import "MSBaseLight.h"
 
 @implementation MSPointLight
 {
-    MSModelTransform* transformation;
+    id<MSLight> light;
 }
-@synthesize color;
-@synthesize power;
-
-
 -(instancetype _Nullable)initWithModel: (NSArray<MSModelFraction*>* _Nonnull)mod
                                           color: (MSVector3D*) col power: (float)pw{
     self=[super initWithModel: mod];
     if(self){
-        self->color=col;
-        self->power=pw;
+        self->light = [[MSBaseLight alloc] initWithPower: pw color: col];
     }
     return self;
+}
+
+- (id<MSLight>)getLight {
+    return self->light;
+}
+
+- (MSModelTransform *)getTransformation {
+    return [[self->model objectAtIndex:0] getTransformation];
 }
 
 @end

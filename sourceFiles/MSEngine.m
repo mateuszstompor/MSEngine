@@ -28,7 +28,10 @@
     }
     return self;
 }
-+(instancetype)getInstance {
+-(NSArray<id<MSPositionedLight>>*)getPointLights {
+    return [self->world getLightSources];
+}
++(MSEngine*)getInstance {
     static MSEngine* engine;
     if (engine == nil) {
         engine = [[super alloc] init];
@@ -53,14 +56,15 @@
     self->renderer = [[MSRenderOpenGL alloc] initWithWorld:self->world];
     return camera;
 }
--(NSArray<id<MSPositionedObject>>*)loadOmniLightToCurrentWorld: (NSString*)modelName color:
+-(id<MSPositionedLight>)loadOmniLightToCurrentWorld: (NSString*)modelName color:
 (MSVector3D*) color power: (float) pw transformationMatrix: (MSMatrix4D*) transformation {
     NSArray<MSModelFraction*>* model = [loader loadModel:modelName];
     if (model) {
         MSPointLight* light = [[MSPointLight alloc] initWithModel:model color:color power:pw];
         [self->world addLightSourceToWorld: light];
+        return light;
     }
-    return model;
+    return nil;
 }
 -(void)loadMaterialsToCurrentWorld: (NSString*) materials {
     NSArray<MSMaterial*>* mat = [loader loadMaterials:materials];

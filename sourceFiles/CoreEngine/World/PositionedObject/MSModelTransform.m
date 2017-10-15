@@ -42,6 +42,13 @@
 -(MSMatrixND*)modelScale {
     return self->modelScale;
 }
+-(MSVectorND*)position {
+    MSVectorND* positionToReturn = [[MSVectorND alloc] initVecWithDimension:self->dimension-1];
+    for(int index=0;index<self->dimension-1;++index) {
+        [positionToReturn setValueAtIdenx:index value:[self->modelTranslation getValueAtRowIndex:self->dimension-1 andColumnIndex:index]];
+    }
+    return positionToReturn;
+}
 -(MSMatrixND*)modelRotation {
     return self->modelRotation;
 }

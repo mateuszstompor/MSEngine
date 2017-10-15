@@ -30,6 +30,7 @@
 -(MSMatrixND*)scaleModelBy:(MSMatrixND*) sc;
 -(MSVectorND*)right;
 -(MSVectorND*)direction;
+-(MSVectorND*)position;
 -(MSMatrixND*)modelScale;
 -(MSMatrixND*)modelRotation;
 -(MSMatrixND*)modelTranslation;

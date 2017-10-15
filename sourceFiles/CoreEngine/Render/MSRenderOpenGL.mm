@@ -106,7 +106,7 @@
     glUseProgram(lightShaderProgram);
     [self setUpCameraUniforms: lightShaderProgram];
     for(MSPointLight* light in [world getLightSources]){
-        glUniform3fv(glGetUniformLocation(lightShaderProgram, "color"), 1, [[light color]getArrayStyleVector]);
+        glUniform3fv(glGetUniformLocation(lightShaderProgram, "color"), 1, [[[light getLight] getColor]getArrayStyleVector]);
         [self drawPuppet:light withProgram:lightShaderProgram];
     }
     glUseProgram(0);
@@ -171,8 +171,9 @@
             scale[6]=48+lightIndex;
             rotation[6]=48+lightIndex;
             translation[6]=48+lightIndex;
-            glUniform3fv(glGetUniformLocation(modelShaderProgram, color.c_str()), 1, [[[[world getLightSources]objectAtIndex:lightIndex] color]getArrayStyleVector]);
-            glUniform1f(glGetUniformLocation(modelShaderProgram, power.c_str()), [[[world getLightSources] objectAtIndex:lightIndex] power]);
+            id<MSLight> light = [[[world getLightSources] objectAtIndex:lightIndex] getLight];
+            glUniform3fv(glGetUniformLocation(modelShaderProgram, color.c_str()), 1, [[light getColor]getArrayStyleVector]);
+            glUniform1f(glGetUniformLocation(modelShaderProgram, power.c_str()), [light getPower]);
             glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, translation.c_str()), 1, GL_FALSE, [[[[[[[world getLightSources]objectAtIndex:lightIndex] getModelComponents] objectAtIndex: 0] getTransformation] modelTranslation]matrixAsArray]);
             glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, scale.c_str()), 1, GL_FALSE, [[[[[[[world getLightSources]objectAtIndex:lightIndex] getModelComponents] objectAtIndex:0] getTransformation] modelScale]matrixAsArray]);
             glUniformMatrix4fv(glGetUniformLocation(modelShaderProgram, rotation.c_str()), 1, GL_FALSE, [[[[[[[world getLightSources]objectAtIndex:lightIndex] getModelComponents] objectAtIndex:0] getTransformation] modelRotation]matrixAsArray]);
