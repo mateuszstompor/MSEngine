@@ -1,6 +1,9 @@
 # MSEngine
 MSGraphicsEngine will be a library which you can use to create own game. Currently it is under development process.
 
+<h3>Date: September 2017</h3>
+<p>Added example iOS application which is demo version of engine. You can use touch controlls as well as gyro to move and look around</p>
+<img src="https://raw.githubusercontent.com/mateuszstompor/MSEngine/master/screenshots/exampleApp23-11-2017.png" width="80%">
 
 <h3>Date: 16.08.2017</h3>
 <p>Texturing is working.</p>
