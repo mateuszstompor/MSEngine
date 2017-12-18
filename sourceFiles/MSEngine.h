@@ -25,5 +25,7 @@
 -(void)drawScene;
 -(NSArray<id<MSPositionedLight>>*)getPointLights;
 -(float)getFrameRate;
+-(void)finishWork;
+-(void)clearFrame;
 @end
 #endif

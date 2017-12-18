@@ -26,7 +26,7 @@
 -(void)drawModels;
 -(void)drawScene;
 -(float)getCurrentFrameRate;
-
+-(void)finishWork;
 -(instancetype)initWithWorld:(MSWorld *)world;
 
 @end

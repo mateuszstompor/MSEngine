@@ -12,8 +12,8 @@
 -(instancetype)init{
     self=[super init];
     if(self){
-        self->objectsInWorld=[[NSMutableArray alloc]init];
-        self->lightSources=[[NSMutableArray alloc]init];
+        self->objectsInWorld=[[NSMutableArray alloc] init];
+        self->lightSources=[[NSMutableArray alloc] init];
     }
     return self;
 }

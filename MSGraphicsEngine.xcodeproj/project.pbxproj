@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56CAB8D61FE5FF3100C1EC0A /* MSLightSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 616019221F92BFAF00E5DAF8 /* MSLightSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6100D92C1F6D0A97003BE81A /* MSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 613C61221F5C4F350088FE9D /* MSRender.m */; };
 		6101C8721F3CC9EE0011117A /* MSVertexData.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A31EB8B3930086897F /* MSVertexData.m */; };
 		6101C8731F3CC9EE0011117A /* MSModelFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF69D1EB8B3930086897F /* MSModelFace.m */; };
@@ -37,7 +38,7 @@
 		6101C8901F3CCA180011117A /* MSRenderOpenGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D1E92A1F0448F40038AE3D /* MSRenderOpenGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C8911F3CCA180011117A /* MSDrawableFraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 61D1E9311F044F6B0038AE3D /* MSDrawableFraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C8921F3CCA180011117A /* MSRender.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A61EB8B3930086897F /* MSRender.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6101C8931F3CCA180011117A /* MSLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01221F3CB72C0003E9E9 /* MSLight.h */; };
+		6101C8931F3CCA180011117A /* MSLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01221F3CB72C0003E9E9 /* MSLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C8941F3CCA180011117A /* MSPositionedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6AD1EB8B3930086897F /* MSPositionedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C8961F3CCA180011117A /* MSWorld.h in Headers */ = {isa = PBXBuildFile; fileRef = 615AF6A91EB8B3930086897F /* MSWorld.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6101C8971F3CCA180011117A /* MSPointLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 619A5F531EBA81460017DB89 /* MSPointLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -714,7 +715,6 @@
 				616019211F92BEED00E5DAF8 /* MSPositionedLight.h in Headers */,
 				6101C8911F3CCA180011117A /* MSDrawableFraction.h in Headers */,
 				6101C8921F3CCA180011117A /* MSRender.h in Headers */,
-				6101C8931F3CCA180011117A /* MSLight.h in Headers */,
 				6101C8941F3CCA180011117A /* MSPositionedObject.h in Headers */,
 				6101C8961F3CCA180011117A /* MSWorld.h in Headers */,
 				6101C8971F3CCA180011117A /* MSPointLight.h in Headers */,
@@ -736,6 +736,8 @@
 				614D56C71F4080E200AA97ED /* MSFileSearcher.h in Headers */,
 				6101C89F1F3CCA180011117A /* MSLoaderOBJ.h in Headers */,
 				6101C8A11F3CCA180011117A /* MSLoaderMTL.h in Headers */,
+				6101C8931F3CCA180011117A /* MSLight.h in Headers */,
+				56CAB8D61FE5FF3100C1EC0A /* MSLightSource.h in Headers */,
 				618C50381F48F31F00D13A5C /* MSTextureLoader.h in Headers */,
 				6171D0871F3F3748000A0D0C /* MSRenderableTexture.h in Headers */,
 			);
@@ -847,7 +849,7 @@
 		6122CA141EAA4EB40002F881 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Mateusz Stompór";
 				TargetAttributes = {
 					6101C8691F3CC9E30011117A = {
@@ -1087,7 +1089,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1095,7 +1099,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1123,7 +1131,7 @@
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 			};
@@ -1139,7 +1147,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1147,7 +1157,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1219,7 +1233,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R78NEXF6E2;
@@ -1255,7 +1269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R78NEXF6E2;

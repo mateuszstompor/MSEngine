@@ -81,7 +81,13 @@
         [self->renderer drawScene];
     }
 }
+-(void)clearFrame {
+    [self->renderer clearFrame];
+}
 -(float)getFrameRate {
     return [renderer getCurrentFrameRate];
+}
+-(void)finishWork {
+    [self->renderer finishWork];
 }
 @end

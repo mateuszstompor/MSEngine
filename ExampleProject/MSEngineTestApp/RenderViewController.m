@@ -40,11 +40,6 @@
     [renderView setUp];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)joyPositionDidChangedWithSender:(JoystickView * _Nonnull)sender{
     RenderView* renderView = (RenderView*)self.view;
     renderView->translation = sender.currentPosition;

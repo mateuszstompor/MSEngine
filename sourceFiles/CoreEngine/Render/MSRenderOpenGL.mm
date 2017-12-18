@@ -113,7 +113,6 @@
 }
 
 -(void)setUpUniforms: (MSModelFraction*) frac shaderProgram: (GLuint) prog{
-    //        glUniform1i(glGetUniformLocation(prog, "settings"), self->settings);
     MSMaterial* material = [[world getAvailavleMaterials] getMaterialWithName:[frac materialName]];
     if(material != nil){
         MSVector3D* diffuse = [material diffuse];
@@ -220,7 +219,7 @@
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
--(void)clean {
+-(void)finishWork{
     glDeleteProgram(modelShaderProgram);
     glDeleteProgram(lightShaderProgram);
 }

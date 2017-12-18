@@ -44,13 +44,11 @@
     amountOfFramesRendered+=1;
 }
 
--(void)clearFrame {
-}
+-(void)clearFrame {}
 
--(void)drawLights {
-}
+-(void)drawLights {}
 
--(void)drawModels {
-}
+-(void)drawModels {}
 
+-(void)finishWork {}
 @end
