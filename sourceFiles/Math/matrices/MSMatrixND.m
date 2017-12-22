@@ -7,134 +7,116 @@
 //
 
 #import "MSMatrixND.h"
+#import <Foundation/Foundation.h>
+
 
 @implementation MSMatrixND
+
 {
-    
+@protected
+    int amountOfRows;
+    int amountOfColumns;
+    MSMATRIX_ASSOCIATED_TYPE* matrix;
 }
--(instancetype)initWithVectors:(int const)numberOfColumns, ... {
-    self=[super init];
-    if(self){
-        self->matrix=[[NSMutableArray alloc] init];
-        self->amountOfColumns=numberOfColumns;
-        va_list listOfColumnsVecs;
-        va_start(listOfColumnsVecs, numberOfColumns);
-        [matrix addObject:[[MSVectorND alloc] initWithVector:(MSVectorND*)va_arg(listOfColumnsVecs, MSVectorND*)]];
-        self->amountOfRows=[(MSVectorND*)[matrix objectAtIndex:0] getDimension];
-        for(int i=0;i<numberOfColumns-1;i++){
-            MSVectorND* objToAdd=(MSVectorND*)va_arg(listOfColumnsVecs, MSVectorND*);
-            [(MSVectorND*)[matrix objectAtIndex:0] matchDimensions:objToAdd];
-            [matrix addObject:[[MSVectorND alloc] initWithVector:objToAdd]];
-        }
-        va_end(listOfColumnsVecs);
-        if([matrix count]!=amountOfColumns){
-            [NSException raise:@"Too few columns" format:@"Declared %i get get %lu", numberOfColumns,(unsigned long)[matrix count]];
-        }
-        cMatrix = nil;
-        asArrayMatrix = nil;
+
+-(instancetype)initWithRows: (int const) rows columns: (int const) columns {
+    self = [super init];
+    if (self) {
+        self->matrix = (MSMATRIX_ASSOCIATED_TYPE*)malloc(rows*columns*sizeof(MSMATRIX_ASSOCIATED_TYPE));
+        self->amountOfRows = rows;
+        self->amountOfColumns = columns;
     }
     return self;
 }
--(instancetype)initWithIdentityMatrix: (int const) dimension{
-    self=[self initWithVectors:1,[[MSVectorND alloc]initWithZerosExceptIndex:0 number:1.0f dimensionOfVector:dimension]];
+-(instancetype)initWithValue: (int const) rows columns: (int const) columns value: (MSMATRIX_ASSOCIATED_TYPE) value {
+    self = [self initWithRows:rows columns:columns];
+    if (self) {
+        for (MSMATRIX_ASSOCIATED_INT_TYPE i = MSMATRIX_MINIMAL_INDEX; i < self->amountOfColumns * self->amountOfRows; ++i) {
+            *(matrix + i) = value;
+        }
+    }
+    return self;
+}
+
+-(instancetype)initWithVectors: (NSArray<MSVectorND*>*) vectors {
+    self = [self initWithRows:[[vectors objectAtIndex:0] getDimension] columns:[vectors count]];
     if(self){
-        for(int i=1; i<dimension;i++){
-            [self extendMatrixAboutColumn:[[MSVectorND alloc]initWithZerosExceptIndex:i number:1.0f dimensionOfVector:dimension]];
+        for (int i=0; i<[vectors count]; ++i) {
+            for (int j=0; j<[[vectors objectAtIndex:i] getDimension]; ++j) {
+                *(matrix + i*amountOfRows + j) = [[vectors objectAtIndex:i] valueAtIndex:j];
+            }
+        }
+    }
+    return self;
+}
+
+-(instancetype)initWithIdentityMatrix: (int const) dimension{
+    self = [self initWithValue:dimension columns:dimension value: MSMATRIX_ZERO_VALUE];
+    if(self){
+        for (int i=MSMATRIX_MINIMAL_INDEX; i<dimension; ++i) {
+            *(self->matrix+(i*dimension)+i) = MSMATRIX_IDENTITY_MATRIX_VALUE;
         }
     }
     return self;
 }
 -(instancetype)initWithMatrix: (MSMatrixND const * const) matrixToCopy{
-    unsigned long matrixDimension=[matrixToCopy->matrix count];
-    self=[self initWithVectors:1,(MSVectorND*)[matrixToCopy->matrix objectAtIndex:0]];
+    self = [self initWithRows:matrixToCopy->amountOfRows columns:matrixToCopy->amountOfColumns];
     if(self){
-        for(int i=1;i<matrixDimension;i++){
-            [self extendMatrixAboutColumn:(MSVectorND*)[matrixToCopy->matrix objectAtIndex:i]];
-        }
+        memcpy(self->matrix, matrixToCopy->matrix, self->amountOfColumns * self->amountOfRows);
     }
     return self;
 }
--(void)extendMatrixAboutColumn:(MSVectorND const* const)vec{
-    [(MSVectorND*)[matrix objectAtIndex:0] matchDimensions:vec];
-    [matrix addObject:[[MSVectorND alloc] initWithVector:vec]];
-    self->amountOfColumns+=1;
-}
--(void)multiplyByScalar: (float)scalar{
-    for(MSVectorND* vec in matrix){
-        [vec multiplyByScalar:scalar];
+-(void)multiplyByScalar: (MSMATRIX_ASSOCIATED_TYPE)scalar{
+    for(int i=MSMATRIX_MINIMAL_INDEX; i<self->amountOfColumns*self->amountOfRows; ++i) {
+        *(self->matrix+i) *= scalar;
     }
-}
--(float**)getColumnMajorArrayStyleMatrix{
-    float** cStyleMatrix = (float**)malloc(amountOfColumns*sizeof(float*));
-    for(int i=0;i<amountOfColumns;i++){
-        *(cStyleMatrix+i)=(float*)[(MSVectorND*)[matrix objectAtIndex:i] getArrayStyleVector];
-    }
-    free(cMatrix);
-    cMatrix = cStyleMatrix;
-    return cStyleMatrix;
 }
 -(float*)matrixAsArray{
-    int amountOfElements=amountOfColumns*amountOfRows;
-    float* matrixToReturn = (float*)malloc(amountOfElements*sizeof(float));
-    int j=0;
-    for(int i=0;i<amountOfElements;i++){
-        if(i%amountOfRows==0 && i!=0){
-            j++;
-        }
-        *(matrixToReturn+i)=[[matrix objectAtIndex:j] valueAtIndex:(i%amountOfRows)];
-    }
-    free(asArrayMatrix);
-    asArrayMatrix=matrixToReturn;
-    return matrixToReturn;
+    return self->matrix;
 }
 -(MSVectorND*)multiplyByColumnVector: (MSVectorND*)vector{
-    if(amountOfRows==1){
-        [NSException raise:@"It would be dot product!" format:@"Unsupported operation"];
-    }
-    if([vector getDimension]!=amountOfColumns){
-        [NSException raise:@"Cannot multiply" format:@"Amount of columns in array was %i and in vec %i", amountOfColumns,[vector getDimension]];
-    }
-    float result[amountOfColumns];
-    for(int outerIterator=0; outerIterator<amountOfRows;outerIterator++){
-        float sum=0.0f;
-        for(int innerIterator=0; innerIterator<amountOfColumns;innerIterator++){
-            sum+=[(MSVectorND*)[matrix objectAtIndex:innerIterator] valueAtIndex:outerIterator]*[vector valueAtIndex:innerIterator];
+    MSMATRIX_ASSOCIATED_TYPE result[amountOfColumns];
+    for(int outerIterator = MSMATRIX_MINIMAL_INDEX; outerIterator<amountOfRows; ++outerIterator){
+        MSMATRIX_ASSOCIATED_TYPE sum = MSMATRIX_ZERO_VALUE;
+        for(int innerIterator = MSMATRIX_MINIMAL_INDEX; innerIterator<amountOfColumns; ++innerIterator){
+            sum += *(matrix + self->amountOfRows*outerIterator + innerIterator) * *([vector getArrayStyleVector] + innerIterator);
         }
         result[outerIterator]=sum;
     }
     return [[MSVectorND alloc] initWithArrayOfComponents:amountOfRows components:result];
 }
 -(MSVectorND*)safeMultiplyByColumnVector: (MSVectorND*)vector{
-    [NSException raise:@"Not implemented" format:@""];
-    return nil;
-}
--(MSMatrixND*)safeMultiplyByMatrix: (MSMatrixND*)otherMatrix{
-    [NSException raise:@"Not implemented" format:@""];
-    return nil;
-}
-+(instancetype)identityMatrix:(int const)dimension{
-    return [[MSMatrixND alloc]initWithIdentityMatrix:dimension];
-}
--(MSMatrixND*)multiplyByMatrix: (MSMatrixND*)otherMatrix{
-    if(amountOfColumns!=otherMatrix->amountOfRows){
-        [NSException raise:@"Cannot multiply" format:@"Amount of columns in first matrix is not matching amount of rows in second"];
+    if(amountOfRows == 1){
+        [NSException raise:@"It would be dot product!" format:@"Unsupported operation"];
     }
-    MSMatrixND* resultMatrix;
-    for(int secondMatrixColumnIter=0;secondMatrixColumnIter<otherMatrix->amountOfColumns;secondMatrixColumnIter++){
-        float result[amountOfRows];
-        for(int firstMatrixRowIter=0;firstMatrixRowIter<amountOfRows;firstMatrixRowIter++){
-            result[firstMatrixRowIter]=0;
-            for(int i=0;i<amountOfColumns;i++){
-                float leftArElement=[(MSVectorND*)[matrix objectAtIndex:i] valueAtIndex:firstMatrixRowIter];
-                float rightArElement=[(MSVectorND*)[otherMatrix->matrix objectAtIndex:secondMatrixColumnIter] valueAtIndex:i];
-                result[firstMatrixRowIter]+=leftArElement*rightArElement;
+    if([vector getDimension] != amountOfColumns){
+        [NSException raise: @"Cannot multiply" format: @"Amount of columns in array was %i and in vec %i", amountOfColumns, [vector getDimension]];
+    }
+    return [self multiplyByColumnVector:vector];
+}
+//-(MSMatrixND*)safeMultiplyByMatrix: (MSMatrixND*)otherMatrix{
+//    if(amountOfColumns!=otherMatrix->amountOfRows){
+//        [NSException raise:@"Cannot multiply" format:@"Amount of columns in first matrix is not matching amount of rows in second"];
+//    }
+//    [NSException raise:@"Not implemented" format:@""];
+//    return nil;
+//}
++(instancetype)identityMatrix:(int const)dimension{
+    return [[MSMatrixND alloc] initWithIdentityMatrix:dimension];
+}
+
+-(MSMatrixND*)multiplyByMatrix: (MSMatrixND*)otherMatrix{
+    MSMatrixND* resultMatrix = [[MSMatrixND alloc] initWithRows:self->amountOfRows columns:otherMatrix->amountOfColumns];
+    for(int outerIterator = 0; outerIterator < self->amountOfRows; ++outerIterator) {
+        for (int innerIterator = 0; innerIterator < self->amountOfColumns; ++innerIterator) {
+            float sum = 0.0f;
+            for (int i=0; i < amountOfColumns; ++ i) {
+                int leftmatrix = amountOfRows*i + outerIterator;
+                int rightmatrix = amountOfRows*innerIterator + i;
+                float result = *(self->matrix + leftmatrix) * *(otherMatrix->matrix + rightmatrix);
+                sum += result;
             }
-        }
-        if(secondMatrixColumnIter==0){
-            resultMatrix=[[MSMatrixND alloc] initWithVectors:1,[[MSVectorND alloc] initWithArrayOfComponents:amountOfRows components:result]];
-        }
-        else{
-            [resultMatrix extendMatrixAboutColumn:[[MSVectorND alloc] initWithArrayOfComponents:amountOfRows components:result]];
+            [resultMatrix setValueAtRowIndex:outerIterator andColumnIndex:innerIterator value:sum];
         }
     }
     return resultMatrix;
@@ -144,23 +126,25 @@
     return [self isEqualToMatrix:secondMatrix withPrecision:0.0f];
 }
 
--(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (float) accuracy{
-    float* firstArray = [self matrixAsArray];
-    float* secondArray = [secondMatrix matrixAsArray];
-    for (int i=0; i<((self->amountOfColumns)*(self->amountOfRows)); ++i){
-        float difference = (firstArray[i]-secondArray[i])*(firstArray[i]-secondArray[i]);
+-(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (MSMATRIX_ASSOCIATED_TYPE) accuracy{
+    for (int i=MSMATRIX_MINIMAL_INDEX; i<(self->amountOfColumns * self->amountOfRows); ++i){
+        MSMATRIX_ASSOCIATED_TYPE difference = (self->matrix[i] - secondMatrix->matrix[i]) * (self->matrix[i] - secondMatrix->matrix[i]);
         if(difference>(accuracy*accuracy)){
             return false;
         }
     }
     return true;
 }
-
--(void)setValueAtRowIndex:(int) rowI andColumnIndex: (int) columnI value:(float)val{
-    if(columnI<0 || columnI>=amountOfColumns){
-        [NSException raise:@"Index out of bounds!" format:@"Wanted column with index %i, mat has only %i",columnI,amountOfColumns];
+-(void)safeSetValueAtRowIndex: (int) row andColumnIndex: (int) column value: (MSMATRIX_ASSOCIATED_TYPE) value {
+    //check rows as well
+    // TODO
+    if(column<MSMATRIX_MINIMAL_INDEX || column>=amountOfColumns){
+        [NSException raise:@"Index out of bounds!" format:@"Wanted column with index %i, mat has only %i",column,amountOfColumns];
     }
-    [(MSVectorND*)[matrix objectAtIndex:columnI] setValueAtIdenx:rowI value:val];
+    [self setValueAtRowIndex:row andColumnIndex:column value:value];
+}
+-(void)setValueAtRowIndex: (int) row andColumnIndex: (int) column value: (MSMATRIX_ASSOCIATED_TYPE) value {
+    *(self->matrix + self->amountOfRows * column + row) = value;
 }
 -(int)getAmountOfColumns{
     return self->amountOfColumns;
@@ -169,13 +153,9 @@
     return self->amountOfRows;
 }
 -(void)dealloc{
-    free(cMatrix);
-    free(asArrayMatrix);
+    free(self->matrix);
 }
--(MSVectorND*)getColumn: (int) columnIndex {
-    return [[MSVectorND alloc] initWithVector:[self->matrix objectAtIndex:columnIndex]];
-}
--(float)getValueAtRowIndex:(int) row andColumnIndex: (int) column {
-    return [[self->matrix objectAtIndex:column] valueAtIndex:row];
+-(MSMATRIX_ASSOCIATED_TYPE)getValueAtRowIndex:(int) row andColumnIndex: (int) column {
+    return *(self->matrix + self->amountOfRows * column + row);
 }
 @end

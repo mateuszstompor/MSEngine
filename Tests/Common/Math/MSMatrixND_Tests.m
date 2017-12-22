@@ -106,13 +106,31 @@
     XCTAssertTrue([result safeIsEqualToVector: someVector4D]);
     
 }
+
+-(void)testMatrixIdentityMultiplication {
+    MSMatrix4D* firstMatrix = [MSMatrixND identityMatrix:4];
+    MSMatrix4D* secondMatrix = [MSMatrixND identityMatrix:4];
+    MSMatrixND* result = [firstMatrix multiplyByMatrix:secondMatrix];
+    XCTAssertTrue([result isEqualToMatrix:firstMatrix]);
+}
+
 - (void)testMultiplication {
     MSVector2D* firstColumn1 = [[MSVectorND alloc] initWithComponents:2, 11.0f, 33.0f];
     MSVector2D* secondColumn1 = [[MSVectorND alloc] initWithComponents:2, 22.0f, 44.0f];
-    MSMatrixND* firstMatrix = [[MSMatrixND alloc] initWithVectors:2, firstColumn1, secondColumn1];
+    NSMutableArray<MSVectorND*>* vecs1 = [[NSMutableArray alloc] init];
+    [vecs1 addObject:firstColumn1];
+    [vecs1 addObject:secondColumn1];
+    
+    MSMatrixND* firstMatrix = [[MSMatrixND alloc] initWithVectors:vecs1];
+    
     MSVector2D* firstColumn2 = [[MSVectorND alloc] initWithComponents:2, 12.0f, 56.0f];
     MSVector2D* secondColumn2 = [[MSVectorND alloc] initWithComponents:2, 34.0f, 78.0f];
-    MSMatrixND* secondMatrix = [[MSMatrixND alloc] initWithVectors:2, firstColumn2, secondColumn2];
+    
+    NSMutableArray<MSVectorND*>* vecs2 = [[NSMutableArray alloc] init];
+    [vecs2 addObject:firstColumn2];
+    [vecs2 addObject:secondColumn2];
+    
+    MSMatrixND* secondMatrix = [[MSMatrixND alloc] initWithVectors: vecs2];
     MSMatrixND* result = [firstMatrix multiplyByMatrix:secondMatrix];
     XCTAssertEqualWithAccuracy([result getValueAtRowIndex:0 andColumnIndex:0], 1364, 0.1);
     XCTAssertEqualWithAccuracy([result getValueAtRowIndex:1 andColumnIndex:0], 2860, 0.1);

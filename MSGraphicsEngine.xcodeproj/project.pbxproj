@@ -83,7 +83,6 @@
 		614D56C81F4080E200AA97ED /* MSFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D56C51F4080E200AA97ED /* MSFileSearcher.m */; };
 		614D56C91F4080E200AA97ED /* MSFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D56C51F4080E200AA97ED /* MSFileSearcher.m */; };
 		615A01241F3CB72C0003E9E9 /* MSLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 615A01221F3CB72C0003E9E9 /* MSLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		615C2D671F7061BE00882F01 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615C2D661F7061BE00882F01 /* OCMock.framework */; };
 		6160191C1F92BEE600E5DAF8 /* MSBaseLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 6160191A1F92BEE600E5DAF8 /* MSBaseLight.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6160191D1F92BEE600E5DAF8 /* MSBaseLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 6160191A1F92BEE600E5DAF8 /* MSBaseLight.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6160191E1F92BEE600E5DAF8 /* MSBaseLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 6160191B1F92BEE600E5DAF8 /* MSBaseLight.m */; };
@@ -292,7 +291,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				615C2D671F7061BE00882F01 /* OCMock.framework in Frameworks */,
 				6125685E1F3FBCD600ED5962 /* XCTest.framework in Frameworks */,
 				612568521F3FBC3F00ED5962 /* macMSGraphicsEngine.framework in Frameworks */,
 			);

@@ -25,7 +25,7 @@
     searcherRecursive3Levels = [[MSFileSearcher alloc] initRecursiveSearcher:3];
     searcherNonRecursive = [[MSFileSearcher alloc] initRecursiveSearcher:1];
     helper = [NSFileManager defaultManager];
-    pathToSearchPathTest = @"/Users/mateusz/Desktop/MSEngine/Tests/Common/FileManager/SearchPathTest";
+    pathToSearchPathTest = @"/Users/mateuszstompor/Documents/MSEngine/Tests/Common/FileManager/SearchPathTest";
     [searcherNonRecursive addSearchPath:pathToSearchPathTest];
     [searcherRecursive3Levels addSearchPath:pathToSearchPathTest];
 }

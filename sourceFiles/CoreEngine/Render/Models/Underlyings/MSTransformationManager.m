@@ -66,7 +66,12 @@
     MSVectorND* secondColumn = [[MSVectorND alloc] initWithComponents:4, 0.0f,q,0.0f,0.0f];
     MSVectorND* thirdColumn = [[MSVectorND alloc] initWithComponents:4, 0.0f,0.0f,B,-1.0f];
     MSVectorND* fourthColumn = [[MSVectorND alloc] initWithComponents:4, 0.0f,0.0f,C,0.0f];
-    result=  [[MSMatrixND alloc] initWithVectors:4,firstColumn,secondColumn,thirdColumn,fourthColumn];
+    NSMutableArray<MSVectorND*>* vecs = [[NSMutableArray alloc] init];
+    [vecs addObject:firstColumn];
+    [vecs addObject:secondColumn];
+    [vecs addObject:thirdColumn];
+    [vecs addObject:fourthColumn];
+    result = [[MSMatrixND alloc] initWithVectors:vecs];
     return result;
 }
 @end

@@ -19,38 +19,38 @@
 #ifndef MSMATRIXND_H
 #define MSMATRIXND_H
 
+#define MSMATRIX_ASSOCIATED_TYPE float
+#define MSMATRIX_IDENTITY_MATRIX_VALUE 1.0f
+#define MSMATRIX_ZERO_VALUE 0.0f
+#define MSMATRIX_MINIMAL_INDEX 0
+#define MSMATRIX_ASSOCIATED_INT_TYPE int
+
 @class MSVectorND;
 
 
 @interface MSMatrixND : NSObject
-{
-    @protected
-    int amountOfRows;
-    int amountOfColumns;
-    NSMutableArray<MSVectorND*>* matrix;
-    float** cMatrix;
-    float* asArrayMatrix;
-}
+
 +(instancetype)identityMatrix:(int const)dimension;
+
 -(instancetype)init NS_UNAVAILABLE;
+
+-(instancetype)initWithRows: (int const) rows columns: (int const) columns NS_DESIGNATED_INITIALIZER;
 -(instancetype)initWithIdentityMatrix: (int const) dimension;
--(instancetype)initWithMatrix: (MSMatrixND const * const) matrixNS_DESIGNATED_INITIALIZER;
--(instancetype)initWithVectors:(int const)numberOfColumns, ... NS_DESIGNATED_INITIALIZER;
--(void)extendMatrixAboutColumn:(MSVectorND const * const)vec;
--(void)multiplyByScalar: (float)scalar;
--(float**)getColumnMajorArrayStyleMatrix;
+-(instancetype)initWithMatrix: (MSMatrixND const * const) matrix;
+-(instancetype)initWithVectors: (NSArray<MSVectorND*>*) vectors;
+-(void)multiplyByScalar: (MSMATRIX_ASSOCIATED_TYPE)scalar;
 -(MSVectorND*)multiplyByColumnVector: (MSVectorND*)vector;
 -(MSVectorND*)safeMultiplyByColumnVector: (MSVectorND*)vector;
 -(MSMatrixND*)multiplyByMatrix: (MSMatrixND*)otherMatrix;
 -(MSMatrixND*)safeMultiplyByMatrix: (MSMatrixND*)otherMatrix;
--(MSVectorND*)getColumn: (int) columnIndex;
 -(int)getAmountOfColumns;
 -(int)getAmountOfRows;
 -(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix;
--(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (float) accuracy;
--(float*)matrixAsArray;
--(void)setValueAtRowIndex:(int) rowI andColumnIndex: (int) columnI value:(float)val;
--(float)getValueAtRowIndex:(int) row andColumnIndex: (int) column;
+-(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (MSMATRIX_ASSOCIATED_TYPE) accuracy;
+-(MSMATRIX_ASSOCIATED_TYPE*)matrixAsArray;
+-(void)setValueAtRowIndex:(int) rowI andColumnIndex: (int) columnI value:(MSMATRIX_ASSOCIATED_TYPE)val;
+-(MSMATRIX_ASSOCIATED_TYPE)getValueAtRowIndex:(int) row andColumnIndex: (int) column;
+
 @end
 
 typedef MSMatrixND MSMatrix4D;
