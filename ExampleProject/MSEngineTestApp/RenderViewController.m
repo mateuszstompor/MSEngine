@@ -34,7 +34,7 @@
     renderView->parent = self;
     renderView->labelToUpdate = self->_fpsMeter;
     // Enable multisampling
-    self.preferredFramesPerSecond = 30;
+    self.preferredFramesPerSecond = 60;
     //renderView.drawableMultisample = GLKViewDrawableMultisample4X;
     self->_translationJoy.delegate = self;
     [renderView setUp];

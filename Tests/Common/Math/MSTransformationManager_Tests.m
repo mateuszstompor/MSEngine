@@ -62,7 +62,7 @@
 
 -(void)testTranslation {
     MSMatrix4D* translationMatrix = [MSTransformationManager translationMatrix4x4:1.0f y:2.0f z:3.0f];
-    MSVectorND* resultingVector = [translationMatrix multiplyByColumnVector:vector];
+    MSVectorND* resultingVector = [translationMatrix safeMultiplyByColumnVector:vector];
     XCTAssertEqualWithAccuracy([resultingVector valueAtIndex:0], 2.0f, 0.001);
     XCTAssertEqualWithAccuracy([resultingVector valueAtIndex:1], 3.0f, 0.001);
     XCTAssertEqualWithAccuracy([resultingVector valueAtIndex:2], 4.0f, 0.001);

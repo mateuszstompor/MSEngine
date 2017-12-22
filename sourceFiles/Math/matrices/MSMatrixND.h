@@ -34,8 +34,8 @@
 
 -(instancetype)init NS_UNAVAILABLE;
 
--(instancetype)initWithRows: (int const) rows columns: (int const) columns NS_DESIGNATED_INITIALIZER;
--(instancetype)initWithIdentityMatrix: (int const) dimension;
+-(instancetype)initWithRows: (MSMATRIX_ASSOCIATED_INT_TYPE const) rows columns: (MSMATRIX_ASSOCIATED_INT_TYPE const) columns NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithIdentityMatrix: (MSMATRIX_ASSOCIATED_INT_TYPE const) dimension;
 -(instancetype)initWithMatrix: (MSMatrixND const * const) matrix;
 -(instancetype)initWithVectors: (NSArray<MSVectorND*>*) vectors;
 -(void)multiplyByScalar: (MSMATRIX_ASSOCIATED_TYPE)scalar;
@@ -43,13 +43,13 @@
 -(MSVectorND*)safeMultiplyByColumnVector: (MSVectorND*)vector;
 -(MSMatrixND*)multiplyByMatrix: (MSMatrixND*)otherMatrix;
 -(MSMatrixND*)safeMultiplyByMatrix: (MSMatrixND*)otherMatrix;
--(int)getAmountOfColumns;
--(int)getAmountOfRows;
+-(MSMATRIX_ASSOCIATED_INT_TYPE)getAmountOfColumns;
+-(MSMATRIX_ASSOCIATED_INT_TYPE)getAmountOfRows;
 -(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix;
 -(BOOL)isEqualToMatrix: (MSMatrixND*) secondMatrix withPrecision: (MSMATRIX_ASSOCIATED_TYPE) accuracy;
 -(MSMATRIX_ASSOCIATED_TYPE*)matrixAsArray;
--(void)setValueAtRowIndex:(int) rowI andColumnIndex: (int) columnI value:(MSMATRIX_ASSOCIATED_TYPE)val;
--(MSMATRIX_ASSOCIATED_TYPE)getValueAtRowIndex:(int) row andColumnIndex: (int) column;
+-(void)setValueAtRowIndex:(MSMATRIX_ASSOCIATED_INT_TYPE) rowI andColumnIndex: (MSMATRIX_ASSOCIATED_INT_TYPE) columnI value:(MSMATRIX_ASSOCIATED_TYPE)val;
+-(MSMATRIX_ASSOCIATED_TYPE)getValueAtRowIndex:(MSMATRIX_ASSOCIATED_INT_TYPE) row andColumnIndex: (MSMATRIX_ASSOCIATED_INT_TYPE) column;
 
 @end
 

@@ -32,6 +32,8 @@
     firstMatrix4D = [[MSMatrixND alloc] initWithIdentityMatrix:4];
     firstMatrix2D = [[MSMatrixND alloc] initWithIdentityMatrix:2];
     secondMatrix2D = [[MSMatrixND alloc] initWithMatrix:firstMatrix2D];
+    firstMatrix3D = [[MSMatrixND alloc] initWithIdentityMatrix:3];
+
     firstVector4D = [[MSVectorND alloc] initWithComponents:4, 1.0f, 1.0f, 1.0f, 1.0f];
     firstVector3D = [[MSVectorND alloc] initWithComponents:3, 1.0f, 1.0f, 1.0f];
     amountOfTests = 300000;
@@ -74,6 +76,7 @@
 }
 -(void)testSafeMatrixMultiplication {
     //#1
+    secondMatrix4D = [MSMatrixND identityMatrix:4];
     MSMatrixND* result = [firstMatrix4D safeMultiplyByMatrix:secondMatrix4D];
     XCTAssertNoThrow([firstMatrix4D safeMultiplyByMatrix:secondMatrix4D]);
     [result isEqualToMatrix:[MSMatrixND identityMatrix:4]];
@@ -81,7 +84,7 @@
     //#2
     XCTAssertThrows([firstMatrix3D safeMultiplyByMatrix:secondMatrix4D]);
     //#3
-    XCTAssertThrows([firstMatrix4D multiplyByColumnVector:firstVector3D]);
+    XCTAssertThrows([firstMatrix4D safeMultiplyByColumnVector:firstVector3D]);
     //#4
     XCTAssertNoThrow([firstMatrix4D multiplyByColumnVector:firstVector3D]);
 }
