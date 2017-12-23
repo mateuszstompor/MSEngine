@@ -37,4 +37,4 @@ MSGraphicsEngine will be a library which you can use to create own game. Current
 
 <h3>Date: 30.04.2017</h3>
 <p>Basic object loading.</p>
-<img src="https://raw.githubusercontent.com/mateuszstompor/MSEngine/master/screenshots/1.png" align="center" width="80%" >
+<img src="https://raw.githubusercontent.com/mateuszstompor/MSEngine/master/screenshots/1.png" width="80%">
