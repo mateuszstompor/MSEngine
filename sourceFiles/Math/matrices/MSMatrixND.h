@@ -27,6 +27,7 @@
 
 @class MSVectorND;
 
+//"safe" as prefix of function means that function tests for dimension mismatch
 
 @interface MSMatrixND : NSObject
 

@@ -10,6 +10,15 @@
 
 @implementation MSVectorND
 
+{
+#ifndef OPTYMALIZE
+    @protected float* components;
+#else
+    @protected float components [4];
+#endif
+    @protected unsigned int dimension;
+}
+
 +(instancetype)onesVector: (unsigned int const)dimension{
     MSVectorND* vectorToReturn = [[MSVectorND alloc] initVecWithDimension:dimension];
     for(int i=0; i<dimension; ++i){
@@ -22,7 +31,9 @@
     self = [super init];
     if (self) {
         self->dimension = dim;
+    #ifndef OPTYMALIZE
         self->components = (float*)malloc(dim*sizeof(float));
+    #endif
     }
     return self;
 }
@@ -33,7 +44,9 @@
         va_list listPointer;
         va_start(listPointer, dim);
         self->dimension=dim;
-        self->components=(float*)malloc(dim*sizeof(float));
+    #ifndef OPTYMALIZE
+        self->components = (float*)malloc(dim*sizeof(float));
+    #endif
         for(int i=0; i<dim; ++i){
             *(self->components+i)=(float)va_arg(listPointer, double);
         }
@@ -46,7 +59,9 @@
     self=[super init];
     if(self){
         self->dimension=dim;
-        self->components=(float*)malloc(dimension*sizeof(float));
+    #ifndef OPTYMALIZE
+        self->components = (float*)malloc(dim*sizeof(float));
+    #endif
         for(int i=0; i<dimension; ++i){
             *(components+i)=*(array+i);
         }
@@ -245,7 +260,9 @@
     return nil;
 }
 -(void)dealloc{
-    free (self->components);
+#ifndef OPTYMALIZE
+    free(self->components);
+#endif
 }
 
 @end

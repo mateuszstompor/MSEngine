@@ -22,11 +22,6 @@
 
 @interface MSVectorND : NSObject
 
-{
-    @protected float *components;
-    @protected unsigned int dimension;
-}
-
 +(instancetype)onesVector: (unsigned int const)dimension;
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithZerosExceptIndex: (unsigned int const) index number:(float const) num dimensionOfVector: (unsigned int const) dim;

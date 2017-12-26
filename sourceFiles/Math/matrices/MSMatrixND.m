@@ -16,15 +16,21 @@
 @protected
     MSMATRIX_ASSOCIATED_INT_TYPE amountOfRows;
     MSMATRIX_ASSOCIATED_INT_TYPE amountOfColumns;
+#ifdef OPTYMALIZE
+    MSMATRIX_ASSOCIATED_TYPE matrix [16];
+#else
     MSMATRIX_ASSOCIATED_TYPE* matrix;
+#endif
 }
 
 -(instancetype)initWithRows: (MSMATRIX_ASSOCIATED_INT_TYPE const) rows columns: (MSMATRIX_ASSOCIATED_INT_TYPE const) columns {
     self = [super init];
     if (self) {
-        self->matrix = (MSMATRIX_ASSOCIATED_TYPE*)malloc(rows*columns*sizeof(MSMATRIX_ASSOCIATED_TYPE));
         self->amountOfRows = rows;
         self->amountOfColumns = columns;
+    #ifndef OPTYMALIZE
+        self->matrix = (MSMATRIX_ASSOCIATED_TYPE*)malloc(rows*columns*sizeof(MSMATRIX_ASSOCIATED_TYPE));
+    #endif
     }
     return self;
 }
@@ -150,7 +156,9 @@
     return self->amountOfRows;
 }
 -(void)dealloc{
-    free(self->matrix);
+    #ifndef OPTYMALIZE
+        free(self->matrix);
+    #endif
 }
 -(MSMATRIX_ASSOCIATED_TYPE)getValueAtRowIndex:(MSMATRIX_ASSOCIATED_INT_TYPE) row andColumnIndex: (MSMATRIX_ASSOCIATED_INT_TYPE) column {
     return *(self->matrix + self->amountOfRows * column + row);
