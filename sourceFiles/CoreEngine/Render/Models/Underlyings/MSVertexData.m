@@ -17,13 +17,10 @@
 #endif
 
 @implementation MSVertexData
-{
-    RedBlackTree* tree;
-}
+
 -(instancetype)initWithIndexOfVertex: (unsigned int)vIndex normalIndex: (unsigned int)nIndex textureIndex: (unsigned int)tIndex{
     self=[super init];
     if(self){
-        tree = [[RedBlackTree alloc] initWithComparingBlock:^(NSNumber* a, NSNumber* b){return 1;}];
         self->indexOfNormal=nIndex;
         self->indexOfVertex=vIndex;
         self->indexOfTextureCoord=tIndex;
