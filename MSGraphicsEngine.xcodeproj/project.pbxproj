@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56C22B381FF71F1E0035E6A5 /* redblacktree_framework_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C22B361FF71F100035E6A5 /* redblacktree_framework_macOS.framework */; };
+		56C22B531FF723F90035E6A5 /* redblacktree_framework_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C22B521FF723F00035E6A5 /* redblacktree_framework_iOS.framework */; };
 		56CAB8D61FE5FF3100C1EC0A /* MSLightSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 616019221F92BFAF00E5DAF8 /* MSLightSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6100D92C1F6D0A97003BE81A /* MSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 613C61221F5C4F350088FE9D /* MSRender.m */; };
 		6101C8721F3CC9EE0011117A /* MSVertexData.m in Sources */ = {isa = PBXBuildFile; fileRef = 615AF6A31EB8B3930086897F /* MSVertexData.m */; };
@@ -106,8 +108,6 @@
 		618C50331F48F22F00D13A5C /* MSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 618C502F1F48F22F00D13A5C /* MSLoader.m */; };
 		618C50371F48F31F00D13A5C /* MSTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C50361F48F31F00D13A5C /* MSTextureLoader.h */; };
 		618C50381F48F31F00D13A5C /* MSTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 618C50361F48F31F00D13A5C /* MSTextureLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6198AD6C1F7327050004BACE /* libredblacktree_macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6198AD6B1F7327050004BACE /* libredblacktree_macOS.a */; };
-		6198AD6D1F7327200004BACE /* libredblacktree_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6198AD671F73228B0004BACE /* libredblacktree_iOS.a */; };
 		619CFB851F38E1B9004FACBE /* MSMathException.h in Headers */ = {isa = PBXBuildFile; fileRef = 619CFB831F38E1B9004FACBE /* MSMathException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		619CFB861F38E1B9004FACBE /* MSMathException.m in Sources */ = {isa = PBXBuildFile; fileRef = 619CFB841F38E1B9004FACBE /* MSMathException.m */; };
 		61C473701F5A8749007B41C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C4736F1F5A8749007B41C7 /* CoreGraphics.framework */; };
@@ -167,6 +167,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		56C22B181FF71DEA0035E6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 612B92C91F630E140017F2DE;
+			remoteInfo = redblacktree_iOS;
+		};
+		56C22B1A1FF71DEA0035E6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 612B92D91F630E6B0017F2DE;
+			remoteInfo = redblacktree_macOS;
+		};
+		56C22B1C1FF71DEA0035E6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 61C590581F63110A00CB0A20;
+			remoteInfo = treesTests;
+		};
+		56C22B351FF71F100035E6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 56C22B271FF71EB00035E6A5;
+			remoteInfo = redblacktree_framework_macOS;
+		};
+		56C22B391FF71F600035E6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 56C22B261FF71EB00035E6A5;
+			remoteInfo = redblacktree_framework_macOS;
+		};
+		56C22B4E1FF723F00035E6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 56C22B401FF7239A0035E6A5;
+			remoteInfo = redblacktree_framework_iOS;
+		};
+		56C22B511FF723F00035E6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 56C22B411FF7239A0035E6A5;
+			remoteInfo = redblacktree_framework_iOS;
+		};
 		612568531F3FBC3F00ED5962 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6122CA141EAA4EB40002F881 /* Project object */;
@@ -177,6 +226,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = redblacktree.xcodeproj; path = "Red-Black-Tree-Data-Structure/redblacktree.xcodeproj"; sourceTree = "<group>"; };
 		6101C86A1F3CC9E30011117A /* macMSGraphicsEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = macMSGraphicsEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6101C8A91F3CCA640011117A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6120616F1F2E477D0062997A /* FShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FShader.frag; sourceTree = "<group>"; };
@@ -232,7 +282,6 @@
 		615AF6BB1EB8B3930086897F /* MSVectorND.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVectorND.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		615AF6BF1EB8B3930086897F /* MSLoaderOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoaderOBJ.h; sourceTree = "<group>"; };
 		615AF6C01EB8B3930086897F /* MSLoaderOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoaderOBJ.m; sourceTree = "<group>"; };
-		615C2D661F7061BE00882F01 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Frameworks/OCMock.framework; sourceTree = "<group>"; };
 		615EE8B41EFAECD9009537F9 /* MSMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMaterial.h; sourceTree = "<group>"; };
 		615EE8B51EFAECD9009537F9 /* MSMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMaterial.m; sourceTree = "<group>"; };
 		615EE8BA1EFAF1A8009537F9 /* MSLoaderMTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoaderMTL.h; sourceTree = "<group>"; };
@@ -250,8 +299,6 @@
 		618C502E1F48F22F00D13A5C /* MSLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoader.h; sourceTree = "<group>"; };
 		618C502F1F48F22F00D13A5C /* MSLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoader.m; sourceTree = "<group>"; };
 		618C50361F48F31F00D13A5C /* MSTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextureLoader.h; path = Loaders/TextureLoaders/MSTextureLoader.h; sourceTree = "<group>"; };
-		6198AD671F73228B0004BACE /* libredblacktree_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libredblacktree_iOS.a; path = Frameworks/libredblacktree_iOS.a; sourceTree = "<group>"; };
-		6198AD6B1F7327050004BACE /* libredblacktree_macOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libredblacktree_macOS.a; path = Frameworks/libredblacktree_macOS.a; sourceTree = "<group>"; };
 		619A5F531EBA81460017DB89 /* MSPointLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPointLight.h; sourceTree = "<group>"; };
 		619A5F541EBA81460017DB89 /* MSPointLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPointLight.m; sourceTree = "<group>"; };
 		619CFB831F38E1B9004FACBE /* MSMathException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMathException.h; sourceTree = "<group>"; };
@@ -279,7 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6198AD6C1F7327050004BACE /* libredblacktree_macOS.a in Frameworks */,
+				56C22B381FF71F1E0035E6A5 /* redblacktree_framework_macOS.framework in Frameworks */,
 				6143DCA61F5C0AA100FBD92B /* AppKit.framework in Frameworks */,
 				61C473701F5A8749007B41C7 /* CoreGraphics.framework in Frameworks */,
 				6101C8AB1F3CCA690011117A /* OpenGL.framework in Frameworks */,
@@ -300,7 +347,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6198AD6D1F7327200004BACE /* libredblacktree_iOS.a in Frameworks */,
+				56C22B531FF723F90035E6A5 /* redblacktree_framework_iOS.framework in Frameworks */,
 				61C473741F5A877E007B41C7 /* UIKit.framework in Frameworks */,
 				61C473721F5A8779007B41C7 /* CoreGraphics.framework in Frameworks */,
 				61D6CDFB1F3236A40021133D /* OpenGLES.framework in Frameworks */,
@@ -310,6 +357,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56C22B131FF71DEA0035E6A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56C22B191FF71DEA0035E6A5 /* libredblacktree_iOS.a */,
+				56C22B1B1FF71DEA0035E6A5 /* libredblacktree_macOS.a */,
+				56C22B361FF71F100035E6A5 /* redblacktree_framework_macOS.framework */,
+				56C22B521FF723F00035E6A5 /* redblacktree_framework_iOS.framework */,
+				56C22B1D1FF71DEA0035E6A5 /* treesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6101C86B1F3CC9E30011117A /* macMSGraphicsEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +381,7 @@
 		6122CA131EAA4EB40002F881 = {
 			isa = PBXGroup;
 			children = (
+				56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */,
 				612568191F3FBA4900ED5962 /* Tests */,
 				612568181F3FBA1B00ED5962 /* UmbrellaHeaders */,
 				615AF6E11EB8B3AF0086897F /* Shaders */,
@@ -344,9 +404,6 @@
 		6122CA231EAA4EBE0002F881 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6198AD6B1F7327050004BACE /* libredblacktree_macOS.a */,
-				6198AD671F73228B0004BACE /* libredblacktree_iOS.a */,
-				615C2D661F7061BE00882F01 /* OCMock.framework */,
 				6143DCA51F5C0AA100FBD92B /* AppKit.framework */,
 				61C473731F5A877E007B41C7 /* UIKit.framework */,
 				61C473711F5A8779007B41C7 /* CoreGraphics.framework */,
@@ -799,6 +856,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				56C22B3A1FF71F600035E6A5 /* PBXTargetDependency */,
 			);
 			name = macMSGraphicsEngine;
 			productName = macMSGraphicsEngine;
@@ -835,6 +893,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				56C22B4F1FF723F00035E6A5 /* PBXTargetDependency */,
 			);
 			name = iMSGraphicsEngine;
 			productName = iMSGraphicsEngine;
@@ -877,6 +936,12 @@
 			mainGroup = 6122CA131EAA4EB40002F881;
 			productRefGroup = 6122CA1D1EAA4EB40002F881 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 56C22B131FF71DEA0035E6A5 /* Products */;
+					ProjectRef = 56C22B121FF71DEA0035E6A5 /* redblacktree.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				61D6CDE31F32368C0021133D /* iMSGraphicsEngine */,
@@ -885,6 +950,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		56C22B191FF71DEA0035E6A5 /* libredblacktree_iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libredblacktree_iOS.a;
+			remoteRef = 56C22B181FF71DEA0035E6A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56C22B1B1FF71DEA0035E6A5 /* libredblacktree_macOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libredblacktree_macOS.a;
+			remoteRef = 56C22B1A1FF71DEA0035E6A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56C22B1D1FF71DEA0035E6A5 /* treesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = treesTests.xctest;
+			remoteRef = 56C22B1C1FF71DEA0035E6A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56C22B361FF71F100035E6A5 /* redblacktree_framework_macOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = redblacktree_framework_macOS.framework;
+			remoteRef = 56C22B351FF71F100035E6A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56C22B521FF723F00035E6A5 /* redblacktree_framework_iOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = redblacktree_framework_iOS.framework;
+			remoteRef = 56C22B511FF723F00035E6A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6101C8681F3CC9E30011117A /* Resources */ = {
@@ -1009,6 +1112,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		56C22B3A1FF71F600035E6A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = redblacktree_framework_macOS;
+			targetProxy = 56C22B391FF71F600035E6A5 /* PBXContainerItemProxy */;
+		};
+		56C22B4F1FF723F00035E6A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = redblacktree_framework_iOS;
+			targetProxy = 56C22B4E1FF723F00035E6A5 /* PBXContainerItemProxy */;
+		};
 		612568541F3FBC3F00ED5962 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6101C8691F3CC9E30011117A /* macMSGraphicsEngine */;
